@@ -1,3 +1,0 @@
-# JmeterAPI
-JmeterAPI
-2
