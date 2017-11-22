@@ -7,11 +7,11 @@
     </tstamp>
     <property name="basedirectory" value="${basedirectory}/AutoJmeter/"/>
     <!-- 需要改成自己本地的 Jmeter 目录-->
-    <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/bin"/>
+    <property name="jmeter.home" value="/opt/IDE/apache-jmeter-3.3/bin"/>
     <!-- jmeter生成jtl格式的结果报告的路径-->
-    <property name="jmeter.result.jtl.dir" value="${basedirectory}"/>
+    <property name="jmeter.result.jtl.dir" value="${basedirectory}/jtl"/>
     <!-- jmeter生成html格式的结果报告的路径-->
-    <property name="jmeter.result.html.dir" value="${basedirectory}"/>
+    <property name="jmeter.result.html.dir" value="${basedirectory}/html"/>
     <!-- Name of test (without .jmx) -->
     <property name="test" value="Test"/>
     <!-- 生成的报告的前缀-->
