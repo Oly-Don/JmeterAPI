@@ -5,9 +5,9 @@
     <tstamp>
         <format property="time" pattern="yyyyMMddhhmm"/>
     </tstamp>
-    <property name="basedirectory" value="${env.WORKSPACE}/AutoJmeter/api/testcase"/>
+    <property name="basedirectory" value="${basedirectory}/AutoJmeter/"/>
     <!-- 需要改成自己本地的 Jmeter 目录-->
-    <property name="jmeter.home" value="${env.WORKSPACE}/AutoJmeter/apache-jmeter-3.3/bin"/>
+    <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/bin"/>
     <!-- jmeter生成jtl格式的结果报告的路径-->
     <property name="jmeter.result.jtl.dir" value="${basedirectory}"/>
     <!-- jmeter生成html格式的结果报告的路径-->
