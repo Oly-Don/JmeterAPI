@@ -5,7 +5,7 @@
     <tstamp>
         <format property="time" pattern="yyyyMMddhhmm"/>
     </tstamp>
-    <property name="basedirectory" value="${basedirectory}/AutoJmeter/"/>
+    <property name="basedirectory" value="${env.WORKSPACE}/AutoJmeter/"/>
     <!-- 需要改成自己本地的 Jmeter 目录-->
     <property name="jmeter.home" value="/opt/IDE/apache-jmeter-3.3/bin"/>
     <!-- jmeter生成jtl格式的结果报告的路径-->
@@ -33,8 +33,8 @@
     <target name="test">
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
          <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-           <!-- &lt;!&ndash; 声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本&ndash;&gt;-->
-            <testplans dir="${basedirectory}" includes="${*}.jmx"/>
+           <!--声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本-->
+            <testplans dir="${basedirectory}" includes="*.jmx"/>
         </jmeter>
     </target>
 
