@@ -13,7 +13,7 @@
     <!-- jmeter生成html格式的结果报告的路径-->
     <property name="jmeter.result.html.dir" value="${basedirectory}/html"/>
     <!-- Name of test (without .jmx) -->
-    <property name="test" value="Test"/>
+    <property name="test" value="JMETER HEADER IN BUILD"/>
     <!-- 生成的报告的前缀-->
     <property name="ReportName" value="TestReport"/>
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${test}.jtl"/>
@@ -42,6 +42,7 @@
         <!--mkdir创建目录任务-->
         <mkdir dir="${jmeter.result.html.dir}"/>
         <mkdir dir="${jmeter.result.jtl.dir}"/>
+
         <tstamp>
             <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
         </tstamp>
