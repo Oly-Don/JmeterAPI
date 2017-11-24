@@ -7,8 +7,7 @@
     </tstamp>
     <property name="basedirectory" value="."/>
     <!-- 需要改成自己本地的 Jmeter 目录-->
-  <!--  <property name="jmeter.home" value="/opt/IDE/apache-jmeter-3.3/"/>-->
-      <property name="jmeter.home" value="./apache-jmeter-3.3"/>
+    <property name="jmeter.home" value="./apache-jmeter-3.3"/><!--jmeterhome not found-->
     <!-- jmeter生成jtl格式的结果报告的路径-->
     <property name="jmeter.result.jtl.dir" value="${basedirectory}/res"/>
     <!-- jmeter生成html格式的结果报告的路径-->
@@ -28,6 +27,7 @@
 
     <target name="run">
         <echo message="****************Runing*******************"/>
+        <echo message="ANT_VERSION"/>
         <!--mkdir创建目录任务-->
         <echo message="****************Make Dir*******************"/>
         <mkdir dir="${jmeter.result.html.dir}"/>
