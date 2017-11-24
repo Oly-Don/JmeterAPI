@@ -7,7 +7,8 @@
     </tstamp>
     <property name="basedirectory" value="/var/lib/jenkins/workspace"/>
     <!-- 需要改成自己本地的 Jmeter 目录-->
-    <property name="jmeter.home" value="/opt/IDE/apache-jmeter-3.3/"/>
+  <!--  <property name="jmeter.home" value="/opt/IDE/apache-jmeter-3.3/"/>-->
+      <property name="jmeter.home" value="/opt/apache-jmeter-3.3"/>
     <!-- jmeter生成jtl格式的结果报告的路径-->
     <property name="jmeter.result.jtl.dir" value="${basedirectory}/res"/>
     <!-- jmeter生成html格式的结果报告的路径-->
