@@ -12,31 +12,75 @@
     <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/index.html"/>
     <property name="lib.dir" value="${jmeter.home}/lib"/>
 
+	
+	    <!-- Should report include response data for failures? -->
+    <property name="show-data" value="n"/>
+
+    <property name="format" value="2.1"/>
+    
+    <condition property="style_version" value="_21">
+        <equals arg1="${format}" arg2="2.1"/>
+    </condition>
+
+    <condition property="funcMode">
+        <equals arg1="${show-data}" arg2="y"/>
+    </condition>
+    
+    <condition property="funcMode" value="false">
+      <not>
+        <equals arg1="${show-data}" arg2="y"/>
+      </not>
+    </condition>
+	
+	
     <path id="xslt.classpath">
         <fileset dir="${lib.dir}" includes="xalan*.jar"/>
         <fileset dir="${lib.dir}" includes="serializer*.jar"/>
     </path>
 
-    <target name="run">
-        <antcall target="test"/>
+    <target name="all">
+        <antcall target="run"/>
         <antcall target="report"/>
     </target>
 
-    <target name="test">
+    <target name="run">
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="./res/**.*"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
             <!-- 声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本-->
             <testplans dir="./api" includes="**/*.jmx"/>
             <property name="jmeter.save.saveservice.output_format" value="xml"/>
+			
+			<property name="jmeter.save.saveservice.response_data" value="true"/>
+			<property name="jmeter.save.saveservice.samplerData" value="true"/>
+			<property name="jmeter.save.saveservice.responseHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.requestHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.encoding" value="true"/>
+			<property name="jmeter.save.saveservice.url" value="true"/>
+			<property name="jmeter.save.saveservice.filename" value="true"/>
+			<property name="jmeter.save.saveservice.hostname" value="true"/>
+			<property name="jmeter.save.saveservice.thread_counts" value="true"/>
+			<property name="jmeter.save.saveservice.sample_count" value="true"/>
+			<property name="jmeter.save.saveservice.idle_time" value="true"/>
+			<property name="jmeter.save.saveservice.assertion_results" value="all"/>
+			<property name="jmeter.save.saveservice.bytes" value="true"/>
+			<property name="file_format.testlog" value="${format}"/>
+			<property name="jmeter.save.saveservice.response_data.on_error" value="${funcMode}"/>
         </jmeter>
     </target>
 
     <target name="report">
+		<echo>Report generated at ${report.datestamp}</echo>
+		<tstamp><format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/></tstamp>
         <xslt classpathref="xslt.classpath"
               force="true"
               in="${jmeter.result.jtlName}"
               out="${jmeter.result.htmlName}"
               style="${jmeter.home}/extras/jmeter.results.shanhe.me.xsl">
+			   <param name="showData" expression="${show-data}"/>
+            <param name="titleReport" expression="${report.title}"/>
+            <param name="dateReport" expression="${report.datestamp}"/>
             <!-- 因为上面生成报告的时候，不会将相关的图片也一起拷贝至目标目录，所以，需要手动拷贝 -->
         </xslt>
         <copy todir="${jmeter.result.html.dir}">
