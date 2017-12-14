@@ -99,6 +99,24 @@
             <property name="jmeter.save.saveservice.bytes" value="true"/>
             <property name="file_format.testlog" value="${format}"/>
             <property name="jmeter.save.saveservice.response_data.on_error" value="${funcMode}"/>
+			<!--add by tyd-->
+			<!-- Force suitable defaults -->
+			<property name="jmeter.save.saveservice.response_data" value="true"/>
+			<property name="jmeter.save.saveservice.samplerData" value="true"/>
+			<property name="jmeter.save.saveservice.responseHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.requestHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.encoding" value="true"/>
+			<property name="jmeter.save.saveservice.url" value="true"/>
+			<property name="jmeter.save.saveservice.filename" value="true"/>
+			<property name="jmeter.save.saveservice.hostname" value="true"/>
+			<property name="jmeter.save.saveservice.thread_counts" value="true"/>
+			<property name="jmeter.save.saveservice.sample_count" value="true"/>
+			<property name="jmeter.save.saveservice.idle_time" value="true"/>
+			<property name="jmeter.save.saveservice.output_format" value="xml"/>
+			<property name="jmeter.save.saveservice.assertion_results" value="all"/>
+			<property name="jmeter.save.saveservice.bytes" value="true"/>
+			<property name="file_format.testlog" value="${format}"/>
+			<property name="jmeter.save.saveservice.response_data.on_error" value="${funcMode}"/>
         </jmeter>
     </target>
 
@@ -121,7 +139,9 @@
             force="true"
             in="${testpath}/${test}.jtl"
             out="${testpath}/${test}.html"
-            style="${basedir}/jmeter-results-detail-report${style_version}.xsl">
+			<!-- by tyd-->
+            <!-- style="${basedir}/jmeter-results-detail-report${style_version}.xsl">  -->
+			style="${basedir}/jmeter-results-shanhe-me.xsl">
             <param name="showData" expression="${show-data}"/>
             <param name="titleReport" expression="${report.title}"/>
             <param name="dateReport" expression="${report.datestamp}"/>
