@@ -443,15 +443,142 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="单独运单号" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="HPBC流程" enabled="true"/>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="单独" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBC流程订单请求" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;1000${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;1000000246&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;or${orderno}&quot;,&quot;isDeclare&quot;:&quot;1&quot;}]}</stringProp>
+                  <stringProp name="Argument.value">&#xd;
+{&#xd;
+        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
+        &quot;payNo&quot;:&quot;HPBCLC${orderno}&quot;,&#xd;
+        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
+        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
+        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
+        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
+        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
+        &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
+        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
+        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
+        &quot;orderType&quot;:&quot;1&quot;,&#xd;
+        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
+        &quot;customsType&quot;:&quot;1&quot;,&#xd;
+        &quot;stationbCode&quot;:&quot;443433&quot;,&#xd;
+        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
+        &quot;opType&quot;:&quot;1&quot;,&#xd;
+        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
+        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
+        &quot;warehouseId&quot;:&quot;HPBCSTORE&quot;,&#xd;
+        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
+        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
+        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
+        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
+        &quot;discount&quot;:&quot;10&quot;,&#xd;
+        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
+        &quot;trans&quot;:&quot;2&quot;,&#xd;
+        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
+        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
+        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
+        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
+        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
+        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
+        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
+        &quot;changeFlag&quot;:&quot;1&quot;,&#xd;
+        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
+        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
+        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
+        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
+        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
+        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道5917152226698&quot;,&#xd;
+        &quot;ciqbCode&quot;:&quot;443433&quot;,&#xd;
+        &quot;payType&quot;:&quot;S&quot;,&#xd;
+        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
+        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
+        &quot;deliveryCode&quot;:&quot;HPBCLC${orderno}&quot;,&#xd;
+        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
+        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
+        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
+        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
+        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
+        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
+        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
+        &quot;bakbCode&quot;:&quot;443433&quot;,&#xd;
+        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
+        &quot;orderId&quot;:&quot;HPBCLC${orderno}&quot;,&#xd;
+        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
+        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
+        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
+        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
+        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
+	    &quot;busiMode&quot;:&quot;20&quot;,&#xd;
+        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
+        &quot;tpl&quot;:&quot;1000067&quot;,&#xd;
+        &quot;electricCode&quot;:&quot;1000000246&quot;,&#xd;
+        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
+        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
+        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
+        &quot;notes&quot;:&quot;备注&quot;,&#xd;
+        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
+		&quot;fromEplat&quot;:&quot;0&quot;,&#xd;
+		&quot;printHeader&quot;:&quot;headshot&quot;,&#xd;
+        &quot;goodList&quot;:[{&#xd;
+            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
+            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
+            &quot;busimode&quot;:&quot;10&quot;,&#xd;
+            &quot;copGName&quot;:&quot;1商品2131名称&quot;,&#xd;
+            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
+            &quot;goodId&quot;:&quot;M4001205001&quot;,&#xd;
+            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
+            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
+            &quot;gnum&quot;:&quot;01&quot;,&#xd;
+            &quot;nots&quot;:&quot;备注&quot;,&#xd;
+            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
+            &quot;amount&quot;:&quot;12&quot;,&#xd;
+            &quot;price&quot;:&quot;100&quot;,&#xd;
+            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
+            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
+        },&#xd;
+		{&#xd;
+            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
+            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
+            &quot;custGoodsNo&quot;:&quot;商品海关备案号&quot;,&#xd;
+            &quot;busimode&quot;:&quot;10&quot;,&#xd;
+            &quot;copGName&quot;:&quot;2222名称22&quot;,&#xd;
+            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
+            &quot;goodId&quot;:&quot;M4001205001&quot;,&#xd;
+            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
+            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
+            &quot;gnum&quot;:&quot;01&quot;,&#xd;
+            &quot;nots&quot;:&quot;备注&quot;,&#xd;
+            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
+            &quot;amount&quot;:&quot;12&quot;,&#xd;
+            &quot;price&quot;:&quot;100&quot;,&#xd;
+            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
+            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
+        }],&#xd;
+	    &quot;recipient&quot;:{&#xd;
+            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
+            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
+            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
+            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
+            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
+            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
+            &quot;country&quot;:&quot;002&quot;,&#xd;
+            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
+            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
+            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
+            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
+            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
+            &quot;address&quot;:&quot;蛇口GANG1715y171526SSS9&quot;,&#xd;
+            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
+            &quot;province&quot;:&quot;广东省&quot;,&#xd;
+            &quot;district&quot;:&quot;南沙2&quot;,&#xd;
+            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
+        }&#xd;
+    }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -460,7 +587,7 @@
             <stringProp name="HTTPSampler.port">18080</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
+            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -474,25 +601,69 @@
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
+                <stringProp name="799375">成功</stringProp>
               </collectionProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">2</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">2000</stringProp>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="HPBC流程单独运单号" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="单独" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;HPBCLC${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;1000000246&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;HPBCLC${orderno}&quot;,&quot;isDeclare&quot;:&quot;1&quot;}]}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
+              <stringProp name="HTTPSampler.port">18080</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">log${orderno}</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
             </ConstantTimer>
-            <hashTree/>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
             <hashTree/>
           </hashTree>
         </hashTree>
@@ -1115,6 +1286,21 @@
           <boolProp name="TransactionController.parent">false</boolProp>
         </TransactionController>
         <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="HPBCplan" elementType="Argument">
+                <stringProp name="Argument.name">HPBCplan</stringProp>
+                <stringProp name="Argument.value">1000000246</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="HPBCicipcode" elementType="Argument">
+                <stringProp name="Argument.name">HPBCicipcode</stringProp>
+                <stringProp name="Argument.value">443433</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求1无logc" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -1130,7 +1316,7 @@
         &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
         &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
         &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
+        &quot;cbepcomCode&quot;:&quot;${HPBCplan}&quot;,&#xd;
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
@@ -1276,7 +1462,7 @@
         &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
         &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
         &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
+        &quot;cbepcomCode&quot;:&quot;${HPBCplan}&quot;,&#xd;
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
@@ -1440,7 +1626,7 @@
         &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
         &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
         &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
+        &quot;cbepcomCode&quot;:&quot;${HPBCplan}&quot;,&#xd;
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
@@ -1586,13 +1772,13 @@
         &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
         &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
         &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
+        &quot;cbepcomCode&quot;:&quot;${HPBCplan}&quot;,&#xd;
         &quot;acturalPaid&quot;:&quot;1800&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
         &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
         &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000096&quot;,&#xd;
+        &quot;stationbCode&quot;:&quot;${HPBCicipcode}&quot;,&#xd;
         &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
         &quot;opType&quot;:&quot;1&quot;,&#xd;
         &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
@@ -1854,7 +2040,7 @@
           </Arguments>
           <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-            <stringProp name="ConstantTimer.delay">50000</stringProp>
+            <stringProp name="ConstantTimer.delay">500</stringProp>
           </ConstantTimer>
           <hashTree/>
         </hashTree>
@@ -1936,2607 +2122,6 @@
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
       <boolProp name="WorkBench.save">true</boolProp>
     </WorkBench>
-    <hashTree>
-      <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
-        <boolProp name="displayJMeterProperties">false</boolProp>
-        <boolProp name="displayJMeterVariables">true</boolProp>
-        <boolProp name="displaySystemProperties">false</boolProp>
-      </DebugSampler>
-      <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
-        <collectionProp name="HeaderManager.headers">
-          <elementProp name="" elementType="Header">
-            <stringProp name="Header.name">Content-Type</stringProp>
-            <stringProp name="Header.value">application/json</stringProp>
-          </elementProp>
-        </collectionProp>
-      </HeaderManager>
-      <hashTree/>
-      <SyncTimer guiclass="TestBeanGUI" testclass="SyncTimer" testname="Synchronizing Timer" enabled="true">
-        <intProp name="groupSize">4</intProp>
-        <longProp name="timeoutInMs">2</longProp>
-      </SyncTimer>
-      <hashTree/>
-      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBBC360仓无存库" enabled="true">
-        <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-        <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="" elementType="HTTPArgument">
-              <boolProp name="HTTPArgument.always_encode">false</boolProp>
-              <stringProp name="Argument.value">{&#xd;
-    &quot;ROOT&quot;:{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;Failzf${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;WMS_360_02&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;1&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;Fail${orderno}&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;Fail${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;10&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000000454&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;商品海关备案号&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;${HPBBCgoce}&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;1&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GANG59&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙3&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }&#xd;
-}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </elementProp>
-        <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-        <stringProp name="HTTPSampler.port">8080</stringProp>
-        <stringProp name="HTTPSampler.protocol">http</stringProp>
-        <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-        <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-        <stringProp name="HTTPSampler.method">POST</stringProp>
-        <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-        <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-        <stringProp name="HTTPSampler.response_timeout"></stringProp>
-        <stringProp name="TestPlan.comments">log${orderno}    http://192.168.0.135     121.33.205.117:18080</stringProp>
-      </HTTPSamplerProxy>
-      <hashTree>
-        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-          <collectionProp name="Asserion.test_strings">
-            <stringProp name="70887">GSS</stringProp>
-          </collectionProp>
-          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-          <boolProp name="Assertion.assume_success">false</boolProp>
-          <intProp name="Assertion.test_type">2</intProp>
-        </ResponseAssertion>
-        <hashTree/>
-      </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="jdbc mysqll测试" enabled="true">
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
-        </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <longProp name="ThreadGroup.start_time">1502420857000</longProp>
-        <longProp name="ThreadGroup.end_time">1502420857000</longProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
-        <stringProp name="ThreadGroup.delay"></stringProp>
-      </ThreadGroup>
-      <hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
-          <stringProp name="dataSource">oracleIP120</stringProp>
-          <stringProp name="poolMax">10</stringProp>
-          <stringProp name="timeout">10000</stringProp>
-          <stringProp name="trimInterval">60000</stringProp>
-          <boolProp name="autocommit">true</boolProp>
-          <stringProp name="transactionIsolation">DEFAULT</stringProp>
-          <boolProp name="keepAlive">true</boolProp>
-          <stringProp name="connectionAge">5000</stringProp>
-          <stringProp name="checkQuery">Select 1</stringProp>
-          <stringProp name="dbUrl">jdbc:mysql://192.168.0.120:3306/config</stringProp>
-          <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
-          <stringProp name="username">root</stringProp>
-          <stringProp name="password">root</stringProp>
-        </JDBCDataSource>
-        <hashTree/>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
-          <stringProp name="dataSource">oracleIP120</stringProp>
-          <stringProp name="query">update ccode set itemrecordno=&apos;blno${nullgcode}&apos; where gcode=&apos;${nullgcode}&apos; </stringProp>
-          <stringProp name="queryArguments"></stringProp>
-          <stringProp name="queryArgumentsTypes"></stringProp>
-          <stringProp name="queryTimeout">3</stringProp>
-          <stringProp name="queryType">Update Statement</stringProp>
-          <stringProp name="resultSetHandler">Store as String</stringProp>
-          <stringProp name="resultVariable"></stringProp>
-          <stringProp name="variableNames"></stringProp>
-        </JDBCSampler>
-        <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="49">1</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">16</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-        </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="tpl" elementType="Argument">
-              <stringProp name="Argument.name">tpl</stringProp>
-              <stringProp name="Argument.value">1000830</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="gocdeHPBC" elementType="Argument">
-              <stringProp name="Argument.name">gocdeHPBC</stringProp>
-              <stringProp name="Argument.value">HPBC0817S01</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="HPBBCgoce" elementType="Argument">
-              <stringProp name="Argument.name">HPBBCgoce</stringProp>
-              <stringProp name="Argument.value">BBC1214G02</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="changeFlag" elementType="Argument">
-              <stringProp name="Argument.name">changeFlag</stringProp>
-              <stringProp name="Argument.value">0</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="nullgcode" elementType="Argument">
-              <stringProp name="Argument.name">nullgcode</stringProp>
-              <stringProp name="Argument.value">HPBBC08170A01</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
-        <hashTree/>
-      </hashTree>
-      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
-        <stringProp name="dataSource">oracleIP120</stringProp>
-        <stringProp name="poolMax">10</stringProp>
-        <stringProp name="timeout">10000</stringProp>
-        <stringProp name="trimInterval">60000</stringProp>
-        <boolProp name="autocommit">true</boolProp>
-        <stringProp name="transactionIsolation">DEFAULT</stringProp>
-        <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="connectionAge">5000</stringProp>
-        <stringProp name="checkQuery">Select 1</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://192.168.0.120:3306/config</stringProp>
-        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
-        <stringProp name="username">root</stringProp>
-        <stringProp name="password">root</stringProp>
-      </JDBCDataSource>
-      <hashTree/>
-      <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
-        <stringProp name="dataSource">oracleIP120</stringProp>
-        <stringProp name="query">update ccode set itemrecordno=&apos;blno${nullgcode}&apos; where gcode=&apos;${nullgcode}&apos; </stringProp>
-        <stringProp name="queryArguments"></stringProp>
-        <stringProp name="queryArgumentsTypes"></stringProp>
-        <stringProp name="queryTimeout">3</stringProp>
-        <stringProp name="queryType">Update Statement</stringProp>
-        <stringProp name="resultSetHandler">Store as String</stringProp>
-        <stringProp name="resultVariable"></stringProp>
-        <stringProp name="variableNames"></stringProp>
-      </JDBCSampler>
-      <hashTree>
-        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-          <collectionProp name="Asserion.test_strings">
-            <stringProp name="49">1</stringProp>
-          </collectionProp>
-          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-          <boolProp name="Assertion.assume_success">false</boolProp>
-          <intProp name="Assertion.test_type">16</intProp>
-        </ResponseAssertion>
-        <hashTree/>
-      </hashTree>
-      <kg.apc.jmeter.perfmon.PerfMonCollector guiclass="kg.apc.jmeter.vizualizers.PerfMonGui" testclass="kg.apc.jmeter.perfmon.PerfMonCollector" testname="jp@gc - PerfMon Metrics Collector" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-        <longProp name="interval_grouping">1000</longProp>
-        <boolProp name="graph_aggregated">false</boolProp>
-        <stringProp name="include_sample_labels"></stringProp>
-        <stringProp name="exclude_sample_labels"></stringProp>
-        <stringProp name="start_offset"></stringProp>
-        <stringProp name="end_offset"></stringProp>
-        <boolProp name="include_checkbox_state">false</boolProp>
-        <boolProp name="exclude_checkbox_state">false</boolProp>
-        <collectionProp name="metricConnections">
-          <collectionProp name="268853513">
-            <stringProp name="-2052196682">192.168.0.135</stringProp>
-            <stringProp name="1600768">4444</stringProp>
-            <stringProp name="2112896831">Disks I/O</stringProp>
-            <stringProp name="0"></stringProp>
-          </collectionProp>
-          <collectionProp name="-1383002031">
-            <stringProp name="-1204607085">localhost</stringProp>
-            <stringProp name="1600768">4444</stringProp>
-            <stringProp name="-1993889503">Memory</stringProp>
-            <stringProp name="0"></stringProp>
-          </collectionProp>
-          <collectionProp name="-723468740">
-            <stringProp name="-1204607085">localhost</stringProp>
-            <stringProp name="1600768">4444</stringProp>
-            <stringProp name="2590131">Swap</stringProp>
-            <stringProp name="0"></stringProp>
-          </collectionProp>
-          <collectionProp name="506007220">
-            <stringProp name="-1204607085">localhost</stringProp>
-            <stringProp name="1600768">4444</stringProp>
-            <stringProp name="2112896831">Disks I/O</stringProp>
-            <stringProp name="0"></stringProp>
-          </collectionProp>
-          <collectionProp name="1870391425">
-            <stringProp name="-1204607085">localhost</stringProp>
-            <stringProp name="1600768">4444</stringProp>
-            <stringProp name="73589">JMX</stringProp>
-            <stringProp name="0"></stringProp>
-          </collectionProp>
-        </collectionProp>
-      </kg.apc.jmeter.perfmon.PerfMonCollector>
-      <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单独运单号回执" enabled="false">
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
-        </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <longProp name="ThreadGroup.start_time">1500556611000</longProp>
-        <longProp name="ThreadGroup.end_time">1500556611000</longProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
-        <stringProp name="ThreadGroup.delay"></stringProp>
-      </ThreadGroup>
-      <hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="事务控制器" enabled="false">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
-        </TransactionController>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1null" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;TS${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;1${orderno}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay"></stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1logic" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;TS${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;1logic${orderno}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">50000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="0logic" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;TS${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;0logic${orderno}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">50000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="事务控制器" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
-        </TransactionController>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="物流系统" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;TS${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;or${orderno}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">2000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-      </hashTree>
-      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - Stepping Thread Group" enabled="true">
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="Threads initial delay">0</stringProp>
-        <stringProp name="Start users count">10</stringProp>
-        <stringProp name="Start users count burst">0</stringProp>
-        <stringProp name="Start users period">600</stringProp>
-        <stringProp name="Stop users count">5</stringProp>
-        <stringProp name="Stop users period">1</stringProp>
-        <stringProp name="flighttime"></stringProp>
-        <stringProp name="rampUp">5</stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <intProp name="LoopController.loops">-1</intProp>
-        </elementProp>
-      </kg.apc.jmeter.threads.SteppingThreadGroup>
-      <hashTree>
-        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-          <stringProp name="maximumValue">199999</stringProp>
-          <stringProp name="minimumValue">100001</stringProp>
-          <stringProp name="outputFormat">1708</stringProp>
-          <boolProp name="perThread">true</boolProp>
-          <stringProp name="randomSeed"></stringProp>
-          <stringProp name="variableName">orderno</stringProp>
-        </RandomVariableConfig>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="tpl" elementType="Argument">
-              <stringProp name="Argument.name">tpl</stringProp>
-              <stringProp name="Argument.value">1000067</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">1000000518  1000067</stringProp>
-            </elementProp>
-            <elementProp name="gocdeHPBC" elementType="Argument">
-              <stringProp name="Argument.name">gocdeHPBC</stringProp>
-              <stringProp name="Argument.value">HPBC0817S01</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="HPBBCgoce" elementType="Argument">
-              <stringProp name="Argument.name">HPBBCgoce</stringProp>
-              <stringProp name="Argument.value">BBC1214G02</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="changeFlag" elementType="Argument">
-              <stringProp name="Argument.name">changeFlag</stringProp>
-              <stringProp name="Argument.value">1</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="nullgcode" elementType="Argument">
-              <stringProp name="Argument.name">nullgcode</stringProp>
-              <stringProp name="Argument.value">HPBBC08170A01</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="deliveryCode" elementType="Argument">
-              <stringProp name="Argument.name">deliveryCode</stringProp>
-              <stringProp name="Argument.value"></stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">${deliveryCode}</stringProp>
-            </elementProp>
-            <elementProp name="storeStrategy2" elementType="Argument">
-              <stringProp name="Argument.name">storeStrategy2</stringProp>
-              <stringProp name="Argument.value">PCCL000000000019</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="vircode" elementType="Argument">
-              <stringProp name="Argument.name">vircode</stringProp>
-              <stringProp name="Argument.value"></stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="storeStrategy1" elementType="Argument">
-              <stringProp name="Argument.name">storeStrategy1</stringProp>
-              <stringProp name="Argument.value">210708250007</stringProp>
-              <stringProp name="Argument.desc">40   210708250007     50     210708250009</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="plat" elementType="Argument">
-              <stringProp name="Argument.name">plat</stringProp>
-              <stringProp name="Argument.value">1000000246</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-          <stringProp name="TestPlan.comments">1000067  </stringProp>
-        </Arguments>
-        <hashTree/>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="NSBBC" enabled="true">
-          <stringProp name="IfController.condition">1==1</stringProp>
-          <boolProp name="IfController.evaluateAll">false</boolProp>
-        </IfController>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NSBBC" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-    &quot;orderId&quot;: &quot;NSBBC${orderno}&quot;,&#xd;
-    &quot;orderDate&quot;: &quot;2017-09-19 04:06:09&quot;,&#xd;
-    &quot;packingMaterial&quot;: null,&#xd;
-    &quot;warehouseId&quot;: null,&#xd;
-    &quot;tpl&quot;: &quot;${tpl}&quot;,&#xd;
-    &quot;orderType&quot;: 1,&#xd;
-    &quot;orderStatus&quot;: &quot;S&quot;,&#xd;
-    &quot;customsType&quot;: 1,&#xd;
-    &quot;electricCode&quot;: &quot;1000000068&quot;,&#xd;
-    &quot;cbepcomCode&quot;: &quot;1000000202&quot;,&#xd;
-    &quot;busiMode&quot;: 10,&#xd;
-    &quot;customsCode&quot;: &quot;5165&quot;,&#xd;
-    &quot;ciqbCode&quot;: &quot;000069&quot;,&#xd;
-    &quot;stationbCode&quot;: null,&#xd;
-    &quot;deliveryCode&quot;: null,&#xd;
-    &quot;notes&quot;: null,&#xd;
-    &quot;freightFcy&quot;: 85,&#xd;
-    &quot;freightFcode&quot;: &quot;CNY&quot;,&#xd;
-    &quot;insuredFee&quot;: 0,&#xd;
-    &quot;insurCurr&quot;: &quot;CNY&quot;,&#xd;
-    &quot;insurMark&quot;: null,&#xd;
-    &quot;taxFcy&quot;: 0,&#xd;
-    &quot;taxFcode&quot;: &quot;CNY&quot;,&#xd;
-    &quot;otherRate&quot;: 0,&#xd;
-    &quot;otherCurr&quot;: null,&#xd;
-    &quot;otherMark&quot;: null,&#xd;
-    &quot;otherPayment&quot;: 0,&#xd;
-    &quot;otherPaymentCurr&quot;: &quot;CNY&quot;,&#xd;
-    &quot;fCode&quot;: &quot;CNY&quot;,&#xd;
-    &quot;discount&quot;: 0,&#xd;
-    &quot;buyerName&quot;: &quot;关耳郑&quot;,&#xd;
-    &quot;buyerIdType&quot;: 1,&#xd;
-    &quot;buyerIdNumber&quot;: &quot;350521199310307260&quot;,&#xd;
-    &quot;buyerTelephone&quot;: &quot;15909090909&quot;,&#xd;
-    &quot;buyerRegNo&quot;: null,&#xd;
-    &quot;grossWeight&quot;: null,&#xd;
-    &quot;netWeight&quot;: null,&#xd;
-    &quot;bakbCode&quot;: null,&#xd;
-    &quot;ordExcStatus&quot;: null,&#xd;
-    &quot;forSellComp&quot;: null,&#xd;
-    &quot;forSellCompName&quot;: null,&#xd;
-    &quot;tradeUnitCode&quot;: null,&#xd;
-    &quot;tradeUnitName&quot;: null,&#xd;
-    &quot;shippernCode&quot;: null,&#xd;
-    &quot;shipDate&quot;: null,&#xd;
-    &quot;inputDate&quot;: null,&#xd;
-    &quot;logNots&quot;: null,&#xd;
-    &quot;blno&quot;: null,&#xd;
-    &quot;trans&quot;: null,&#xd;
-    &quot;transNo&quot;: null,&#xd;
-    &quot;changeFlag&quot;: null,&#xd;
-    &quot;tradeMode&quot;: null,&#xd;
-    &quot;shipperName&quot;: null,&#xd;
-    &quot;shipperAddress&quot;: null,&#xd;
-    &quot;shipperPhone&quot;: null,&#xd;
-    &quot;agentCode&quot;: null,&#xd;
-    &quot;agentName&quot;: null,&#xd;
-    &quot;payNo&quot;: null,&#xd;
-    &quot;payPcomName&quot;: null,&#xd;
-    &quot;payCopNo&quot;: null,&#xd;
-    &quot;opType&quot;: null,&#xd;
-    &quot;payType&quot;: null,&#xd;
-    &quot;payStatus&quot;: null,&#xd;
-    &quot;payorName&quot;: null,&#xd;
-    &quot;activePayComp&quot;: null,&#xd;
-    &quot;acturalPaid&quot;: 0,&#xd;
-    &quot;payCurr&quot;: &quot;CNY&quot;,&#xd;
-    &quot;payNots&quot;: null,&#xd;
-    &quot;payDate&quot;: null,&#xd;
-    &quot;fromEplat&quot;: 0,&#xd;
-    &quot;printHeader&quot;: null,&#xd;
-    &quot;commonField&quot;: null,&#xd;
-    &quot;isStoreStrategy&quot;: 0,&#xd;
-    &quot;goodList&quot;: [&#xd;
-        {&#xd;
-            &quot;gnum&quot;: 1,&#xd;
-            &quot;goodId&quot;: &quot;DBtest001&quot;,&#xd;
-            &quot;amount&quot;: 1,&#xd;
-            &quot;price&quot;: 250,&#xd;
-            &quot;goodPrice&quot;: null,&#xd;
-            &quot;copGName&quot;: null,&#xd;
-            &quot;hsCode&quot;: null,&#xd;
-            &quot;decTotal&quot;: null,&#xd;
-            &quot;nots&quot;: null,&#xd;
-            &quot;custGoodsNo&quot;: null,&#xd;
-            &quot;ciqGoodsNo&quot;: &quot;ICIP22222222000&quot;,&#xd;
-            &quot;batchNo&quot;: null,&#xd;
-            &quot;assemCountry&quot;: null,&#xd;
-            &quot;qtyUnit&quot;: null,&#xd;
-            &quot;spec&quot;: null,&#xd;
-            &quot;storeStrategyId&quot;: null,&#xd;
-            &quot;productionTime&quot;: null,&#xd;
-            &quot;expDate&quot;: &quot;0001-01-01 00:00:00&quot;&#xd;
-        }&#xd;
-    ],&#xd;
-    &quot;recipient&quot;: {&#xd;
-        &quot;name&quot;: &quot;关耳小王子&quot;,&#xd;
-        &quot;receiveType&quot;: 1,&#xd;
-        &quot;receiveNo&quot;: &quot;350521199310307260&quot;,&#xd;
-        &quot;mobilePhone&quot;: &quot;15909090909&quot;,&#xd;
-        &quot;phone&quot;: &quot;0591-83333333&quot;,&#xd;
-        &quot;country&quot;: &quot;中国&quot;,&#xd;
-        &quot;province&quot;: &quot;福建省&quot;,&#xd;
-        &quot;city&quot;: &quot;福州市&quot;,&#xd;
-        &quot;district&quot;: &quot;台江区&quot;,&#xd;
-        &quot;address&quot;: &quot;福建省 福州市 台江区 六一中路249号 电子商务部&quot;,&#xd;
-        &quot;postCode&quot;: &quot;350001&quot;,&#xd;
-        &quot;totalFavourable&quot;: 0,&#xd;
-        &quot;sender&quot;: null,&#xd;
-        &quot;receiver&quot;: null,&#xd;
-        &quot;congratulations&quot;: null,&#xd;
-        &quot;transportDay&quot;: null,&#xd;
-        &quot;recipientProvincesCode&quot;: null&#xd;
-    }&#xd;
-}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}    http://192.168.0.135     121.33.205.117:18080</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="799375">成功</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="简单控制器" enabled="false"/>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBBC" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;payNo&quot;:&quot;zf${orderno}&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;${changeFlag}&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;logic${orderno}&quot;,        &#xd;
-        &quot;orderId&quot;:&quot;or${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;WMS_360_02&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;10&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000000454&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;&quot;,&#xd;
-		&quot;isStoreStrategy&quot;:&quot;1&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;BBC1214G01&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;BBC1214G01&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;168&quot;,&#xd;
-            &quot;amount&quot;:&quot;1&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;,&#xd;
-            &quot;storeStrategyId&quot;:&quot;${storeStrategy1}&quot;,&#xd;
-            &quot;expDate&quot;:&quot;2016-11-29 17:04:00&quot;,&#xd;
-            &quot;productionTime&quot;:&quot;2016-08-19 17:04:00&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;LOTzz31708300000002&quot;,&#xd;
-            &quot;virtualOwner&quot;:&quot;${vircode}&quot;&#xd;
-        },{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;BBC1214G02商品名称HPBBC07180A13&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;HPBBC07180A13&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;200&quot;,&#xd;
-            &quot;amount&quot;:&quot;2&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;120&quot;,&#xd;
-            &quot;storeStrategyId&quot;:&quot;${storeStrategy2}&quot;,&#xd;
-            &quot;expDate&quot;:&quot;2016-09-29 17:04:00&quot;,&#xd;
-            &quot;productionTime&quot;:&quot;2016-01-19 17:04:00&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;LOTzz31705250000001&quot;,&#xd;
-            &quot;virtualOwner&quot;:&quot;${vircode}&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GANG59${orderno}&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="false">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="单独运单号" enabled="false"/>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="单独" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;1000${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;1000000246&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;or${orderno}&quot;,&quot;isDeclare&quot;:&quot;1&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">2000</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="HPBBC事务" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
-        </TransactionController>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBBC非360仓" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;!zf${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;HPSTORE&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;${changeFlag}&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;logic!${orderno}&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;!${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;10&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;商品海关备案号&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;HPBBC07180A23&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;1&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GANG59&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙3&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="799375">成功</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBBC" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;${changeFlag}&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;${orderno}&quot;,&#xd;
-        &quot;orderId&quot;:&quot;or${orderno}&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;payNo&quot;:&quot;zf${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;${plat}&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;WMS_360_02&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;10&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000000454&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;BBC1214G01&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;BBC1214G01&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;1&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GANG59${orderno}&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}    http://192.168.0.135     121.33.205.117:18080</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="799375">成功</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBBC无库存" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;nulzf${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;WMS_360_02&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;${changeFlag}&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道${orderno}59&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;null!logic${orderno}&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;nul${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;10&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;${nullgcode}&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;1&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GANG5${orderno}9&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}    http://192.168.0.135     121.33.205.117:18080</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="744397611">库存不足</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBBC指定批次" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;zf${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;WMS_360_02&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;${changeFlag}&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;logic${orderno}&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000072&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;or${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;10&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000000454&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;&quot;,&#xd;
-		&quot;isStoreStrategy&quot;:&quot;1&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;BBC1214G01&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;BBC1214G01&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;168&quot;,&#xd;
-            &quot;amount&quot;:&quot;1&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;,&#xd;
-            &quot;storeStrategyId&quot;:&quot;${storeStrategy1}&quot;,&#xd;
-            &quot;virtualOwner&quot;:&quot;${vircode}&quot;&#xd;
-        },{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;BBC1214G02商品名称HPBBC07180A13&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;HPBBC07180A13&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;200&quot;,&#xd;
-            &quot;amount&quot;:&quot;2&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;120&quot;,&#xd;
-            &quot;storeStrategyId&quot;:&quot;${storeStrategy2}&quot;,&#xd;
-            &quot;expDate&quot;:&quot;2016-09-29 17:04:00&quot;,&#xd;
-            &quot;productionTime&quot;:&quot;2016-01-19 17:04:00&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;LOTzz31705250000001&quot;,&#xd;
-            &quot;virtualOwner&quot;:&quot;${vircode}&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GANG59${orderno}&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}    http://192.168.0.135     121.33.205.117:18080           
-            &quot;vmiFlag&quot;:&quot;&quot;,</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="799375">成功</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="HPBC事务" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
-        </TransactionController>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求1无logc" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">&#xd;
-  {&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;1pay${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;HPBCSTORE&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;1&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;1${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;20&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000001324&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;0&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;headshot&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;HPBC05090A11&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;HPBC05090A11&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;12&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口23${orderno}GANG59&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙32&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="799375">成功</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求1logc" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;1logcpay${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000096&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;HPBCSTORE&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;1&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000096&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;1logc${orderno}&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000096&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;1logic${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;20&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000001324&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;0&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;headshot&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;HPBC0718S35&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;1商品2131名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;HPBC0718S35&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;12&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        },&#xd;
-		{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;商品海关备案号&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;2222名称22&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;${gocdeHPBC}&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;12&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GANG${orderno}59&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙2&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="799375">成功</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求0无logc" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;0pay${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000096&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;HPBCSTORE&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;0&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000069&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;0${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;20&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000001324&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;0&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;headshot&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;custGoodsNo&quot;:&quot;HPBC05090A11&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;HPBC05090A11&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;120&quot;,&#xd;
-            &quot;amount&quot;:&quot;12&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇${orderno}口GANG59&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙33&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="743956">失败</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求0logc" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-        &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
-        &quot;payNo&quot;:&quot;0logcpay${orderno}&quot;,&#xd;
-        &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
-        &quot;otherPaymentCurr&quot;:&quot;142&quot;,&#xd;
-        &quot;tradeMode&quot;:&quot;1&quot;,&#xd;
-        &quot;payDate&quot;:&quot;2016-09-19 17:01:00&quot;,&#xd;
-        &quot;payCopNo&quot;:&quot;1000000247&quot;,&#xd;
-        &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
-        &quot;acturalPaid&quot;:&quot;1800&quot;,&#xd;
-        &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
-        &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
-        &quot;customsType&quot;:&quot;1&quot;,&#xd;
-        &quot;stationbCode&quot;:&quot;000096&quot;,&#xd;
-        &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
-        &quot;opType&quot;:&quot;1&quot;,&#xd;
-        &quot;customsCode&quot;:&quot;5208&quot;,&#xd;
-        &quot;freightFcode&quot;:&quot;HKD&quot;,&#xd;
-        &quot;warehouseId&quot;:&quot;HPBCSTORE&quot;,&#xd;
-        &quot;transNo&quot;:&quot;汽车&quot;,&#xd;
-        &quot;agentCode&quot;:&quot;1000000234&quot;,&#xd;
-        &quot;orderStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerIdNumber&quot;:&quot;430665195202154587&quot;,&#xd;
-        &quot;discount&quot;:&quot;10&quot;,&#xd;
-        &quot;grossWeight&quot;:&quot;10&quot;,&#xd;
-        &quot;trans&quot;:&quot;2&quot;,&#xd;
-        &quot;insurMark&quot;:&quot;6&quot;,&#xd;
-        &quot;shipperPhone&quot;:&quot;13544212165&quot;,&#xd;
-        &quot;otherPayment&quot;:&quot;110&quot;,&#xd;
-        &quot;payorName&quot;:&quot;付款人&quot;,&#xd;
-        &quot;logNots&quot;:&quot;物流信息备注&quot;,&#xd;
-        &quot;buyerIdType&quot;:&quot;1&quot;,&#xd;
-        &quot;taxFcy&quot;:&quot;3&quot;,&#xd;
-        &quot;changeFlag&quot;:&quot;0&quot;,&#xd;
-        &quot;shipDate&quot;:&quot;2016-09-19 17:04:00&quot;,&#xd;
-        &quot;otherRate&quot;:&quot;2&quot;,&#xd;
-        &quot;payStatus&quot;:&quot;S&quot;,&#xd;
-        &quot;activePayComp&quot;:&quot;支付描述&quot;,&#xd;
-        &quot;forSellComp&quot;:&quot;国外卖方&quot;,&#xd;
-        &quot;shipperAddress&quot;:&quot;广东省 广州市 天河区 员村街道59${orderno}&quot;,&#xd;
-        &quot;ciqbCode&quot;:&quot;000096&quot;,&#xd;
-        &quot;payType&quot;:&quot;S&quot;,&#xd;
-        &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
-        &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;0logc${orderno}&quot;,&#xd;
-        &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
-        &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
-        &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
-        &quot;ordExcStatus&quot;:&quot;1&quot;,&#xd;
-        &quot;otherMark&quot;:&quot;1&quot;,&#xd;
-        &quot;payNots&quot;:&quot;支付信息备注&quot;,&#xd;
-        &quot;shipperName&quot;:&quot;发货人名称&quot;,&#xd;
-        &quot;bakbCode&quot;:&quot;000096&quot;,&#xd;
-        &quot;payCurr&quot;:&quot;JPY&quot;,&#xd;
-        &quot;orderId&quot;:&quot;0logic${orderno}&quot;,&#xd;
-        &quot;insuredFee&quot;:&quot;13&quot;,&#xd;
-        &quot;shippernCode&quot;:&quot;002&quot;,&#xd;
-        &quot;blno&quot;:&quot;TD0001&quot;,&#xd;
-        &quot;buyerName&quot;:&quot;订购人姓名&quot;,&#xd;
-        &quot;netWeight&quot;:&quot;9.2&quot;,&#xd;
-	    &quot;busiMode&quot;:&quot;20&quot;,&#xd;
-        &quot;agentName&quot;:&quot;报关企业名称&quot;,&#xd;
-        &quot;tpl&quot;:&quot;${tpl}&quot;,&#xd;
-        &quot;electricCode&quot;:&quot;1000001324&quot;,&#xd;
-        &quot;fCode&quot;:&quot;CNY&quot;,&#xd;
-        &quot;buyerRegNo&quot;:&quot;订购人注册号&quot;,&#xd;
-        &quot;otherCurr&quot;:&quot;CAD&quot;,&#xd;
-        &quot;notes&quot;:&quot;备注&quot;,&#xd;
-        &quot;forSellCompName&quot;:&quot;国外卖方名称&quot;,&#xd;
-		&quot;fromEplat&quot;:&quot;0&quot;,&#xd;
-		&quot;printHeader&quot;:&quot;headshot&quot;,&#xd;
-        &quot;goodList&quot;:[{&#xd;
-            &quot;spec&quot;:&quot;1K/l&quot;,&#xd;
-            &quot;ciqGoodsNo&quot;:&quot;ICIP20160518001&quot;,&#xd;
-            &quot;busimode&quot;:&quot;10&quot;,&#xd;
-            &quot;copGName&quot;:&quot;商品名称&quot;,&#xd;
-            &quot;hsCode&quot;:&quot;9619001000&quot;,&#xd;
-            &quot;goodId&quot;:&quot;${gocdeHPBC}&quot;,&#xd;
-            &quot;assemCountry&quot;:&quot;004&quot;,&#xd;
-            &quot;qtyUnit&quot;:&quot;035&quot;,&#xd;
-            &quot;gnum&quot;:&quot;01&quot;,&#xd;
-            &quot;nots&quot;:&quot;备注&quot;,&#xd;
-            &quot;decTotal&quot;:&quot;1200&quot;,&#xd;
-            &quot;amount&quot;:&quot;12&quot;,&#xd;
-            &quot;price&quot;:&quot;100&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;0001&quot;,&#xd;
-            &quot;goodPrice&quot;:&quot;158&quot;&#xd;
-        }],&#xd;
-	    &quot;recipient&quot;:{&#xd;
-            &quot;receiveNo&quot;:&quot;620144196305125463&quot;,&#xd;
-            &quot;phone&quot;:&quot;020-4304442&quot;,&#xd;
-            &quot;receiver&quot;:&quot;收礼人&quot;,&#xd;
-            &quot;receiveType&quot;:&quot;1&quot;,&#xd;
-            &quot;postCode&quot;:&quot;600023&quot;,&#xd;
-            &quot;congratulations&quot;:&quot;祝贺语&quot;,&#xd;
-            &quot;country&quot;:&quot;002&quot;,&#xd;
-            &quot;city&quot;:&quot;深圳市&quot;,&#xd;
-            &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
-            &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
-            &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
-            &quot;address&quot;:&quot;蛇口GA${orderno}NG59&quot;,&#xd;
-            &quot;name&quot;:&quot;收货人姓名&quot;,&#xd;
-            &quot;province&quot;:&quot;广东34省&quot;,&#xd;
-            &quot;district&quot;:&quot;南沙&quot;,&#xd;
-            &quot;totalFavourable&quot;:&quot;10&quot;&#xd;
-        }&#xd;
-    }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="799375">成功</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="事务控制器" enabled="false">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
-        </TransactionController>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/json</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1null" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;TS${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;1${orderno}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1logic" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;TS${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;1logic${orderno}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="0logic" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;TS${orderno}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;0logic${orderno}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">log${orderno}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-              <collectionProp name="Asserion.test_strings">
-                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-              </collectionProp>
-              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-              <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">2</intProp>
-            </ResponseAssertion>
-            <hashTree/>
-          </hashTree>
-          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="plat" elementType="Argument">
-                <stringProp name="Argument.name">plat</stringProp>
-                <stringProp name="Argument.value">1000001325</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </Arguments>
-          <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-            <stringProp name="ConstantTimer.delay">50000</stringProp>
-          </ConstantTimer>
-          <hashTree/>
-        </hashTree>
-        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename">C:\Users\69472\Desktop\summaryreport.csv</stringProp>
-        </ResultCollector>
-        <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename">C:\Users\69472\Desktop\treereport.csv</stringProp>
-        </ResultCollector>
-        <hashTree/>
-      </hashTree>
-    </hashTree>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>
