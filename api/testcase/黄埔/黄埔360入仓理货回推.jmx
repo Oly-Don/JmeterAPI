@@ -12,7 +12,7 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
-        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
@@ -80,6 +80,37 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="初始化" enabled="true"/>
+        <hashTree>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+            <stringProp name="dataSource">oracle</stringProp>
+            <stringProp name="poolMax">0</stringProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="checkQuery"></stringProp>
+            <stringProp name="dbUrl">jdbc:oracle:thin:customs135/customs135@//192.168.0.120:1521/orcl</stringProp>
+            <stringProp name="driver">oracle.jdbc.OracleDriver</stringProp>
+            <stringProp name="username">customs135</stringProp>
+            <stringProp name="password">customs135</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+            <stringProp name="dataSource">oracle</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select count(*) from custentrystorelist where eslpredeclcode=&apos;${custentryslcode}&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="40请求" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -415,7 +446,6 @@
             </value>
           </objProp>
           <stringProp name="filename"></stringProp>
-          <stringProp name="TestPlan.comments">{&quot;flag&quot;:&quot;failure&quot;,&quot;message&quot;:&quot;处理失败：[AsnBackwrite] 处理失败！#o#java.lang.NullPointerException ; java.lang.NullPointerException&quot;}</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
