@@ -36,7 +36,8 @@
               force="true"
               in="${jmeter.result.jtlName}"
               out="${jmeter.result.htmlName}"
-              style="${jmeter.home}/extras/jmeter-results-detail-report_21.xsl">
+			   <!-- 修改导出模板-->
+              style="${jmeter.home}/extras/jmeter.results.shanhe.me.xsl">
             <!-- 因为上面生成报告的时候，不会将相关的图片也一起拷贝至目标目录，所以，需要手动拷贝 -->
         </xslt>
         <copy todir="${jmeter.result.html.dir}">
