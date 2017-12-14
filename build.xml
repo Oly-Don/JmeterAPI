@@ -43,7 +43,7 @@
         <antcall target="reportbynew"/>
     </target>
 
-    <target name="runbynew">
+    <target name="new">
 		<echo>funcMode = ${funcMode}</echo>
 		<delete file="${jmeter.result.jtl.dir}/**.*"/>
 		<delete file="${jmeter.result.html.dir}/**.*"/>
@@ -70,7 +70,7 @@
         </jmeter>
     </target>
 
-    <target name="reportbynew">
+    <target name="old">
 		<echo>Report generated at ${report.datestamp}</echo>
 		<tstamp><format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/></tstamp>
         <xslt classpathref="xslt.classpath"
@@ -113,12 +113,9 @@
 			<property name="jmeter.save.saveservice.url" value="true"/>
 			<property name="jmeter.save.saveservice.filename" value="true"/>
 			<property name="jmeter.save.saveservice.hostname" value="true"/>
-			<property name="jmeter.save.saveservice.thread_counts" value="true"/>
 			<property name="jmeter.save.saveservice.sample_count" value="true"/>
 			<property name="jmeter.save.saveservice.idle_time" value="true"/>
 			<property name="jmeter.save.saveservice.assertion_results" value="all"/>
-			<property name="jmeter.save.saveservice.bytes" value="true"/>
-			<property name="file_format.testlog" value="${format}"/>
 			<property name="jmeter.save.saveservice.response_data.on_error" value="${funcMode}"/>
         </jmeter>
     </target>
