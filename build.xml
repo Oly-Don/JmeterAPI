@@ -7,7 +7,7 @@
     <!-- jmeter生成html格式的结果报告的路径-->
     <property name="jmeter.result.html.dir" value="./res/html"/>
     <!-- 生成的报告的前缀-->
-    <property name="ReportName" value="TestReport"/>
+    <property name="report.title" value="JMETER JENKINS LOAD REPORT"/>
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/report.jtl"/>
     <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/index.html"/>
     <property name="lib.dir" value="${jmeter.home}/lib"/>
@@ -38,12 +38,12 @@
         <fileset dir="${lib.dir}" includes="serializer*.jar"/>
     </path>
 
-    <target name="newest">
+    <target name="new">
         <antcall target="runbynew"/>
         <antcall target="reportbynew"/>
     </target>
 
-    <target name="new">
+    <target name="runbynew">
 		<echo>funcMode = ${funcMode}</echo>
 		<delete file="${jmeter.result.jtl.dir}/**.*"/>
 		<delete file="${jmeter.result.html.dir}/**.*"/>
@@ -70,7 +70,7 @@
         </jmeter>
     </target>
 
-    <target name="old">
+    <target name="reportbynew">
 		<echo>Report generated at ${report.datestamp}</echo>
 		<tstamp><format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/></tstamp>
         <xslt classpathref="xslt.classpath"
@@ -92,7 +92,7 @@
     </target>
 	
 	
-	<target name="normal">
+	<target name="old">
         <antcall target="run"/>
         <antcall target="report"/>
     </target>
