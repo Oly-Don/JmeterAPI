@@ -8,7 +8,7 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-3.2\lib\ojdbc14.jar</stringProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
@@ -85,6 +85,73 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="-1867169789">success</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">2</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="查询出预申报数据" enabled="true"/>
+        <hashTree>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="poolMax">10</stringProp>
+            <stringProp name="timeout">100</stringProp>
+            <stringProp name="trimInterval">600</stringProp>
+            <boolProp name="autocommit">false</boolProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <boolProp name="keepAlive">false</boolProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="checkQuery">Select 1</stringProp>
+            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:ORCL</stringProp>
+            <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+            <stringProp name="username">customs</stringProp>
+            <stringProp name="password">customs</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="query">select  a.custentryslcode, a.status from (select * from  custentrystorelist  where status=? order by entinboundno  asc) a where rownum &lt; 2</stringProp>
+            <stringProp name="queryArguments">${SQLSTATUS}</stringProp>
+            <stringProp name="queryArgumentsTypes">varchar</stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Prepared Select Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable">account</stringProp>
+            <stringProp name="variableNames">custentr2yslcode,status</stringProp>
+            <stringProp name="TestPlan.comments">select  a.custentryslcode from (select custentryslcode from  custentrystorelist  where custentryslcode  like &apos;CUSHPPRE%&apos; and status=&apos;70&apos; order by entinboundno ) a  where rownum&lt;2</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="0"></stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">1</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+              <stringProp name="TestPlan.comments">docId</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">doid</stringProp>
+              <stringProp name="RegexExtractor.regex">*?</stringProp>
+              <stringProp name="RegexExtractor.template">$1$2</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">-1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="40请求" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -377,12 +444,15 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
+<<<<<<< HEAD
         <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
           <boolProp name="displayJMeterProperties">false</boolProp>
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
         <hashTree/>
+=======
+>>>>>>> fcf817815d46d09f13ca53d148cbe8afa6078f0b
         <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
@@ -410,6 +480,7 @@ vars.put(&quot;status&quot;,status);</stringProp>
 </stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
+<<<<<<< HEAD
         <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
           <collectionProp name="Asserion.test_strings">
             <stringProp name="-1867169789">success</stringProp>
@@ -419,6 +490,8 @@ vars.put(&quot;status&quot;,status);</stringProp>
           <intProp name="Assertion.test_type">2</intProp>
         </ResponseAssertion>
         <hashTree/>
+=======
+>>>>>>> fcf817815d46d09f13ca53d148cbe8afa6078f0b
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
@@ -453,10 +526,60 @@ vars.put(&quot;status&quot;,status);</stringProp>
             </value>
           </objProp>
           <stringProp name="filename"></stringProp>
+<<<<<<< HEAD
           <stringProp name="TestPlan.comments">{&quot;flag&quot;:&quot;failure&quot;,&quot;message&quot;:&quot;OP系统找不到对应的预申报单:CUSHPPRE171206000001&quot;}</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
+=======
+          <stringProp name="TestPlan.comments">{&quot;flag&quot;:&quot;failure&quot;,&quot;message&quot;:&quot;OP系统找不到对应的预申报单:CUSTDD1710230000004&quot;}</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+        <stringProp name="dataSource">oracleIP120</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="dbUrl">jdbc:mysql://192.168.0.120:3306/config</stringProp>
+        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+        <stringProp name="username">root</stringProp>
+        <stringProp name="password">root</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+        <stringProp name="dataSource">oracleIP120</stringProp>
+        <stringProp name="query">select ccode from ccode </stringProp>
+        <stringProp name="queryArguments"></stringProp>
+        <stringProp name="queryArgumentsTypes"></stringProp>
+        <stringProp name="queryTimeout">3</stringProp>
+        <stringProp name="queryType">Select Statement</stringProp>
+        <stringProp name="resultSetHandler">Store as String</stringProp>
+        <stringProp name="resultVariable"></stringProp>
+        <stringProp name="variableNames"></stringProp>
+      </JDBCSampler>
+      <hashTree>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="49">1</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">16</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+      </hashTree>
+>>>>>>> fcf817815d46d09f13ca53d148cbe8afa6078f0b
     </hashTree>
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
       <boolProp name="WorkBench.save">true</boolProp>
