@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ROOT>
+    <Head>
+        <MessageID>20170620185300091</MessageID>
+        <MessageType>661101</MessageType>
+        <Sender>广州唯品会信息科技有限公司</Sender>
+        <Receiver>卓志</Receiver>
+        <SendTime>20170620185300</SendTime>
+        <FunctionCode>01</FunctionCode>
+        <Version>1.0</Version>
+    </Head>
+    <Body>
+        <Custebtrade>
+            <Record>
+                <EntInsideNo>1236636999</EntInsideNo>
+                <WayBillNo>111</WayBillNo>
+                <CustomsCode>5165</CustomsCode>
+                <Ciqbcode>000069</Ciqbcode>
+                <StationCode>0003</StationCode>
+                <Electriccode>1000001336 </Electriccode>
+                <Cbepcomcode>0000010</Cbepcomcode>
+                <Logisticscode>0000178</Logisticscode>
+                <OrderStatus>S</OrderStatus>
+                <OrdExcStatus>10</OrdExcStatus>
+                <ForSellComp>222</ForSellComp>
+                <ForSellCompname>222</ForSellCompname>
+                <Tradeunitcode>333</Tradeunitcode>
+                <Tradeunitname>333</Tradeunitname>
+                <Shipperncode>156</Shipperncode>
+                <ReceiveName>李玲玲</ReceiveName>
+                <ReceiveAddr>四川省 宜宾市 翠屏区 南岸街道 四川省宜宾市翠屏区南岸梦想和居16栋2单元1402号</ReceiveAddr>
+                <ReceiveNo>511502198111141269</ReceiveNo>
+                <ReceivePhone>13990956098</ReceivePhone>
+                <RecipientCityCode>四川省 宜宾市 翠屏区 南岸街道</RecipientCityCode>
+                <Fcode>CNY</Fcode>
+                <FreightFcy>0.0</FreightFcy>
+                <FreightFcode>CNY</FreightFcode>
+                <TaxFcy>0.0</TaxFcy>
+                <TaxFcode>CNY</TaxFcode>
+                <DrDate>2017-06-20 17:34:31</DrDate>
+                <PayDate>2017-06-20 17:34:31</PayDate>
+                <ShipDate>2017-06-20 17:34:31</ShipDate>
+                <InputDate>2017-06-20 17:34:31</InputDate>
+                <Nots>1706201702|自建档期</Nots>
+                <PayNots>444</PayNots>
+                <LogNots>555</LogNots>
+                <OrderType>2</OrderType>
+                <CustomerId>0000010</CustomerId>
+                <ShipperName>唯品会</ShipperName>
+                <ShipperAddress>广东省佛山市顺德区陈村镇石洲村委国通大道唯品会物流中心43-48号门,顾客退货服务部收，邮编528313</ShipperAddress>
+                <ShipperPhone>4006789888</ShipperPhone>
+                <InsurCurr>CNY</InsurCurr>
+                <InsurRate>0</InsurRate>
+                <InsurMark></InsurMark>
+                <OtherCurr>CNY</OtherCurr>
+                <OtherRate>0</OtherRate>
+                <OtherMark></OtherMark>
+                <OtherPaymentCurr>CNY</OtherPaymentCurr>
+                <OtherPayment>666</OtherPayment>
+                <BusiMode>10</BusiMode>
+                <Blno>777</Blno>
+                <Trans>8</Trans>
+                <TransNo>888</TransNo>
+                <ChangeFlag>0</ChangeFlag>
+                <Custebtradeg>
+                    <Record>
+                        <EntGoodsNo>1</EntGoodsNo>
+                        <BatchNo>999</BatchNo>
+                        <EPortGoodsNo>LT1707181</EPortGoodsNo>
+                        <CiqGoodsNo>1111</CiqGoodsNo>
+                        <CopGName>【蓝胖子】澳洲Maxigenes美可卓全脂奶粉 1000g</CopGName>
+                        <Qty>2</Qty>
+                        <DecPrice>100.98</DecPrice>
+                        <PrintUpric>113</PrintUpric>
+                        <DecTotal>201.96</DecTotal>
+                        <CustGoodsNo>10069988</CustGoodsNo>
+                        <Nots>3333</Nots>
+                        <HsCode>0402290000</HsCode>
+                        <Assemcountry>601</Assemcountry>
+                        <Qtyunit>122</Qtyunit>
+                        <Spec>1000g/罐</Spec>
+                    </Record>
+					<Record>
+                        <EntGoodsNo>2</EntGoodsNo>
+                        <BatchNo>101010</BatchNo>
+                        <EPortGoodsNo>LT1707182</EPortGoodsNo>
+                        <CiqGoodsNo>2222</CiqGoodsNo>
+                        <CopGName>美赞臣三段奶粉 1000g</CopGName>
+                        <Qty>2</Qty>
+                        <DecPrice>100.98</DecPrice>
+                        <PrintUpric>113</PrintUpric>
+                        <DecTotal>201.96</DecTotal>
+                        <CustGoodsNo>10069988</CustGoodsNo>
+                        <Nots>4444</Nots>
+                        <HsCode>0402290000</HsCode>
+                        <Assemcountry>601</Assemcountry>
+                        <Qtyunit>122</Qtyunit>
+                        <Spec>1000g/罐</Spec>
+                    </Record>
+                </Custebtradeg>
+                <wms_storecode>VIP_GZNS</wms_storecode>
+                <BuyerName>李玲玲</BuyerName>
+                <BuyerIdType>1</BuyerIdType>
+                <BuyerIdNumber>511502198111141269</BuyerIdNumber>
+                <BuyerTelephone>13990956098</BuyerTelephone>
+                <GrossWeight>2.6</GrossWeight>
+                <NetWeight>2</NetWeight>
+                <TradeMode>1</TradeMode>
+                <CustomsType>1</CustomsType>
+            </Record>
+        </Custebtrade>
+    </Body>
+</ROOT>
