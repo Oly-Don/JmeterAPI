@@ -77,11 +77,11 @@
               force="true"
               in="${jmeter.result.jtlName}"
               out="${jmeter.result.htmlName}"
-              style="${jmeter.home}/extras/jmeter.results.shanhe.me.xsl">
+              style="${jmeter.home}/extras/jmeter-results-detail-report_21_TPS_90%_Received_OK.xsl">
 			<param name="showData" expression="${show-data}"/>
             <param name="titleReport" expression="${report.title}"/>
             <param name="dateReport" expression="${report.datestamp}"/>
-            <!-- 因为上面生成报告的时候，不会将相关的图片也一起拷贝至目标目录，所以，需要手动拷贝 -->
+            <!-- 因为上面生成报告的时候，不会将相关的图片也一起拷贝至目标目录，所以，需要手动拷贝jmeter.results.shanhe.me.xsl  jmeter-results-detail-report_21_TPS_90%_Received_OK-->
         </xslt>
         <copy todir="${jmeter.result.html.dir}">
             <fileset dir="${jmeter.home}/extras">
@@ -119,6 +119,7 @@
 			<property name="jmeter.save.saveservice.response_data.on_error" value="${funcMode}"/>
         </jmeter>
     </target>
+	
 	
 	<target name="report">
 		<echo>Report generated at ${report.datestamp}</echo>
