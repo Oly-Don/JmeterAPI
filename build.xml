@@ -33,8 +33,6 @@
 	<target name="mkdir">
 	<!--mkdir创建目录任务-->
         <echo message="****************Make Dir*******************"/>
-		<delete file="${jmeter.result.jtlName}"/>
-		<delete file="${jmeter.result.htmlName}"/>
 		<mkdir dir="${jmeter.result.dir}"/>
 	</target>	
 		
@@ -48,7 +46,6 @@
     </target>
 
     <target name="report">
-
         <echo message="****************Run Report*******************"/>
         <tstamp>
             <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
