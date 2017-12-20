@@ -34,6 +34,7 @@
 	<!--mkdir创建目录任务-->
         <echo message="****************Make Dir*******************"/>
 		<delete dir="${jmeter.result.dir}"/>
+		<mkdir dir="${jmeter.result.dir}"/>
 	</target>	
 		
     <target name="run">
