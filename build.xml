@@ -6,7 +6,7 @@
     </tstamp>
     <property name="basedirectory" value="."/>
 
-    <property name="jmeter.home" value="./apache-jmeter-3.3"/>
+    <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3"/>
 
     <property name="jmeter.result.jtl.dir" value="${basedirectory}/res"/>
 
@@ -14,9 +14,8 @@
 
     <property name="test" value="ANT_REPORT"/>
    
-    <property name="ReportName" value="TestReport"/>
-    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${test}.jtl"/>
-    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${test}.html"/>
+    <property name="jmeter.result.jtlName" value="${basedirectory}/res/${test}.jtl"/>
+    <property name="jmeter.result.htmlName" value="${basedirectory}/res/${test}.html"/>
 
     <path id="xslt.classpath">
         <fileset dir="${jmeter.home}/lib" includes="xalan*.jar"/>
@@ -25,9 +24,9 @@
 
     <target name="run">
         <echo message="****************Runing*******************"/>
-        <echo message="%ANT_VERSION%"/>
-        <echo message="****************Make Dir*******************"/>
+        <echo message="****************Make Dir ${jmeter.result.html.dir}*******************"/>
         <mkdir dir="${jmeter.result.html.dir}"/>
+		<echo message="****************Make Dir ${jmeter.result.jtl.dir}*******************"/>
         <mkdir dir="${jmeter.result.jtl.dir}"/>
         <antcall target="test"/>
         <antcall target="report"/>
@@ -36,7 +35,7 @@
         <echo message="****************Run Test*******************"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-                      <testplans dir="${basedirectory}/api/testcase" includes="**/*.jmx"/>
+               <testplans dir="${basedirectory}/api/testcase/" includes="**/*.jmx"/>
         </jmeter>
     </target>
 
