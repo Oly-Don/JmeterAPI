@@ -21,9 +21,9 @@
         <antcall target="report" />
     </target>
     <target name="delfile">
-        <delete dir="${jmeter.result.html.dir}"/>
+        <!--delete dir="${jmeter.result.html.dir}"/-->
         <mkdir dir="${jmeter.result.html.dir}"/>
-        <delete dir="${jmeter.result.jtl.dir}"/>
+        <!--delete dir="${jmeter.result.jtl.dir}"/-->
         <mkdir dir="${jmeter.result.jtl.dir}"/>
     </target>
     <target name="test">
