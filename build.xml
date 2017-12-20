@@ -33,7 +33,7 @@
 	<target name="mkdir">
 	<!--mkdir创建目录任务-->
         <echo message="****************Make Dir*******************"/>
-		<mkfile dir="${jmeter.result.dir}"/>
+		<mkdir dir="${jmeter.result.dir}"/>
 	</target>	
 		
     <target name="run">
