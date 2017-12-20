@@ -7,9 +7,9 @@
     <!-- 需要改成自己本地的jmeter目录-->  
     <property name="jmeter.home" value="./apache-jmeter-3.3" />
     <!-- jmeter生成的jtl格式的结果报告的路径--> 
-    <property name="jmeter.result.jtl.dir" value="./api/res/jti" />
+    <property name="jmeter.result.jtl.dir" value="./api/resnew/" />
     <!-- jmeter生成的html格式的结果报告的路径-->
-    <property name="jmeter.result.html.dir" value="./api/res/html" />
+    <property name="jmeter.result.html.dir" value="./api/resnew/" />
     <!-- ʺ生成的报告的前缀-->  
     <property name="ReportName" value="TestReport" />
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}.jtl" />
@@ -21,10 +21,8 @@
         <antcall target="report" />
     </target>
     <target name="delfile">
-        <!--delete dir="${jmeter.result.html.dir}"/-->
+        <delete dir="${jmeter.result.html.dir}"/>
         <mkdir dir="${jmeter.result.html.dir}"/>
-        <!--delete dir="${jmeter.result.jtl.dir}"/-->
-        <mkdir dir="${jmeter.result.jtl.dir}"/>
     </target>
     <target name="test">
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask" />

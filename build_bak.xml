@@ -41,14 +41,15 @@
     </description>
     
     <property name="testpath" value="${basedir}/api/testcase"/>
+	<property name="reportpath" value="${basedir}/api/res"/>
     <property name="jmeter.home" value="${basedir}/apache-jmeter-3.3"/>
     <property name="report.title" value="Load Test Results"/>
     
     <!-- Name of test (without .jmx) -->
-    <property name="test" value="**/**"/>
+    <property name="test" value="**/*"/>
     
     <!-- Should report include response data for failures? -->
-    <property name="show-data" value="n"/>
+    <property name="show-data" value="Y"/>
 
     <property name="format" value="2.1"/>
     
@@ -82,18 +83,18 @@
 
     <target name="all">
         <echo>funcMode = ${funcMode}</echo>
-        <delete file="${testpath}/${test}.html"/>
+		<delete dir="${reportpath}"/>
+		<mkdir dir="${reportpath}"/>
         <jmeter
             jmeterhome="${jmeter.home}"
             testplan ="${testpath}/${test}.jmx"
-            resultlog="${testpath}/${test}.jtl">
+            resultlog="${reportpath}/${test}.jtl">
         <!--
             <jvmarg value="-Xincgc"/>
             <jvmarg value="-Xmx128m"/>
             <jvmarg value="-Dproperty=value"/>
             <jmeterarg value="-qextra.properties"/>
         -->
-
 			<!--add by tyd-->
 			<!-- Force suitable defaults -->
 			<property name="jmeter.save.saveservice.response_data" value="true"/>
@@ -123,17 +124,15 @@
         <fileset dir="${lib.dir}" includes="serializer*.jar"/>
     </path>
 
-    <target name="report" depends="xslt-report,copy-images">
-        <echo>Report generated at ${report.datestamp}</echo>
-    </target>
+    <target name="report" depends="xslt-report,copy-images"/>
 
     <target name="xslt-report" depends="_message_xalan">
         <tstamp><format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/></tstamp>
         <xslt
             classpathref="xslt.classpath"
             force="true"
-            in="${testpath}/${test}.jtl"
-            out="${testpath}/${test}.html"
+            in="${reportpath}/${test}.jtl"
+            out="${reportpath}/${test}.html"
 			style="${basedir}/jmeter-results-shanhe-me.xsl">
             <param name="showData" expression="${show-data}"/>
             <param name="titleReport" expression="${report.title}"/>
@@ -145,6 +144,7 @@
     <target name="copy-images" depends="verify-images" unless="samepath">
         <copy file="${basedir}/expand.png" tofile="${testpath}/expand.png"/>
         <copy file="${basedir}/collapse.png" tofile="${testpath}/collapse.png"/>
+		<echo>Report generated at ${report.datestamp}</echo>
     </target>
 
     <target name="verify-images">
