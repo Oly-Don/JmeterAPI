@@ -33,7 +33,7 @@
 	<target name="mkdir">
 	<!--mkdir创建目录任务-->
         <echo message="****************Make Dir*******************"/>
-		<delete file="${jmeter.result.dir}/**.*"/>
+		<delete dir="${jmeter.result.dir}"/>
 	</target>	
 		
     <target name="run">
@@ -51,12 +51,12 @@
         <tstamp>
             <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
         </tstamp>
-        <echo message="****************Run xslt*******************"/>
+        <echo message="****************Run xslt *******************"/><!-- jmeter-results-detail-report_21 -->
         <xslt classpathref="xslt.classpath"
               force="true"
               in="${jmeter.result.jtlName}"
               out="${jmeter.result.htmlName}"
-              style="${jmeter.home}/extras/jmeter-results-detail-report_21.xsl">
+              style="${jmeter.home}/extras/jmeter.results.shanhe.me.xsl">
             <param name="dateReport" expression="${report.datestamp}"/>
         </xslt>
         <copy todir="${jmeter.result.dir}">
