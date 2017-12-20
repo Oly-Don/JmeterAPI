@@ -80,7 +80,7 @@
     
     <target name="all" depends="run,report"/>
 
-    <target name="run">
+    <target name="all">
         <echo>funcMode = ${funcMode}</echo>
         <delete file="${testpath}/${test}.html"/>
         <jmeter
