@@ -7,13 +7,13 @@
     <!-- 需要改成自己本地的jmeter目录-->  
     <property name="jmeter.home" value="./apache-jmeter-3.3" />
     <!-- jmeter生成的jtl格式的结果报告的路径--> 
-    <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res/jti" />
+    <property name="jmeter.result.jtl.dir" value="./api/res/jti" />
     <!-- jmeter生成的html格式的结果报告的路径-->
-    <property name="jmeter.result.html.dir" value="${basedirectory}/api/res/html" />
+    <property name="jmeter.result.html.dir" value="./api/res/html" />
     <!-- ʺ生成的报告的前缀-->  
     <property name="ReportName" value="TestReport" />
-    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}${time}.jtl" />
-    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}${time}.html" />
+    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}.jtl" />
+    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}.html" />
 
     <target name="all">
 		<antcall target="delfile" />
