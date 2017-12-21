@@ -8,7 +8,7 @@
     <!-- 本地存放报告的路径-->
     <property name="basedirectory" value="."/>
     <!-- 本地存放脚本的路径-->
-    <property name="scriptdirectory" value="${basedirectory}"/>
+    <property name="scriptdirectory" value="${basedirectory}/api/testcase"/>
     <!-- 需要改成自己本地的 Jmeter 目录-->
     <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
     <!-- jmeter生成jtl格式的结果报告的路径-->
@@ -19,8 +19,8 @@
     <property name="test" value="**/*"/>
     <!-- 生成的报告的前缀-->
     <property name="ReportName" value="TestReport"/>
-    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${test}.jtl"/>
-    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${test}.html"/>
+    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}.jtl"/>
+    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}.html"/>
 
     <path id="xslt.classpath">
         <fileset dir="${jmeter.home}/lib" includes="xalan*.jar"/>
