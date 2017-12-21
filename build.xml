@@ -28,13 +28,23 @@
     </path>
 
     <target name="run">
+        <antcall    target="init"/>
         <antcall target="test"/>
         <antcall target="report"/>
     </target>
 
+    <target name="init">
+    <echo message="test start vari: ${test}"/>
+        <echo message="base dir :${basedirectory}"/>
+        <echo message="jmeter.home :${jmeter.home}"/>
+        <echo message="jmeter.result.jtl.dir :${jmeter.result.jtl.dir}"/>
+        <echo message="jmeter.result.jtlName :${jmeter.result.jtlName}"/>
+        <echo message="jmeter.result.htmlName :${jmeter.result.htmlName}"/>
+    </target>
+
+
     <target name="test">
-        <echo message="test start vari: ${test}"/>
-        <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+           <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
             <!-- 声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本-->
             <testplans dir="${scriptdirectory}" includes="**/*.jmx"/>
