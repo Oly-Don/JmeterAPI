@@ -8,9 +8,9 @@
   <!-- 本地存放报告的路径-->
   <property name="basedirectory" value="." />
   <!-- 本地存放脚本的路径-->
-  <property name="scriptdirectory" value="$${basedirectory}/api/testcase" />
+  <property name="scriptdirectory" value="${basedirectory}/api/testcase" />
   <!-- 需要改成自己本地的 Jmeter 目录-->
-  <property name="jmeter.home" value="{basedirectory}/apache-jmeter-3.3" />
+  <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/" />
   <!-- jmeter生成jtl格式的结果报告的路径-->
   <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res" />
   <!-- jmeter生成html格式的结果报告的路径-->
@@ -34,7 +34,6 @@
 
   <target name="test">
     <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask" />
-
     <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
       <!-- 声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本-->
       <testplans dir="${scriptdirectory}" includes="**/*.jmx" />
