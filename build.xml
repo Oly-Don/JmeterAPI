@@ -1,43 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ant-jmeter-test" default="run" basedir=".">
-    <!-- ÐèÒª¸Ä³É×Ô¼º±¾µØµÄ Jmeter Ä¿Â¼-->
+    <!-- éœ€è¦æ”¹æˆè‡ªå·±æœ¬åœ°çš„ Jmeter ç›®å½•-->
     <property name="jmeter.home" value="./apache-jmeter-3.3"/>
-    <!-- jmeterÉú³Éjtl¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
+    <!-- jmeterç”Ÿæˆjtlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
     <property name="jmeter.result.jtl.dir" value="./res/jtl"/>
-    <!-- jmeterÉú³Éhtml¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
+    <!-- jmeterç”Ÿæˆhtmlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
     <property name="jmeter.result.html.dir" value="./res/html"/>
-    <!-- Éú³ÉµÄ±¨¸æµÄÇ°×º-->
-    <property name="ReportName" value="TestReport"/>
+    <!-- ç”Ÿæˆçš„æŠ¥å‘Šçš„å‰ç¼€-->
+    <property name="report.title" value="JMETER JENKINS LOAD REPORT"/>
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/report.jtl"/>
     <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/index.html"/>
     <property name="lib.dir" value="${jmeter.home}/lib"/>
 
+	
+	    <!-- Should report include response data for failures? -->
+    <property name="show-data" value="n"/>
+
+    <property name="format" value="2.1"/>
+    
+    <condition property="style_version" value="_21">
+        <equals arg1="${format}" arg2="2.1"/>
+    </condition>
+
+    <condition property="funcMode">
+        <equals arg1="${show-data}" arg2="y"/>
+    </condition>
+    
+    <condition property="funcMode" value="true">
+      <not>
+        <equals arg1="${show-data}" arg2="y"/>
+      </not>
+    </condition>
+	
+	
     <path id="xslt.classpath">
         <fileset dir="${lib.dir}" includes="xalan*.jar"/>
         <fileset dir="${lib.dir}" includes="serializer*.jar"/>
     </path>
 
-    <target name="all">
-        <antcall target="test"/>
-        <antcall target="report"/>
+    <target name="new">
+        <antcall target="runbynew"/>
+        <antcall target="reportbynew"/>
     </target>
 
-    <target name="test">
+    <target name="runbynew">
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="${jmeter.result.jtl.dir}/**.*"/>
+		<delete file="${jmeter.result.html.dir}/**.*"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-            <!-- ÉùÃ÷ÒªÔËÐÐµÄ½Å±¾¡£"*.jmx"Ö¸°üº¬´ËÄ¿Â¼ÏÂµÄËùÓÐjmeter½Å±¾-->
-            <testplans dir="./api/testcase" includes="**/*.jmx"/>
+            <!-- å£°æ˜Žè¦è¿è¡Œçš„è„šæœ¬ã€‚"*.jmx"æŒ‡åŒ…å«æ­¤ç›®å½•ä¸‹çš„æ‰€æœ‰jmeterè„šæœ¬-->
+            <testplans dir="./api" includes="**/*.jmx"/>
             <property name="jmeter.save.saveservice.output_format" value="xml"/>
+			<property name="jmeter.save.saveservice.response_data" value="true"/>
+			<property name="jmeter.save.saveservice.samplerData" value="true"/>
+			<property name="jmeter.save.saveservice.responseHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.requestHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.encoding" value="true"/>
+			<property name="jmeter.save.saveservice.url" value="true"/>
+			<property name="jmeter.save.saveservice.filename" value="true"/>
+			<property name="jmeter.save.saveservice.hostname" value="true"/>
+			<property name="jmeter.save.saveservice.thread_counts" value="true"/>
+			<property name="jmeter.save.saveservice.sample_count" value="true"/>
+			<property name="jmeter.save.saveservice.idle_time" value="true"/>
+			<property name="jmeter.save.saveservice.assertion_results" value="all"/>
+			<property name="jmeter.save.saveservice.bytes" value="true"/>
+			<property name="file_format.testlog" value="${format}"/>
+			<property name="jmeter.save.saveservice.response_data.on_error" value="${funcMode}"/>
         </jmeter>
     </target>
 
-    <target name="report">
+    <target name="reportbynew">
+		<echo>Report generated at ${report.datestamp}</echo>
+		<tstamp><format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/></tstamp>
+        <xslt classpathref="xslt.classpath"
+              force="true"
+              in="${jmeter.result.jtlName}"
+              out="${jmeter.result.htmlName}"
+              style="${jmeter.home}/extras/jmeter-results-detail-report_21_TPS_90%_Received_OK.xsl">
+			<param name="showData" expression="${show-data}"/>
+            <param name="titleReport" expression="${report.title}"/>
+            <param name="dateReport" expression="${report.datestamp}"/>
+            <!-- å› ä¸ºä¸Šé¢ç”ŸæˆæŠ¥å‘Šçš„æ—¶å€™ï¼Œä¸ä¼šå°†ç›¸å…³çš„å›¾ç‰‡ä¹Ÿä¸€èµ·æ‹·è´è‡³ç›®æ ‡ç›®å½•ï¼Œæ‰€ä»¥ï¼Œéœ€è¦æ‰‹åŠ¨æ‹·è´jmeter.results.shanhe.me.xsl  jmeter-results-detail-report_21_TPS_90%_Received_OK-->
+        </xslt>
+        <copy todir="${jmeter.result.html.dir}">
+            <fileset dir="${jmeter.home}/extras">
+                <include name="collapse.png"/>
+                <include name="expand.png"/>
+            </fileset>
+        </copy>
+    </target>
+	
+	
+	<target name="old">
+        <antcall target="run"/>
+        <antcall target="report"/>
+    </target>
+	    <target name="run">
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="${jmeter.result.jtl.dir}/**.*"/>
+		<delete file="${jmeter.result.html.dir}/**.*"/>
+        <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+        <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
+            <!-- å£°æ˜Žè¦è¿è¡Œçš„è„šæœ¬ã€‚"*.jmx"æŒ‡åŒ…å«æ­¤ç›®å½•ä¸‹çš„æ‰€æœ‰jmeterè„šæœ¬-->
+            <testplans dir="./api" includes="**/*.jmx"/>
+            <property name="jmeter.save.saveservice.output_format" value="xml"/>
+			<property name="jmeter.save.saveservice.response_data" value="true"/>
+			<property name="jmeter.save.saveservice.samplerData" value="true"/>
+			<property name="jmeter.save.saveservice.responseHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.requestHeaders" value="true"/>
+			<property name="jmeter.save.saveservice.encoding" value="true"/>
+			<property name="jmeter.save.saveservice.url" value="true"/>
+			<property name="jmeter.save.saveservice.filename" value="true"/>
+			<property name="jmeter.save.saveservice.hostname" value="true"/>
+			<property name="jmeter.save.saveservice.sample_count" value="true"/>
+			<property name="jmeter.save.saveservice.idle_time" value="true"/>
+			<property name="jmeter.save.saveservice.assertion_results" value="all"/>
+			<property name="jmeter.save.saveservice.response_data.on_error" value="${funcMode}"/>
+        </jmeter>
+    </target>
+	
+	
+	<target name="report">
+		<echo>Report generated at ${report.datestamp}</echo>
+		<tstamp><format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/></tstamp>
         <xslt classpathref="xslt.classpath"
               force="true"
               in="${jmeter.result.jtlName}"
               out="${jmeter.result.htmlName}"
               style="${jmeter.home}/extras/jmeter-results-detail-report_21.xsl">
-            <!-- ÒòÎªÉÏÃæÉú³É±¨¸æµÄÊ±ºò£¬²»»á½«Ïà¹ØµÄÍ¼Æ¬Ò²Ò»Æð¿½±´ÖÁÄ¿±êÄ¿Â¼£¬ËùÒÔ£¬ÐèÒªÊÖ¶¯¿½±´ -->
+			<param name="showData" expression="${show-data}"/>
+            <param name="titleReport" expression="${report.title}"/>
+            <param name="dateReport" expression="${report.datestamp}"/>
+            <!-- å› ä¸ºä¸Šé¢ç”ŸæˆæŠ¥å‘Šçš„æ—¶å€™ï¼Œä¸ä¼šå°†ç›¸å…³çš„å›¾ç‰‡ä¹Ÿä¸€èµ·æ‹·è´è‡³ç›®æ ‡ç›®å½•ï¼Œæ‰€ä»¥ï¼Œéœ€è¦æ‰‹åŠ¨æ‹·è´ -->
         </xslt>
         <copy todir="${jmeter.result.html.dir}">
             <fileset dir="${jmeter.home}/extras">
