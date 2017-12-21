@@ -43,7 +43,7 @@
     </target>
 
     <target name="report"> <echo message="report start"/>
-
+        <echo message="report start"/>
         <tstamp>
             <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
         </tstamp>
@@ -60,7 +60,7 @@
                 <include name="expand.png"/>
             </fileset>
         </copy>
-        <echo message="report start"/>
+        <echo message="report end"/>
     </target>
 
 </project>
