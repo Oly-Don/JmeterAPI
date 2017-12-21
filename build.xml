@@ -33,7 +33,7 @@
     </target>
 
     <target name="test">
-        <echo message="test start"/>
+        <echo message="test start vari: ${test}"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
             <!-- 声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本-->
