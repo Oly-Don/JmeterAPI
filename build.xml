@@ -46,7 +46,7 @@
           force="true"
           in="${jmeter.result.jtlName}"
           out="${jmeter.result.htmlName}"
-          style="${basedirectory}/jmeter-results-detail-report_21.xsl">
+          style="${jmeter.home}/extras/jmeter-results-detail-report_21.xsl">
       <param name="dateReport" expression="${report.datestamp}"/>
     </xslt>
     <copy todir="${jmeter.result.html.dir}">
