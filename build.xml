@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="GBK"?>
 
 <project name="ant-jmeter-test" default="run" basedir=".">
 
     <tstamp>
         <format property="time" pattern="yyyyMMddHHmm"/>
     </tstamp>
-    <!-- æœ¬åœ°å­˜æ”¾æŠ¥å‘Šçš„è·¯å¾„-->
+    <!-- ±¾µØ´æ·Å±¨¸æµÄÂ·¾¶-->
     <property name="basedirectory" value="."/>
-    <!-- æœ¬åœ°å­˜æ”¾è„šæœ¬çš„è·¯å¾„-->
+    <!-- ±¾µØ´æ·Å½Å±¾µÄÂ·¾¶-->
     <property name="scriptdirectory" value="${basedirectory}"/>
-    <!-- éœ€è¦æ”¹æˆè‡ªå·±æœ¬åœ°çš„ Jmeter ç›®å½•-->
+    <!-- ÐèÒª¸Ä³É×Ô¼º±¾µØµÄ Jmeter Ä¿Â¼-->
     <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
-    <!-- jmeterç”Ÿæˆjtlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
+    <!-- jmeterÉú³Éjtl¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
     <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res"/>
-    <!-- jmeterç”Ÿæˆhtmlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
+    <!-- jmeterÉú³Éhtml¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
     <property name="jmeter.result.html.dir" value="${basedirectory}/api/res"/>
     <!-- Name of test (without .jmx) -->
     <property name="test" value="JMETERTEST"/>
-    <!-- ç”Ÿæˆçš„æŠ¥å‘Šçš„å‰ç¼€-->
+    <!-- Éú³ÉµÄ±¨¸æµÄÇ°×º-->
     <property name="ReportName" value="TestReport"/>
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${test}.jtl"/>
     <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${test}.html"/>
@@ -36,7 +36,7 @@
         <echo message="test start vari: ${test}"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-            <!-- å£°æ˜Žè¦è¿è¡Œçš„è„šæœ¬ã€‚"*.jmx"æŒ‡åŒ…å«æ­¤ç›®å½•ä¸‹çš„æ‰€æœ‰jmeterè„šæœ¬-->
+            <!-- ÉùÃ÷ÒªÔËÐÐµÄ½Å±¾¡£"*.jmx"Ö¸°üº¬´ËÄ¿Â¼ÏÂµÄËùÓÐjmeter½Å±¾-->
             <testplans dir="${scriptdirectory}" includes="${test}.jmx"/>
         </jmeter>
         <echo message="test end"/>
