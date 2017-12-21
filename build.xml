@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <project name="ant-jmeter-test" default="run" basedir=".">
 
     <tstamp>
         <format property="time" pattern="yyyyMMddHHmm"/>
     </tstamp>
-    <!-- ±¾µØ´æ·Å±¨¸æµÄÂ·¾¶-->
+    <!-- æœ¬åœ°å­˜æ”¾æŠ¥å‘Šçš„è·¯å¾„-->
     <property name="basedirectory" value="."/>
-    <!-- ±¾µØ´æ·Å½Å±¾µÄÂ·¾¶-->
+    <!-- æœ¬åœ°å­˜æ”¾è„šæœ¬çš„è·¯å¾„-->
     <property name="scriptdirectory" value="${basedirectory}"/>
-    <!-- ÐèÒª¸Ä³É×Ô¼º±¾µØµÄ Jmeter Ä¿Â¼-->
+    <!-- éœ€è¦æ”¹æˆè‡ªå·±æœ¬åœ°çš„ Jmeter ç›®å½•-->
     <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
-    <!-- jmeterÉú³Éjtl¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
+    <!-- jmeterç”Ÿæˆjtlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
     <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res"/>
-    <!-- jmeterÉú³Éhtml¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
+    <!-- jmeterç”Ÿæˆhtmlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
     <property name="jmeter.result.html.dir" value="${basedirectory}/api/res"/>
     <!-- Name of test (without .jmx) -->
     <property name="test" value="JMETERTEST"/>
-    <!-- Éú³ÉµÄ±¨¸æµÄÇ°×º-->
+    <!-- ç”Ÿæˆçš„æŠ¥å‘Šçš„å‰ç¼€-->
     <property name="ReportName" value="TestReport"/>
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${test}.jtl"/>
     <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${test}.html"/>
@@ -36,8 +36,8 @@
         <echo message="test start vari: ${test}"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-            <!-- ÉùÃ÷ÒªÔËÐÐµÄ½Å±¾¡£"*.jmx"Ö¸°üº¬´ËÄ¿Â¼ÏÂµÄËùÓÐjmeter½Å±¾-->
-            <testplans dir="${scriptdirectory}" includes="${test}.jmx"/>
+            <!-- å£°æ˜Žè¦è¿è¡Œçš„è„šæœ¬ã€‚"*.jmx"æŒ‡åŒ…å«æ­¤ç›®å½•ä¸‹çš„æ‰€æœ‰jmeterè„šæœ¬-->
+            <testplans dir="${scriptdirectory}" includes="**/*.jmx"/>
         </jmeter>
         <echo message="test end"/>
     </target>
