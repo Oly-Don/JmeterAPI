@@ -14,7 +14,7 @@
   <!-- jmeter生成jtl格式的结果报告的路径-->
   <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res" />
   <!-- jmeter生成html格式的结果报告的路径-->
-  <property name="jmeter.result.html.dir" value="${basedirectory}/api/res />
+  <property name="jmeter.result.html.dir" value="${basedirectory}/api/res" />
   <!-- Name of test (without .jmx) -->
   <property name="test" value="Test"/>
   <!-- 生成的报告的前缀-->
