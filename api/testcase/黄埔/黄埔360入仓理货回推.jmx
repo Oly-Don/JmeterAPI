@@ -40,7 +40,7 @@
             </elementProp>
             <elementProp name="head" elementType="Argument">
               <stringProp name="Argument.name">head</stringProp>
-              <stringProp name="Argument.value">WMS_360_02</stringProp>
+              <stringProp name="Argument.value">WMS_360_01</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="SQLSTATUS" elementType="Argument">
@@ -50,17 +50,17 @@
             </elementProp>
             <elementProp name="opg" elementType="Argument">
               <stringProp name="Argument.name">opg</stringProp>
-              <stringProp name="Argument.value">OPG161214000007</stringProp>
+              <stringProp name="Argument.value">OPG171106000002</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="ccode" elementType="Argument">
               <stringProp name="Argument.name">ccode</stringProp>
-              <stringProp name="Argument.value">1000000454</stringProp>
+              <stringProp name="Argument.value">1000823</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="custentryslcode" elementType="Argument">
               <stringProp name="Argument.name">custentryslcode</stringProp>
-              <stringProp name="Argument.value">CUSHPPRE171208000001</stringProp>
+              <stringProp name="Argument.value">CUSTJC1712210000003</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="wms" elementType="Argument">
