@@ -1,43 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project name="ant-jmeter-test" default="run" basedir=".">
-    <!-- ÐèÒª¸Ä³É×Ô¼º±¾µØµÄ Jmeter Ä¿Â¼-->
-    <property name="jmeter.home" value="./apache-jmeter-3.3"/>
-    <!-- jmeterÉú³Éjtl¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
-    <property name="jmeter.result.jtl.dir" value="./res/jtl"/>
-    <!-- jmeterÉú³Éhtml¸ñÊ½µÄ½á¹û±¨¸æµÄÂ·¾¶-->
-    <property name="jmeter.result.html.dir" value="./res/html"/>
-    <!-- Éú³ÉµÄ±¨¸æµÄÇ°×º-->
+
+    <tstamp>
+        <format property="time" pattern="yyyyMMddHHmm"/>
+    </tstamp>
+    <!-- æœ¬åœ°å­˜æ”¾æŠ¥å‘Šçš„è·¯å¾„-->
+    <property name="basedirectory" value="."/>
+    <!-- æœ¬åœ°å­˜æ”¾è„šæœ¬çš„è·¯å¾„-->
+    <property name="scriptdirectory" value="${basedirectory}/api/testcase"/>
+    <!-- éœ€è¦æ”¹æˆè‡ªå·±æœ¬åœ°çš„ Jmeter ç›®å½•-->
+    <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
+    <!-- jmeterç”Ÿæˆjtlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
+    <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res"/>
+    <!-- jmeterç”Ÿæˆhtmlæ ¼å¼çš„ç»“æžœæŠ¥å‘Šçš„è·¯å¾„-->
+    <property name="jmeter.result.html.dir" value="${basedirectory}/api/res"/>
+    <!-- Name of test (without .jmx) -->
+    <property name="test" value="**/*"/>
+    <!-- ç”Ÿæˆçš„æŠ¥å‘Šçš„å‰ç¼€-->
     <property name="ReportName" value="TestReport"/>
-    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/report.jtl"/>
-    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/index.html"/>
-    <property name="lib.dir" value="${jmeter.home}/lib"/>
+    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}.jtl"/>
+    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}.html"/>
 
     <path id="xslt.classpath">
-        <fileset dir="${lib.dir}" includes="xalan*.jar"/>
-        <fileset dir="${lib.dir}" includes="serializer*.jar"/>
+        <fileset dir="${jmeter.home}/lib" includes="xalan*.jar"/>
+        <fileset dir="${jmeter.home}/lib" includes="serializer*.jar"/>
     </path>
 
-    <target name="all">
+    <target name="run">
         <antcall target="test"/>
         <antcall target="report"/>
     </target>
 
     <target name="test">
+        <echo message="test start"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-            <!-- ÉùÃ÷ÒªÔËÐÐµÄ½Å±¾¡£"*.jmx"Ö¸°üº¬´ËÄ¿Â¼ÏÂµÄËùÓÐjmeter½Å±¾-->
-            <testplans dir="./api/testcase" includes="**/*.jmx"/>
-            <property name="jmeter.save.saveservice.output_format" value="xml"/>
+            <!-- å£°æ˜Žè¦è¿è¡Œçš„è„šæœ¬ã€‚"*.jmx"æŒ‡åŒ…å«æ­¤ç›®å½•ä¸‹çš„æ‰€æœ‰jmeterè„šæœ¬-->
+            <testplans dir="${scriptdirectory}" includes="${test}.jmx"/>
         </jmeter>
+        <echo message="test end"/>
     </target>
 
-    <target name="report">
+    <target name="report"> <echo message="report start"/>
+        <echo message="report start"/>
+        <tstamp>
+            <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
+        </tstamp>
         <xslt classpathref="xslt.classpath"
               force="true"
               in="${jmeter.result.jtlName}"
               out="${jmeter.result.htmlName}"
               style="${jmeter.home}/extras/jmeter-results-detail-report_21.xsl">
-            <!-- ÒòÎªÉÏÃæÉú³É±¨¸æµÄÊ±ºò£¬²»»á½«Ïà¹ØµÄÍ¼Æ¬Ò²Ò»Æð¿½±´ÖÁÄ¿±êÄ¿Â¼£¬ËùÒÔ£¬ÐèÒªÊÖ¶¯¿½±´ -->
+            <param name="dateReport" expression="${report.datestamp}"/>
         </xslt>
         <copy todir="${jmeter.result.html.dir}">
             <fileset dir="${jmeter.home}/extras">
@@ -45,6 +60,7 @@
                 <include name="expand.png"/>
             </fileset>
         </copy>
+        <echo message="report end"/>
     </target>
 
 </project>
