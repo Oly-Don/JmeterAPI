@@ -25,7 +25,7 @@
 	and you can then view the JTL in a browser
 -->
 
-<xsl:output method="html" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" />
+<xsl:output method="html" indent="yes" encoding="GBK" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" />
 
 <!-- Defined parameters (overrideable) -->
 <xsl:param    name="showData" select="'n'"/>
