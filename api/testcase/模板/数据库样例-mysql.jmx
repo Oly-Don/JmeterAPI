@@ -11,7 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="jdbc mysqll测试" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="mysqll" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -26,40 +26,10 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="tpl" elementType="Argument">
-              <stringProp name="Argument.name">tpl</stringProp>
-              <stringProp name="Argument.value">1000830</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="gocdeHPBC" elementType="Argument">
-              <stringProp name="Argument.name">gocdeHPBC</stringProp>
-              <stringProp name="Argument.value">HPBC0817S01</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="HPBBCgoce" elementType="Argument">
-              <stringProp name="Argument.name">HPBBCgoce</stringProp>
-              <stringProp name="Argument.value">BBC1214G02</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="changeFlag" elementType="Argument">
-              <stringProp name="Argument.name">changeFlag</stringProp>
-              <stringProp name="Argument.value">0</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="nullgcode" elementType="Argument">
-              <stringProp name="Argument.name">nullgcode</stringProp>
-              <stringProp name="Argument.value">HPBBC08170A01</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
-        <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="mysql" enabled="true"/>
         <hashTree>
           <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
-            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="dataSource">mysqlIP</stringProp>
             <stringProp name="poolMax">10</stringProp>
             <stringProp name="timeout">10000</stringProp>
             <stringProp name="trimInterval">60000</stringProp>
@@ -75,7 +45,7 @@
           </JDBCDataSource>
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--mysql" enabled="true">
-            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="dataSource">mysqlIP</stringProp>
             <stringProp name="query">select ccode from ccode;</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
@@ -129,7 +99,7 @@
           </collectionProp>
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
           <boolProp name="Assertion.assume_success">false</boolProp>
-          <intProp name="Assertion.test_type">16</intProp>
+          <intProp name="Assertion.test_type">20</intProp>
         </ResponseAssertion>
         <hashTree/>
       </hashTree>

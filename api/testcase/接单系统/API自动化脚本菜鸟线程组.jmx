@@ -8,7 +8,7 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath">D:\github\IDE\apache-jmeter-3.3\lib\rt.jar,D:\github\IDE\apache-jmeter-3.3\lib\snakeyaml-1.8.jar</stringProp>
+      <stringProp name="TestPlan.user_define_classpath">D:\github\JmeterAPI\apache-jmeter-3.3\lib\rt.jar,D:\github\JmeterAPI\apache-jmeter-3.3\lib\serializer-2.7.2.jar</stringProp>
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
@@ -111,7 +111,8 @@
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="script">import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import biz.source_code.base64Coder.Base64Coder;
+import java.util.Date;
+import sun.misc.BASE64Encoder;
 
 String orderId=String.valueOf((new Date()).getTime()).trim();
 String body=&quot;&lt;request&gt;&lt;ownerUserId&gt;2635083319&lt;/ownerUserId&gt;&lt;ownerUserName&gt;宝洁海外旗舰店1&lt;/ownerUserName&gt;&lt;storeCode&gt;STORE_11180270&lt;/storeCode&gt;&lt;orderCode&gt;LBXunique&lt;/orderCode&gt;&lt;erpOrderCode&gt;47623444905776984&lt;/erpOrderCode&gt;&lt;orderType&gt;201&lt;/orderType&gt;&lt;userId&gt;2635083319&lt;/userId&gt;&lt;userName&gt;宝洁海外旗舰店&lt;/userName&gt;&lt;orderFlag&gt;22&lt;/orderFlag&gt;&lt;orderSource&gt;201&lt;/orderSource&gt;&lt;orderSourceType&gt;tb&lt;/orderSourceType&gt;&lt;orderCreateTime&gt;2017-08-18 17:05:06&lt;/orderCreateTime&gt;&lt;deliverRequirements&gt;&lt;scheduleArriveTime&gt;2017-08-23 00:00:00&lt;/scheduleArriveTime&gt;&lt;/deliverRequirements&gt;&lt;operationRequireTime&gt;&lt;scheduleStockOutTime&gt;2017-08-19 19:00:00&lt;/scheduleStockOutTime&gt;&lt;/operationRequireTime&gt;&lt;batchSendCtrlParam&gt;&lt;totalOrderItemCount&gt;1&lt;/totalOrderItemCount&gt;&lt;distributeType&gt;0&lt;/distributeType&gt;&lt;/batchSendCtrlParam&gt;&lt;receiverInfo&gt;&lt;receiverZipCode&gt;316000&lt;/receiverZipCode&gt;&lt;receiverCountry&gt;CN&lt;/receiverCountry&gt;&lt;receiverProvince&gt;浙江省&lt;/receiverProvince&gt;&lt;receiverCity&gt;舟山市&lt;/receiverCity&gt;&lt;receiverArea&gt;定海区&lt;/receiverArea&gt;&lt;receiveTown&gt;临城街道&lt;/receiveTown&gt;&lt;receiverAddress&gt;临城东方润园13幢2单元&lt;/receiverAddress&gt;&lt;receiverDivisionId&gt;330902006&lt;/receiverDivisionId&gt;&lt;receiverName&gt;叶晨萌&lt;/receiverName&gt;&lt;receiverMobile&gt;15957064416&lt;/receiverMobile&gt;&lt;/receiverInfo&gt;&lt;senderInfo&gt;&lt;senderZipCode&gt;511458&lt;/senderZipCode&gt;&lt;senderCountry&gt;CN&lt;/senderCountry&gt;&lt;senderProvince&gt;广东省&lt;/senderProvince&gt;&lt;senderCity&gt;广州市&lt;/senderCity&gt;&lt;senderArea&gt;南沙区&lt;/senderArea&gt;&lt;senderAddress&gt;龙穴岛保税物流园区港荣三街”天运南沙多功能国际物流中心“7号仓&lt;/senderAddress&gt;&lt;senderDivisionId&gt;440115&lt;/senderDivisionId&gt;&lt;senderName&gt;客服中心&lt;/senderName&gt;&lt;senderMobile&gt;13068685892&lt;/senderMobile&gt;&lt;senderPhone&gt;020-62262358&lt;/senderPhone&gt;&lt;/senderInfo&gt;&lt;invoiceInfoList/&gt;&lt;orderItemList&gt;&lt;orderItem&gt;&lt;orderItemId&gt;433190002879944508&lt;/orderItemId&gt;&lt;orderSourceCode&gt;47623444905776984&lt;/orderSourceCode&gt;&lt;subSourceCode&gt;47623444905776984&lt;/subSourceCode&gt;&lt;userId&gt;2635083319&lt;/userId&gt;&lt;userName&gt;宝洁海外旗舰店&lt;/userName&gt;&lt;ownerUserId&gt;2635083319&lt;/ownerUserId&gt;&lt;ownerUserName&gt;宝洁海外旗舰店&lt;/ownerUserName&gt;&lt;itemId&gt;536981055449&lt;/itemId&gt;&lt;itemName&gt;佳洁士3D闪耀炫白牙贴密集专效南沙保税&lt;/itemName&gt;&lt;itemCode&gt;80277488&lt;/itemCode&gt;&lt;inventoryType&gt;1&lt;/inventoryType&gt;&lt;itemQuantity&gt;1&lt;/itemQuantity&gt;&lt;actualPrice&gt;16694&lt;/actualPrice&gt;&lt;itemPrice&gt;47800&lt;/itemPrice&gt;&lt;itemVersion&gt;326&lt;/itemVersion&gt;&lt;extendFields&gt;actualValue:16694;seller_user_id:2635083319;ipm_index:231910127752230;extOrderItemId:113859535536;seller_user_nick:宝洁海外旗舰店;&lt;/extendFields&gt;&lt;/orderItem&gt;&lt;/orderItemList&gt;&lt;extendFields&gt;biz_order_code:47623444905776984;totalAmount:18800;orderItemCount:1;scheduleStockOutTime:20170819190000;operateType:1;scheduleArriveTime:2017/08/23;lgType:5;LP_CODE:LPunique;&lt;/extendFields&gt;&lt;bizType&gt;20&lt;/bizType&gt;&lt;/request&gt;&quot;.replaceAll(&quot;unique&quot;, orderId).replaceAll(&quot; &quot;, &quot;&quot;).trim();
@@ -127,14 +128,14 @@ String[] msg_type = new String[] { &quot;WMS_CONSIGN_ORDER_NOTIFY&quot;, &quot;&
         }
         md.reset();
         md.update((body.trim()+&quot;123456&quot;).getBytes());
-        String mdStr= Base64Coder.encodeLines(md==null?null:md.digest()).trim();
+        String mdStr= Base64Coder.encodeLines(md.digest());
 
     //    vars.put(&quot;logistics_interface&quot;,mdStr);
           vars.put(&quot;msg_type&quot;,&quot;WMS_CONSIGN_ORDER_NOTIFY&quot;);
             vars.put(&quot;data_digest&quot;,mdStr);
 
 vars.put(&quot;msg_type&quot;,msg_type[0]);//xml
-vars.put(&quot;logistics_interface&quot;,body.trim());//xml
+vars.put(&quot;logistics_interface&quot;,body.replace(&quot; &quot;,&quot;&quot;));//xml
 vars.put(&quot;data_digest&quot;,mdStr.trim());//加密串  encodeing(body+&quot;&quot;+123456)
 log.info(&quot;------&gt;&quot;+vars.get(&quot;logistics_interface&quot;));
 log.info(&quot;------&gt;&quot;+vars.get(&quot;data_digest&quot;));
