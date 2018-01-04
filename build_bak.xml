@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ant-jmeter-test" default="run" basedir=".">
+
+    <tstamp>
+        <format property="time" pattern="yyyyMMddHHmm"/>
+    </tstamp>
+
+    <property name="basedirectory" value="."/>
+
+    <property name="scriptdirectory" value="${basedirectory}/api/testcase"/>
+
+    <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
+
+    <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res"/>
+
+    <property name="jmeter.result.html.dir" value="${basedirectory}/api/res"/>
+
+    <property name="test" value="**/**"/>
+
+    <property name="ReportName" value="TestReport"/>
+    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}.jtl"/>
+    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}.html"/>
+    <property name="jmeter.result.htmlNamenew" value="${jmeter.result.html.dir}/${ReportName}new.html"/>
+
+    <path id="xslt.classpath">
+        <fileset dir="${jmeter.home}/lib" includes="xalan*.jar"/>
+        <fileset dir="${jmeter.home}/lib" includes="serializer*.jar"/>
+    </path>
+
+    <target name="run">
+        <antcall target="test"/>
+        <!-- <antcall target="report"/> -->
+        <antcall target="reportnew"/>
+    </target>
+
+    <target name="test">
+        <echo message="test start"/>
+        <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+        <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
+            <testplans dir="${scriptdirectory}" includes="${test}.jmx"/>
+        </jmeter>
+        <echo message="test end"/>
+    </target>
+
+    <target name="report"> <echo message="report start"/>
+        <echo message="report start"/>
+        <tstamp>
+            <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
+        </tstamp>
+        <xslt classpathref="xslt.classpath"
+              force="true"
+              in="${jmeter.result.jtlName}"
+              out="${jmeter.result.htmlName}"
+              style="${jmeter.home}/extras/jmeter-results-detail-report_21.xsl">
+            <param name="dateReport" expression="${report.datestamp}"/>
+        </xslt>
+        <copy todir="${jmeter.result.html.dir}">
+            <fileset dir="${jmeter.home}/extras">
+                <include name="collapse.png"/>
+                <include name="expand.png"/>
+            </fileset>
+        </copy>
+        <echo message="report end"/>
+    </target>
+
+    <target name="reportnew"> <echo message="report new start"/>
+        <echo message="report start"/>
+        <tstamp>
+            <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
+        </tstamp>
+        <xslt classpathref="xslt.classpath"
+              force="true"
+              in="${jmeter.result.jtlName}"
+              out="${jmeter.result.htmlNamenew}"
+              style="${jmeter.home}/extras/jmeter.results.shanhe.me.xsl">
+            <param name="dateReport" expression="${report.datestamp}"/>
+        </xslt>
+        <copy todir="${jmeter.result.html.dir}">
+            <fileset dir="${jmeter.home}/extras">
+                <include name="collapse.png"/>
+                <include name="expand.png"/>
+            </fileset>
+        </copy>
+        <echo message="report end"/>
+    </target>
+</project>
