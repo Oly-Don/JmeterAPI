@@ -26,11 +26,20 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="-1867169789">success</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">2</intProp>
+        </ResponseAssertion>
+        <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="docId" elementType="Argument">
               <stringProp name="Argument.name">docId</stringProp>
-              <stringProp name="Argument.value">CUSDLPRE170809000001</stringProp>
+              <stringProp name="Argument.value">CUSDLPRE180104000001</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="asnStatus" elementType="Argument">
@@ -45,23 +54,18 @@
             </elementProp>
             <elementProp name="id1" elementType="Argument">
               <stringProp name="Argument.name">id1</stringProp>
-              <stringProp name="Argument.value">CUST000000000000000001126977</stringProp>
+              <stringProp name="Argument.value">CUST000000000000000001127665</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">sp neima</stringProp>
             </elementProp>
-            <elementProp name="id2" elementType="Argument">
-              <stringProp name="Argument.name">id2</stringProp>
-              <stringProp name="Argument.value">CUST000000000000000001126926</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
             <elementProp name="opg" elementType="Argument">
               <stringProp name="Argument.name">opg</stringProp>
-              <stringProp name="Argument.value">OPG170320000012</stringProp>
+              <stringProp name="Argument.value">OPG170807000009</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="ccode" elementType="Argument">
               <stringProp name="Argument.name">ccode</stringProp>
-              <stringProp name="Argument.value">1000000454</stringProp>
+              <stringProp name="Argument.value">1000001347</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -126,7 +130,7 @@
             &quot;productId&quot;:&quot;${opg}&quot;,&#xd;
             &quot;productionTime&quot;:&quot;2016-12-01&quot;,&#xd;
             &quot;purchasePrice&quot;:&quot;18.0&quot;,&#xd;
-            &quot;supplierId&quot;:&quot;1000001324&quot;,&#xd;
+            &quot;supplierId&quot;:&quot;${ccode}&quot;,&#xd;
             &quot;transactionQty&quot;:20,&#xd;
             &quot;transactionType&quot;:1,&#xd;
             &quot;volume&quot;:0,&#xd;
@@ -203,14 +207,14 @@
             &quot;productId&quot;:&quot;${opg}&quot;,&#xd;
             &quot;productionTime&quot;:&quot;2016-12-01&quot;,&#xd;
             &quot;purchasePrice&quot;:&quot;18.0&quot;,&#xd;
-            &quot;supplierId&quot;:&quot;1000001324&quot;,&#xd;
+            &quot;supplierId&quot;:&quot;${ccode}&quot;,&#xd;
             &quot;transactionQty&quot;:20,&#xd;
             &quot;transactionType&quot;:1,&#xd;
             &quot;volume&quot;:0,&#xd;
             &quot;warehouseTime&quot;:&quot;2016-12-14&quot;,&#xd;
             &quot;width&quot;:0&#xd;
         }],&#xd;
-    &quot;warehouseId&quot;:302&#xd;
+    &quot;warehouseId&quot;:301&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -231,15 +235,6 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-1867169789">success</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-          </ResponseAssertion>
-          <hashTree/>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
             <stringProp name="ConstantTimer.delay">2000</stringProp>
           </ConstantTimer>

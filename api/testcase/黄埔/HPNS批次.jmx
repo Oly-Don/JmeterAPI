@@ -60,8 +60,15 @@
             </elementProp>
             <elementProp name="NSDOID" elementType="Argument">
               <stringProp name="Argument.name">NSDOID</stringProp>
-              <stringProp name="Argument.value">CUSTDB1711160000013</stringProp>
+              <stringProp name="Argument.value">CUSTDB1801040000022</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">NSDOID</stringProp>
+            </elementProp>
+            <elementProp name="NSDOIDZB" elementType="Argument">
+              <stringProp name="Argument.name">NSDOIDZB</stringProp>
+              <stringProp name="Argument.value">DBZBM180104000022</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">zibiao</stringProp>
             </elementProp>
             <elementProp name="opgid1" elementType="Argument">
               <stringProp name="Argument.name">opgid1</stringProp>
@@ -100,12 +107,13 @@
             </elementProp>
             <elementProp name="NSTYDDOID" elementType="Argument">
               <stringProp name="Argument.name">NSTYDDOID</stringProp>
-              <stringProp name="Argument.value">CUSTTY1801020000001</stringProp>
+              <stringProp name="Argument.value">CUSTTY1801030000001</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">CUSTTY1801030000001</stringProp>
             </elementProp>
             <elementProp name="NSTYDSUBID" elementType="Argument">
               <stringProp name="Argument.name">NSTYDSUBID</stringProp>
-              <stringProp name="Argument.value">CUSTTYZB180102000001</stringProp>
+              <stringProp name="Argument.value">CUSTTY1801030000001</stringProp>
               <stringProp name="Argument.desc">退运单字表的ID</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
@@ -263,7 +271,7 @@
           <hashTree/>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="调拨单" enabled="true">
-          <stringProp name="IfController.condition">! ${__javaScript(&quot;${NSTYDDOID}&quot;==&quot;&quot;)}</stringProp>
+          <stringProp name="IfController.condition">! ${__javaScript(&quot;${NSDOID}&quot;==&quot;&quot;)}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
@@ -283,7 +291,7 @@
             &quot;consignorId&quot;: &quot;0000011&quot;,&#xd;
             &quot;docCode&quot;: &quot;${NSDOID}&quot;,&#xd;
             &quot;docId&quot;: &quot;${NSDOID}&quot;,&#xd;
-            &quot;docItemId&quot;: &quot;DBZBM171116000013&quot;,&#xd;
+            &quot;docItemId&quot;: &quot;${NSDOIDZB}&quot;,&#xd;
             &quot;docType&quot;: 2,&#xd;
             &quot;expireTime&quot;: &quot;2020-01-07&quot;,&#xd;
             &quot;fundProviderId&quot;: &quot;36&quot;,&#xd;
@@ -292,7 +300,7 @@
             &quot;lotNo&quot;: &quot;LOTzz11704130000001&quot;,&#xd;
             &quot;merchantId&quot;: &quot;0000011&quot;,&#xd;
             &quot;poCode&quot;: &quot;${NSDOID}&quot;,&#xd;
-            &quot;productId&quot;: &quot;OPG161006000001&quot;,&#xd;
+            &quot;productId&quot;: &quot;OPG161006000002&quot;,&#xd;
             &quot;productionTime&quot;: &quot;2017-04-13&quot;,&#xd;
             &quot;purchasePrice&quot;: 1.29,&#xd;
             &quot;seq&quot;: 2049,&#xd;

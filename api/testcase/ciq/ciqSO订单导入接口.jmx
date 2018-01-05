@@ -50,8 +50,14 @@
         </RandomVariableConfig>
         <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-          <collectionProp name="Arguments.arguments"/>
-          <stringProp name="TestPlan.comments">1000067  </stringProp>
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="addr" elementType="Argument">
+              <stringProp name="Argument.name">addr</stringProp>
+              <stringProp name="Argument.value">报文类型代码报文类型代码报文类型代码含报类型代码报文类型文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代报文类型代码报文类型代码报文类型代码报文报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型</stringProp>
+              <stringProp name="Argument.desc">addr256</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
         </Arguments>
         <hashTree/>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
@@ -128,7 +134,7 @@
             &quot;consigneeTel&quot;: &quot;18701297177&quot;,&#xd;
             &quot;consigneeNo&quot;: &quot;42062619910228002X&quot;,&#xd;
             &quot;logistDate&quot;: 1501828865000,&#xd;
-            &quot;consigneeAddr&quot;: &quot;报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代报文类型代码报文类型代码报文类型代码报文&quot;,&#xd;
+            &quot;consigneeAddr&quot;: &quot;${addr}&quot;,&#xd;
             &quot;wayNote&quot;: null,&#xd;
             &quot;orderGoods&quot;: [&#xd;
                 {&#xd;
