@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-3.2\lib\ojdbc6.jar,G:\SWE\开发资源\ojdbc6.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1507554306000</longProp>
+        <longProp name="ThreadGroup.end_time">1507554306000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">106.75.157.204</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+          <stringProp name="maximumValue">199999</stringProp>
+          <stringProp name="minimumValue">100001</stringProp>
+          <stringProp name="outputFormat">SO${__time(yyyyMMdd,formatTime)}</stringProp>
+          <boolProp name="perThread">false</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">uniqueId</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="addr" elementType="Argument">
+              <stringProp name="Argument.name">addr</stringProp>
+              <stringProp name="Argument.value">报文类型代码报文类型代码报文类型代码含报类型代码报文类型文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型代报文类型代码报文类型代码报文类型代码报文报文类型代码报文类型代码报文类型代码报文类型代码报文类型代码报文类型</stringProp>
+              <stringProp name="Argument.desc">addr256</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="运行自动化脚本${__TestPlanName} 在 ${__time(yyyyMMdd,formatTime)}日发起请求" enabled="true">
+          <stringProp name="IfController.condition">1==1</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SO订单" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+        &quot;source&quot;: null,&#xd;
+        &quot;messageHead&quot;: {&#xd;
+            &quot;messageID&quot;: &quot;RO2017${uniqueId}&quot;,&#xd;
+            &quot;messageType&quot;: &quot;CMC104&quot;,&#xd;
+            &quot;senderID&quot;: &quot;OFC&quot;,&#xd;
+            &quot;receiverID&quot;: &quot;CIQ&quot;,&#xd;
+            &quot;sendTime&quot;: 1501829114095,&#xd;
+            &quot;version&quot;: null,&#xd;
+            &quot;traceId&quot;:&quot;IN17${uniqueId}&quot;&#xd;
+        },&#xd;
+        &quot;dataInfo&quot;: {&#xd;
+            &quot;subscribeId&quot;: &quot;DY004301&quot;,&#xd;
+            &quot;declareOrderCode&quot;: &quot;RO2017${uniqueId}&quot;,&#xd;
+            &quot;orderNo&quot;: &quot;DD17${uniqueId}&quot;,&#xd;
+            &quot;innerOrderNo&quot;:&quot;IN17${uniqueId}&quot;,&#xd;
+            &quot;logisticsNo&quot;: &quot;DD17${uniqueId}&quot;,&#xd;
+            &quot;ciqbCode&quot;: &quot;000069&quot;,&#xd;
+            &quot;appType&quot;: &quot;S&quot;,&#xd;
+            &quot;ieFlag&quot;: &quot;I&quot;,&#xd;
+            &quot;busiMode&quot;: &quot;10&quot;,&#xd;
+            &quot;ebpCode&quot;: &quot;1000001336&quot;,&#xd;
+            &quot;ebpName&quot;: &quot;京东香港&quot;,&#xd;
+            &quot;ebcCode&quot;: &quot;1000001336&quot;,&#xd;
+            &quot;ebcName&quot;: &quot;沃尔玛香港有限公司&quot;,&#xd;
+            &quot;payCode&quot;: &quot;110896T004&quot;,&#xd;
+            &quot;payName&quot;: &quot;网银在线（北京）科技有限公司&quot;,&#xd;
+            &quot;logisticsCode&quot;: &quot;0000016&quot;,&#xd;
+            &quot;logisticsName&quot;: &quot;北京京邦达贸易有限公司&quot;,&#xd;
+            &quot;goodsValue&quot;: 6000,&#xd;
+            &quot;currency&quot;: &quot;CNY&quot;,&#xd;
+            &quot;drDate&quot;: 1493647772000,&#xd;
+            &quot;orderNote&quot;: null,&#xd;
+            &quot;payNo&quot;: &quot;546028170501221$${uniqueId}&quot;,&#xd;
+            &quot;payorName&quot;: null,&#xd;
+            &quot;payorAccount&quot;: null,&#xd;
+            &quot;payee&quot;: null,&#xd;
+            &quot;orderFcy&quot;: null,&#xd;
+            &quot;payFcy&quot;: null,&#xd;
+            &quot;payCurrency&quot;: null,&#xd;
+            &quot;payDate&quot;: null,&#xd;
+            &quot;payNote&quot;: null,&#xd;
+            &quot;shipperName&quot;: null,&#xd;
+            &quot;shippernTel&quot;: null,&#xd;
+            &quot;consigneeName&quot;: &quot;杨孟佳&quot;,&#xd;
+            &quot;consigneeTel&quot;: &quot;18701297177&quot;,&#xd;
+            &quot;consigneeNo&quot;: &quot;42062619910228002X&quot;,&#xd;
+            &quot;logistDate&quot;: 1501828865000,&#xd;
+            &quot;consigneeAddr&quot;: &quot;${addr}&quot;,&#xd;
+            &quot;wayNote&quot;: null,&#xd;
+            &quot;orderGoods&quot;: [&#xd;
+                {&#xd;
+                    &quot;subscribeId&quot;: &quot;DY004301&quot;,&#xd;
+                    &quot;gNum&quot;: 1,&#xd;
+                    &quot;opgCode&quot;: &quot;OPG161014087301&quot;,&#xd;
+                    &quot;itemNo&quot;: &quot;WMT4901301268617&quot;,&#xd;
+                    &quot;hsCode&quot;: null,&#xd;
+                    &quot;ciqGoodsNo&quot;: null,&#xd;
+                    &quot;bRand&quot;: null,&#xd;
+                    &quot;spec&quot;: null,&#xd;
+                    &quot;ebcName&quot;: null,&#xd;
+                    &quot;itemName&quot;: &quot;花王 KAO 真丝羊毛浓缩洗涤液 （玫瑰花香型）500ml/瓶 日本进口&quot;,&#xd;
+                    &quot;itemDescribe&quot;: null,&#xd;
+                    &quot;barCode&quot;: null,&#xd;
+                    &quot;qtyUnit&quot;: &quot;142&quot;,&#xd;
+                    &quot;qty&quot;: 1,&#xd;
+                    &quot;price&quot;: 2600,&#xd;
+                    &quot;totalPrice&quot;: 2600,&#xd;
+                    &quot;kgs&quot;: null,&#xd;
+                    &quot;net&quot;: null,&#xd;
+                    &quot;currency&quot;: &quot;CNY&quot;,&#xd;
+                    &quot;sellWebSite&quot;: null,&#xd;
+                    &quot;origin&quot;: null,&#xd;
+                    &quot;notes&quot;: null&#xd;
+                },&#xd;
+                {&#xd;
+                    &quot;subscribeId&quot;: &quot;DY004301&quot;,&#xd;
+                    &quot;gNum&quot;: 2,&#xd;
+                    &quot;opgCode&quot;: &quot;OPG161014087073&quot;,&#xd;
+                    &quot;itemNo&quot;: &quot;WMT4901301276469&quot;,&#xd;
+                    &quot;hsCode&quot;: null,&#xd;
+                    &quot;ciqGoodsNo&quot;: null,&#xd;
+                    &quot;bRand&quot;: null,&#xd;
+                    &quot;spec&quot;: null,&#xd;
+                    &quot;ebcName&quot;: null,&#xd;
+                    &quot;itemName&quot;: &quot;花王 KAO 洗衣液替代装 810g/袋 日本进口&quot;,&#xd;
+                    &quot;itemDescribe&quot;: null,&#xd;
+                    &quot;barCode&quot;: null,&#xd;
+                    &quot;qtyUnit&quot;: &quot;136&quot;,&#xd;
+                    &quot;qty&quot;: 1,&#xd;
+                    &quot;price&quot;: 2800,&#xd;
+                    &quot;totalPrice&quot;: 2800,&#xd;
+                    &quot;kgs&quot;: null,&#xd;
+                    &quot;net&quot;: null,&#xd;
+                    &quot;currency&quot;: &quot;CNY&quot;,&#xd;
+                    &quot;sellWebSite&quot;: null,&#xd;
+                    &quot;origin&quot;: null,&#xd;
+                    &quot;notes&quot;: null&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        &quot;permissions&quot;: null&#xd;
+    }</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">ciq/rest/ciq/order/recieve.do</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">
+            &quot;consigneeAddr&quot;: &quot;北京朝阳区五环到六环之间超级蜂巢B座1单元2507&quot;,</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="申报指令" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+        &quot;messageHead&quot;: null,&#xd;
+        &quot;dataInfo&quot;: {&#xd;
+            &quot;operator&quot;: &quot;system&quot;,&#xd;
+            &quot;orderNo&quot;: &quot;DD171510797913&quot;,&#xd;
+            &quot;businessType&quot;: &quot;20&quot;,&#xd;
+            &quot;declareOrderCode&quot;: &quot;RO20171510797913&quot;,&#xd;
+            &quot;operateTime&quot;: 1498895899858,&#xd;
+            &quot;operateType&quot;: 0,&#xd;
+            &quot;operateRemark&quot;: &quot;&quot;&#xd;
+        },&#xd;
+        &quot;permissions&quot;: null,&#xd;
+        &quot;source&quot;: null&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">ciq/rest/ciq/order/directive.do</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">&quot;businessType&quot;: 20订单 21运单 22清单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="出仓单导入" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+    &quot;source&quot;: null,&#xd;
+    &quot;messageHead&quot;: {&#xd;
+        &quot;messageID&quot;: null,&#xd;
+        &quot;messageType&quot;: null,&#xd;
+        &quot;senderID&quot;: null,&#xd;
+        &quot;receiverID&quot;: null,&#xd;
+        &quot;sendTime&quot;: null,&#xd;
+        &quot;version&quot;: null,&#xd;
+        &quot;traceId&quot;:&quot;DD17${uniqueId}&quot;&#xd;
+    },&#xd;
+    &quot;dataInfo&quot;: {&#xd;
+        &quot;subscribeId&quot;: &quot;DY004301&quot;,&#xd;
+        &quot;declareOrderCode&quot;: &quot;RO2017${uniqueId}&quot;,&#xd;
+        &quot;storComCode&quot;: null,&#xd;
+        &quot;foreignTradeCode&quot;: null,&#xd;
+        &quot;cbecomCode&quot;: &quot;1000001336&quot;,&#xd;
+        &quot;recordCode&quot;: &quot;1000001336&quot;,&#xd;
+        &quot;innerOrderNo&quot;:&quot;DD17${uniqueId}&quot;,&#xd;
+        &quot;cbepcomCode&quot;: &quot;1000001336&quot;,&#xd;
+        &quot;ciqbCode&quot;: &quot;000069&quot;,&#xd;
+        &quot;storeNo&quot;: &quot;401&quot;,&#xd;
+        &quot;batchNo&quot;: &quot;8501&quot;,&#xd;
+        &quot;inOrOut&quot;: &quot;-1&quot;,&#xd;
+        &quot;inventoryType&quot;: null,&#xd;
+        &quot;storeDate&quot;: &quot;20170720195845&quot;,&#xd;
+        &quot;enOrderCode&quot;: &quot;DD17${uniqueId}&quot;,&#xd;
+        &quot;orderzCode&quot;: &quot;1057996290874380&quot;,&#xd;
+        &quot;reMark&quot;: null,&#xd;
+        &quot;appType&quot;:&quot;1&quot;,&#xd;
+        &quot;storegList&quot;: [&#xd;
+            {&#xd;
+                &quot;subscribeId&quot;: &quot;DY004301&quot;,&#xd;
+                &quot;ciqGoodsNo&quot;: &quot;LT1707181&quot;,&#xd;
+                &quot;opgCode&quot;: &quot;OPG170718000001&quot;,&#xd;
+                &quot;blNo&quot;: &quot;ABCD&quot;,&#xd;
+                &quot;libraryNo&quot;: &quot;C&quot;,&#xd;
+                &quot;qty&quot;: 1,&#xd;
+                &quot;qtyUnit&quot;: &quot;个&quot;,&#xd;
+                &quot;zCode&quot;: 1057996290874380,&#xd;
+                &quot;maxzCode&quot;: null&#xd;
+            },&#xd;
+            {&#xd;
+                &quot;subscribeId&quot;: &quot;DY004301&quot;,&#xd;
+                &quot;ciqGoodsNo&quot;: &quot;LT1707182&quot;,&#xd;
+                &quot;opgCode&quot;: &quot;OPG170718000002&quot;,&#xd;
+                &quot;blNo&quot;: &quot;TEST&quot;,&#xd;
+                &quot;libraryNo&quot;: &quot;J&quot;,&#xd;
+                &quot;qty&quot;: 2,&#xd;
+                &quot;qtyUnit&quot;: &quot;个&quot;,&#xd;
+                &quot;zCode&quot;: 1057996290874380,&#xd;
+                &quot;maxzCode&quot;: null&#xd;
+            }&#xd;
+        ]&#xd;
+    },&#xd;
+    &quot;permissions&quot;: null&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">ciq/rest/ciq/store/receive.do</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">&quot;businessType&quot;: 20订单 21运单 22清单</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1867169789">success</stringProp>
+              <stringProp name="1318691497">status:1</stringProp>
+              <stringProp name="799375">成功</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">34</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="TestPlan.comments">{&quot;orderId&quot;:&quot;1logic171605478&quot;,&quot;status&quot;:1,&quot;notes&quot;:&quot;成功&quot;}</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false">
+        <stringProp name="TestPlan.comments">http://106.75.157.204:8080/ciq/Login.html
+SO导入：http://106.75.157.204:8080/ciq/rest/ciq/order/recieve.do
+    {
+        &quot;source&quot;: null,
+        &quot;messageHead&quot;: {
+            &quot;messageID&quot;: &quot;RO2017${uniqueId}&quot;,
+            &quot;messageType&quot;: &quot;CMC104&quot;,
+            &quot;senderID&quot;: &quot;OFC&quot;,
+            &quot;receiverID&quot;: &quot;CIQ&quot;,
+            &quot;sendTime&quot;: 1501829114095,
+            &quot;version&quot;: null,
+            &quot;traceId&quot;:&quot;IN17${uniqueId}&quot;
+        },
+        &quot;dataInfo&quot;: {
+            &quot;subscribeId&quot;: &quot;DY004301&quot;,
+            &quot;declareOrderCode&quot;: &quot;RO2017${uniqueId}&quot;,
+            &quot;orderNo&quot;: &quot;DD17${uniqueId}&quot;,
+            &quot;innerOrderNo&quot;:&quot;IN17${uniqueId}&quot;,
+            &quot;logisticsNo&quot;: &quot;DD17${uniqueId}&quot;,
+            &quot;ciqbCode&quot;: &quot;000069&quot;,
+            &quot;appType&quot;: &quot;S&quot;,
+            &quot;ieFlag&quot;: &quot;I&quot;,
+            &quot;busiMode&quot;: &quot;10&quot;,
+            &quot;ebpCode&quot;: &quot;1000001336&quot;,
+            &quot;ebpName&quot;: &quot;京东香港&quot;,
+            &quot;ebcCode&quot;: &quot;1000001336&quot;,
+            &quot;ebcName&quot;: &quot;沃尔玛香港有限公司&quot;,
+            &quot;payCode&quot;: &quot;110896T004&quot;,
+            &quot;payName&quot;: &quot;网银在线（北京）科技有限公司&quot;,
+            &quot;logisticsCode&quot;: &quot;0000016&quot;,
+            &quot;logisticsName&quot;: &quot;北京京邦达贸易有限公司&quot;,
+            &quot;goodsValue&quot;: 6000,
+            &quot;currency&quot;: &quot;CNY&quot;,
+            &quot;drDate&quot;: 1493647772000,
+            &quot;orderNote&quot;: null,
+            &quot;payNo&quot;: &quot;546028170501221$${uniqueId}&quot;,
+            &quot;payorName&quot;: null,
+            &quot;payorAccount&quot;: null,
+            &quot;payee&quot;: null,
+            &quot;orderFcy&quot;: null,
+            &quot;payFcy&quot;: null,
+            &quot;payCurrency&quot;: null,
+            &quot;payDate&quot;: null,
+            &quot;payNote&quot;: null,
+            &quot;shipperName&quot;: null,
+            &quot;shippernTel&quot;: null,
+            &quot;consigneeName&quot;: &quot;杨孟佳&quot;,
+            &quot;consigneeTel&quot;: &quot;18701297177&quot;,
+            &quot;consigneeNo&quot;: &quot;42062619910228002X&quot;,
+            &quot;logistDate&quot;: 1501828865000,
+            &quot;consigneeAddr&quot;: &quot;北京朝阳区五环到六环之间超级蜂巢B座1单元2507&quot;,
+            &quot;wayNote&quot;: null,
+            &quot;orderGoods&quot;: [
+                {
+                    &quot;subscribeId&quot;: &quot;DY004301&quot;,
+                    &quot;gNum&quot;: 1,
+                    &quot;opgCode&quot;: &quot;OPG161014087301&quot;,
+                    &quot;itemNo&quot;: &quot;WMT4901301268617&quot;,
+                    &quot;hsCode&quot;: null,
+                    &quot;ciqGoodsNo&quot;: null,
+                    &quot;bRand&quot;: null,
+                    &quot;spec&quot;: null,
+                    &quot;ebcName&quot;: null,
+                    &quot;itemName&quot;: &quot;花王 KAO 真丝羊毛浓缩洗涤液 （玫瑰花香型）500ml/瓶 日本进口&quot;,
+                    &quot;itemDescribe&quot;: null,
+                    &quot;barCode&quot;: null,
+                    &quot;qtyUnit&quot;: &quot;142&quot;,
+                    &quot;qty&quot;: 1,
+                    &quot;price&quot;: 2600,
+                    &quot;totalPrice&quot;: 2600,
+                    &quot;kgs&quot;: null,
+                    &quot;net&quot;: null,
+                    &quot;currency&quot;: &quot;CNY&quot;,
+                    &quot;sellWebSite&quot;: null,
+                    &quot;origin&quot;: null,
+                    &quot;notes&quot;: null
+                },
+                {
+                    &quot;subscribeId&quot;: &quot;DY004301&quot;,
+                    &quot;gNum&quot;: 2,
+                    &quot;opgCode&quot;: &quot;OPG161014087073&quot;,
+                    &quot;itemNo&quot;: &quot;WMT4901301276469&quot;,
+                    &quot;hsCode&quot;: null,
+                    &quot;ciqGoodsNo&quot;: null,
+                    &quot;bRand&quot;: null,
+                    &quot;spec&quot;: null,
+                    &quot;ebcName&quot;: null,
+                    &quot;itemName&quot;: &quot;花王 KAO 洗衣液替代装 810g/袋 日本进口&quot;,
+                    &quot;itemDescribe&quot;: null,
+                    &quot;barCode&quot;: null,
+                    &quot;qtyUnit&quot;: &quot;136&quot;,
+                    &quot;qty&quot;: 1,
+                    &quot;price&quot;: 2800,
+                    &quot;totalPrice&quot;: 2800,
+                    &quot;kgs&quot;: null,
+                    &quot;net&quot;: null,
+                    &quot;currency&quot;: &quot;CNY&quot;,
+                    &quot;sellWebSite&quot;: null,
+                    &quot;origin&quot;: null,
+                    &quot;notes&quot;: null
+                }
+            ]
+        },
+        &quot;permissions&quot;: null
+    }
+	
+申报指令：http://106.75.157.204:8080/ciq/rest/ciq/order/directive.do
+&quot;businessType&quot;: 20订单 21运单 22清单
+{
+        &quot;messageHead&quot;: null,
+        &quot;dataInfo&quot;: {
+            &quot;operator&quot;: &quot;system&quot;,
+            &quot;orderNo&quot;: &quot;DD171510797913&quot;,
+            &quot;businessType&quot;: &quot;20&quot;,
+            &quot;declareOrderCode&quot;: &quot;RO20171510797913&quot;,
+            &quot;operateTime&quot;: 1498895899858,
+            &quot;operateType&quot;: 0,
+            &quot;operateRemark&quot;: &quot;&quot;
+        },
+        &quot;permissions&quot;: null,
+        &quot;source&quot;: null
+}
+
+出仓单导入：http://106.75.157.204:8080/ciq/rest/ciq/store/receive.do
+{
+    &quot;source&quot;: null,
+    &quot;messageHead&quot;: {
+        &quot;messageID&quot;: null,
+        &quot;messageType&quot;: null,
+        &quot;senderID&quot;: null,
+        &quot;receiverID&quot;: null,
+        &quot;sendTime&quot;: null,
+        &quot;version&quot;: null,
+        &quot;traceId&quot;:&quot;DD17${uniqueId}&quot;
+    },
+    &quot;dataInfo&quot;: {
+        &quot;subscribeId&quot;: &quot;DY004301&quot;,
+        &quot;declareOrderCode&quot;: &quot;RO2017${uniqueId}&quot;,
+        &quot;storComCode&quot;: null,
+        &quot;foreignTradeCode&quot;: null,
+        &quot;cbecomCode&quot;: &quot;1000001336&quot;,
+        &quot;recordCode&quot;: &quot;1000001336&quot;,
+        &quot;innerOrderNo&quot;:&quot;DD17${uniqueId}&quot;,
+        &quot;cbepcomCode&quot;: &quot;1000001336&quot;,
+        &quot;ciqbCode&quot;: &quot;000069&quot;,
+        &quot;storeNo&quot;: &quot;401&quot;,
+        &quot;batchNo&quot;: &quot;8501&quot;,
+        &quot;inOrOut&quot;: &quot;-1&quot;,
+        &quot;inventoryType&quot;: null,
+        &quot;storeDate&quot;: &quot;20170720195845&quot;,
+        &quot;enOrderCode&quot;: &quot;DD17${uniqueId}&quot;,
+        &quot;orderzCode&quot;: &quot;1057996290874380&quot;,
+        &quot;reMark&quot;: null,
+        &quot;appType&quot;:&quot;1&quot;,
+        &quot;storegList&quot;: [
+            {
+                &quot;subscribeId&quot;: &quot;DY004301&quot;,
+                &quot;ciqGoodsNo&quot;: &quot;LT1707181&quot;,
+                &quot;opgCode&quot;: &quot;OPG170718000001&quot;,
+                &quot;blNo&quot;: &quot;ABCD&quot;,
+                &quot;libraryNo&quot;: &quot;C&quot;,
+                &quot;qty&quot;: 1,
+                &quot;qtyUnit&quot;: &quot;个&quot;,
+                &quot;zCode&quot;: 1057996290874380,
+                &quot;maxzCode&quot;: null
+            },
+            {
+                &quot;subscribeId&quot;: &quot;DY004301&quot;,
+                &quot;ciqGoodsNo&quot;: &quot;LT1707182&quot;,
+                &quot;opgCode&quot;: &quot;OPG170718000002&quot;,
+                &quot;blNo&quot;: &quot;TEST&quot;,
+                &quot;libraryNo&quot;: &quot;J&quot;,
+                &quot;qty&quot;: 2,
+                &quot;qtyUnit&quot;: &quot;个&quot;,
+                &quot;zCode&quot;: 1057996290874380,
+                &quot;maxzCode&quot;: null
+            }
+        ]
+    },
+    &quot;permissions&quot;: null
+}</stringProp>
+      </TestFragmentController>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
