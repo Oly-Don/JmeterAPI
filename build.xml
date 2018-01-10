@@ -8,7 +8,7 @@
 
     <property name="basedirectory" value="."/>
 
-    <property name="scriptdirectory" value="${basedirectory}/api/testcase"/>
+    <property name="scriptdirectory" value="${basedirectory}/apache-jmeter-3.3/api/testcase"/>
 
     <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
 
