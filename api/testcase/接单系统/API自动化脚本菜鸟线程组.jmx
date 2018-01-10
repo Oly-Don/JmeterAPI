@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">D:\github\JmeterAPI\apache-jmeter-3.3\lib\rt.jar,D:\github\JmeterAPI\apache-jmeter-3.3\lib\serializer-2.7.2.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1509251171000</longProp>
+        <longProp name="ThreadGroup.end_time">1509251171000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="PropertyControlGui" testclass="ConfigTestElement" testname="Property Display" enabled="true"/>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">106.75.153.68</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">ocp/rest/ocpjson/postcnorder.do</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="msg_id" elementType="Argument">
+              <stringProp name="Argument.name">msg_id</stringProp>
+              <stringProp name="Argument.value">WHC</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">WHC</stringProp>
+            </elementProp>
+            <elementProp name="from_code" elementType="Argument">
+              <stringProp name="Argument.name">from_code</stringProp>
+              <stringProp name="Argument.value">菜鸟物流</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">菜鸟物流</stringProp>
+            </elementProp>
+            <elementProp name="partner_code" elementType="Argument">
+              <stringProp name="Argument.name">partner_code</stringProp>
+              <stringProp name="Argument.value">ZTO</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">ZTO</stringProp>
+            </elementProp>
+            <elementProp name="msg_type" elementType="Argument">
+              <stringProp name="Argument.name">msg_type</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">WMS_CONSIGN_ORDER_NOTIFY</stringProp>
+            </elementProp>
+            <elementProp name="logistics_interface" elementType="Argument">
+              <stringProp name="Argument.name">logistics_interface</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">&lt;request&gt;&lt;ownerUserId&gt;2635083319&lt;/ownerUserId&gt;&lt;ownerUserName&gt;宝洁海外旗舰店1&lt;/ownerUserName&gt;&lt;storeCode&gt;STORE_11180270&lt;/storeCode&gt;&lt;orderCode&gt;LBX03231910127709012&lt;/orderCode&gt;&lt;erpOrderCode&gt;47623444905776984&lt;/erpOrderCode&gt;&lt;orderType&gt;201&lt;/orderType&gt;&lt;userId&gt;2635083319&lt;/userId&gt;&lt;userName&gt;宝洁海外旗舰店&lt;/userName&gt;&lt;orderFlag&gt;22&lt;/orderFlag&gt;&lt;orderSource&gt;201&lt;/orderSource&gt;&lt;orderSourceType&gt;tb&lt;/orderSourceType&gt;&lt;orderCreateTime&gt;2017-08-18 17:05:06&lt;/orderCreateTime&gt;&lt;deliverRequirements&gt;&lt;scheduleArriveTime&gt;2017-08-23 00:00:00&lt;/scheduleArriveTime&gt;&lt;/deliverRequirements&gt;&lt;operationRequireTime&gt;&lt;scheduleStockOutTime&gt;2017-08-19 19:00:00&lt;/scheduleStockOutTime&gt;&lt;/operationRequireTime&gt;&lt;batchSendCtrlParam&gt;&lt;totalOrderItemCount&gt;1&lt;/totalOrderItemCount&gt;&lt;distributeType&gt;0&lt;/distributeType&gt;&lt;/batchSendCtrlParam&gt;&lt;receiverInfo&gt;&lt;receiverZipCode&gt;316000&lt;/receiverZipCode&gt;&lt;receiverCountry&gt;CN&lt;/receiverCountry&gt;&lt;receiverProvince&gt;浙江省&lt;/receiverProvince&gt;&lt;receiverCity&gt;舟山市&lt;/receiverCity&gt;&lt;receiverArea&gt;定海区&lt;/receiverArea&gt;&lt;receiveTown&gt;临城街道&lt;/receiveTown&gt;&lt;receiverAddress&gt;临城东方润园13幢2单元&lt;/receiverAddress&gt;&lt;receiverDivisionId&gt;330902006&lt;/receiverDivisionId&gt;&lt;receiverName&gt;叶晨萌&lt;/receiverName&gt;&lt;receiverMobile&gt;15957064416&lt;/receiverMobile&gt;&lt;/receiverInfo&gt;&lt;senderInfo&gt;&lt;senderZipCode&gt;511458&lt;/senderZipCode&gt;&lt;senderCountry&gt;CN&lt;/senderCountry&gt;&lt;senderProvince&gt;广东省&lt;/senderProvince&gt;&lt;senderCity&gt;广州市&lt;/senderCity&gt;&lt;senderArea&gt;南沙区&lt;/senderArea&gt;&lt;senderAddress&gt;龙穴岛保税物流园区港荣三街”天运南沙多功能国际物流中心“7号仓&lt;/senderAddress&gt;&lt;senderDivisionId&gt;440115&lt;/senderDivisionId&gt;&lt;senderName&gt;客服中心&lt;/senderName&gt;&lt;senderMobile&gt;13068685892&lt;/senderMobile&gt;&lt;senderPhone&gt;020-62262358&lt;/senderPhone&gt;&lt;/senderInfo&gt;&lt;invoiceInfoList/&gt;&lt;orderItemList&gt;&lt;orderItem&gt;&lt;orderItemId&gt;433190002879944508&lt;/orderItemId&gt;&lt;orderSourceCode&gt;47623444905776984&lt;/orderSourceCode&gt;&lt;subSourceCode&gt;47623444905776984&lt;/subSourceCode&gt;&lt;userId&gt;2635083319&lt;/userId&gt;&lt;userName&gt;宝洁海外旗舰店&lt;/userName&gt;&lt;ownerUserId&gt;2635083319&lt;/ownerUserId&gt;&lt;ownerUserName&gt;宝洁海外旗舰店&lt;/ownerUserName&gt;&lt;itemId&gt;536981055449&lt;/itemId&gt;&lt;itemName&gt;佳洁士3D闪耀炫白牙贴密集专效南沙保税&lt;/itemName&gt;&lt;itemCode&gt;80277488&lt;/itemCode&gt;&lt;inventoryType&gt;1&lt;/inventoryType&gt;&lt;itemQuantity&gt;1&lt;/itemQuantity&gt;&lt;actualPrice&gt;16694&lt;/actualPrice&gt;&lt;itemPrice&gt;47800&lt;/itemPrice&gt;&lt;itemVersion&gt;326&lt;/itemVersion&gt;&lt;extendFields&gt;actualValue:16694;seller_user_id:2635083319;ipm_index:231910127752230;extOrderItemId:113859535536;seller_user_nick:宝洁海外旗舰店;&lt;/extendFields&gt;&lt;/orderItem&gt;&lt;/orderItemList&gt;&lt;extendFields&gt;biz_order_code:47623444905776984;totalAmount:18800;orderItemCount:1;scheduleStockOutTime:20170819190000;operateType:1;scheduleArriveTime:2017/08/23;lgType:5;LP_CODE:LP00077095838759;&lt;/extendFields&gt;&lt;bizType&gt;20&lt;/bizType&gt;&lt;/request&gt;</stringProp>
+            </elementProp>
+            <elementProp name="data_digest" elementType="Argument">
+              <stringProp name="Argument.name">data_digest</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">EFF2wCNhv2aEIsKcDyERcg==</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="TestPlan.comments">msg_type=${msg_type}&amp;from_code=${from_code}&amp;partner_code=${partner_code}&amp;msg_id=${msg_id}&amp;logistics_interface=${logistics_interface}&amp;data_digest=${data_digest}</stringProp>
+        </Arguments>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">customs/rest/custCnwl/pac_message_receiver.do</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="事务" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="发货订单通知接口" enabled="true"/>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="before" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Date;
+import sun.misc.BASE64Encoder;
+
+String orderId=String.valueOf((new Date()).getTime()).trim();
+String body=&quot;&lt;request&gt;&lt;ownerUserId&gt;2635083319&lt;/ownerUserId&gt;&lt;ownerUserName&gt;宝洁海外旗舰店1&lt;/ownerUserName&gt;&lt;storeCode&gt;STORE_11180270&lt;/storeCode&gt;&lt;orderCode&gt;LBXunique&lt;/orderCode&gt;&lt;erpOrderCode&gt;47623444905776984&lt;/erpOrderCode&gt;&lt;orderType&gt;201&lt;/orderType&gt;&lt;userId&gt;2635083319&lt;/userId&gt;&lt;userName&gt;宝洁海外旗舰店&lt;/userName&gt;&lt;orderFlag&gt;22&lt;/orderFlag&gt;&lt;orderSource&gt;201&lt;/orderSource&gt;&lt;orderSourceType&gt;tb&lt;/orderSourceType&gt;&lt;orderCreateTime&gt;2017-08-18 17:05:06&lt;/orderCreateTime&gt;&lt;deliverRequirements&gt;&lt;scheduleArriveTime&gt;2017-08-23 00:00:00&lt;/scheduleArriveTime&gt;&lt;/deliverRequirements&gt;&lt;operationRequireTime&gt;&lt;scheduleStockOutTime&gt;2017-08-19 19:00:00&lt;/scheduleStockOutTime&gt;&lt;/operationRequireTime&gt;&lt;batchSendCtrlParam&gt;&lt;totalOrderItemCount&gt;1&lt;/totalOrderItemCount&gt;&lt;distributeType&gt;0&lt;/distributeType&gt;&lt;/batchSendCtrlParam&gt;&lt;receiverInfo&gt;&lt;receiverZipCode&gt;316000&lt;/receiverZipCode&gt;&lt;receiverCountry&gt;CN&lt;/receiverCountry&gt;&lt;receiverProvince&gt;浙江省&lt;/receiverProvince&gt;&lt;receiverCity&gt;舟山市&lt;/receiverCity&gt;&lt;receiverArea&gt;定海区&lt;/receiverArea&gt;&lt;receiveTown&gt;临城街道&lt;/receiveTown&gt;&lt;receiverAddress&gt;临城东方润园13幢2单元&lt;/receiverAddress&gt;&lt;receiverDivisionId&gt;330902006&lt;/receiverDivisionId&gt;&lt;receiverName&gt;叶晨萌&lt;/receiverName&gt;&lt;receiverMobile&gt;15957064416&lt;/receiverMobile&gt;&lt;/receiverInfo&gt;&lt;senderInfo&gt;&lt;senderZipCode&gt;511458&lt;/senderZipCode&gt;&lt;senderCountry&gt;CN&lt;/senderCountry&gt;&lt;senderProvince&gt;广东省&lt;/senderProvince&gt;&lt;senderCity&gt;广州市&lt;/senderCity&gt;&lt;senderArea&gt;南沙区&lt;/senderArea&gt;&lt;senderAddress&gt;龙穴岛保税物流园区港荣三街”天运南沙多功能国际物流中心“7号仓&lt;/senderAddress&gt;&lt;senderDivisionId&gt;440115&lt;/senderDivisionId&gt;&lt;senderName&gt;客服中心&lt;/senderName&gt;&lt;senderMobile&gt;13068685892&lt;/senderMobile&gt;&lt;senderPhone&gt;020-62262358&lt;/senderPhone&gt;&lt;/senderInfo&gt;&lt;invoiceInfoList/&gt;&lt;orderItemList&gt;&lt;orderItem&gt;&lt;orderItemId&gt;433190002879944508&lt;/orderItemId&gt;&lt;orderSourceCode&gt;47623444905776984&lt;/orderSourceCode&gt;&lt;subSourceCode&gt;47623444905776984&lt;/subSourceCode&gt;&lt;userId&gt;2635083319&lt;/userId&gt;&lt;userName&gt;宝洁海外旗舰店&lt;/userName&gt;&lt;ownerUserId&gt;2635083319&lt;/ownerUserId&gt;&lt;ownerUserName&gt;宝洁海外旗舰店&lt;/ownerUserName&gt;&lt;itemId&gt;536981055449&lt;/itemId&gt;&lt;itemName&gt;佳洁士3D闪耀炫白牙贴密集专效南沙保税&lt;/itemName&gt;&lt;itemCode&gt;80277488&lt;/itemCode&gt;&lt;inventoryType&gt;1&lt;/inventoryType&gt;&lt;itemQuantity&gt;1&lt;/itemQuantity&gt;&lt;actualPrice&gt;16694&lt;/actualPrice&gt;&lt;itemPrice&gt;47800&lt;/itemPrice&gt;&lt;itemVersion&gt;326&lt;/itemVersion&gt;&lt;extendFields&gt;actualValue:16694;seller_user_id:2635083319;ipm_index:231910127752230;extOrderItemId:113859535536;seller_user_nick:宝洁海外旗舰店;&lt;/extendFields&gt;&lt;/orderItem&gt;&lt;/orderItemList&gt;&lt;extendFields&gt;biz_order_code:47623444905776984;totalAmount:18800;orderItemCount:1;scheduleStockOutTime:20170819190000;operateType:1;scheduleArriveTime:2017/08/23;lgType:5;LP_CODE:LPunique;&lt;/extendFields&gt;&lt;bizType&gt;20&lt;/bizType&gt;&lt;/request&gt;&quot;.replaceAll(&quot;unique&quot;, orderId).replaceAll(&quot; &quot;, &quot;&quot;).trim();
+//放置请求参数
+String[] msg_type = new String[] { &quot;WMS_CONSIGN_ORDER_NOTIFY&quot;, &quot;&quot; };
+
+    MessageDigest md=null;
+        try {
+            md = MessageDigest.getInstance(&quot;MD5&quot;);
+        } catch (NoSuchAlgorithmException e) {
+            //e.printStackTrace();
+            log.info(&quot;------&gt;&quot;+e);
+        }
+        md.reset();
+        md.update((body.trim()+&quot;123456&quot;).getBytes());
+        String mdStr= Base64Coder.encodeLines(md.digest());
+
+    //    vars.put(&quot;logistics_interface&quot;,mdStr);
+          vars.put(&quot;msg_type&quot;,&quot;WMS_CONSIGN_ORDER_NOTIFY&quot;);
+            vars.put(&quot;data_digest&quot;,mdStr);
+
+vars.put(&quot;msg_type&quot;,msg_type[0]);//xml
+vars.put(&quot;logistics_interface&quot;,body.replace(&quot; &quot;,&quot;&quot;));//xml
+vars.put(&quot;data_digest&quot;,mdStr.trim());//加密串  encodeing(body+&quot;&quot;+123456)
+log.info(&quot;------&gt;&quot;+vars.get(&quot;logistics_interface&quot;));
+log.info(&quot;------&gt;&quot;+vars.get(&quot;data_digest&quot;));
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="发货订单通知接口" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">msg_type=${msg_type}&amp;from_code=${from_code}&amp;partner_code=${partner_code}&amp;msg_id=${msg_id}&amp;logistics_interface=${logistics_interface}&amp;data_digest=${data_digest}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path"></stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">msg_type=${msg_type}&amp;from_code=${from_code}&amp;partner_code=${partner_code}&amp;msg_id=${msg_id}&amp;logistics_interface=${logistics_interface}&amp;data_digest=${data_digest}</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1654194611">&lt;success&gt;true&lt;/success&gt;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="LBX" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">LBX</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;orderCode&gt;(.+?)&lt;/orderCode&gt;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">0</stringProp>
+              <stringProp name="RegexExtractor.match_number">0</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="LP" enabled="true">
+              <stringProp name="TestPlan.comments">LP_CODE:LPunique
+(LP\d{1,100}.?)
+LP_CODE:(.+?);</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">LP</stringProp>
+              <stringProp name="RegexExtractor.regex">LP_CODE:(.+?);</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">0</stringProp>
+              <stringProp name="RegexExtractor.match_number">0</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="入库订单通知接口" enabled="false"/>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="before" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Date;
+import biz.source_code.base64Coder.Base64Coder;
+
+String orderid=String.valueOf((new Date()).getTime());
+String body=&quot;&lt;request&gt;&lt;storeCode&gt;STORE_1653812&lt;/storeCode&gt;&lt;orderCode&gt;LBXunique&lt;/orderCode&gt;&lt;orderType&gt;601&lt;/orderType&gt;&lt;orderSource&gt;501&lt;/orderSource&gt;&lt;orderCreateTime&gt;2016-09-2110:41:30&lt;/orderCreateTime&gt;&lt;tmsServiceCode&gt;&lt;/tmsServiceCode&gt;&lt;tmsOrderCode&gt;&lt;/tmsOrderCode&gt;&lt;prevOrderCode&gt;&lt;/prevOrderCode&gt;&lt;receiverInfo&gt;&lt;receiverZipCode&gt;6300&lt;/receiverZipCode&gt;&lt;receiverProvince&gt;defaultStr&lt;/receiverProvince&gt;&lt;receiverCity&gt;defaultStr&lt;/receiverCity&gt;&lt;receiverArea&gt;defaultStr&lt;/receiverArea&gt;&lt;receiverAddress&gt;defaultStr&lt;/receiverAddress&gt;&lt;receiverName&gt;defaultStr&lt;/receiverName&gt;&lt;receiverMobile&gt;1008611&lt;/receiverMobile&gt;&lt;receiverPhone&gt;1008611&lt;/receiverPhone&gt;&lt;/receiverInfo&gt;&lt;senderInfo&gt;&lt;senderProvince&gt;defaultStr&lt;/senderProvince&gt;&lt;senderCity&gt;defaultStr&lt;/senderCity&gt;&lt;senderArea&gt;defaultStr&lt;/senderArea&gt;&lt;senderAddress&gt;defaultStr&lt;/senderAddress&gt;&lt;senderName&gt;defaultStr&lt;/senderName&gt;&lt;senderMobile&gt;1008611&lt;/senderMobile&gt;&lt;senderPhone&gt;1008611&lt;/senderPhone&gt;&lt;senderZipCode&gt;6300&lt;/senderZipCode&gt;&lt;/senderInfo&gt;&lt;expectStartTime&gt;2016-02-2310:41:30&lt;/expectStartTime&gt;&lt;expectEndTime&gt;2016-02-2310:41:30&lt;/expectEndTime&gt;&lt;orderItemList&gt;&lt;orderItem&gt;&lt;orderItemId&gt;10001&lt;/orderItemId&gt;&lt;orderSourceCode&gt;10001&lt;/orderSourceCode&gt;&lt;subSourceCode&gt;1&lt;/subSourceCode&gt;&lt;userId&gt;1697680011&lt;/userId&gt;&lt;ownerUserId&gt;1697680011&lt;/ownerUserId&gt;&lt;itemId&gt;522554406917&lt;/itemId&gt;&lt;itemName&gt;DEFAL&lt;/itemName&gt;&lt;itemCode&gt;GDO51651409040000004&lt;/itemCode&gt;&lt;inventoryType&gt;1&lt;/inventoryType&gt;&lt;itemQuantity&gt;999999999&lt;/itemQuantity&gt;&lt;itemPrice&gt;129&lt;/itemPrice&gt;&lt;itemVersion&gt;2000&lt;/itemVersion&gt;&lt;batchRemark&gt;defaultStr&lt;/batchRemark&gt;&lt;extendFields/&gt;&lt;/orderItem&gt;&lt;/orderItemList&gt;&lt;extendFields&gt;abc:you;&lt;/extendFields&gt;&lt;remark&gt;defaultStr&lt;/remark&gt;&lt;/request&gt;&quot;;
+body=body.replaceAll(&quot;unique&quot;, orderid);
+//放置请求参数
+String[] msg_type = new String[] { &quot;WMS_CONSIGN_ORDER_NOTIFY&quot;, &quot;WMS_STOCK_IN_ORDER_NOTIFY&quot; };
+
+	MessageDigest md=null;
+		try {
+			md = MessageDigest.getInstance(&quot;MD5&quot;);
+		} catch (NoSuchAlgorithmException e) {
+			//e.printStackTrace();
+			log.info(&quot;------&gt;&quot;+e);
+		}
+		md.reset();
+		md.update(body.getBytes());
+		String mdStr= Base64Coder.encodeLines(md==null?null:md.digest());
+		
+vars.put(&quot;msg_type&quot;,msg_type[1]);//xml
+vars.put(&quot;logistics_interface&quot;,body);//xml
+vars.put(&quot;data_digest&quot;,mdStr);//加密串  encodeing(body+&quot;&quot;+123456)
+//log.info(&quot;------&gt;&quot;+vars.get(&quot;mdStr&quot;));
+
+	
+		
+	
+	</stringProp>
+              <stringProp name="TestPlan.comments">
+false    ownerUserId()元素：不能为空; orderType()元素：码表中没有找到对应编码(601); orderCreateTime()元素：不能为空; ownerUserName()元素：不能为空; userName()元素：不能为空;  </stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="入库订单通知接口" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">msg_type=${msg_type}&amp;from_code=${from_code}&amp;partner_code=${partner_code}&amp;msg_id=${msg_id}&amp;logistics_interface=${logistics_interface}&amp;data_digest=${data_digest}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path"></stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">msg_type=${msg_type}&amp;from_code=${from_code}&amp;partner_code=${partner_code}&amp;msg_id=${msg_id}&amp;logistics_interface=${logistics_interface}&amp;data_digest=${data_digest}</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1654194611">&lt;success&gt;true&lt;/success&gt;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="下发预报关指令" enabled="false"/>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="before" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Date;
+import biz.source_code.base64Coder.Base64Coder;
+
+String orderid=String.valueOf((new Date()).getTime());
+String body=&quot;&lt;logisticsEventsRequest&gt;&lt;logisticsEvent&gt;&lt;eventHeader&gt;&lt;eventType&gt;LOGISTICS_CUSTOMS_DECLARATION_INFO&lt;/eventType&gt;&lt;eventTime&gt;2016-05-1210:51:26&lt;/eventTime&gt;&lt;eventSource&gt;BIM&lt;/eventSource&gt;&lt;eventTarget&gt;GATE_379292&lt;/eventTarget&gt;&lt;/eventHeader&gt;&lt;eventBody&gt;&lt;logisticsDetail&gt;&lt;taobaoLogisticsId&gt;LPunique&lt;/taobaoLogisticsId&gt;&lt;taobaoTradeId&gt;1920160918887661&lt;/taobaoTradeId&gt;&lt;occurTime&gt;2016-05-1210:51:26&lt;/occurTime&gt;&lt;weight&gt;50&lt;/weight&gt;&lt;innerTms&gt;DISTRIBUTOR_348849&lt;/innerTms&gt;&lt;innerMailNo&gt;885000020160918661&lt;/innerMailNo&gt;&lt;logisticsServiceType&gt;bondedImport&lt;/logisticsServiceType&gt;&lt;orderTotalFee&gt;90000.0&lt;/orderTotalFee&gt;&lt;goodsList&gt;&lt;orderGoods&gt;&lt;itemName&gt;defaultStr&lt;/itemName&gt;&lt;count&gt;1&lt;/count&gt;&lt;price&gt;10000&lt;/price&gt;&lt;itemId&gt;2100550118866&lt;/itemId&gt;&lt;goodsItemNo&gt;1001681601&lt;/goodsItemNo&gt;&lt;hsCode&gt;33041000&lt;/hsCode&gt;&lt;features&gt;{&amp;quot;firstUnit&amp;quot;:&amp;quot;035&amp;quot;,&amp;quot;originCountry&amp;quot;:&amp;quot;102&amp;quot;,&amp;quot;secondUnit&amp;quot;:&amp;quot;011&amp;quot;}&lt;/features&gt;&lt;/orderGoods&gt;&lt;orderGoods&gt;&lt;itemName&gt;defaultStr&lt;/itemName&gt;&lt;count&gt;2&lt;/count&gt;&lt;price&gt;1000&lt;/price&gt;&lt;itemId&gt;2200811035327&lt;/itemId&gt;&lt;goodsItemNo&gt;1001681602&lt;/goodsItemNo&gt;&lt;hsCode&gt;33041000&lt;/hsCode&gt;&lt;features&gt;{&amp;quot;firstUnit&amp;quot;:&amp;quot;035&amp;quot;,&amp;quot;originCountry&amp;quot;:&amp;quot;102&amp;quot;,&amp;quot;secondUnit&amp;quot;:&amp;quot;011&amp;quot;}&lt;/features&gt;&lt;/orderGoods&gt;&lt;/goodsList&gt;&lt;eCommerceCode&gt;1000000068&lt;/eCommerceCode&gt;&lt;eCommerceName&gt;PTE51651404100000001&lt;/eCommerceName&gt;&lt;accountBookNo&gt;hudietestbookno&lt;/accountBookNo&gt;&lt;features&gt;{&amp;quot;freightCharge&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;premium&amp;quot;:&amp;quot;0&amp;quot;}&lt;/features&gt;&lt;/logisticsDetail&gt;&lt;receiverDetail&gt;&lt;country&gt;142&lt;/country&gt;&lt;wangwangId&gt;zhenyu001&lt;/wangwangId&gt;&lt;name&gt;defaultStr&lt;/name&gt;&lt;mobile&gt;18079888888&lt;/mobile&gt;&lt;province&gt;defaultStr&lt;/province&gt;&lt;city&gt;defaultStr&lt;/city&gt;&lt;district&gt;defaultStr&lt;/district&gt;&lt;streetAddress&gt;defaultStr&lt;/streetAddress&gt;&lt;zipCode&gt;000000&lt;/zipCode&gt;&lt;/receiverDetail&gt;&lt;/eventBody&gt;&lt;/logisticsEvent&gt;&lt;/logisticsEventsRequest&gt;&quot;;
+body=body.replaceAll(&quot;unique&quot;, orderid);
+//放置请求参数
+String[] msg_type = new String[] { &quot;WMS_CONSIGN_ORDER_NOTIFY&quot;, &quot;WMS_STOCK_IN_ORDER_NOTIFY&quot; ,&quot;inform_customs_clearance&quot;};
+
+	MessageDigest md=null;
+		try {
+			md = MessageDigest.getInstance(&quot;MD5&quot;);
+		} catch (NoSuchAlgorithmException e) {
+			//e.printStackTrace();
+			log.info(&quot;------&gt;&quot;+e);
+		}
+		md.reset();
+		md.update(body.getBytes());
+		String mdStr= Base64Coder.encodeLines(md==null?null:md.digest());
+		
+vars.put(&quot;msg_type&quot;,msg_type[2]);//xml
+vars.put(&quot;logistics_interface&quot;,body);//xml
+vars.put(&quot;data_digest&quot;,mdStr);//加密串  encodeing(body+&quot;&quot;+123456)
+//log.info(&quot;------&gt;&quot;+vars.get(&quot;mdStr&quot;));
+
+	
+		
+	
+	</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="下发预报关指令" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">msg_type=${msg_type}&amp;from_code=${from_code}&amp;partner_code=${partner_code}&amp;msg_id=${msg_id}&amp;logistics_interface=${logistics_interface}&amp;data_digest=${data_digest}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path"></stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">msg_type=${msg_type}&amp;from_code=${from_code}&amp;partner_code=${partner_code}&amp;msg_id=${msg_id}&amp;logistics_interface=${logistics_interface}&amp;data_digest=${data_digest}</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1654194611">&lt;success&gt;true&lt;/success&gt;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="TestPlan.comments">&lt;response&gt;&lt;success&gt;false&lt;/success&gt;&lt;errorCode&gt;&lt;/errorCode&gt;&lt;errorMsg&gt;请求签名为空!&lt;/errorMsg&gt;&lt;/response&gt;</stringProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
