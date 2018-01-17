@@ -29,11 +29,17 @@
     </path>
 
     <target name="run">
+                <antcall target="clean"/>
         <antcall target="test"/>
         <!-- <antcall target="report"/> -->
         <antcall target="reportnew"/>
     </target>
 
+      <target name="clean">
+    	<delete dir="jmeter.result.jtl.dir" />  
+		<delete dir="jmeter.result.html.dir" />  
+  </target>
+    
     <target name="test">
         <echo message="test start"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
