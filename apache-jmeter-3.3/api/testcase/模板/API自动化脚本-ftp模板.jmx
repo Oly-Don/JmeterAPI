@@ -109,7 +109,7 @@
             <stringProp name="FTPSampler.server"></stringProp>
             <stringProp name="FTPSampler.port"></stringProp>
             <stringProp name="FTPSampler.filename">ICIP/TOPZHI/ICIP/HP/BBC/DOCRE_001${__Random(10001,99999,)}.xml</stringProp>
-            <stringProp name="FTPSampler.localfilename">/opt/tools/apache-jmeter-3.3/bin/jmeter</stringProp>
+            <stringProp name="FTPSampler.localfilename">./jmeter</stringProp>
             <stringProp name="FTPSampler.inputdata"></stringProp>
             <boolProp name="FTPSampler.binarymode">false</boolProp>
             <boolProp name="FTPSampler.saveresponse">false</boolProp>

@@ -35,7 +35,7 @@
         <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
           <stringProp name="maximumValue">199999</stringProp>
           <stringProp name="minimumValue">100001</stringProp>
-          <stringProp name="outputFormat">1708</stringProp>
+          <stringProp name="outputFormat">${__time(yyyyMMdd,)}</stringProp>
           <boolProp name="perThread">false</boolProp>
           <stringProp name="randomSeed"></stringProp>
           <stringProp name="variableName">orderId</stringProp>

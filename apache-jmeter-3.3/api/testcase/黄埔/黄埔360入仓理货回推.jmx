@@ -40,7 +40,7 @@
             </elementProp>
             <elementProp name="head" elementType="Argument">
               <stringProp name="Argument.name">head</stringProp>
-              <stringProp name="Argument.value">WMS_360_01</stringProp>
+              <stringProp name="Argument.value">WMS_360_02</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="SQLSTATUS" elementType="Argument">
@@ -50,22 +50,28 @@
             </elementProp>
             <elementProp name="opg" elementType="Argument">
               <stringProp name="Argument.name">opg</stringProp>
-              <stringProp name="Argument.value">OPG171106000002</stringProp>
+              <stringProp name="Argument.value">OPG170213000010</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">OPG171106000002  OPG161214000007</stringProp>
             </elementProp>
             <elementProp name="ccode" elementType="Argument">
               <stringProp name="Argument.name">ccode</stringProp>
-              <stringProp name="Argument.value">1000823</stringProp>
+              <stringProp name="Argument.value">1000000454</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="custentryslcode" elementType="Argument">
               <stringProp name="Argument.name">custentryslcode</stringProp>
-              <stringProp name="Argument.value">CUSTJC1712210000003</stringProp>
+              <stringProp name="Argument.value">CUSHPPRE180111000002</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="wms" elementType="Argument">
               <stringProp name="Argument.name">wms</stringProp>
               <stringProp name="Argument.value">302</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="cargo1" elementType="Argument">
+              <stringProp name="Argument.name">cargo1</stringProp>
+              <stringProp name="Argument.value">CUST000000000000000001127715</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -92,16 +98,16 @@
             <boolProp name="keepAlive">true</boolProp>
             <stringProp name="connectionAge">5000</stringProp>
             <stringProp name="checkQuery"></stringProp>
-            <stringProp name="dbUrl">jdbc:oracle:thin:customs135/customs135@//192.168.0.120:1521/orcl</stringProp>
+            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.175:1521:orcl</stringProp>
             <stringProp name="driver">oracle.jdbc.OracleDriver</stringProp>
-            <stringProp name="username">customs135</stringProp>
-            <stringProp name="password">customs135</stringProp>
+            <stringProp name="username">customs</stringProp>
+            <stringProp name="password">customs</stringProp>
           </JDBCDataSource>
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
             <stringProp name="dataSource">oracle</stringProp>
-            <stringProp name="queryType">Select Statement</stringProp>
-            <stringProp name="query">select count(*) from custentrystorelist where eslpredeclcode=&apos;${custentryslcode}&apos;</stringProp>
+            <stringProp name="queryType">Update Statement</stringProp>
+            <stringProp name="query">delete from custentrystorelist where eslpredeclcode=&apos;${custentryslcode}&apos;</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="variableNames"></stringProp>
@@ -110,17 +116,28 @@
             <stringProp name="resultSetHandler">Store as String</stringProp>
           </JDBCSampler>
           <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1157542694">0 updates</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">6</intProp>
+          </ResponseAssertion>
+          <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="40请求" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="简单控制器" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="40请求" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
     &quot;asnDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;id&quot;:&quot;CUST000000000000000001127126&quot;,&#xd;
+            &quot;id&quot;:&quot;${cargo1}&quot;,&#xd;
             &quot;qtyDamage&quot;:0,&#xd;
             &quot;qtyQuality&quot;:0,&#xd;
             &quot;qtyReceived&quot;:10,&#xd;
@@ -140,12 +157,12 @@
     &quot;tenantCode&quot;:&quot;zhuozhi&quot;,&#xd;
     &quot;trsDetailList&quot;:[&#xd;
         {&#xd;
+            &quot;docLineId&quot;:&quot;${cargo1}&quot;,&#xd;
             &quot;accountBookId&quot;:&quot;${ccode}&quot;,&#xd;
             &quot;batchNo&quot;:&quot;LOTzz31612140000016&quot;,&#xd;
             &quot;blNo1&quot;:&quot;135446212541&quot;,&#xd;
             &quot;blNo2&quot;:&quot;135446212542&quot;,&#xd;
             &quot;consignorId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;docLineId&quot;:&quot;CUST000000000000000001127126&quot;,&#xd;
             &quot;expiredTime&quot;:&quot;2017-12-01&quot;,&#xd;
             &quot;fundProviderId&quot;:&quot;${ccode}&quot;,&#xd;
             &quot;grossWeight&quot;:0,&#xd;
@@ -172,50 +189,40 @@
     ],&#xd;
     &quot;warehouseId&quot;:${wms}&#xd;
 }</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-          <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/hp/service?method=dubhe.asn.rewrite</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="TestPlan.comments">OPG161014001221</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="50请求" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/hp/service?method=dubhe.asn.rewrite</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">OPG161014001221</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="50请求" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
     &quot;asnDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;id&quot;:&quot;CUST000000000000000000301166&quot;,&#xd;
+            &quot;id&quot;:&quot;${cargo1}&quot;,&#xd;
             &quot;qtyDamage&quot;:0,&#xd;
             &quot;qtyQuality&quot;:0,&#xd;
             &quot;qtyReceived&quot;:10,&#xd;
             &quot;qtyReceivedLong&quot;:10,&#xd;
-            &quot;qtyRma&quot;:0,&#xd;
-            &quot;qtyRmaLong&quot;:0,&#xd;
-            &quot;reheckPicUrls&quot;:&quot;&quot;&#xd;
-        },&#xd;
-        {&#xd;
-            &quot;id&quot;:&quot;CUST000000000000000001125523&quot;,&#xd;
-            &quot;qtyDamage&quot;:0,&#xd;
-            &quot;qtyQuality&quot;:0,&#xd;
-            &quot;qtyReceived&quot;:20,&#xd;
-            &quot;qtyReceivedLong&quot;:20,&#xd;
             &quot;qtyRma&quot;:0,&#xd;
             &quot;qtyRmaLong&quot;:0,&#xd;
             &quot;reheckPicUrls&quot;:&quot;&quot;&#xd;
@@ -236,7 +243,7 @@
             &quot;blNo1&quot;:&quot;135446212541&quot;,&#xd;
             &quot;blNo2&quot;:&quot;135446212542&quot;,&#xd;
             &quot;consignorId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;docLineId&quot;:&quot;CUST000000000000000000301166&quot;,&#xd;
+            &quot;docLineId&quot;:&quot;${cargo1}&quot;,&#xd;
             &quot;expiredTime&quot;:&quot;2017-12-01&quot;,&#xd;
             &quot;fundProviderId&quot;:&quot;${ccode}&quot;,&#xd;
             &quot;grossWeight&quot;:0,&#xd;
@@ -259,62 +266,43 @@
             &quot;warehouseTime&quot;:&quot;2016-12-14&quot;,&#xd;
             &quot;width&quot;:0,&#xd;
              &quot;virtualMerchantId&quot;:&quot;1000000581&quot;&#xd;
-        },&#xd;
-        {&#xd;
-            &quot;accountBookId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;batchNo&quot;:&quot;LOTzz31612140000027&quot;,&#xd;
-            &quot;blNo1&quot;:&quot;135446212541&quot;,&#xd;
-            &quot;blNo2&quot;:&quot;135446212542&quot;,&#xd;
-            &quot;consignorId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;docLineId&quot;:&quot;CUST000000000000000001125522&quot;,&#xd;
-            &quot;expiredTime&quot;:&quot;2017-12-01&quot;,&#xd;
-            &quot;fundProviderId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;grossWeight&quot;:0,&#xd;
-            &quot;height&quot;:0,&#xd;
-            &quot;id&quot;:&quot;266&quot;,&#xd;
-            &quot;isDamaged&quot;:0,&#xd;
-            &quot;isTraceSrc&quot;:&quot;0&quot;,&#xd;
-            &quot;length&quot;:0,&#xd;
-            &quot;lotNo&quot;:&quot;LOTzz31612140000027&quot;,&#xd;
-            &quot;merchantId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;netWeight&quot;:0,&#xd;
-            &quot;poNo&quot;:&quot;${custentryslcode}&quot;,&#xd;
-            &quot;productId&quot;:&quot;OPG161214000007&quot;,&#xd;
-            &quot;productionTime&quot;:&quot;2016-12-01&quot;,&#xd;
-            &quot;purchasePrice&quot;:&quot;20.0&quot;,&#xd;
-            &quot;supplierId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;transactionQty&quot;:10,&#xd;
-            &quot;transactionType&quot;:1,&#xd;
-            &quot;volume&quot;:0,&#xd;
-            &quot;width&quot;:0,&#xd;
-             &quot;virtualMerchantId&quot;:&quot;1000000581&quot;&#xd;
         }&#xd;
     ],&#xd;
     &quot;warehouseId&quot;:${wms}&#xd;
 }</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/hp/service?method=dubhe.asn.rewrite</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">121.33.205.117</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1867169789">success</stringProp>
             </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-          <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/hp/service?method=dubhe.asn.rewrite</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="TestPlan.comments">121.33.205.117</stringProp>
-        </HTTPSamplerProxy>
-        <hashTree>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-            <stringProp name="ConstantTimer.delay">10000</stringProp>
-          </ConstantTimer>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="60请求" enabled="true">
@@ -326,7 +314,7 @@
                 <stringProp name="Argument.value">{&#xd;
     &quot;asnDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;id&quot;:&quot;CUST000000000000000001127126&quot;,&#xd;
+            &quot;id&quot;:&quot;${cargo1}&quot;,&#xd;
             &quot;qtyDamage&quot;:0,&#xd;
             &quot;qtyQuality&quot;:0,&#xd;
             &quot;qtyReceived&quot;:10,&#xd;
@@ -351,7 +339,7 @@
             &quot;blNo1&quot;:&quot;135446212541&quot;,&#xd;
             &quot;blNo2&quot;:&quot;135446212542&quot;,&#xd;
             &quot;consignorId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;docLineId&quot;:&quot;CUST000000000000000001127126&quot;,&#xd;
+            &quot;docLineId&quot;:&quot;${cargo1}&quot;,&#xd;
             &quot;expiredTime&quot;:&quot;2017-12-01&quot;,&#xd;
             &quot;fundProviderId&quot;:&quot;${ccode}&quot;,&#xd;
             &quot;grossWeight&quot;:0,&#xd;
@@ -403,15 +391,6 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-          <collectionProp name="Asserion.test_strings">
-            <stringProp name="-1867169789">success</stringProp>
-          </collectionProp>
-          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-          <boolProp name="Assertion.assume_success">false</boolProp>
-          <intProp name="Assertion.test_type">2</intProp>
-        </ResponseAssertion>
-        <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>

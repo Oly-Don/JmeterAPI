@@ -42,7 +42,18 @@
         </RandomVariableConfig>
         <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-          <collectionProp name="Arguments.arguments"/>
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="id" elementType="Argument">
+              <stringProp name="Argument.name">id</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="tpl" elementType="Argument">
+              <stringProp name="Argument.name">tpl</stringProp>
+              <stringProp name="Argument.value">1000830</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
         </Arguments>
         <hashTree/>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="HTTP" enabled="true">
@@ -103,7 +114,7 @@
         &quot;payType&quot;:&quot;S&quot;,&#xd;
         &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
         &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;&quot;,&#xd;
+        &quot;deliveryCode&quot;:&quot;logic${orderno}&quot;,&#xd;
         &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
         &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
         &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;

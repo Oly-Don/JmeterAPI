@@ -97,111 +97,101 @@
           <stringProp name="TestPlan.comments">DZQD1712120000005</stringProp>
         </Arguments>
         <hashTree/>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="是否走溯源,后续运单推送isNeedSuyuan" enabled="true">
-          <stringProp name="IfController.condition">&quot;${isNeedSuyuan}&quot; == &quot;0&quot;</stringProp>
-          <boolProp name="IfController.evaluateAll">false</boolProp>
-        </IfController>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="修改京东驱动表JDBC" enabled="true"/>
         <hashTree>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
-            <stringProp name="IfController.condition">1==1</stringProp>
-            <boolProp name="IfController.evaluateAll">false</boolProp>
-          </IfController>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="checkQuery"></stringProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="dataSource">OrderNoJDBC</stringProp>
+            <stringProp name="dbUrl">jdbc:oracle:thin:customs/customs@//192.168.0.175:1521/orcl</stringProp>
+            <stringProp name="driver">oracle.jdbc.OracleDriver</stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="password">customs</stringProp>
+            <stringProp name="poolMax">3</stringProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <stringProp name="username">customs</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+            <stringProp name="dataSource">OrderNoJDBC</stringProp>
+            <stringProp name="query">update cust_jd_order set message=&apos;&apos;,predate=sysdate,createtime=sysdate,modifydate=sysdate,status=&apos;10&apos;,oderid=goodinfo||busitype||(trunc(dbms_random.value(100000,1009999999))),waybillno=oderid where  predate&gt;=TO_DATE(&apos;11/05/2017&apos;,&apos;mm/dd/yyyy&apos;)</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="TestPlan.comments">update custelectbill set status =&apos;10&apos; where enordercode=&apos;HPBCOrder2135&apos;
+update cust_jd_order set status=&apos;10&apos;,oderid=goodinfo||busitype||(trunc(dbms_random.value(100000,1009999999))),waybillno=oderid where entrecordno=&apos;0000090&apos; and  predate&gt;=TO_DATE(&apos;11/05/2017&apos;,&apos;mm/dd/yyyy&apos;)</stringProp>
+          </JDBCSampler>
           <hashTree>
-            <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="修改京东驱动表JDBC" enabled="true"/>
-            <hashTree>
-              <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
-                <boolProp name="autocommit">true</boolProp>
-                <stringProp name="checkQuery"></stringProp>
-                <stringProp name="connectionAge">5000</stringProp>
-                <stringProp name="dataSource">OrderNoJDBC</stringProp>
-                <stringProp name="dbUrl">jdbc:oracle:thin:customs/customs@//192.168.0.120:1521/orcl</stringProp>
-                <stringProp name="driver">oracle.jdbc.OracleDriver</stringProp>
-                <boolProp name="keepAlive">false</boolProp>
-                <stringProp name="password">customs</stringProp>
-                <stringProp name="poolMax">3</stringProp>
-                <stringProp name="timeout">10000</stringProp>
-                <stringProp name="transactionIsolation">DEFAULT</stringProp>
-                <stringProp name="trimInterval">60000</stringProp>
-                <stringProp name="username">customs</stringProp>
-              </JDBCDataSource>
-              <hashTree/>
-              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
-                <stringProp name="dataSource">OrderNoJDBC</stringProp>
-                <stringProp name="query">update cust_jd_order set status=&apos;10&apos;,oderid=goodinfo||busitype||(trunc(dbms_random.value(100000,1009999999))),waybillno=oderid where entrecordno=&apos;0000090&apos; and  predate&gt;=TO_DATE(&apos;12/05/2017&apos;,&apos;mm/dd/yyyy&apos;)</stringProp>
-                <stringProp name="queryArguments"></stringProp>
-                <stringProp name="queryArgumentsTypes"></stringProp>
-                <stringProp name="queryTimeout"></stringProp>
-                <stringProp name="queryType">Update Statement</stringProp>
-                <stringProp name="resultSetHandler">Store as String</stringProp>
-                <stringProp name="resultVariable"></stringProp>
-                <stringProp name="variableNames"></stringProp>
-                <stringProp name="TestPlan.comments">update custelectbill set status =&apos;10&apos; where enordercode=&apos;HPBCOrder2135&apos;</stringProp>
-              </JDBCSampler>
-              <hashTree>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="1329970139">1 updates</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                  <stringProp name="Assertion.scope">all</stringProp>
-                </ResponseAssertion>
-                <hashTree/>
-              </hashTree>
-            </hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1157542694">0 updates</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">20</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="物流系统运单回推" enabled="true"/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="物流系统运单回推" enabled="true"/>
+        <hashTree>
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="运单号" enabled="true">
+            <stringProp name="TestPlan.comments">${__javaScript(&quot;${logicResult}&quot;==&quot;true&quot;)}  LAST</stringProp>
+            <stringProp name="WhileController.condition">LAST</stringProp>
+          </WhileController>
           <hashTree>
-            <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="运单号" enabled="true">
-              <stringProp name="TestPlan.comments">${__javaScript(&quot;${logicResult}&quot;==&quot;true&quot;)}  LAST</stringProp>
-              <stringProp name="WhileController.condition">LAST</stringProp>
-            </WhileController>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="运单回推" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;${OrderNo}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;1000823&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;${OrderNo}&quot;,&quot;isDeclare&quot;:&quot;1&quot;}]}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="运单回推" enabled="true">
-                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                  <collectionProp name="Arguments.arguments">
-                    <elementProp name="" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;${tpl}&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/receive/2017-06-27/220000001891.png&quot;,&quot;getWayUrl&quot;:&quot;0&quot;,&quot;wayBillNo&quot;:&quot;${OrderNo}&quot;,&quot;logisticsName&quot;:&quot;申通企业ccode&quot;,&quot;cbepcomCode&quot;:&quot;1000823&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/TEST/liantiao/logistic/2017-06-27/220000001891.png&quot;,&quot;orderId&quot;:&quot;${OrderNo}&quot;,&quot;isDeclare&quot;:&quot;1&quot;}]}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </elementProp>
-                <stringProp name="HTTPSampler.domain"></stringProp>
-                <stringProp name="HTTPSampler.port"></stringProp>
-                <stringProp name="HTTPSampler.protocol"></stringProp>
-                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
-                <stringProp name="HTTPSampler.method">POST</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">2000</stringProp>
-                </ConstantTimer>
-                <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-2143468928">{&quot;status&quot;:1</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">6</intProp>
-                </ResponseAssertion>
-                <hashTree/>
-                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
-                  <boolProp name="resetInterpreter">false</boolProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="script">log.info(&quot;=======&gt;&quot;+prev.getResponseDataAsString().contains(&quot;status\&quot;:1&quot;));
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-2143468928">{&quot;status&quot;:1</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">log.info(&quot;=======&gt;&quot;+prev.getResponseDataAsString().contains(&quot;status\&quot;:1&quot;));
 if(prev.getResponseDataAsString().contains(&quot;status\&quot;:1&quot;))
 {
 log.info(&quot;=================&gt;&quot;+prev.getResponseDataAsString());
@@ -209,26 +199,20 @@ vars.put(&quot;logicResult&quot;,&quot;true&quot;  );
 log.info(&quot;=================&gt;&quot;+vars.get(&quot;logicResult&quot;));
 }
 </stringProp>
-                </BeanShellPostProcessor>
-                <hashTree/>
-              </hashTree>
+              </BeanShellPostProcessor>
+              <hashTree/>
             </hashTree>
           </hashTree>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="是否走溯源,溯源回调isNeedSuyuan==1" enabled="true">
-          <stringProp name="IfController.condition">&quot;${isNeedSuyuan}&quot; == &quot;1&quot;</stringProp>
-          <boolProp name="IfController.evaluateAll">false</boolProp>
-        </IfController>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="是否需要溯源绑码回调" enabled="true"/>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="是否需要溯源绑码回调" enabled="true"/>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="溯源绑码回调" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&#xd;
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="溯源绑码回调" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
     &quot;PspImpbpWayBcode&quot;:&quot;${tiyundan}&quot;,&#xd;
     &quot;Status&quot;:&quot;T&quot;,&#xd;
     &quot;Remark&quot;:&quot;绑码成功&quot;,&#xd;
@@ -238,134 +222,133 @@ log.info(&quot;=================&gt;&quot;+vars.get(&quot;logicResult&quot;));
         }&#xd;
     ]&#xd;
 }</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">customs/rest/org/statusRecieve.do</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="企业向溯源系统申请真知码接口" enabled="false">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value"></stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">customs/rest/custorg/apply/singleZcode</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
-            <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="绑码申请服务" enabled="false">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;root&quot;:{&quot;ApplicantCode&quot;:&quot;预申报企业OP编码&quot;,&quot;ShippingMethod&quot;:&quot;运输方式&quot;,&quot;OverseasCode&quot;:&quot;海外仓国检备案号&quot;,&quot;SenderName&quot;:&quot;发货人名称&quot;,&quot;ForeignTradeCode&quot;:&quot;外贸综合服务企业备案号&quot;,&quot;PspImpbpWayBcode&quot;:&quot;总运单号&quot;,&quot;BusiType&quot;:&quot;业务类型&quot;,&quot;ReceiveList&quot;:{&quot;PakWeight&quot;:&quot;邮包重量&quot;,&quot;ConsigneeTel&quot;:&quot;收货人电话&quot;,&quot;ConsigneeName&quot;:&quot;收货人名称&quot;,&quot;GoodsList&quot;:{&quot;Qty&quot;:&quot;数量&quot;,&quot;Brand&quot;:&quot;品牌&quot;,&quot;Weight&quot;:&quot;重量&quot;,&quot;GoodsZcode&quot;:&quot;商品溯源码&quot;,&quot;Spec&quot;:&quot;规格型号&quot;,&quot;Fcy&quot;:&quot;总价&quot;,&quot;Hscode&quot;:&quot;HS编码&quot;,&quot;Gname&quot;:&quot;商品名称&quot;,&quot;Unit&quot;:&quot;单位&quot;},&quot;WaybillNo&quot;:&quot;分运单号&quot;,&quot;ZCode&quot;:&quot;溯源码&quot;,&quot;ConsigneeAddr&quot;:&quot;收货人地址&quot;,&quot;ConsigneeIDNo&quot;:&quot;收货人证件号&quot;},&quot;Notes&quot;:&quot;备注&quot;,&quot;LoadingPort&quot;:&quot;出发地&quot;,&quot;SendDate&quot;:&quot;发货日期&quot;,&quot;DestPort&quot;:&quot;目的地&quot;,&quot;Ciqbcode&quot;:&quot;国检组织结构代码&quot;,&quot;Prerisecode&quot;:&quot;国际快递企业备案号&quot;,&quot;SendereAddress&quot;:&quot;发货人地址&quot;}}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">customs/rest/bind/BMApply</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            </HTTPSamplerProxy>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">customs/rest/org/statusRecieve.do</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="是否走面单申请 ${JMeterThread.last_sample_ok}" enabled="true">
-            <stringProp name="IfController.condition"> ${JMeterThread.last_sample_ok}</stringProp>
-            <boolProp name="IfController.evaluateAll">false</boolProp>
-          </IfController>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="企业向溯源系统申请真知码接口" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">customs/rest/custorg/apply/singleZcode</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="绑码申请服务" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;root&quot;:{&quot;ApplicantCode&quot;:&quot;预申报企业OP编码&quot;,&quot;ShippingMethod&quot;:&quot;运输方式&quot;,&quot;OverseasCode&quot;:&quot;海外仓国检备案号&quot;,&quot;SenderName&quot;:&quot;发货人名称&quot;,&quot;ForeignTradeCode&quot;:&quot;外贸综合服务企业备案号&quot;,&quot;PspImpbpWayBcode&quot;:&quot;总运单号&quot;,&quot;BusiType&quot;:&quot;业务类型&quot;,&quot;ReceiveList&quot;:{&quot;PakWeight&quot;:&quot;邮包重量&quot;,&quot;ConsigneeTel&quot;:&quot;收货人电话&quot;,&quot;ConsigneeName&quot;:&quot;收货人名称&quot;,&quot;GoodsList&quot;:{&quot;Qty&quot;:&quot;数量&quot;,&quot;Brand&quot;:&quot;品牌&quot;,&quot;Weight&quot;:&quot;重量&quot;,&quot;GoodsZcode&quot;:&quot;商品溯源码&quot;,&quot;Spec&quot;:&quot;规格型号&quot;,&quot;Fcy&quot;:&quot;总价&quot;,&quot;Hscode&quot;:&quot;HS编码&quot;,&quot;Gname&quot;:&quot;商品名称&quot;,&quot;Unit&quot;:&quot;单位&quot;},&quot;WaybillNo&quot;:&quot;分运单号&quot;,&quot;ZCode&quot;:&quot;溯源码&quot;,&quot;ConsigneeAddr&quot;:&quot;收货人地址&quot;,&quot;ConsigneeIDNo&quot;:&quot;收货人证件号&quot;},&quot;Notes&quot;:&quot;备注&quot;,&quot;LoadingPort&quot;:&quot;出发地&quot;,&quot;SendDate&quot;:&quot;发货日期&quot;,&quot;DestPort&quot;:&quot;目的地&quot;,&quot;Ciqbcode&quot;:&quot;国检组织结构代码&quot;,&quot;Prerisecode&quot;:&quot;国际快递企业备案号&quot;,&quot;SendereAddress&quot;:&quot;发货人地址&quot;}}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">customs/rest/bind/BMApply</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="是否走面单申请 ${JMeterThread.last_sample_ok}" enabled="true">
+          <stringProp name="IfController.condition"> ${JMeterThread.last_sample_ok}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="面单申请" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;0000090&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/out01//2017-11-24/logOR272154498.png&quot;,&quot;wayBillNo&quot;:&quot;${OrderNo}&quot;,&quot;logisticsName&quot;:&quot;圆通&quot;,&quot;sysOrderId&quot;:&quot;${OrderNo}&quot;,&quot;cbepcomCode&quot;:&quot;1000823&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/out01//2017-11-24/logOR272154498.png&quot;,&quot;orderId&quot;:&quot;${OrderNo}&quot;}]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">customs/rest/logistics/billapply/getMailUrl.do</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://192.168.0.135:8080/customs/rest/logistics/billapply/getmail.do</stringProp>
+          </HTTPSamplerProxy>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="面单申请" enabled="true">
-              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">{&quot;orderList&quot;:[{&quot;logisticsCode&quot;:&quot;0000090&quot;,&quot;inWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/out01//2017-11-24/logOR272154498.png&quot;,&quot;wayBillNo&quot;:&quot;${OrderNo}&quot;,&quot;logisticsName&quot;:&quot;圆通&quot;,&quot;sysOrderId&quot;:&quot;${OrderNo}&quot;,&quot;cbepcomCode&quot;:&quot;1000823&quot;,&quot;outWayBillUrl&quot;:&quot;ftp://test:goodtest@192.168.0.24/test/liantiao/customs/out01//2017-11-24/logOR272154498.png&quot;,&quot;orderId&quot;:&quot;${OrderNo}&quot;}]}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-              <stringProp name="HTTPSampler.domain"></stringProp>
-              <stringProp name="HTTPSampler.port"></stringProp>
-              <stringProp name="HTTPSampler.protocol"></stringProp>
-              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-              <stringProp name="HTTPSampler.path">customs/rest/logistics/billapply/getMailUrl.do</stringProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-              <stringProp name="HTTPSampler.response_timeout"></stringProp>
-              <stringProp name="TestPlan.comments">http://192.168.0.135:8080/customs/rest/logistics/billapply/getmail.do</stringProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">3000</stringProp>
-              </ConstantTimer>
-              <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">16</intProp>
-              </ResponseAssertion>
-              <hashTree/>
-            </hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-161783867">&quot;status&quot;:1</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
