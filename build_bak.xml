@@ -12,9 +12,9 @@
 
     <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
 
-    <property name="jmeter.result.jtl.dir" value="${basedirectory}/api/res"/>
+    <property name="jmeter.result.jtl.dir" value="${jmeter.home}/api/res"/>
 
-    <property name="jmeter.result.html.dir" value="${basedirectory}/api/res"/>
+    <property name="jmeter.result.html.dir" value="${jmeter.home}/api/res"/>
 
     <property name="test" value="**/**"/>
 
@@ -29,11 +29,17 @@
     </path>
 
     <target name="run">
+                <antcall target="clean"/>
         <antcall target="test"/>
         <!-- <antcall target="report"/> -->
         <antcall target="reportnew"/>
     </target>
 
+      <target name="clean">
+    	<delete dir="jmeter.result.jtl.dir" />  
+		<delete dir="jmeter.result.html.dir" />  
+  </target>
+    
     <target name="test">
         <echo message="test start"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
