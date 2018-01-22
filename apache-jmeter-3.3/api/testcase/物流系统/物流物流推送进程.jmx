@@ -1,131 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
-    <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="关区申请" enabled="true">
-      <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-      <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
-        <boolProp name="LoopController.continue_forever">false</boolProp>
-        <stringProp name="LoopController.loops">1</stringProp>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="ThreadGroup.num_threads">1</stringProp>
-      <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-      <longProp name="ThreadGroup.start_time">1492400222000</longProp>
-      <longProp name="ThreadGroup.end_time">1492400222000</longProp>
-      <boolProp name="ThreadGroup.scheduler">false</boolProp>
-      <stringProp name="ThreadGroup.duration"></stringProp>
-      <stringProp name="ThreadGroup.delay"></stringProp>
-    </ThreadGroup>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
     <hashTree>
-      <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-        <collectionProp name="Asserion.test_strings">
-          <stringProp name="246471003">status&quot;: 1</stringProp>
-          <stringProp name="799375">成功</stringProp>
-          <stringProp name="-258703310">errCode&gt;01&lt;/errCode</stringProp>
-          <stringProp name="-881358923">&quot;Success&quot;: true</stringProp>
-        </collectionProp>
-        <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-        <boolProp name="Assertion.assume_success">false</boolProp>
-        <intProp name="Assertion.test_type">34</intProp>
-      </ResponseAssertion>
-      <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-        <collectionProp name="HeaderManager.headers">
-          <elementProp name="" elementType="Header">
-            <stringProp name="Header.name">Content-Type</stringProp>
-            <stringProp name="Header.value">application/json</stringProp>
-          </elementProp>
-        </collectionProp>
-      </HeaderManager>
-      <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-        <collectionProp name="Arguments.arguments">
-          <elementProp name="plat" elementType="Argument">
-            <stringProp name="Argument.name">plat</stringProp>
-            <stringProp name="Argument.value">1000000246</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tpl" elementType="Argument">
-            <stringProp name="Argument.name">tpl</stringProp>
-            <stringProp name="Argument.value">1000830</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="deliveryCode" elementType="Argument">
-            <stringProp name="Argument.name">deliveryCode</stringProp>
-            <stringProp name="Argument.value">50004046001465</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="tpl" elementType="Argument">
-            <stringProp name="Argument.name">tpl</stringProp>
-            <stringProp name="Argument.value">1000830</stringProp>
-            <stringProp name="Argument.desc">1000000239   1000830</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="elecode" elementType="Argument">
-            <stringProp name="Argument.name">elecode</stringProp>
-            <stringProp name="Argument.value">1000000454</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-      </Arguments>
-      <hashTree/>
-      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-        <stringProp name="maximumValue">999999</stringProp>
-        <stringProp name="minimumValue">00001</stringProp>
-        <stringProp name="outputFormat">or</stringProp>
-        <boolProp name="perThread">false</boolProp>
-        <stringProp name="randomSeed"></stringProp>
-        <stringProp name="variableName">LogisticCode</stringProp>
-      </RandomVariableConfig>
-      <hashTree/>
-      <IfController guiclass="IfControllerPanel" testclass="IfController" testname="关区推送请求1" enabled="true">
-        <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;1&quot;) != -1</stringProp>
-        <boolProp name="IfController.evaluateAll">false</boolProp>
-      </IfController>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="关区申请" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1492400222000</longProp>
+        <longProp name="ThreadGroup.end_time">1492400222000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="关区推送请求   圆通 汇通" enabled="true">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&#xd;
-    &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
-    &quot;sysOrderId&quot;:&quot;OR1217722343&quot;,&#xd;
-	&quot;orderId&quot;: &quot;sysOR1217722343&quot;,            &#xd;
-    &quot;wayBillNo&quot;:&quot;logOR1217722343&quot;,&#xd;
-    &quot;logisticsCode&quot;:&quot;${tpl}&quot;&#xd;
-}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-          <stringProp name="HTTPSampler.path">/customs/rest/logistics/custdecl/applay.do</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="TestPlan.comments">{
-    &quot;cbepcomCode&quot;:&quot;1000001340&quot;,
-    &quot;sysOrderId&quot;:&quot;sy${LogisticCode}&quot;,
-	&quot;orderId&quot;: &quot;${LogisticCode}&quot;,            
-    &quot;wayBillNo&quot;:&quot;log${LogisticCode}&quot;,
-    &quot;logisticsCode&quot;:&quot;${tpl}&quot;
-}</stringProp>
-        </HTTPSamplerProxy>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="246471003">status&quot;: 1</stringProp>
+            <stringProp name="799375">成功</stringProp>
+            <stringProp name="-258703310">errCode&gt;01&lt;/errCode</stringProp>
+            <stringProp name="-881358923">&quot;Success&quot;: true</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">34</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
         <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
           <collectionProp name="Arguments.arguments">
-            <elementProp name="LogisticCode" elementType="Argument">
-              <stringProp name="Argument.name">LogisticCode</stringProp>
-              <stringProp name="Argument.value">1490972061641011111</stringProp>
+            <elementProp name="plat" elementType="Argument">
+              <stringProp name="Argument.name">plat</stringProp>
+              <stringProp name="Argument.value">1000000246</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="tpl" elementType="Argument">
+              <stringProp name="Argument.name">tpl</stringProp>
+              <stringProp name="Argument.value">1000830</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="deliveryCode" elementType="Argument">
@@ -135,34 +66,113 @@
             </elementProp>
             <elementProp name="tpl" elementType="Argument">
               <stringProp name="Argument.name">tpl</stringProp>
-              <stringProp name="Argument.value">1000000518</stringProp>
+              <stringProp name="Argument.value">1000830</stringProp>
+              <stringProp name="Argument.desc">1000000239   1000830</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">1000000239   1000830  1000830</stringProp>
+            </elementProp>
+            <elementProp name="elecode" elementType="Argument">
+              <stringProp name="Argument.name">elecode</stringProp>
+              <stringProp name="Argument.value">1000000454</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
-          <stringProp name="TestPlan.comments">${tpl}   
-百世汇通	1000000239:杭州百世网络技术有限公司
-1000000366:天天快递
-1000830:圆通
-1000000518:申通企业
-1000823:京东</stringProp>
         </Arguments>
         <hashTree/>
-      </hashTree>
-      <IfController guiclass="IfControllerPanel" testclass="IfController" testname="订单2" enabled="true">
-        <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;2&quot;) != -1</stringProp>
-        <boolProp name="IfController.evaluateAll">false</boolProp>
-      </IfController>
-      <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="下单 Step1" enabled="true"/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+          <stringProp name="maximumValue">999999</stringProp>
+          <stringProp name="minimumValue">00001</stringProp>
+          <stringProp name="outputFormat">or</stringProp>
+          <boolProp name="perThread">false</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">LogisticCode</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="关区推送请求1" enabled="true">
+          <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;1&quot;) != -1</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="给物流推送订单" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="关区推送请求   圆通 汇通" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
+    &quot;cbepcomCode&quot;:&quot;1000000246&quot;,&#xd;
+    &quot;sysOrderId&quot;:&quot;OR1217722343&quot;,&#xd;
+	&quot;orderId&quot;: &quot;sysOR1217722343&quot;,            &#xd;
+    &quot;wayBillNo&quot;:&quot;logOR1217722343&quot;,&#xd;
+    &quot;logisticsCode&quot;:&quot;${tpl}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/customs/rest/logistics/custdecl/applay.do</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">{
+    &quot;cbepcomCode&quot;:&quot;1000001340&quot;,
+    &quot;sysOrderId&quot;:&quot;sy${LogisticCode}&quot;,
+	&quot;orderId&quot;: &quot;${LogisticCode}&quot;,            
+    &quot;wayBillNo&quot;:&quot;log${LogisticCode}&quot;,
+    &quot;logisticsCode&quot;:&quot;${tpl}&quot;
+}</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="LogisticCode" elementType="Argument">
+                <stringProp name="Argument.name">LogisticCode</stringProp>
+                <stringProp name="Argument.value">1490972061641011111</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="deliveryCode" elementType="Argument">
+                <stringProp name="Argument.name">deliveryCode</stringProp>
+                <stringProp name="Argument.value">50004046001465</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="tpl" elementType="Argument">
+                <stringProp name="Argument.name">tpl</stringProp>
+                <stringProp name="Argument.value">1000000518</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <stringProp name="Argument.desc">1000000239   1000830  1000830</stringProp>
+              </elementProp>
+            </collectionProp>
+            <stringProp name="TestPlan.comments">${tpl}   
+百世汇通	1000000239:杭州百世网络技术有限公司
+1000000366:天天快递
+1000830:圆通
+1000000518:申通企业
+1000823:京东</stringProp>
+          </Arguments>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="订单2" enabled="true">
+          <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;2&quot;) != -1</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="下单 Step1" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="给物流推送订单" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
 	&quot;sysOrderId&quot;:&quot;sys${LogisticCode}&quot;,&#xd;
     &quot;cbepcomCode&quot;:&quot;${plat}&quot;,&#xd;
     &quot;deliveryCode&quot;:&quot;logic${LogisticCode}&quot;,&#xd;
@@ -274,146 +284,146 @@
     &quot;logicSite&quot;:&quot;网店&quot;,&#xd;
     &quot;wayBillCode&quot;:&quot;&quot;&#xd;
 }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/order/orderinfo.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree/>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/customs/rest/logistics/order/orderinfo.do</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="运单申请 step2" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取运单" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;orderList&quot;:[{&quot;getWayUrl&quot;:0,&quot;orderId&quot;:&quot;${LogisticCode}&quot;,&quot;sysOrderId&quot;:&quot;sys${LogisticCode}&quot;}]}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getmail.do</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="运单申请 step2" enabled="true"/>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取运单" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;cbepcomCode&quot;:&quot;${plat}&quot;,&quot;orderList&quot;:[{&quot;getWayUrl&quot;:0,&quot;orderId&quot;:&quot;${LogisticCode}&quot;,&quot;sysOrderId&quot;:&quot;sys${LogisticCode}&quot;}]}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getmail.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-            <stringProp name="ConstantTimer.delay">1000</stringProp>
-          </ConstantTimer>
-          <hashTree/>
-        </hashTree>
-      </hashTree>
-      <IfController guiclass="IfControllerPanel" testclass="IfController" testname="JDBC3" enabled="true">
-        <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;3&quot;) != -1</stringProp>
-        <boolProp name="IfController.evaluateAll">false</boolProp>
-      </IfController>
-      <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="oracleJDBC" enabled="true"/>
-        <hashTree>
-          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
-            <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="poolMax">10</stringProp>
-            <stringProp name="timeout">100</stringProp>
-            <stringProp name="trimInterval">600</stringProp>
-            <boolProp name="autocommit">true</boolProp>
-            <stringProp name="transactionIsolation"></stringProp>
-            <boolProp name="keepAlive">false</boolProp>
-            <stringProp name="connectionAge">5000</stringProp>
-            <stringProp name="checkQuery">Select 1</stringProp>
-            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:ORCL</stringProp>
-            <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
-            <stringProp name="username">customs</stringProp>
-            <stringProp name="password">customs</stringProp>
-          </JDBCDataSource>
-          <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
-            <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="query">update  logisticsorder  set status=&apos;70&apos;  where  orderno=? and 1=?</stringProp>
-            <stringProp name="queryArguments">${orderno},1</stringProp>
-            <stringProp name="queryArgumentsTypes">VARCHAR</stringProp>
-            <stringProp name="queryTimeout"></stringProp>
-            <stringProp name="queryType">Select Statement</stringProp>
-            <stringProp name="resultSetHandler">Store as String</stringProp>
-            <stringProp name="resultVariable"></stringProp>
-            <stringProp name="variableNames"></stringProp>
-            <stringProp name="TestPlan.comments">update  logisticsorder  set status=&apos;70&apos;  where  orderno=?</stringProp>
-          </JDBCSampler>
-          <hashTree/>
-        </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="mysqlJDBC" enabled="true">
-          <stringProp name="IfController.condition"></stringProp>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="JDBC3" enabled="true">
+          <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;3&quot;) != -1</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
-          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
-            <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="poolMax">10</stringProp>
-            <stringProp name="timeout">10000</stringProp>
-            <stringProp name="trimInterval">60000</stringProp>
-            <boolProp name="autocommit">true</boolProp>
-            <stringProp name="transactionIsolation">DEFAULT</stringProp>
-            <boolProp name="keepAlive">true</boolProp>
-            <stringProp name="connectionAge">5000</stringProp>
-            <stringProp name="checkQuery">Select 1</stringProp>
-            <stringProp name="dbUrl">jdbc:mysql://192.168.0.120:3306/config</stringProp>
-            <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
-            <stringProp name="username">root</stringProp>
-            <stringProp name="password">root</stringProp>
-          </JDBCDataSource>
-          <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
-            <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="query">select ccode from ccode </stringProp>
-            <stringProp name="queryArguments"></stringProp>
-            <stringProp name="queryArgumentsTypes"></stringProp>
-            <stringProp name="queryTimeout">3</stringProp>
-            <stringProp name="queryType">Select Statement</stringProp>
-            <stringProp name="resultSetHandler">Store as String</stringProp>
-            <stringProp name="resultVariable"></stringProp>
-            <stringProp name="variableNames"></stringProp>
-          </JDBCSampler>
-          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="oracleJDBC" enabled="true"/>
+          <hashTree>
+            <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+              <stringProp name="dataSource">oracleIP120</stringProp>
+              <stringProp name="poolMax">10</stringProp>
+              <stringProp name="timeout">100</stringProp>
+              <stringProp name="trimInterval">600</stringProp>
+              <boolProp name="autocommit">true</boolProp>
+              <stringProp name="transactionIsolation"></stringProp>
+              <boolProp name="keepAlive">false</boolProp>
+              <stringProp name="connectionAge">5000</stringProp>
+              <stringProp name="checkQuery">Select 1</stringProp>
+              <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:ORCL</stringProp>
+              <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+              <stringProp name="username">customs</stringProp>
+              <stringProp name="password">customs</stringProp>
+            </JDBCDataSource>
+            <hashTree/>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+              <stringProp name="dataSource">oracleIP120</stringProp>
+              <stringProp name="query">update  logisticsorder  set status=&apos;70&apos;  where  orderno=? and 1=?</stringProp>
+              <stringProp name="queryArguments">${orderno},1</stringProp>
+              <stringProp name="queryArgumentsTypes">VARCHAR</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="TestPlan.comments">update  logisticsorder  set status=&apos;70&apos;  where  orderno=?</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="mysqlJDBC" enabled="true">
+            <stringProp name="IfController.condition"></stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+              <stringProp name="dataSource">oracleIP120</stringProp>
+              <stringProp name="poolMax">10</stringProp>
+              <stringProp name="timeout">10000</stringProp>
+              <stringProp name="trimInterval">60000</stringProp>
+              <boolProp name="autocommit">true</boolProp>
+              <stringProp name="transactionIsolation">DEFAULT</stringProp>
+              <boolProp name="keepAlive">true</boolProp>
+              <stringProp name="connectionAge">5000</stringProp>
+              <stringProp name="checkQuery">Select 1</stringProp>
+              <stringProp name="dbUrl">jdbc:mysql://192.168.0.120:3306/config</stringProp>
+              <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+              <stringProp name="username">root</stringProp>
+              <stringProp name="password">root</stringProp>
+            </JDBCDataSource>
+            <hashTree/>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+              <stringProp name="dataSource">oracleIP120</stringProp>
+              <stringProp name="query">select ccode from ccode </stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout">3</stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-      </hashTree>
-      <IfController guiclass="IfControllerPanel" testclass="IfController" testname="武汉进程推送4" enabled="true">
-        <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;4&quot;) != -1</stringProp>
-        <boolProp name="IfController.evaluateAll">false</boolProp>
-      </IfController>
-      <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="武汉进程推送4" enabled="true">
+          <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;4&quot;) != -1</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="20 武汉" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="20 武汉" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
 	&quot;orderId&quot;: &quot;20${radomOrderID}&quot;,&#xd;
     &quot;cbepcomCode&quot;:&quot;1000001325&quot;,&#xd;
     &quot;logisticsCode&quot;:&quot;1000000518&quot;,&#xd;
@@ -421,36 +431,36 @@
     &quot;isSubscribe&quot;:&quot;1&quot;,&#xd;
     &quot;dataSource&quot;:&quot;20&quot;&#xd;
       }</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/proapply/getmailapply.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">20logic${radomOrderID}</stringProp>
-          </HTTPSamplerProxy>
-          <hashTree/>
-        </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WH进程" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/customs/rest/logistics/proapply/getmailapply.do</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">20logic${radomOrderID}</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WH进程" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&#xd;
 &lt;OrderLogPlatform&gt;&#xd;
     &lt;carrierCode&gt;SHENTONG&lt;/carrierCode&gt;&#xd;
     &lt;needPersistOrderLog&gt;false&lt;/needPersistOrderLog&gt;&#xd;
@@ -463,139 +473,144 @@
     &lt;signed&gt;false&lt;/signed&gt;&#xd;
     &lt;soCode&gt;20${LogisticCode}&lt;/soCode&gt;&#xd;
 &lt;/OrderLogPlatform&gt;</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/customs/rest/logistics/whtms/getlogisticsprocessg.do</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+                <stringProp name="ConstantTimer.delay">30000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/xml </stringProp>
                 </elementProp>
               </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/whtms/getlogisticsprocessg.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">30000</stringProp>
-            </ConstantTimer>
+            </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml </stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
+          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+            <stringProp name="maximumValue">9999999</stringProp>
+            <stringProp name="minimumValue">0000001</stringProp>
+            <stringProp name="outputFormat">OrderNo</stringProp>
+            <boolProp name="perThread">false</boolProp>
+            <stringProp name="randomSeed"></stringProp>
+            <stringProp name="variableName">radomOrderID</stringProp>
+          </RandomVariableConfig>
           <hashTree/>
         </hashTree>
-        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-          <stringProp name="maximumValue">9999999</stringProp>
-          <stringProp name="minimumValue">0000001</stringProp>
-          <stringProp name="outputFormat">OrderNo</stringProp>
-          <boolProp name="perThread">false</boolProp>
-          <stringProp name="randomSeed"></stringProp>
-          <stringProp name="variableName">radomOrderID</stringProp>
-        </RandomVariableConfig>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="快递鸟进程推送5" enabled="true">
+          <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;5&quot;) != -1</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/xml</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="KTN" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">RequestData={&quot;Count&quot;:1,&quot;Data&quot;:[{&quot;CallBack&quot;:&quot;&quot;,&quot;EBusinessID&quot;:&quot;1259920&quot;,&quot;LogisticCode&quot;:&quot;logic${LogisticCode}&quot;,&quot;OrderCode&quot;:&quot;${LogisticCode}&quot;,&quot;Reason&quot;:&quot;&quot;,&quot;ShipperCode&quot;:&quot;YTO&quot;,&quot;State&quot;:&quot;3&quot;,&quot;Success&quot;:true,&quot;Traces&quot;:[{&quot;AcceptStation&quot;:&quot;深圳市横岗速递营销部已收件，（揽投员姓名：钟某某;联系电话：18000000000）&quot;,&quot;AcceptTime&quot;:&quot;2017-03-31 17:07:18&quot;},{&quot;AcceptStation&quot;:&quot;离开深圳市 发往广州市&quot;,&quot;AcceptTime&quot;:&quot;2017-03-31 21:07:18&quot;},{&quot;AcceptStation&quot;:&quot;呼和浩特市邮政速递物流分公司金川揽投部安排投递（投递员姓名：安某;联系电话：18800000000）&quot;,&quot;AcceptTime&quot;:&quot;2017-04-01 14:07:18&quot;},{&quot;AcceptStation&quot;:&quot;快件已被签收，签收人：本人&quot;,&quot;AcceptTime&quot;:&quot;2017-04-01 15:07:18&quot;}]}],&quot;EBusinessID&quot;:&quot;1259920&quot;,&quot;PushTime&quot;:&quot;2017-04-01 17:07:18&quot;}&amp;DataSign=NjA3MWJiNDI5YTllNGFhZGI1MmJhOTJjOTczMzQ2OTk=&amp;RequestType=101</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+              <stringProp name="HTTPSampler.port">8080</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/customs/rest/logistics/kdn/getlogisticsprocessg.do</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+                <stringProp name="ConstantTimer.delay">300</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor guiclass="com.atlantbh.jmeter.plugins.xmlformatter.gui.XMLFormatPostProcessorGui" testclass="com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor" testname="jp@gc - XML Format Post Processor" enabled="true"/>
+        <hashTree/>
+        <com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.gui.JSONFormatterGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter" testname="jp@gc - JSON Format Post Processor" enabled="true"/>
         <hashTree/>
       </hashTree>
-      <IfController guiclass="IfControllerPanel" testclass="IfController" testname="快递鸟进程推送5" enabled="true">
-        <stringProp name="IfController.condition">&quot;${runThreadNo}&quot;.indexOf(&quot;5&quot;) != -1</stringProp>
-        <boolProp name="IfController.evaluateAll">false</boolProp>
-      </IfController>
-      <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
-        <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
-          <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="KTN" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">RequestData={&quot;Count&quot;:1,&quot;Data&quot;:[{&quot;CallBack&quot;:&quot;&quot;,&quot;EBusinessID&quot;:&quot;1259920&quot;,&quot;LogisticCode&quot;:&quot;logic${LogisticCode}&quot;,&quot;OrderCode&quot;:&quot;${LogisticCode}&quot;,&quot;Reason&quot;:&quot;&quot;,&quot;ShipperCode&quot;:&quot;YTO&quot;,&quot;State&quot;:&quot;3&quot;,&quot;Success&quot;:true,&quot;Traces&quot;:[{&quot;AcceptStation&quot;:&quot;深圳市横岗速递营销部已收件，（揽投员姓名：钟某某;联系电话：18000000000）&quot;,&quot;AcceptTime&quot;:&quot;2017-03-31 17:07:18&quot;},{&quot;AcceptStation&quot;:&quot;离开深圳市 发往广州市&quot;,&quot;AcceptTime&quot;:&quot;2017-03-31 21:07:18&quot;},{&quot;AcceptStation&quot;:&quot;呼和浩特市邮政速递物流分公司金川揽投部安排投递（投递员姓名：安某;联系电话：18800000000）&quot;,&quot;AcceptTime&quot;:&quot;2017-04-01 14:07:18&quot;},{&quot;AcceptStation&quot;:&quot;快件已被签收，签收人：本人&quot;,&quot;AcceptTime&quot;:&quot;2017-04-01 15:07:18&quot;}]}],&quot;EBusinessID&quot;:&quot;1259920&quot;,&quot;PushTime&quot;:&quot;2017-04-01 17:07:18&quot;}&amp;DataSign=NjA3MWJiNDI5YTllNGFhZGI1MmJhOTJjOTczMzQ2OTk=&amp;RequestType=101</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/kdn/getlogisticsprocessg.do</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">300</stringProp>
-            </ConstantTimer>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-      </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
-      <hashTree/>
-      <com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor guiclass="com.atlantbh.jmeter.plugins.xmlformatter.gui.XMLFormatPostProcessorGui" testclass="com.atlantbh.jmeter.plugins.xmlformatter.XMLFormatPostProcessor" testname="jp@gc - XML Format Post Processor" enabled="true"/>
-      <hashTree/>
-      <com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.gui.JSONFormatterGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonformatter.JSONFormatter" testname="jp@gc - JSON Format Post Processor" enabled="true"/>
-      <hashTree/>
     </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>

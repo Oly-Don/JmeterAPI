@@ -50,7 +50,7 @@
             </elementProp>
             <elementProp name="opg" elementType="Argument">
               <stringProp name="Argument.name">opg</stringProp>
-              <stringProp name="Argument.value">OPG170213000010</stringProp>
+              <stringProp name="Argument.value">OPG161109000003</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">OPG171106000002  OPG161214000007</stringProp>
             </elementProp>
@@ -61,7 +61,7 @@
             </elementProp>
             <elementProp name="custentryslcode" elementType="Argument">
               <stringProp name="Argument.name">custentryslcode</stringProp>
-              <stringProp name="Argument.value">CUSHPPRE180118000001</stringProp>
+              <stringProp name="Argument.value">CUSTPRE1801180000001</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="wms" elementType="Argument">
@@ -71,7 +71,7 @@
             </elementProp>
             <elementProp name="cargo1" elementType="Argument">
               <stringProp name="Argument.name">cargo1</stringProp>
-              <stringProp name="Argument.value">CUST000000000000000001127715</stringProp>
+              <stringProp name="Argument.value">CUST000000000000000001127783</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -197,7 +197,7 @@
             <stringProp name="HTTPSampler.port">8080</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/hp/service?method=dubhe.asn.rewrite</stringProp>
+            <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/service?method=dubhe.asn.rewrite</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -278,7 +278,7 @@
             <stringProp name="HTTPSampler.port">8080</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/hp/service?method=dubhe.asn.rewrite</stringProp>
+            <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/service?method=dubhe.asn.rewrite</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -374,7 +374,7 @@
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-          <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/hp/service?method=dubhe.asn.rewrite</stringProp>
+          <stringProp name="HTTPSampler.path">/customs/rest/wmsjson/service?method=dubhe.asn.rewrite</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">true</boolProp>

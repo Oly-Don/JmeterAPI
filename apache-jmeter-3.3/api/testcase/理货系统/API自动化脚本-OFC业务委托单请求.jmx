@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="运行自动化脚本${__TestPlanName} 在 ${__time(yyyyMMdd,formatTime)}日发起请求" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-3.2\lib\ojdbc6.jar,G:\SWE\开发资源\ojdbc6.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1507554306000</longProp>
+        <longProp name="ThreadGroup.end_time">1507554306000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP默认值" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">59.41.101.236</stringProp>
+          <stringProp name="HTTPSampler.port">28080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="变量" enabled="true">
+          <stringProp name="maximumValue">199999</stringProp>
+          <stringProp name="minimumValue">100001</stringProp>
+          <stringProp name="outputFormat">SO${__time(yyyyMMdd,formatTime)}</stringProp>
+          <boolProp name="perThread">true</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">uniqueId</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="信息头" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="业务委托单接口" enabled="true">
+          <stringProp name="IfController.condition">1==1</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="业务委托单接口 ${__time(yyyyMMdd,formatTime)}日" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;messageHead&quot;: {&#xd;
+		&quot;messageID&quot;: &quot;&quot;,&#xd;
+		&quot;messageType&quot;: &quot;&quot;,&#xd;
+		&quot;senderID&quot;: &quot;&quot;,&#xd;
+		&quot;receiverID&quot;: &quot;&quot;,&#xd;
+		&quot;sendTime&quot;: &quot;&quot;,&#xd;
+		&quot;version&quot;: &quot;&quot;&#xd;
+	},&#xd;
+    &quot;orderDetailHead&quot;:{&#xd;
+        &quot;cusOrderno&quot;:&quot;sd23222121&quot;,&#xd;
+        &quot;trafMode&quot;:&quot;汽车&quot;,&#xd;
+        &quot;appuId&quot;:&quot;IC卡号&quot;,&#xd;
+        &quot;waybillNo&quot;:&quot;${uniqueId}&quot;,&#xd;
+        &quot;logisticsCodehg&quot;:&quot;4401960002&quot;,&#xd;
+        &quot;tranNo&quot;:&quot;粤A3021&quot;,&#xd;
+        &quot;assignee&quot;:&quot;1000000061&quot;,&#xd;
+        &quot;reDeclare&quot;:&quot;1&quot;,&#xd;
+        &quot;assigneeName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,&#xd;
+        &quot;ieDate&quot;:&quot;20170106172630&quot;,&#xd;
+        &quot;packNo&quot;:&quot;1&quot;,&#xd;
+        &quot;logisticsCode&quot;:&quot;GJ00000051&quot;,&#xd;
+        &quot;billNo&quot;:&quot;ZB00000064&quot;,&#xd;
+        &quot;logisticsName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,&#xd;
+        &quot;orderDetail&quot;:{&#xd;
+            &quot;vipBoxid&quot;:&quot;sdass32222&quot;,&#xd;
+            &quot;vipCarrierpointcode&quot;:&quot;站点名称&quot;,&#xd;
+            &quot;innerOrderNo&quot;:&quot;2313&quot;,&#xd;
+            &quot;isPrint&quot;:&quot;1&quot;,&#xd;
+            &quot;orderFlags&quot;:&quot;2&quot;,&#xd;
+            &quot;adMission&quot;:&quot;2&quot;,&#xd;
+            &quot;palletNo&quot;:&quot;9999999&quot;,&#xd;
+            &quot;insureFcy&quot;:&quot;9&quot;,&#xd;
+            &quot;recipientTel&quot;:&quot;1350000201&quot;,&#xd;
+            &quot;mailNo&quot;:&quot;Y0804A001&quot;,&#xd;
+            &quot;overseaZcode&quot;:&quot;1&quot;,&#xd;
+            &quot;kgs&quot;:&quot;5&quot;,&#xd;
+            &quot;postZcode&quot;:&quot;1&quot;,&#xd;
+            &quot;checkBack&quot;:&quot;0&quot;,&#xd;
+            &quot;userdef3&quot;:&quot;会员申请退货地址&quot;,&#xd;
+            &quot;subwayUrl&quot;:&quot;https://topideal.us/jira/browse/OPS-437&quot;,&#xd;
+            &quot;orderDate&quot;:&quot;20180115155301&quot;,&#xd;
+            &quot;ciqinBoundno&quot;:&quot;检验检疫入仓编号&quot;,&#xd;
+            &quot;subwayBillno&quot;:&quot;Y0804A001&quot;,&#xd;
+            &quot;recipientCitycode&quot;:&quot;430522&quot;,&#xd;
+            &quot;bigPen&quot;:&quot;配送大头笔（圆通）&quot;,&#xd;
+            &quot;recipientAddress&quot;:&quot;广东省 广州市 黄埔区 黄埔大道东2&quot;,&#xd;
+            &quot;aglogisticsZcode&quot;:&quot;委托境外物流溯源企业备案号&quot;,&#xd;
+            &quot;custeListno&quot;:&quot;CCUST00032012&quot;,&#xd;
+            &quot;recipientname2&quot;:&quot;退货人&quot;,&#xd;
+            &quot;inLogisticscode&quot;:&quot;1000830&quot;,&#xd;
+            &quot;userdef1&quot;:&quot;4302253&quot;,&#xd;
+            &quot;applyNum&quot;:&quot;1&quot;,&#xd;
+            &quot;recipienttel2&quot;:&quot;138000001&quot;,&#xd;
+            &quot;transportDay&quot;:&quot;时间要求&quot;,&#xd;
+            &quot;orderNo&quot;:&quot;Y0804A001&quot;,&#xd;
+            &quot;districtCode&quot;:&quot;配送区域码（顺丰）&quot;,&#xd;
+            &quot;vipCarriersname&quot;:&quot;承运商&quot;,&#xd;
+            &quot;recipientName&quot;:&quot;接收人&quot;,&#xd;
+            &quot;inventory&quot;:{&#xd;
+                &quot;no&quot;:&quot;001&quot;,&#xd;
+                &quot;gcode&quot;:&quot;GOOD160504000001&quot;,&#xd;
+                &quot;brand&quot;:&quot;品牌&quot;,&#xd;
+                &quot;unitPrice&quot;:&quot;99.99&quot;,&#xd;
+                &quot;qty&quot;:&quot;5&quot;,&#xd;
+                &quot;spec1&quot;:&quot;订单商品规格&quot;,&#xd;
+                &quot;goodsNo&quot;:&quot;GOOD160504000001&quot;,&#xd;
+                &quot;ciqgoodsNo&quot;:&quot;ICIP03160107000009&quot;,&#xd;
+                &quot;gname1&quot;:&quot;订单商品名称&quot;&#xd;
+            },&#xd;
+            &quot;unloadPointcode&quot;:&quot;xiehuo1&quot;,&#xd;
+            &quot;seq&quot;:&quot;0001&quot;,&#xd;
+            &quot;notes&quot;:&quot;备注&quot;,&#xd;
+            &quot;intSubwaybillno&quot;:&quot;Y0804A001&quot;&#xd;
+        },&#xd;
+        &quot;ieFlag&quot;:&quot;I&quot;,&#xd;
+        &quot;carecNo&quot;:&quot;DZ001&quot;,&#xd;
+        &quot;kgs&quot;:&quot;5&quot;,&#xd;
+        &quot;notes&quot;:&quot;备注&quot;,&#xd;
+        &quot;appType&quot;:&quot;1&quot;,&#xd;
+        &quot;voyageNo&quot;:&quot;粤A3021&quot;&#xd;
+    }&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">tally/rest/tally/pub/trustListImp</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">TallyTrustListServ</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1867169789">success</stringProp>
+              <stringProp name="799375">成功</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">34</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">log.info(&quot;###&quot;+prev.getResponseDataAsString());</stringProp>
+        </BeanShellPostProcessor>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="TestPlan.comments">{&quot;orderId&quot;:&quot;1logic171605478&quot;,&quot;status&quot;:1,&quot;notes&quot;:&quot;成功&quot;}</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false">
+        <stringProp name="TestPlan.comments">{
+	&quot;messagehead&quot;: {
+		&quot;messageID&quot;: &quot;&quot;,
+		&quot;messageType&quot;: &quot;&quot;,
+		&quot;senderID&quot;: &quot;&quot;,
+		&quot;receiverID&quot;: &quot;&quot;,
+		&quot;sendTime&quot;: &quot;&quot;,
+		&quot;version&quot;: &quot;&quot;
+	},
+	&quot;orderdetailhead&quot;: {
+		&quot;cusOrderno&quot;: &quot;TRUST180108000012&quot;,
+		&quot;assignee&quot;: &quot;1000000285&quot;,
+		&quot;assigneeName&quot;: &quot;卓志物流&quot;,
+		&quot;logisticsCode&quot;: &quot;1000000125&quot;,
+		&quot;logisticsCodehg&quot;: &quot;1000000125&quot;,
+		&quot;logisticsName&quot;: &quot;&quot;,
+		&quot;waybillNo&quot;: &quot;test2018010804&quot;,
+		&quot;ieFlag&quot;: &quot;I&quot;,
+		&quot;packNo&quot;: &quot;111&quot;,
+		&quot;kgs&quot;: &quot;111&quot;,
+		&quot;trafMode&quot;: &quot;21&quot;,
+		&quot;ieDate&quot;: &quot;2018-01-08 17:02:33&quot;,
+		&quot;tranNo&quot;: &quot;1231&quot;,
+		&quot;appType&quot;: &quot;00&quot;,
+		&quot;voyageNo&quot;: &quot;131432&quot;,
+		&quot;appuId&quot;: &quot;14132&quot;,
+		&quot;billNo&quot;: &quot;23511&quot;,
+		&quot;notes&quot;: &quot;&quot;,
+		&quot;carecNo&quot;: &quot;23423&quot;,
+		&quot;reDeclare&quot;: &quot;1&quot;,
+		&quot;orderdetail&quot;: [{
+			&quot;seq&quot;: &quot;0001&quot;,
+			&quot;subwayBillno&quot;: &quot;21312421&quot;,
+			&quot;adMission&quot;: &quot;21312&quot;,
+			&quot;custeListno&quot;: &quot;12312&quot;,
+			&quot;palletNo&quot;: &quot;11&quot;,
+			&quot;ciqinBoundno&quot;: &quot;11&quot;,
+			&quot;kgs&quot;: &quot;111&quot;,
+			&quot;applyNum&quot;: &quot;111&quot;,
+			&quot;intSubwaybillno&quot;: &quot;111&quot;,
+			&quot;orderNo&quot;: &quot;111&quot;,
+			&quot;inLogisticscode&quot;: &quot;111&quot;,
+			&quot;subwayUrl&quot;: &quot;111&quot;,
+			&quot;orderFlags&quot;: &quot;111&quot;,
+			&quot;mailNo&quot;: &quot;111&quot;,
+			&quot;isPrint&quot;: &quot;111&quot;,
+			&quot;bigPen&quot;: &quot;111&quot;,
+			&quot;checkBack&quot;: &quot;111&quot;,
+			&quot;districtCode&quot;: &quot;111&quot;,
+			&quot;insureFcy&quot;: &quot;111&quot;,
+			&quot;recipientName&quot;: &quot;111&quot;,
+			&quot;recipientTel&quot;: &quot;111&quot;,
+			&quot;recipientAddress&quot;: &quot;111&quot;,
+			&quot;recipientCitycode&quot;: &quot;111&quot;,
+			&quot;unloadPointcode&quot;: &quot;111&quot;,
+			&quot;vipCarrierpointcode&quot;: &quot;111&quot;,
+			&quot;vipCarriersname&quot;: &quot;111&quot;,
+			&quot;vipBoxid&quot;: &quot;123&quot;,
+			&quot;transportDay&quot;: &quot;12312&quot;,
+			&quot;notes&quot;: &quot;&quot;,
+			&quot;overseaZcode&quot;: &quot;2131&quot;,
+			&quot;postZcode&quot;: &quot;21312&quot;,
+			&quot;aglogisticsZcode&quot;: &quot;&quot;,
+			&quot;userdef1&quot;: &quot;123&quot;,
+			&quot;userdef3&quot;: &quot;&quot;,
+			&quot;recipientname2&quot;: &quot;123&quot;,
+			&quot;recipienttel2&quot;: &quot;123&quot;,
+			&quot;orderDate&quot;: &quot;2018-01-08 17:02:33&quot;,
+			&quot;innerOrderNo&quot;: &quot;test20180117&quot;,
+			&quot;inventory&quot;: [{
+				&quot;no&quot;: &quot;01010&quot;,
+				&quot;goodsNo&quot;: &quot;01010&quot;,
+				&quot;qty&quot;: &quot;01010&quot;,
+				&quot;ciqgoodsNo&quot;: &quot;01010&quot;,
+				&quot;gcode&quot;: &quot;01010&quot;,
+				&quot;unitPrice&quot;: &quot;01010&quot;,
+				&quot;brand&quot;: &quot;01010&quot;,
+				&quot;spec1&quot;: &quot;01010&quot;,
+				&quot;gname1&quot;: &quot;01010&quot;
+			}]
+		}]
+	}
+}
+
+
+
+
+{	&quot;ROOT&quot;:{&quot;messagehead&quot;: {
+		&quot;messageID&quot;: &quot;&quot;,
+		&quot;messageType&quot;: &quot;&quot;,
+		&quot;senderID&quot;: &quot;&quot;,
+		&quot;receiverID&quot;: &quot;&quot;,
+		&quot;sendTime&quot;: &quot;&quot;,
+		&quot;version&quot;: &quot;&quot;
+	},
+    &quot;orderdetailhead&quot;:{
+        &quot;cusOrderno&quot;:&quot;sd23222121&quot;,
+        &quot;trafMode&quot;:&quot;汽车&quot;,
+        &quot;appuId&quot;:&quot;IC卡号&quot;,
+        &quot;waybillNo&quot;:&quot;ZY0804A001&quot;,
+        &quot;logisticsCodehg&quot;:&quot;4401960002&quot;,
+        &quot;tranNo&quot;:&quot;粤A3021&quot;,
+        &quot;assignee&quot;:&quot;1000000061&quot;,
+        &quot;reDeclare&quot;:&quot;1&quot;,
+        &quot;assigneeName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,
+        &quot;ieDate&quot;:&quot;20170106172630&quot;,
+        &quot;packNo&quot;:&quot;1&quot;,
+        &quot;logisticsCode&quot;:&quot;GJ00000051&quot;,
+        &quot;billNo&quot;:&quot;ZB00000064&quot;,
+        &quot;logisticsName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,
+        &quot;orderdetail&quot;:{
+            &quot;vipBoxid&quot;:&quot;sdass32222&quot;,
+            &quot;vipCarrierpointcode&quot;:&quot;站点名称&quot;,
+            &quot;isPrint&quot;:&quot;1&quot;,
+            &quot;orderFlags&quot;:&quot;2&quot;,
+            &quot;adMission&quot;:&quot;2&quot;,
+            &quot;palletNo&quot;:&quot;9999999&quot;,
+            &quot;insureFcy&quot;:&quot;9&quot;,
+            &quot;recipientTel&quot;:&quot;1350000201&quot;,
+            &quot;mailNo&quot;:&quot;Y0804A001&quot;,
+            &quot;overseaZcode&quot;:&quot;1&quot;,
+            &quot;kgs&quot;:&quot;5&quot;,
+            &quot;postZcode&quot;:&quot;1&quot;,
+            &quot;checkBack&quot;:&quot;0&quot;,
+            &quot;userdef3&quot;:&quot;会员申请退货地址&quot;,
+            &quot;subwayUrl&quot;:&quot;https://topideal.us/jira/browse/OPS-437&quot;,
+            &quot;orderDate&quot;:&quot;20180115155301&quot;,
+            &quot;ciqinBoundno&quot;:&quot;检验检疫入仓编号&quot;,
+            &quot;subwayBillno&quot;:&quot;Y0804A001&quot;,
+            &quot;recipientCitycode&quot;:&quot;430522&quot;,
+            &quot;bigPen&quot;:&quot;配送大头笔（圆通）&quot;,
+            &quot;recipientAddress&quot;:&quot;广东省 广州市 黄埔区 黄埔大道东2&quot;,
+            &quot;aglogisticsZcode&quot;:&quot;委托境外物流溯源企业备案号&quot;,
+            &quot;custeListno&quot;:&quot;CCUST00032012&quot;,
+            &quot;recipientname2&quot;:&quot;退货人&quot;,
+            &quot;inLogisticscode&quot;:&quot;1000830&quot;,
+            &quot;userdef1&quot;:&quot;4302253&quot;,
+            &quot;applyNum&quot;:&quot;1&quot;,
+            &quot;recipienttel2&quot;:&quot;138000001&quot;,
+            &quot;transportDay&quot;:&quot;时间要求&quot;,
+            &quot;orderNo&quot;:&quot;Y0804A001&quot;,
+            &quot;districtCode&quot;:&quot;配送区域码（顺丰）&quot;,
+            &quot;vipCarriersname&quot;:&quot;承运商&quot;,
+            &quot;recipientName&quot;:&quot;接收人&quot;,
+            &quot;inventory&quot;:{
+                &quot;no&quot;:&quot;001&quot;,
+                &quot;gcode&quot;:&quot;GOOD160504000001&quot;,
+                &quot;brand&quot;:&quot;品牌&quot;,
+                &quot;unitPrice&quot;:&quot;99.99&quot;,
+                &quot;qty&quot;:&quot;5&quot;,
+                &quot;spec1&quot;:&quot;订单商品规格&quot;,
+                &quot;goodsNo&quot;:&quot;GOOD160504000001&quot;,
+                &quot;ciqgoodsNo&quot;:&quot;ICIP03160107000009&quot;,
+                &quot;gname1&quot;:&quot;订单商品名称&quot;
+            },
+            &quot;unloadPointcode&quot;:&quot;xiehuo1&quot;,
+            &quot;seq&quot;:&quot;0001&quot;,
+            &quot;notes&quot;:&quot;备注&quot;,
+            &quot;intSubwaybillno&quot;:&quot;Y0804A001&quot;
+        },
+        &quot;ieFlag&quot;:&quot;I&quot;,
+        &quot;carecNo&quot;:&quot;DZ001&quot;,
+        &quot;kgs&quot;:&quot;5&quot;,
+        &quot;notes&quot;:&quot;备注&quot;,
+        &quot;appType&quot;:&quot;1&quot;,
+        &quot;voyageNo&quot;:&quot;粤A3021&quot;
+    }
+}
+}
+</stringProp>
+      </TestFragmentController>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

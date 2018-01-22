@@ -248,7 +248,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
@@ -526,7 +526,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
@@ -821,7 +821,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
@@ -1006,7 +1006,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
@@ -1160,7 +1160,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
@@ -1295,7 +1295,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
