@@ -53,15 +53,15 @@
             <boolProp name="keepAlive">false</boolProp>
             <stringProp name="connectionAge">5000</stringProp>
             <stringProp name="checkQuery">Select 1</stringProp>
-            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.175:1521:orcl</stringProp>
+            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:orcl</stringProp>
             <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
-            <stringProp name="username">customs</stringProp>
-            <stringProp name="password">customs</stringProp>
+            <stringProp name="username">mqdata</stringProp>
+            <stringProp name="password">mqdata</stringProp>
           </JDBCDataSource>
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--oracle" enabled="true">
             <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="query">update custccodecargohis set itemrecordno=&apos;{set}&apos; where gcode=&apos;${id}&apos;</stringProp>
+            <stringProp name="query">delete from mq_proj_wait where predate &lt;to_date((to_char(sysdate,&apos;yyyyMMdd&apos;)-7),&apos;yyyyMMdd&apos;) and status in (&apos;80&apos;,&apos;82&apos;,&apos;90&apos;)</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>

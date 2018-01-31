@@ -26,6 +26,26 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="cusOrderno" elementType="Argument">
+              <stringProp name="Argument.name">cusOrderno</stringProp>
+              <stringProp name="Argument.value">WEITUZYD2018012500812123</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="waybillNo" elementType="Argument">
+              <stringProp name="Argument.name">waybillNo</stringProp>
+              <stringProp name="Argument.value">z012305</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="reDeclare" elementType="Argument">
+              <stringProp name="Argument.name">reDeclare</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
         <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP默认值" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
@@ -43,7 +63,7 @@
         <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="变量" enabled="true">
           <stringProp name="maximumValue">199999</stringProp>
           <stringProp name="minimumValue">100001</stringProp>
-          <stringProp name="outputFormat">SO${__time(yyyyMMdd,formatTime)}</stringProp>
+          <stringProp name="outputFormat">log${__time(yyyyMMdd,formatTime)}</stringProp>
           <boolProp name="perThread">true</boolProp>
           <stringProp name="randomSeed"></stringProp>
           <stringProp name="variableName">uniqueId</stringProp>
@@ -78,19 +98,19 @@
 		&quot;version&quot;: &quot;&quot;&#xd;
 	},&#xd;
     &quot;orderDetailHead&quot;:{&#xd;
-        &quot;cusOrderno&quot;:&quot;sd23222121&quot;,&#xd;
+        &quot;cusOrderno&quot;:&quot;${cusOrderno}&quot;,&#xd;
         &quot;trafMode&quot;:&quot;汽车&quot;,&#xd;
         &quot;appuId&quot;:&quot;IC卡号&quot;,&#xd;
-        &quot;waybillNo&quot;:&quot;${uniqueId}&quot;,&#xd;
+        &quot;waybillNo&quot;:&quot;${waybillNo}&quot;,&#xd;
         &quot;logisticsCodehg&quot;:&quot;4401960002&quot;,&#xd;
         &quot;tranNo&quot;:&quot;粤A3021&quot;,&#xd;
         &quot;assignee&quot;:&quot;1000000061&quot;,&#xd;
-        &quot;reDeclare&quot;:&quot;1&quot;,&#xd;
+        &quot;reDeclare&quot;:&quot;${reDeclare}&quot;,&#xd;
         &quot;assigneeName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,&#xd;
         &quot;ieDate&quot;:&quot;20170106172630&quot;,&#xd;
         &quot;packNo&quot;:&quot;1&quot;,&#xd;
-        &quot;logisticsCode&quot;:&quot;GJ00000051&quot;,&#xd;
-        &quot;billNo&quot;:&quot;ZB00000064&quot;,&#xd;
+        &quot;logisticsCode&quot;:&quot;GJ00000305&quot;,&#xd;
+        &quot;billNo&quot;:&quot;${__time(yyyyMMdd,)}&quot;,&#xd;
         &quot;logisticsName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,&#xd;
         &quot;orderDetail&quot;:{&#xd;
             &quot;vipBoxid&quot;:&quot;sdass32222&quot;,&#xd;
@@ -102,7 +122,7 @@
             &quot;palletNo&quot;:&quot;9999999&quot;,&#xd;
             &quot;insureFcy&quot;:&quot;9&quot;,&#xd;
             &quot;recipientTel&quot;:&quot;1350000201&quot;,&#xd;
-            &quot;mailNo&quot;:&quot;Y0804A001&quot;,&#xd;
+            &quot;mailNo&quot;:&quot;${uniqueId}&quot;,&#xd;
             &quot;overseaZcode&quot;:&quot;1&quot;,&#xd;
             &quot;kgs&quot;:&quot;5&quot;,&#xd;
             &quot;postZcode&quot;:&quot;1&quot;,&#xd;
@@ -168,10 +188,10 @@
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="TestPlan.comments">TallyTrustListServ</stringProp>
+            <stringProp name="TestPlan.comments">TallyTrustListServcusOrderno</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言" enabled="false">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1867169789">success</stringProp>
               <stringProp name="799375">成功</stringProp>
@@ -186,7 +206,9 @@
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
           <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="script">log.info(&quot;###&quot;+prev.getResponseDataAsString());</stringProp>
+          <stringProp name="script">log.info(&quot;###&quot;+prev.getResponseDataAsString());
+log.info(&quot;#cusOrderno##    &quot;+vars.get(&quot;cusOrderno&quot;));
+log.info(&quot;#waybillNo##    &quot;+vars.get(&quot;waybillNo&quot;));</stringProp>
         </BeanShellPostProcessor>
         <hashTree/>
       </hashTree>
