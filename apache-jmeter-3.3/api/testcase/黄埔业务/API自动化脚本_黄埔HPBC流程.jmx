@@ -60,7 +60,7 @@
             </elementProp>
             <elementProp name="tpl" elementType="Argument">
               <stringProp name="Argument.name">tpl</stringProp>
-              <stringProp name="Argument.value">0000090</stringProp>
+              <stringProp name="Argument.value">1000830</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="HPBCccode" elementType="Argument">
@@ -77,8 +77,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&#xd;
-  {&#xd;
+                <stringProp name="Argument.value">{&#xd;
         &quot;payPcomName&quot;:&quot;支付企业名称&quot;,&#xd;
         &quot;payNo&quot;:&quot;1pay${orderno}&quot;,&#xd;
         &quot;freightFcy&quot;:&quot;12&quot;,&#xd;
@@ -123,7 +122,7 @@
         &quot;payType&quot;:&quot;S&quot;,&#xd;
         &quot;buyerTelephone&quot;:&quot;12322222222&quot;,&#xd;
         &quot;tradeUnitName&quot;:&quot;外贸经营单位名称&quot;,&#xd;
-        &quot;deliveryCode&quot;:&quot;&quot;,&#xd;
+        &quot;deliveryCode&quot;:&quot;logic${orderno}&quot;,&#xd;
         &quot;insurCurr&quot;:&quot;CNY&quot;,&#xd;
         &quot;packingMaterial&quot;:&quot;包材编码&quot;,&#xd;
         &quot;tradeUnitCode&quot;:&quot;1000000233&quot;,&#xd;
@@ -178,7 +177,7 @@
             &quot;country&quot;:&quot;002&quot;,&#xd;
             &quot;city&quot;:&quot;深圳市&quot;,&#xd;
             &quot;sender&quot;:&quot;送礼人&quot;,&#xd;
-            &quot;recipientProvincesCode&quot;:&quot;收货人省市代码&quot;,&#xd;
+            &quot;recipientProvincesCode&quot;:&quot;黄浦区&quot;,&#xd;
             &quot;transportDay&quot;:&quot;配送时间&quot;,&#xd;
             &quot;mobilePhone&quot;:&quot;13655411122&quot;,&#xd;
             &quot;address&quot;:&quot;蛇口23${orderno}GANG59&quot;,&#xd;

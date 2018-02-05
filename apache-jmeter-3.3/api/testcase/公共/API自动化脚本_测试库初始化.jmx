@@ -61,7 +61,7 @@
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--oracle" enabled="true">
             <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="query">delete from mq_proj_wait where predate &lt;to_date((to_char(sysdate,&apos;yyyyMMdd&apos;)-7),&apos;yyyyMMdd&apos;) and status in (&apos;80&apos;,&apos;82&apos;,&apos;90&apos;)</stringProp>
+            <stringProp name="query">update mq_proj_wait set status=&apos;70&apos; where predate &lt;sysdate-2 and status in (&apos;80&apos;,&apos;82&apos;,&apos;90&apos;,&apos;10&apos;)</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
@@ -69,6 +69,7 @@
             <stringProp name="resultSetHandler">Store as String</stringProp>
             <stringProp name="resultVariable"></stringProp>
             <stringProp name="variableNames"></stringProp>
+            <stringProp name="TestPlan.comments">delete from mq_proj_wait where predate &lt;to_date((to_char(sysdate,&apos;yyyyMMdd&apos;)-7),&apos;yyyyMMdd&apos;) and status in (&apos;80&apos;,&apos;82&apos;,&apos;90&apos;,&apos;10&apos;)</stringProp>
           </JDBCSampler>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">

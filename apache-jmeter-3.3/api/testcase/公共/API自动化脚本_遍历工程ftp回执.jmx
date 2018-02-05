@@ -64,24 +64,25 @@
           <boolProp name="keepAlive">true</boolProp>
           <stringProp name="connectionAge">5000</stringProp>
           <stringProp name="checkQuery">select 1 from dual</stringProp>
-          <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:orcl</stringProp>
+          <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.175:1521:orcl</stringProp>
           <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
-          <stringProp name="username">mqdata</stringProp>
-          <stringProp name="password">mqdata</stringProp>
+          <stringProp name="username">customs</stringProp>
+          <stringProp name="password">customs</stringProp>
         </JDBCDataSource>
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="查询数据" enabled="true"/>
         <hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询YD数据" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询海关订单运单号/订单号信息" enabled="true">
             <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="query">select waybillno from custebtrade where custebtrade like &apos;%${orderNo}%&apos;</stringProp>
+            <stringProp name="query">select waybillno,orderno from custebtrade where predate&gt;sysdate-7 and cust_regstatus is null and waybillno is not null</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
             <stringProp name="resultSetHandler">Store as String</stringProp>
             <stringProp name="resultVariable"></stringProp>
-            <stringProp name="variableNames">queryResult</stringProp>
+            <stringProp name="variableNames">waybillnoResult,ordernoResult</stringProp>
+            <stringProp name="TestPlan.comments">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!注意限制条件,避免查询语句导致服务器奔溃.!!!!!!!!!!!!!</stringProp>
           </JDBCSampler>
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
@@ -94,7 +95,7 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询QD数据" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询QD数据" enabled="false">
             <stringProp name="dataSource">oracleIP120</stringProp>
             <stringProp name="query">select filepath from custebtrade where outercode like &apos;%${orderNo}%&apos; and projtype=&apos;4400.SINGLEWIN.HPBC.LOGIST.BOTH&apos;</stringProp>
             <stringProp name="queryArguments"></stringProp>
@@ -117,21 +118,53 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器" enabled="true">
-          <stringProp name="ForeachController.inputVal">queryResult</stringProp>
+        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="根据查询到的数据遍历-海关订单" enabled="true">
+          <stringProp name="ForeachController.inputVal">ordernoResult</stringProp>
           <stringProp name="ForeachController.returnVal">orderNo</stringProp>
           <boolProp name="ForeachController.useSeparator">true</boolProp>
           <stringProp name="ForeachController.startIndex">0</stringProp>
           <stringProp name="ForeachController.endIndex">300</stringProp>
         </ForeachController>
         <hashTree>
-          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="海关订单" enabled="true">
-            <stringProp name="TestPlan.comments">ftp://csbctest:abc.123@192.168.0.105/customs/4290.4520.0040.0010/in</stringProp>
-            <stringProp name="FTPSampler.server"></stringProp>
-            <stringProp name="FTPSampler.port"></stringProp>
-            <stringProp name="FTPSampler.filename">customs/4290.4520.0040.0010/in/KJDOCREC__guojian001${__Random(10001,99999,)}.xml</stringProp>
-            <stringProp name="FTPSampler.localfilename"></stringProp>
-            <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+          <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="根据查询到的数据遍历-海关运单" enabled="true">
+            <stringProp name="ForeachController.inputVal">waybillnoResult</stringProp>
+            <stringProp name="ForeachController.returnVal">logicNo</stringProp>
+            <boolProp name="ForeachController.useSeparator">true</boolProp>
+            <stringProp name="ForeachController.startIndex">0</stringProp>
+            <stringProp name="ForeachController.endIndex">300</stringProp>
+          </ForeachController>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="海关运单" enabled="true">
+              <stringProp name="TestPlan.comments">ftp://csbctest:abc.123@192.168.0.105/customs/Download</stringProp>
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">customs/Download/TAL[^_]_${orderNo}001${__Random(10001,99999,)}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;CEB512Message xmlns=&quot;http://www.chinaport.gov.cn/ceb&quot;&gt;
+    &lt;LogisticsReturn&gt;
+        &lt;guid&gt;000000000000CUST00000000000034380001&lt;/guid&gt;
+        &lt;logisticsCode&gt;KDQY123456&lt;/logisticsCode&gt;
+        &lt;logisticsNo&gt;${logicNo}&lt;/logisticsNo&gt;&lt;!--       --&gt;
+		&lt;returnStatus&gt;${returnStatus}&lt;/returnStatus&gt;&lt;!--       --&gt;
+        &lt;returnTime&gt;20170213103032&lt;/returnTime&gt;
+        &lt;returnInfo&gt;21re y7214&lt;/returnInfo&gt;
+    &lt;/LogisticsReturn&gt;
+&lt;/CEB512Message&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">csbctest</stringProp>
+              <stringProp name="ConfigTestElement.password">abc.123</stringProp>
+            </FTPSampler>
+            <hashTree/>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="海关订单" enabled="true">
+              <stringProp name="TestPlan.comments">ftp://csbctest:abc.123@192.168.0.105/customs/4290.4520.0040.0010/in</stringProp>
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">customs/4290.4520.0040.0010/in/KJDOCREC__guojian001${__Random(10001,99999,)}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
 &lt;CEB312Message xmlns=&quot;http://www.chinaport.gov.cn/ceb&quot;&gt;
     &lt;OrderReturn&gt;
         &lt;guid&gt;0000CUST0000000000000000421852660001&lt;/guid&gt;
@@ -143,13 +176,14 @@
         &lt;returnInfo&gt;reddtyDD7214&lt;/returnInfo&gt;
     &lt;/OrderReturn&gt;
 &lt;/CEB312Message&gt;&lt;!--       --&gt;</stringProp>
-            <boolProp name="FTPSampler.binarymode">false</boolProp>
-            <boolProp name="FTPSampler.saveresponse">false</boolProp>
-            <boolProp name="FTPSampler.upload">true</boolProp>
-            <stringProp name="ConfigTestElement.username">csbctest</stringProp>
-            <stringProp name="ConfigTestElement.password">abc.123</stringProp>
-          </FTPSampler>
-          <hashTree/>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">csbctest</stringProp>
+              <stringProp name="ConfigTestElement.password">abc.123</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -188,39 +222,6 @@
           <stringProp name="TestPlan.comments">{&quot;orderId&quot;:&quot;1logic171605478&quot;,&quot;status&quot;:1,&quot;notes&quot;:&quot;成功&quot;}</stringProp>
         </ResultCollector>
         <hashTree/>
-        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器" enabled="true">
-          <stringProp name="ForeachController.inputVal">queryResult</stringProp>
-          <stringProp name="ForeachController.returnVal">orderNo</stringProp>
-          <boolProp name="ForeachController.useSeparator">true</boolProp>
-          <stringProp name="ForeachController.startIndex">0</stringProp>
-          <stringProp name="ForeachController.endIndex">300</stringProp>
-        </ForeachController>
-        <hashTree>
-          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="海关运单" enabled="true">
-            <stringProp name="TestPlan.comments">ftp://csbctest:abc.123@192.168.0.105/customs/Download</stringProp>
-            <stringProp name="FTPSampler.server"></stringProp>
-            <stringProp name="FTPSampler.port"></stringProp>
-            <stringProp name="FTPSampler.filename">customs/Download/TAL[^_]_${orderNo}001${__Random(10001,99999,)}.xml</stringProp>
-            <stringProp name="FTPSampler.localfilename"></stringProp>
-            <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
-&lt;CEB512Message xmlns=&quot;http://www.chinaport.gov.cn/ceb&quot;&gt;
-    &lt;LogisticsReturn&gt;
-        &lt;guid&gt;000000000000CUST00000000000034380001&lt;/guid&gt;
-        &lt;logisticsCode&gt;KDQY123456&lt;/logisticsCode&gt;
-        &lt;logisticsNo&gt;${logicFileName_1}&lt;/logisticsNo&gt;&lt;!--       --&gt;
-		&lt;returnStatus&gt;${returnStatus}&lt;/returnStatus&gt;&lt;!--       --&gt;
-        &lt;returnTime&gt;20170213103032&lt;/returnTime&gt;
-        &lt;returnInfo&gt;21re y7214&lt;/returnInfo&gt;
-    &lt;/LogisticsReturn&gt;
-&lt;/CEB512Message&gt;</stringProp>
-            <boolProp name="FTPSampler.binarymode">false</boolProp>
-            <boolProp name="FTPSampler.saveresponse">false</boolProp>
-            <boolProp name="FTPSampler.upload">true</boolProp>
-            <stringProp name="ConfigTestElement.username">csbctest</stringProp>
-            <stringProp name="ConfigTestElement.password">abc.123</stringProp>
-          </FTPSampler>
-          <hashTree/>
-        </hashTree>
       </hashTree>
     </hashTree>
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
