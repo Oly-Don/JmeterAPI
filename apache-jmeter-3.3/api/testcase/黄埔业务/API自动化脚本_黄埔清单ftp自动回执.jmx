@@ -17,7 +17,7 @@
       <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-3.2\lib\ojdbc6.jar,G:\SWE\开发资源\ojdbc6.jar</stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="批量黄埔流程海关总署版的回执" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="批量黄埔流程海关总署版的回执" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -62,11 +62,11 @@
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="oracle数据库操作" enabled="true"/>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="订单" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="订单" enabled="false"/>
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--订单" enabled="true">
               <stringProp name="dataSource">oracleIP120</stringProp>
-              <stringProp name="query">select distinct orderno from custebtrade where predate &gt; sysdate-7  and status != 70 and customscode=&apos;5208&apos; and  issinglewin is null</stringProp>
+              <stringProp name="query">select distinct orderno from custebtrade where predate &gt; sysdate-3  and status &lt;= 70 and customscode=&apos;5208&apos; and  issinglewin is null</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -86,7 +86,7 @@
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach订单" enabled="true">
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach遍历订单" enabled="true">
               <stringProp name="ForeachController.inputVal">orderNoResult</stringProp>
               <stringProp name="ForeachController.returnVal">orderNo</stringProp>
               <boolProp name="ForeachController.useSeparator">true</boolProp>
@@ -94,11 +94,11 @@
               <stringProp name="ForeachController.endIndex">300</stringProp>
             </ForeachController>
             <hashTree>
-              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="FTP请求" enabled="true">
+              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="订单${orderNo}" enabled="true">
                 <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
                 <stringProp name="FTPSampler.server"></stringProp>
                 <stringProp name="FTPSampler.port"></stringProp>
-                <stringProp name="FTPSampler.filename">customs/HP/receive/receive/CEB312_${custelectbillcode}__001${__Random(10001,99999,)}.xml</stringProp>
+                <stringProp name="FTPSampler.filename">customs/HP/HPBC/cebout/CEB312_${orderNo}DD${__Random(10001,99999,)}.xml</stringProp>
                 <stringProp name="FTPSampler.localfilename"></stringProp>
                 <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;yes&quot;?&gt;
 &lt;CEB312Message xmlns=&quot;http://www.chinaport.gov.cn/ceb&quot;&gt;
@@ -118,88 +118,63 @@
                 <stringProp name="ConfigTestElement.username">anonymous</stringProp>
                 <stringProp name="ConfigTestElement.password">anonymous</stringProp>
               </FTPSampler>
-              <hashTree>
-                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="put回执状态" enabled="true">
-                  <boolProp name="resetInterpreter">false</boolProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="script">vars.put(&quot;returnStatus&quot;,&quot;800&quot;);</stringProp>
-                </BeanShellPreProcessor>
-                <hashTree/>
-              </hashTree>
-            </hashTree>
-          </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="运单" enabled="true"/>
-          <hashTree>
-            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--运单" enabled="true">
-              <stringProp name="dataSource">oracleIP120</stringProp>
-              <stringProp name="query">select distinct transportno from custlogistorder where predate &gt; sysdate-7  and status != 70 and customscode=&apos;5208&apos; and issinglewin !=1</stringProp>
-              <stringProp name="queryArguments"></stringProp>
-              <stringProp name="queryArgumentsTypes"></stringProp>
-              <stringProp name="queryTimeout"></stringProp>
-              <stringProp name="queryType">Select Statement</stringProp>
-              <stringProp name="resultSetHandler">Store as String</stringProp>
-              <stringProp name="resultVariable"></stringProp>
-              <stringProp name="variableNames">logicNoResult</stringProp>
-            </JDBCSampler>
-            <hashTree>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                <collectionProp name="Asserion.test_strings">
-                  <stringProp name="-1157542694">0 updates</stringProp>
-                </collectionProp>
-                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                <boolProp name="Assertion.assume_success">false</boolProp>
-                <intProp name="Assertion.test_type">5</intProp>
-              </ResponseAssertion>
               <hashTree/>
-            </hashTree>
-            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach运单" enabled="true">
-              <stringProp name="ForeachController.inputVal">logicNoResult</stringProp>
-              <stringProp name="ForeachController.returnVal">logicNo</stringProp>
-              <boolProp name="ForeachController.useSeparator">true</boolProp>
-              <stringProp name="ForeachController.startIndex">0</stringProp>
-              <stringProp name="ForeachController.endIndex">300</stringProp>
-            </ForeachController>
-            <hashTree>
-              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="FTP请求" enabled="true">
-                <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
-                <stringProp name="FTPSampler.server"></stringProp>
-                <stringProp name="FTPSampler.port"></stringProp>
-                <stringProp name="FTPSampler.filename">customs/HP/receive/receive/CEB512_${custelectbillcode}__001${__Random(10001,99999,)}.xml</stringProp>
-                <stringProp name="FTPSampler.localfilename"></stringProp>
-                <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;yes&quot;?&gt;
+              <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="运单" enabled="true"/>
+              <hashTree>
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--运单" enabled="true">
+                  <stringProp name="dataSource">oracleIP120</stringProp>
+                  <stringProp name="query">select distinct transportno from custlogistorder where   predate &gt; sysdate-7  and status &lt;= 70 and customscode=&apos;5208&apos; and enordercode=&apos;${orderNo}&apos;</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                  <stringProp name="resultVariable"></stringProp>
+                  <stringProp name="variableNames">logicNo</stringProp>
+                </JDBCSampler>
+                <hashTree>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="-1157542694">0 updates</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">5</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                </hashTree>
+                <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="运单号:${logicNo_1},订单:${orderNo}" enabled="true">
+                  <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
+                  <stringProp name="FTPSampler.server"></stringProp>
+                  <stringProp name="FTPSampler.port"></stringProp>
+                  <stringProp name="FTPSampler.filename">customs/HP/kjds/receive/CEB512_${logicNo_1}__001${__Random(10001,99999,)}.xml</stringProp>
+                  <stringProp name="FTPSampler.localfilename"></stringProp>
+                  <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;yes&quot;?&gt;
 &lt;CEB512Message xmlns=&quot;http://www.chinaport.gov.cn/ceb&quot;&gt;
     &lt;LogisticsReturn&gt;
         &lt;guid&gt;000000000000CUST00000000000034380001&lt;/guid&gt;
         &lt;logisticsCode&gt;KDQY123456&lt;/logisticsCode&gt;
-        &lt;logisticsNo&gt;${logicNo}&lt;/logisticsNo&gt;&lt;!--       --&gt;
+        &lt;logisticsNo&gt;${logicNo_1}&lt;/logisticsNo&gt;&lt;!--       --&gt;
 		&lt;returnStatus&gt;2&lt;/returnStatus&gt;&lt;!--       --&gt;
         &lt;returnTime&gt;20170213103032&lt;/returnTime&gt;
-        &lt;returnInfo&gt;海关回执成功${logicNo}&lt;/returnInfo&gt;
+        &lt;returnInfo&gt;海关回执成功${logicNo_1}&lt;/returnInfo&gt;
     &lt;/LogisticsReturn&gt;
 &lt;/CEB512Message&gt;</stringProp>
-                <boolProp name="FTPSampler.binarymode">false</boolProp>
-                <boolProp name="FTPSampler.saveresponse">false</boolProp>
-                <boolProp name="FTPSampler.upload">true</boolProp>
-                <stringProp name="ConfigTestElement.username">anonymous</stringProp>
-                <stringProp name="ConfigTestElement.password">anonymous</stringProp>
-              </FTPSampler>
-              <hashTree>
-                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="put回执状态" enabled="true">
-                  <boolProp name="resetInterpreter">false</boolProp>
-                  <stringProp name="parameters"></stringProp>
-                  <stringProp name="filename"></stringProp>
-                  <stringProp name="script">vars.put(&quot;returnStatus&quot;,&quot;800&quot;);</stringProp>
-                </BeanShellPreProcessor>
+                  <boolProp name="FTPSampler.binarymode">false</boolProp>
+                  <boolProp name="FTPSampler.saveresponse">false</boolProp>
+                  <boolProp name="FTPSampler.upload">true</boolProp>
+                  <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+                  <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+                </FTPSampler>
                 <hashTree/>
               </hashTree>
             </hashTree>
           </hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="清单" enabled="true"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="清单" enabled="false"/>
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--清单" enabled="true">
               <stringProp name="dataSource">oracleIP120</stringProp>
-              <stringProp name="query">select distinct custelectbillcode from custelectbill where predate &gt; sysdate-7  and opdatatype is null and status != 70 and customscode=&apos;5208&apos; and issinglewin is null</stringProp>
+              <stringProp name="query">select distinct custelectbillcode from custelectbill where predate &gt; sysdate-3  and opdatatype is null and status = 30 and customscode=&apos;5208&apos; and issinglewin is null</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -219,7 +194,7 @@
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach清单" enabled="true">
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach遍历清单" enabled="true">
               <stringProp name="ForeachController.inputVal">custelectbillcodeResult</stringProp>
               <stringProp name="ForeachController.returnVal">custelectbillcode</stringProp>
               <boolProp name="ForeachController.useSeparator">true</boolProp>
@@ -227,7 +202,7 @@
               <stringProp name="ForeachController.endIndex">300</stringProp>
             </ForeachController>
             <hashTree>
-              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="FTP请求" enabled="true">
+              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="清单${custelectbillcode}" enabled="true">
                 <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
                 <stringProp name="FTPSampler.server"></stringProp>
                 <stringProp name="FTPSampler.port"></stringProp>
@@ -263,6 +238,96 @@
                   <stringProp name="script">vars.put(&quot;returnStatus&quot;,&quot;800&quot;);</stringProp>
                 </BeanShellPreProcessor>
                 <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="商品" enabled="true"/>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--商品" enabled="true">
+              <stringProp name="dataSource">oracleIP120</stringProp>
+              <stringProp name="query">select distinct custcargobcode from custcargoback where predate &gt; sysdate-14  and opdatatype is null and status=30 and customscode=&apos;5208&apos; and issinglewin is null</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames">custcargobcodeResult</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach遍历商品" enabled="true">
+              <stringProp name="ForeachController.inputVal">custcargobcodeResult</stringProp>
+              <stringProp name="ForeachController.returnVal">custcargobcode</stringProp>
+              <boolProp name="ForeachController.useSeparator">true</boolProp>
+              <stringProp name="ForeachController.startIndex">0</stringProp>
+              <stringProp name="ForeachController.endIndex">300</stringProp>
+            </ForeachController>
+            <hashTree>
+              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--货号" enabled="true">
+                <stringProp name="dataSource">oracleIP120</stringProp>
+                <stringProp name="query">select distinct gcode from custcargobackg where custcargobcode=&apos;${custcargobcode}&apos;</stringProp>
+                <stringProp name="queryArguments"></stringProp>
+                <stringProp name="queryArgumentsTypes"></stringProp>
+                <stringProp name="queryTimeout"></stringProp>
+                <stringProp name="queryType">Select Statement</stringProp>
+                <stringProp name="resultSetHandler">Store as String</stringProp>
+                <stringProp name="resultVariable"></stringProp>
+                <stringProp name="variableNames">gcodeResult</stringProp>
+              </JDBCSampler>
+              <hashTree/>
+              <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器_遍历货号" enabled="true">
+                <stringProp name="ForeachController.inputVal">gcodeResult</stringProp>
+                <stringProp name="ForeachController.returnVal">gcode</stringProp>
+                <boolProp name="ForeachController.useSeparator">true</boolProp>
+                <stringProp name="ForeachController.startIndex">0</stringProp>
+                <stringProp name="ForeachController.endIndex">300</stringProp>
+              </ForeachController>
+              <hashTree>
+                <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="商品${custcargobcode},货号:${gcode}" enabled="true">
+                  <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
+                  <stringProp name="FTPSampler.server"></stringProp>
+                  <stringProp name="FTPSampler.port"></stringProp>
+                  <stringProp name="FTPSampler.filename">ICIP/TOPZHI/ICIP/HP/BBC/4200.IMPBA.SWBCARGOBACK.AUDIT/out/661105REC_${custcargobcode}SP${__Random(10001,99999,)}.xml</stringProp>
+                  <stringProp name="FTPSampler.localfilename"></stringProp>
+                  <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot;?&gt;
+&lt;Root&gt;
+  &lt;Head&gt;
+    &lt;MessageID&gt;psp000000000000000000642155&lt;/MessageID&gt;
+    &lt;MessageType&gt;661105REC&lt;/MessageType&gt;
+    &lt;Sender&gt;ICIP&lt;/Sender&gt;
+    &lt;Receiver&gt;TOPZHI&lt;/Receiver&gt;
+    &lt;SendTime&gt;20151204221523&lt;/SendTime&gt;
+    &lt;FunctionCode/&gt;
+    &lt;Version&gt;1.0&lt;/Version&gt;
+  &lt;/Head&gt;
+  &lt;Declaration&gt;
+    &lt;GoodsRegRecList&gt;
+      &lt;Record&gt;
+        &lt;CargoBcode&gt;${custcargobcode}&lt;/CargoBcode&gt;
+        &lt;CbeComcode&gt;1000000208&lt;/CbeComcode&gt;
+		&lt;CIQGoodsNO&gt;ICIP${gcode}&lt;/CIQGoodsNO&gt;
+        &lt;Gcode&gt;${gcode}&lt;/Gcode&gt;
+        &lt;RegStatus&gt;10&lt;/RegStatus&gt;
+        &lt;RegNotes/&gt;
+      &lt;/Record&gt;
+    &lt;/GoodsRegRecList&gt;
+  &lt;/Declaration&gt;
+&lt;/Root&gt;</stringProp>
+                  <boolProp name="FTPSampler.binarymode">false</boolProp>
+                  <boolProp name="FTPSampler.saveresponse">false</boolProp>
+                  <boolProp name="FTPSampler.upload">true</boolProp>
+                  <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+                  <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+                </FTPSampler>
+                <hashTree>
+                  <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="put回执状态" enabled="true">
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="script">vars.put(&quot;returnStatus&quot;,&quot;800&quot;);</stringProp>
+                  </BeanShellPreProcessor>
+                  <hashTree/>
+                </hashTree>
               </hashTree>
             </hashTree>
           </hashTree>
@@ -304,7 +369,7 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单独清单回执" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单独清单回执" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -375,6 +440,18 @@ vars.put(&quot;returnInfo&quot;,&quot;放行&quot;);//returnInfo
             </BeanShellPreProcessor>
             <hashTree/>
           </hashTree>
+        </hashTree>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+            <stringProp name="RandomTimer.range">100</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>

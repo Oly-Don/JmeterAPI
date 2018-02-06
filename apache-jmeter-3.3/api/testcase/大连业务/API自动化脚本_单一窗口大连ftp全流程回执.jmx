@@ -58,7 +58,7 @@
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询订单号guid" enabled="true">
             <stringProp name="dataSource">oracleIP175</stringProp>
-            <stringProp name="query">select distinct guid  from custebtrade where status=&apos;70&apos;  and predate&gt; sysdate-14 and customscode  in (&apos;0904&apos;) and busimode=&apos;10&apos; and guid is not null</stringProp>
+            <stringProp name="query">select distinct guid  from custebtrade where status=&apos;70&apos;  and predate&gt; sysdate-1 and customscode  in (&apos;0904&apos;) and busimode=&apos;10&apos; and guid is not null</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
@@ -94,7 +94,7 @@
               <stringProp name="ForeachController.endIndex">2000</stringProp>
             </ForeachController>
             <hashTree>
-              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询运单号guid__${orderGuid}" enabled="true">
+              <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询订单号guid__${orderGuid}" enabled="true">
                 <stringProp name="dataSource">oracleIP175</stringProp>
                 <stringProp name="query">select  orderno from custebtrade where guid=&apos;${orderGuid}&apos;</stringProp>
                 <stringProp name="queryArguments"></stringProp>
@@ -117,6 +117,44 @@
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
+              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="单一窗口电子订单接收GJ__${orderNo_1}" enabled="true">
+                <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send
+${__substring(${orderFileName_1},0,30,)}
+${orderFileName_1}</stringProp>
+                <stringProp name="FTPSampler.server"></stringProp>
+                <stringProp name="FTPSampler.port"></stringProp>
+                <stringProp name="FTPSampler.filename">customs/BBC/SBHZBC/data/rece/DD_${orderNo_1}GJ00${__Random(10001,99999,)}.xml</stringProp>
+                <stringProp name="FTPSampler.localfilename"></stringProp>
+                <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;no&quot;?&gt;
+&lt;ResponseMessage&gt;
+    &lt;MessageHead&gt;
+        &lt;MESSAGE_ID&gt;${orderGuid}&lt;/MESSAGE_ID&gt;
+        &lt;MESSAGE_TYPE&gt;350&lt;/MESSAGE_TYPE&gt;
+        &lt;MESSAGE_TIME&gt;2017-11-21 14:23:22&lt;/MESSAGE_TIME&gt;
+        &lt;MESSAGE_SOURCE&gt;211940&lt;/MESSAGE_SOURCE&gt;
+        &lt;MESSAGE_DEST&gt;466504606&lt;/MESSAGE_DEST&gt;
+    &lt;/MessageHead&gt;
+    &lt;MessageBody&gt;
+        &lt;OrderReceivedDocument&gt;
+            &lt;OrderReceivedHead&gt;
+                &lt;ENT_CODE&gt;2119200002&lt;/ENT_CODE&gt;
+                &lt;MSG_CODE&gt;01&lt;/MSG_CODE&gt;
+                &lt;MSG_DESC&gt;12345678901234567800000003038613&lt;/MSG_DESC&gt;
+                &lt;RECEIPT_TYPE&gt;350&lt;/RECEIPT_TYPE&gt;
+                &lt;MSG_TIME&gt;2017-11-21 14:23:20&lt;/MSG_TIME&gt;
+                &lt;RECEIPT_NO&gt;879798788585858665&lt;/RECEIPT_NO&gt;
+                &lt;MSG_NAME&gt;12345678901234567800000003038613&lt;/MSG_NAME&gt;
+            &lt;/OrderReceivedHead&gt;
+        &lt;/OrderReceivedDocument&gt;
+    &lt;/MessageBody&gt;
+&lt;/ResponseMessage&gt;</stringProp>
+                <boolProp name="FTPSampler.binarymode">false</boolProp>
+                <boolProp name="FTPSampler.saveresponse">false</boolProp>
+                <boolProp name="FTPSampler.upload">true</boolProp>
+                <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+                <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+              </FTPSampler>
+              <hashTree/>
               <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="单一窗口电子订单接收HG__${orderNo_1}" enabled="true">
                 <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send
 ${__substring(${orderFileName_1},0,30,)}
@@ -144,44 +182,6 @@ ${orderFileName_1}</stringProp>
                 <stringProp name="ConfigTestElement.password">anonymous</stringProp>
               </FTPSampler>
               <hashTree/>
-              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="单一窗口电子订单接收GJ__${orderNo_1}" enabled="true">
-                <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send
-${__substring(${orderFileName_1},0,30,)}
-${orderFileName_1}</stringProp>
-                <stringProp name="FTPSampler.server"></stringProp>
-                <stringProp name="FTPSampler.port"></stringProp>
-                <stringProp name="FTPSampler.filename">customs/BBC/SBHZBC/data/rece/DD_${orderNo_1}GJ00${__Random(10001,99999,)}.xml</stringProp>
-                <stringProp name="FTPSampler.localfilename"></stringProp>
-                <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;no&quot;?&gt;
-&lt;ResponseMessage&gt;
-    &lt;MessageHead&gt;
-        &lt;MESSAGE_ID&gt;${orderGuid}&lt;/MESSAGE_ID&gt;
-        &lt;MESSAGE_TYPE&gt;350&lt;/MESSAGE_TYPE&gt;
-        &lt;MESSAGE_TIME&gt;2017-11-21 14:23:22&lt;/MESSAGE_TIME&gt;
-        &lt;MESSAGE_SOURCE&gt;211940&lt;/MESSAGE_SOURCE&gt;
-        &lt;MESSAGE_DEST&gt;466504606&lt;/MESSAGE_DEST&gt;
-    &lt;/MessageHead&gt;
-    &lt;MessageBody&gt;
-        &lt;OrderReceivedDocument&gt;
-            &lt;OrderReceivedHead&gt;
-                &lt;ENT_CODE&gt;2119200002&lt;/ENT_CODE&gt;
-                &lt;MSG_CODE&gt;01&lt;/MSG_CODE&gt;
-                &lt;MSG_DESC&gt;guid:${orderGuid}&lt;/MSG_DESC&gt;
-                &lt;RECEIPT_TYPE&gt;350&lt;/RECEIPT_TYPE&gt;
-                &lt;MSG_TIME&gt;2017-11-21 14:23:20&lt;/MSG_TIME&gt;
-                &lt;RECEIPT_NO&gt;879798788585858665&lt;/RECEIPT_NO&gt;
-                &lt;MSG_NAME&gt;guid:${orderGuid}&lt;/MSG_NAME&gt;
-            &lt;/OrderReceivedHead&gt;
-        &lt;/OrderReceivedDocument&gt;
-    &lt;/MessageBody&gt;
-&lt;/ResponseMessage&gt;</stringProp>
-                <boolProp name="FTPSampler.binarymode">false</boolProp>
-                <boolProp name="FTPSampler.saveresponse">false</boolProp>
-                <boolProp name="FTPSampler.upload">true</boolProp>
-                <stringProp name="ConfigTestElement.username">anonymous</stringProp>
-                <stringProp name="ConfigTestElement.password">anonymous</stringProp>
-              </FTPSampler>
-              <hashTree/>
             </hashTree>
           </hashTree>
         </hashTree>
@@ -192,7 +192,7 @@ ${orderFileName_1}</stringProp>
         </DebugSampler>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单一窗口xml回执" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单一窗口xml回执" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -287,30 +287,6 @@ ${orderFileName_1}</stringProp>
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
-              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="单一窗口电子运单接收HG__${logicNo_1}" enabled="true">
-                <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
-                <stringProp name="FTPSampler.server"></stringProp>
-                <stringProp name="FTPSampler.port"></stringProp>
-                <stringProp name="FTPSampler.filename">customs/BBC/SBHZBC/data/rece/YD_${logicNo_1}00${__Random(10001,99999,)}.xml</stringProp>
-                <stringProp name="FTPSampler.localfilename"></stringProp>
-                <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;no&quot;?&gt;
-&lt;CEB512Message&gt;
-    &lt;LogisticsReturn&gt;
-        &lt;guid&gt;${logicGuid}&lt;/guid&gt;
-        &lt;logisticsCode&gt;3213213122&lt;/logisticsCode&gt;
-        &lt;logisticsNo&gt;${logicNo_1}&lt;/logisticsNo&gt;
-        &lt;returnStatus&gt;2&lt;/returnStatus&gt;
-        &lt;returnTime&gt;2018-01-02 18:08:38&lt;/returnTime&gt;
-        &lt;returnInfo&gt;success&lt;/returnInfo&gt;
-    &lt;/LogisticsReturn&gt;
-&lt;/CEB512Message&gt;</stringProp>
-                <boolProp name="FTPSampler.binarymode">false</boolProp>
-                <boolProp name="FTPSampler.saveresponse">false</boolProp>
-                <boolProp name="FTPSampler.upload">true</boolProp>
-                <stringProp name="ConfigTestElement.username">anonymous</stringProp>
-                <stringProp name="ConfigTestElement.password">anonymous</stringProp>
-              </FTPSampler>
-              <hashTree/>
               <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="单一窗口电子运单接收GJ__${logicNo_1}" enabled="true">
                 <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
                 <stringProp name="FTPSampler.server"></stringProp>
@@ -340,6 +316,30 @@ ${orderFileName_1}</stringProp>
         &lt;/BillReceivedDocument&gt;
     &lt;/MessageBody&gt;
 &lt;/ResponseMessage&gt;</stringProp>
+                <boolProp name="FTPSampler.binarymode">false</boolProp>
+                <boolProp name="FTPSampler.saveresponse">false</boolProp>
+                <boolProp name="FTPSampler.upload">true</boolProp>
+                <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+                <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+              </FTPSampler>
+              <hashTree/>
+              <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="单一窗口电子运单接收HG__${logicNo_1}" enabled="true">
+                <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
+                <stringProp name="FTPSampler.server"></stringProp>
+                <stringProp name="FTPSampler.port"></stringProp>
+                <stringProp name="FTPSampler.filename">customs/BBC/SBHZBC/data/rece/YD_${logicNo_1}00${__Random(10001,99999,)}.xml</stringProp>
+                <stringProp name="FTPSampler.localfilename"></stringProp>
+                <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;no&quot;?&gt;
+&lt;CEB512Message&gt;
+    &lt;LogisticsReturn&gt;
+        &lt;guid&gt;${logicGuid}&lt;/guid&gt;
+        &lt;logisticsCode&gt;3213213122&lt;/logisticsCode&gt;
+        &lt;logisticsNo&gt;${logicNo_1}&lt;/logisticsNo&gt;
+        &lt;returnStatus&gt;2&lt;/returnStatus&gt;
+        &lt;returnTime&gt;2018-01-02 18:08:38&lt;/returnTime&gt;
+        &lt;returnInfo&gt;success&lt;/returnInfo&gt;
+    &lt;/LogisticsReturn&gt;
+&lt;/CEB512Message&gt;</stringProp>
                 <boolProp name="FTPSampler.binarymode">false</boolProp>
                 <boolProp name="FTPSampler.saveresponse">false</boolProp>
                 <boolProp name="FTPSampler.upload">true</boolProp>

@@ -36,7 +36,7 @@
             </elementProp>
             <elementProp name="gcode1" elementType="Argument">
               <stringProp name="Argument.name">gcode1</stringProp>
-              <stringProp name="Argument.value">DLBBC18020200N2</stringProp>
+              <stringProp name="Argument.value">DLBBC1802064N2</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">DLBBC08070A001</stringProp>
             </elementProp>
@@ -48,7 +48,7 @@
             </elementProp>
             <elementProp name="gcode2" elementType="Argument">
               <stringProp name="Argument.name">gcode2</stringProp>
-              <stringProp name="Argument.value">DLBBC18020200Y1</stringProp>
+              <stringProp name="Argument.value">DLBBC1802064Y1</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">DLBBC08070A002</stringProp>
             </elementProp>
@@ -84,12 +84,6 @@
           </collectionProp>
           <stringProp name="TestPlan.comments">${icipcode}    ${gcode1}    ${gcode2}    ${orderno}     ${customstype}</stringProp>
         </Arguments>
-        <hashTree/>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
-          <boolProp name="displayJMeterProperties">false</boolProp>
-          <boolProp name="displayJMeterVariables">true</boolProp>
-          <boolProp name="displaySystemProperties">false</boolProp>
-        </DebugSampler>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="发送大连BBC订单0904_有运单号" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="orderno" elementType="Argument">
+            <stringProp name="Argument.name">orderno</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-3.2\lib\ojdbc6.jar,G:\SWE\开发资源\ojdbc6.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="批量黄埔流程海关总署版的回执" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1507554306000</longProp>
+        <longProp name="ThreadGroup.end_time">1507554306000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="FtpConfigGui" testclass="ConfigTestElement" testname="FTP请求缺省值" enabled="true">
+          <stringProp name="TestPlan.comments">ftp://192.168.0.175/ICIP/TOPZHI/ICIP/HP/BBC/</stringProp>
+          <stringProp name="FTPSampler.server">192.168.0.175</stringProp>
+          <stringProp name="FTPSampler.port"></stringProp>
+          <stringProp name="FTPSampler.filename"></stringProp>
+          <stringProp name="FTPSampler.localfilename"></stringProp>
+          <stringProp name="FTPSampler.inputdata"></stringProp>
+          <boolProp name="FTPSampler.binarymode">false</boolProp>
+          <boolProp name="FTPSampler.saveresponse">false</boolProp>
+          <boolProp name="FTPSampler.upload">false</boolProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="海关撤单" enabled="true"/>
+        <hashTree>
+          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="撤单海关回执${doid},状态${status}" enabled="true">
+            <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
+            <stringProp name="FTPSampler.server"></stringProp>
+            <stringProp name="FTPSampler.port"></stringProp>
+            <stringProp name="FTPSampler.filename">customs/HP/receive/receive/CEB624_${__time(yyyyMMdd,)}ZZ${__Random(10001,99999,)}.xml</stringProp>
+            <stringProp name="FTPSampler.localfilename"></stringProp>
+            <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot;?&gt;
+&lt;CEB624Message&gt;
+  &lt;InvtCancelReturn&gt;
+    &lt;guid&gt;系统唯一序号&lt;/guid&gt;
+    &lt;copNo&gt;${doid}&lt;/copNo&gt;
+    &lt;preNo&gt;pre${doid}&lt;/preNo&gt;
+    &lt;invtNo&gt;cus${doid}&lt;/invtNo&gt;
+    &lt;returnStatus&gt;${status}&lt;/returnStatus&gt;
+    &lt;returnTime&gt;20180121110448533&lt;/returnTime&gt;
+    &lt;returnInfo&gt;回执${doid}&lt;/returnInfo&gt;
+    &lt;customsCode&gt;5208&lt;/customsCode&gt;
+    &lt;ebpCode&gt;1000000454&lt;/ebpCode&gt;
+    &lt;ebcCode&gt;1000000454&lt;/ebcCode&gt;
+    &lt;agentCode&gt;1000000454&lt;/agentCode&gt;
+  &lt;/InvtCancelReturn&gt;
+&lt;/CEB624Message&gt;</stringProp>
+            <boolProp name="FTPSampler.binarymode">false</boolProp>
+            <boolProp name="FTPSampler.saveresponse">false</boolProp>
+            <boolProp name="FTPSampler.upload">true</boolProp>
+            <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+            <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+          </FTPSampler>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="doid,status前置处理" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">vars.put(&quot;doid&quot;,&quot;DZQD1802050000180&quot;);
+vars.put(&quot;status&quot;,&quot;399&quot;);
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
