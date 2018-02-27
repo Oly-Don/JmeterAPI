@@ -341,7 +341,7 @@
             <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
             <stringProp name="FTPSampler.server"></stringProp>
             <stringProp name="FTPSampler.port"></stringProp>
-            <stringProp name="FTPSampler.filename">customs/HP/receive/receive/CEB622Message_${custelectbillcode}__001${__Random(10001,99999,)}.xml</stringProp>
+            <stringProp name="FTPSampler.filename">customs/HP/receive/receive/CEB622Message_${custelectbillcode}S${__Random(10001,99999,)}.xml</stringProp>
             <stringProp name="FTPSampler.localfilename"></stringProp>
             <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;yes&quot;?&gt;
 &lt;CEB622Message xmlns=&quot;http://www.chinaport.gov.cn/ceb&quot; guid=&quot;0a1089b3-714f-4a0b-99d2-b3addd9bd5dd&quot; version=&quot;1.0&quot;&gt;
@@ -371,9 +371,9 @@
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">//发送前处理
-vars.put(&quot;returnStatus&quot;,&quot;100&quot;);//回执状态
-vars.put(&quot;custelectbillcode&quot;,&quot;DZQD1802240000001&quot;);//清单号
-vars.put(&quot;returnInfo&quot;,&quot;地方退单失败&quot;);//returnInfo
+vars.put(&quot;returnStatus&quot;,&quot;800&quot;);//回执状态
+vars.put(&quot;custelectbillcode&quot;,&quot;DZQD1802270000189&quot;);//清单号
+vars.put(&quot;returnInfo&quot;,&quot;放行&quot;);//returnInfo  地方退单失败
 //100  地方清单中业务主键重复
 </stringProp>
             </BeanShellPreProcessor>

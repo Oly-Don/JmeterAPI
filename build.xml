@@ -32,9 +32,10 @@
         <antcall target="test"/>
         <antcall target="report"/>
     </target>
-  <target name="clean">
+    <target name="clean">
     	<delete dir="jmeter.result.jtl.dir" />  
-		<delete dir="jmeter.result.html.dir" />  
+		<delete dir="jmeter.result.html.dir" />    
+		<delete dir="jmeter.result.htmlNamenew" />
   </target>
     <target name="test">
         <echo message="test start"/>

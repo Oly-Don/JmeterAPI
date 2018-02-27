@@ -34,13 +34,36 @@
                 #right-panel td.assertion:before { counter-increment: assertion; content: counter(assertion) ". " }
                 #right-panel td.assertion { color: black }
                 #right-panel .trail { border-top: 1px solid #b4b4b4 }
+				
+				<!--JSON响应值格式化所用样式 -->
+				div.ControlsRow, div.HeadersRow {font-family: Georgia;}
+				div.Canvas{font-family: Lucida Console, Georgia;font-size: 13px;background-color:#ECECEC;color:#000000;border:solid 1px #CECECE;}
+				.ObjectBrace{color:#00AA00;font-weight:bold;}
+				.ArrayBrace{color:#0033FF;font-weight:bold;}
+				.PropertyName{color:#CC0000;font-weight:bold;}
+				.String{color:#007777;}
+				.Number{color:#AA00AA;}
+				.Boolean{color:#0000FF;}
+				.Function{color:#AA6633;text-decoration:italic;}
+				.Null{color:#0000FF;}
+				.Comma{color:#000000;font-weight:bold;}
+				PRE.CodeContainer{margin-top:0px;margin-bottom:0px;}
+				PRE.CodeContainer img{cursor:pointer;border:none;margin-bottom:-1px;}
+				#CollapsibleViewDetail a{padding-left:10px;}
+				#ControlsRow{white-space:nowrap;font: 11px Georgia;}
+				#TabSizeHolder{padding-left:10px;padding-right:10px;}
+				#HeaderTitle{text-align:right;font-size:11px;}
+				#HeaderSubTitle{margin-bottom:2px;margin-top:0px}
+				A.OtherToolsLink {color:#555;text-decoration:none;}
+				A.OtherToolsLink:hover {text-decoration:underline;}	
                 
             ]]></style>
             <script type="text/javascript"><![CDATA[
             
                 var onclick_li = (function() {
                     var last_selected = null;
-                    return function(li) {
+                    return function(li, index) {
+						Process(index);
                         if( last_selected == li )
                             return;
                         if( last_selected )
@@ -105,9 +128,179 @@
                     o = o ? o.firstChild : null;
                     o = o ? o.nextSibling : null;
                     if(o)
-                        onclick_li(o);
+                        onclick_li(o, 1);
                 };
-        
+				
+				
+				//JSON 格式化引用的js
+				window.SINGLE_TAB = "  ";
+				window.QuoteKeys = true;
+				function $id(id){ return document.getElementById(id); }
+				function IsArray(obj) {
+				  return  obj && 
+						  typeof obj === 'object' && 
+						  typeof obj.length === 'number' &&
+						  !(obj.propertyIsEnumerable('length'));
+				}
+
+				function Process(index){
+				  SetTab();
+				  window.IsCollapsible = false;
+				  debugger;
+				  if (!index){
+					return false;
+				  }  
+				  var json = $id("RawJson" + index).textContent;
+				  
+				  var html = "";
+				  try{
+					if(json == "") json = "\"\"";
+					var obj = eval("["+json+"]");
+					html = ProcessObject(obj[0], 0, false, false, false);
+					$id("Canvas" + index).innerHTML = "<PRE class='CodeContainer'>"+html+"</PRE>";
+				  }catch(e){
+					//alert("JSON数据格式不正确:\n"+e.message);
+					$id("Canvas" + index).innerHTML = "not Json Data";
+				  }
+				}
+				window._dateObj = new Date();
+				window._regexpObj = new RegExp();
+				function ProcessObject(obj, indent, addComma, isArray, isPropertyContent){
+
+				  var html = "";
+				  var comma = (addComma) ? "<span class='Comma'>,</span> " : ""; 
+				  var type = typeof obj;
+				  var clpsHtml ="";
+				  if(IsArray(obj)){
+					if(obj.length == 0){
+					  html += GetRow(indent, "<span class='ArrayBrace'>[ ]</span>"+comma, isPropertyContent);
+					}else{
+					  clpsHtml = window.IsCollapsible ? "<span><img src=\""+window.ImgExpanded+"\" onClick=\"ExpImgClicked(this)\" /></span><span class='collapsible'>" : "";
+					  html += GetRow(indent, "<span class='ArrayBrace'>[</span>"+clpsHtml, isPropertyContent);
+					  for(var i = 0; i < obj.length; i++){
+						html += ProcessObject(obj[i], indent + 1, i < (obj.length - 1), true, false);
+					  }
+					  clpsHtml = window.IsCollapsible ? "</span>" : "";
+					  html += GetRow(indent, clpsHtml+"<span class='ArrayBrace'>]</span>"+comma);
+					}
+				  }else if(type == 'object'){
+					if (obj == null){
+						html += FormatLiteral("null", "", comma, indent, isArray, "Null");
+					}else if (obj.constructor == window._dateObj.constructor) { 
+						html += FormatLiteral("new Date(" + obj.getTime() + ") /*" + obj.toLocaleString()+"*/", "", comma, indent, isArray, "Date"); 
+					}else if (obj.constructor == window._regexpObj.constructor) {
+						html += FormatLiteral("new RegExp(" + obj + ")", "", comma, indent, isArray, "RegExp"); 
+					}else{
+					  var numProps = 0;
+					  for(var prop in obj) numProps++;
+					  if(numProps == 0){
+						html += GetRow(indent, "<span class='ObjectBrace'>{ }</span>"+comma, isPropertyContent);
+					  }else{
+						clpsHtml = window.IsCollapsible ? "<span><img src=\""+window.ImgExpanded+"\" onClick=\"ExpImgClicked(this)\" /></span><span class='collapsible'>" : "";
+						html += GetRow(indent, "<span class='ObjectBrace'>{</span>"+clpsHtml, isPropertyContent);
+
+						var j = 0;
+
+						for(var prop in obj){
+
+						  var quote = window.QuoteKeys ? "\"" : "";
+
+						  html += GetRow(indent + 1, "<span class='PropertyName'>"+quote+prop+quote+"</span>: "+ProcessObject(obj[prop], indent + 1, ++j < numProps, false, true));
+
+						}
+
+						clpsHtml = window.IsCollapsible ? "</span>" : "";
+
+						html += GetRow(indent, clpsHtml+"<span class='ObjectBrace'>}</span>"+comma);
+
+					  }
+
+					}
+
+				  }else if(type == 'number'){
+
+					html += FormatLiteral(obj, "", comma, indent, isArray, "Number");
+
+				  }else if(type == 'boolean'){
+
+					html += FormatLiteral(obj, "", comma, indent, isArray, "Boolean");
+
+				  }else if(type == 'function'){
+
+					if (obj.constructor == window._regexpObj.constructor) {
+
+						html += FormatLiteral("new RegExp(" + obj + ")", "", comma, indent, isArray, "RegExp"); 
+
+					}else{
+
+						obj = FormatFunction(indent, obj);
+
+						html += FormatLiteral(obj, "", comma, indent, isArray, "Function");
+
+					}
+
+				  }else if(type == 'undefined'){
+
+					html += FormatLiteral("undefined", "", comma, indent, isArray, "Null");
+
+				  }else{
+
+					html += FormatLiteral(obj.toString().split("\\").join("\\\\").split('"').join('\\"'), "\"", comma, indent, isArray, "String");
+
+				  }
+
+				  return html;
+
+				}
+
+				function FormatLiteral(literal, quote, comma, indent, isArray, style){
+
+				  if(typeof literal == 'string')
+					literal = literal.split("<").join("&lt;").split(">").join("&gt;");
+				  var str = "<span class='"+style+"'>"+quote+literal+quote+comma+"</span>";
+				  if(isArray) str = GetRow(indent, str);
+				  return str;
+
+				}
+
+				function FormatFunction(indent, obj){
+				  var tabs = "";
+				  for(var i = 0; i < indent; i++) tabs += window.TAB;
+				  var funcStrArray = obj.toString().split("\n");
+				  var str = "";
+				  for(var i = 0; i < funcStrArray.length; i++){
+					str += ((i==0)?"":tabs) + funcStrArray[i] + "\n";
+				  }
+				  return str;
+				}
+
+				function GetRow(indent, data, isPropertyContent){
+				  var tabs = "";
+				  for(var i = 0; i < indent && !isPropertyContent; i++) tabs += window.TAB;
+				  if(data != null && data.length > 0 && data.charAt(data.length-1) != "\n")
+					data = data+"\n";
+				  return tabs+data;                       
+				}
+
+				function TraverseChildren(element, func, depth){
+				  for(var i = 0; i < element.childNodes.length; i++){
+					TraverseChildren(element.childNodes[i], func, depth + 1);
+				  }
+				  func(element, depth);
+				}
+
+				function SetTab(){
+				  window.TAB = MultiplyString(2, window.SINGLE_TAB);
+				}
+
+				function MultiplyString(num, str){
+				  var sb =[];
+				  for(var i = 0; i < num; i++){
+					sb.push(str);
+				  }
+				  return sb.join("");
+				}
+				
             ]]></script>
         </head>
         <body>
@@ -118,7 +311,7 @@
                         <xsl:if test="position() = 1 or @tn != preceding-sibling::*[1]/@tn">
                             <li class="navigation">Thread: <xsl:value-of select="@tn"/></li>
                         </xsl:if>
-                        <li onclick="return onclick_li(this);">
+                        <li onclick="return onclick_li(this, {position()});">
                             <div>
                                 <xsl:attribute name="class">
                                     <xsl:choose>
@@ -179,8 +372,9 @@
                                 <div class="zebra">
                                     <table>
                                         <tr><td class="data key">Response Headers</td><td class="data delimiter">:</td><td class="data"><pre class="data"><xsl:value-of select="responseHeader"/></pre></td></tr>
-                                        <tr><td class="data key">Response Data</td><td class="data delimiter">:</td><td class="data"><pre class="data"><xsl:value-of select="responseData"/></pre></td></tr>
+                                        <tr><td class="data key">Response Data</td><td class="data delimiter">:</td><td class="data"><pre id='RawJson{position()}' class="data"><xsl:value-of select="responseData"/></pre></td></tr>
                                         <tr><td class="data key">Response File</td><td class="data delimiter">:</td><td class="data"><pre class="data"><xsl:value-of select="responseFile"/></pre></td></tr>
+										<tr><td class="data key">JSON Data Format</td><td class="data delimiter">:</td><td><div id="Canvas{position()}" class="Canvas"></div></td></tr>
                                     </table>
                                 </div>
                                 <div class="trail"></div>
