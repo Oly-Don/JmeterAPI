@@ -26,6 +26,15 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
+        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+          <stringProp name="maximumValue">999999</stringProp>
+          <stringProp name="minimumValue">00001</stringProp>
+          <stringProp name="outputFormat">or</stringProp>
+          <boolProp name="perThread">false</boolProp>
+          <stringProp name="randomSeed"></stringProp>
+          <stringProp name="variableName">LogisticCode1</stringProp>
+        </RandomVariableConfig>
+        <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="LogisticCode" elementType="Argument">
@@ -53,6 +62,15 @@
 1000823:京东</stringProp>
         </Arguments>
         <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/xml</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="事务控制器" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">false</boolProp>
@@ -76,10 +94,10 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
+            <stringProp name="HTTPSampler.port">8800</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/logistics/applyweight/send.do</stringProp>
+            <stringProp name="HTTPSampler.path">/logistics/rest/logistics/applyweight/send.do</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -96,15 +114,6 @@
 	&lt;orderCode&gt;HP0608006&lt;/orderCode&gt;
 &lt;/weightFeedbackDto&gt;</stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-            <collectionProp name="HeaderManager.headers">
-              <elementProp name="" elementType="Header">
-                <stringProp name="Header.name">Content-Type</stringProp>
-                <stringProp name="Header.value">application/xml</stringProp>
-              </elementProp>
-            </collectionProp>
-          </HeaderManager>
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
@@ -138,15 +147,6 @@
           </objProp>
           <stringProp name="filename"></stringProp>
         </ResultCollector>
-        <hashTree/>
-        <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
-          <stringProp name="maximumValue">999999</stringProp>
-          <stringProp name="minimumValue">00001</stringProp>
-          <stringProp name="outputFormat">or</stringProp>
-          <boolProp name="perThread">false</boolProp>
-          <stringProp name="randomSeed"></stringProp>
-          <stringProp name="variableName">LogisticCode1</stringProp>
-        </RandomVariableConfig>
         <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">

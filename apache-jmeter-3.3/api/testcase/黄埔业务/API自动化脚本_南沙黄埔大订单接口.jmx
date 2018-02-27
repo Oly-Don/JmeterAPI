@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -21,7 +21,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">2</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">0</stringProp>
@@ -40,7 +40,7 @@
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-          <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+          <stringProp name="HTTPSampler.path">customs/rest/custjson/addPubOrder.do</stringProp>
           <stringProp name="TestPlan.comments">192.168.0.135
 121.33.205.117</stringProp>
           <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
@@ -117,7 +117,7 @@
         </Arguments>
         <hashTree/>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="NSBBC" enabled="true">
-          <stringProp name="IfController.condition">1==1</stringProp>
+          <stringProp name="IfController.condition">true</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
@@ -129,7 +129,7 @@
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
     &quot;orderId&quot;: &quot;NSBBC${orderno}&quot;,&#xd;
-    &quot;orderDate&quot;: &quot;2017-09-19 04:06:09&quot;,&#xd;
+    &quot;orderDate&quot;: &quot;2027-09-19 04:06:09&quot;,&#xd;
     &quot;packingMaterial&quot;: null,&#xd;
     &quot;warehouseId&quot;: null,&#xd;
     &quot;tpl&quot;: &quot;${tpl}&quot;,&#xd;
@@ -249,9 +249,9 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -264,10 +264,7 @@
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="HPBBC事务" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
-        </TransactionController>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="HPBBC事务" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HPBBC非360仓" enabled="false">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -390,10 +387,10 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -427,7 +424,7 @@
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
+        &quot;orderDate&quot;:&quot;2026-09-19 17:03:00&quot;,&#xd;
         &quot;customsType&quot;:&quot;1&quot;,&#xd;
         &quot;stationbCode&quot;:&quot;000072&quot;,&#xd;
         &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
@@ -527,9 +524,9 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -660,11 +657,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
-            <stringProp name="HTTPSampler.port">8080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -694,7 +691,7 @@
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
+        &quot;orderDate&quot;:&quot;2026-09-19 17:03:00&quot;,&#xd;
         &quot;customsType&quot;:&quot;1&quot;,&#xd;
         &quot;stationbCode&quot;:&quot;000072&quot;,&#xd;
         &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
@@ -822,9 +819,9 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -849,7 +846,7 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
             <stringProp name="HTTPSampler.path">/customs/rest/logistics/billapply/getMailNo.do</stringProp>
@@ -879,10 +876,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="HPBC事务" enabled="true">
-          <boolProp name="TransactionController.includeTimers">false</boolProp>
-          <boolProp name="TransactionController.parent">false</boolProp>
-        </TransactionController>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="HPBC事务" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求1无logc" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -903,7 +897,7 @@
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
+        &quot;orderDate&quot;:&quot;2026-09-19 17:03:00&quot;,&#xd;
         &quot;customsType&quot;:&quot;1&quot;,&#xd;
         &quot;stationbCode&quot;:&quot;000069&quot;,&#xd;
         &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
@@ -1007,9 +1001,9 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -1039,7 +1033,7 @@
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
+        &quot;orderDate&quot;:&quot;2026-09-19 17:03:00&quot;,&#xd;
         &quot;customsType&quot;:&quot;1&quot;,&#xd;
         &quot;stationbCode&quot;:&quot;000096&quot;,&#xd;
         &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
@@ -1161,9 +1155,9 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -1193,7 +1187,7 @@
         &quot;acturalPaid&quot;:&quot;1800&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
+        &quot;orderDate&quot;:&quot;2026-09-19 17:03:00&quot;,&#xd;
         &quot;customsType&quot;:&quot;1&quot;,&#xd;
         &quot;stationbCode&quot;:&quot;000096&quot;,&#xd;
         &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
@@ -1296,9 +1290,9 @@
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
             <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -1311,7 +1305,7 @@
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="反向" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="HPBC反向" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP请求0无logc" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -1331,7 +1325,7 @@
         &quot;acturalPaid&quot;:&quot;112&quot;,&#xd;
         &quot;inputDate&quot;:&quot;2016-09-19 17:02:00&quot;,&#xd;
         &quot;orderType&quot;:&quot;1&quot;,&#xd;
-        &quot;orderDate&quot;:&quot;2016-09-19 17:03:00&quot;,&#xd;
+        &quot;orderDate&quot;:&quot;2122-09-19 17:03:00&quot;,&#xd;
         &quot;customsType&quot;:&quot;1&quot;,&#xd;
         &quot;stationbCode&quot;:&quot;000096&quot;,&#xd;
         &quot;taxFcode&quot;:&quot;CAD&quot;,&#xd;
@@ -1434,10 +1428,10 @@
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain"></stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">/customs/rest/custjson/addPubOrder.do</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
@@ -1450,48 +1444,101 @@
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-          <boolProp name="ResultCollector.error_logging">true</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="TestPlan.comments">{&quot;orderId&quot;:&quot;1logic171605478&quot;,&quot;status&quot;:1,&quot;notes&quot;:&quot;成功&quot;}</stringProp>
-        </ResultCollector>
-        <hashTree/>
       </hashTree>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </PostThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="更新三单驱动表" enabled="true"/>
+        <hashTree>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="poolMax">10</stringProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <boolProp name="keepAlive">false</boolProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="checkQuery">Select 1</stringProp>
+            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.175:1521:orcl</stringProp>
+            <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+            <stringProp name="username">customs</stringProp>
+            <stringProp name="password">customs</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request--oracle" enabled="true">
+            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="query">update custorderlog set order_rec_cust=&apos;1&apos;，logist_rec_cust=&apos;1&apos;,pay_rec_cust=&apos;1&apos;,expectwaybillno=&apos;2&apos; where predate&gt;sysdate-2</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Update Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="TestPlan.comments">delete from mq_proj_wait where predate &lt;to_date((to_char(sysdate,&apos;yyyyMMdd&apos;)-7),&apos;yyyyMMdd&apos;) and status in (&apos;80&apos;,&apos;82&apos;,&apos;90&apos;,&apos;10&apos;)</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-452982087">0 update</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">20</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="TestPlan.comments">{&quot;orderId&quot;:&quot;1logic171605478&quot;,&quot;status&quot;:1,&quot;notes&quot;:&quot;成功&quot;}</stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
-    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
-      <boolProp name="WorkBench.save">true</boolProp>
-    </WorkBench>
-    <hashTree/>
   </hashTree>
 </jmeterTestPlan>

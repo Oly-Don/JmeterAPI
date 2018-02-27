@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -75,6 +75,7 @@
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">20</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
@@ -114,6 +115,7 @@
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                   <boolProp name="Assertion.assume_success">false</boolProp>
                   <intProp name="Assertion.test_type">20</intProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
@@ -170,7 +172,7 @@ ${orderFileName_1}</stringProp>
         &lt;ebpCode&gt;DLKENGDIE&lt;/ebpCode&gt;
         &lt;ebcCode&gt;DLKENGDIE&lt;/ebcCode&gt;
         &lt;orderNo&gt;${orderNo_1}&lt;/orderNo&gt;
-        &lt;returnStatus&gt;2&lt;/returnStatus&gt;
+        &lt;returnStatus&gt;-33&lt;/returnStatus&gt;
         &lt;returnTime&gt;20170512102646001&lt;/returnTime&gt;
         &lt;returnInfo&gt;orderno:${orderNo_1}&lt;/returnInfo&gt;
     &lt;/OrderReturn&gt;
@@ -245,6 +247,7 @@ ${orderFileName_1}</stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
               <intProp name="Assertion.test_type">20</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
@@ -284,6 +287,7 @@ ${orderFileName_1}</stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
                   <boolProp name="Assertion.assume_success">false</boolProp>
                   <intProp name="Assertion.test_type">20</intProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
@@ -335,7 +339,7 @@ ${orderFileName_1}</stringProp>
         &lt;guid&gt;${logicGuid}&lt;/guid&gt;
         &lt;logisticsCode&gt;3213213122&lt;/logisticsCode&gt;
         &lt;logisticsNo&gt;${logicNo_1}&lt;/logisticsNo&gt;
-        &lt;returnStatus&gt;2&lt;/returnStatus&gt;
+        &lt;returnStatus&gt;-4&lt;/returnStatus&gt;
         &lt;returnTime&gt;2018-01-02 18:08:38&lt;/returnTime&gt;
         &lt;returnInfo&gt;success&lt;/returnInfo&gt;
     &lt;/LogisticsReturn&gt;
@@ -393,100 +397,84 @@ ${orderFileName_1}</stringProp>
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-    </hashTree>
-    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
-      <boolProp name="WorkBench.save">true</boolProp>
-    </WorkBench>
-    <hashTree>
-      <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="查询订单运单生成的文件名,用作回执" enabled="true"/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单一窗口xml回执_清单 未完成" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1519618730000</longProp>
+        <longProp name="ThreadGroup.end_time">1519618730000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
       <hashTree>
-        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="120" enabled="true">
-          <stringProp name="dataSource">oracleIP120</stringProp>
-          <stringProp name="poolMax">10</stringProp>
-          <stringProp name="timeout">10000</stringProp>
-          <stringProp name="trimInterval">60000</stringProp>
-          <boolProp name="autocommit">true</boolProp>
-          <stringProp name="transactionIsolation">DEFAULT</stringProp>
-          <boolProp name="keepAlive">true</boolProp>
-          <stringProp name="connectionAge">5000</stringProp>
-          <stringProp name="checkQuery">select 1 from dual</stringProp>
-          <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:orcl</stringProp>
-          <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
-          <stringProp name="username">mqdata</stringProp>
-          <stringProp name="password">mqdata</stringProp>
-        </JDBCDataSource>
-        <hashTree/>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询DD${orderNo}数据库120" enabled="true">
-          <stringProp name="dataSource">oracleIP120</stringProp>
-          <stringProp name="query">select filepath from mq_proj_wait where outercode like &apos;%${orderNo}%&apos; and projtype=&apos;4400.SINGLEWIN.HPBC.ORDER.BOTH&apos;</stringProp>
-          <stringProp name="queryArguments"></stringProp>
-          <stringProp name="queryArgumentsTypes"></stringProp>
-          <stringProp name="queryTimeout"></stringProp>
-          <stringProp name="queryType">Select Statement</stringProp>
-          <stringProp name="resultSetHandler">Store as String</stringProp>
-          <stringProp name="resultVariable"></stringProp>
-          <stringProp name="variableNames">orderFileName</stringProp>
-          <stringProp name="TestPlan.comments">4400.SINGLEWIN.HPBC.LOGIST.BOTH</stringProp>
-        </JDBCSampler>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="查询订单运单生成的文件名,用作回执" enabled="true"/>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-452982087">0 update</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">20</intProp>
-          </ResponseAssertion>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="120" enabled="true">
+            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="poolMax">10</stringProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="checkQuery">select 1 from dual</stringProp>
+            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:orcl</stringProp>
+            <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+            <stringProp name="username">mqdata</stringProp>
+            <stringProp name="password">mqdata</stringProp>
+          </JDBCDataSource>
           <hashTree/>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-            <stringProp name="ConstantTimer.delay">60000</stringProp>
-          </ConstantTimer>
-          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询YD${orderNo}数据库120" enabled="true">
+            <stringProp name="dataSource">oracleIP120</stringProp>
+            <stringProp name="query">select filepath from mq_proj_wait where predate&gt;sysdate-7 and projtype=&apos;4400.DL.BBC.0060&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames">logicFileName</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-452982087">0 update</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">20</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询YD${orderNo}数据库120" enabled="true">
-          <stringProp name="dataSource">oracleIP120</stringProp>
-          <stringProp name="query">select filepath from mq_proj_wait where outercode like &apos;%${orderNo}%&apos; and projtype=&apos;4400.SINGLEWIN.HPBC.LOGIST.BOTH&apos;</stringProp>
-          <stringProp name="queryArguments"></stringProp>
-          <stringProp name="queryArgumentsTypes"></stringProp>
-          <stringProp name="queryTimeout"></stringProp>
-          <stringProp name="queryType">Select Statement</stringProp>
-          <stringProp name="resultSetHandler">Store as String</stringProp>
-          <stringProp name="resultVariable"></stringProp>
-          <stringProp name="variableNames">logicFileName</stringProp>
-        </JDBCSampler>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="清单" enabled="true">
+          <stringProp name="IfController.condition">!&quot;${eleFileName_1}&quot;.contains(&quot;eleFileName&quot;)</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <stringProp name="TestPlan.comments">eleFileName</stringProp>
+        </IfController>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-            <collectionProp name="Asserion.test_strings">
-              <stringProp name="-452982087">0 update</stringProp>
-            </collectionProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">20</intProp>
-          </ResponseAssertion>
-          <hashTree/>
-        </hashTree>
-      </hashTree>
-      <IfController guiclass="IfControllerPanel" testclass="IfController" testname="清单" enabled="true">
-        <stringProp name="IfController.condition">!&quot;${eleFileName_1}&quot;.contains(&quot;eleFileName&quot;)</stringProp>
-        <boolProp name="IfController.evaluateAll">false</boolProp>
-        <stringProp name="TestPlan.comments">eleFileName</stringProp>
-      </IfController>
-      <hashTree>
-        <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器" enabled="true">
-          <stringProp name="ForeachController.inputVal">eleFileName</stringProp>
-          <stringProp name="ForeachController.returnVal">RespondBy</stringProp>
-          <boolProp name="ForeachController.useSeparator">true</boolProp>
-          <stringProp name="ForeachController.startIndex">0</stringProp>
-          <stringProp name="ForeachController.endIndex">2</stringProp>
-        </ForeachController>
-        <hashTree>
-          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="黄埔BC单一窗口电子清单(CIQ)" enabled="true">
-            <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
-            <stringProp name="FTPSampler.server"></stringProp>
-            <stringProp name="FTPSampler.port"></stringProp>
-            <stringProp name="FTPSampler.filename">customs/BBC/ZZ/out/KJ881110CIQREC_QD001${__Random(10001,99999,)}.xml</stringProp>
-            <stringProp name="FTPSampler.localfilename"></stringProp>
-            <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+          <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器" enabled="true">
+            <stringProp name="ForeachController.inputVal">eleFileName</stringProp>
+            <stringProp name="ForeachController.returnVal">RespondBy</stringProp>
+            <boolProp name="ForeachController.useSeparator">true</boolProp>
+            <stringProp name="ForeachController.startIndex">0</stringProp>
+            <stringProp name="ForeachController.endIndex">2</stringProp>
+          </ForeachController>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="黄埔BC单一窗口电子清单(CIQ)" enabled="true">
+              <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">customs/BBC/ZZ/out/KJ881110CIQREC_QD001${__Random(10001,99999,)}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;InternationalTrade&gt;
   &lt;Head&gt;
     &lt;MessageID&gt;KJ881110_QD_2018013116290000001&lt;/MessageID&gt;
@@ -511,20 +499,20 @@ ${orderFileName_1}</stringProp>
     &lt;CIQRecNotes&gt;nnnn&lt;/CIQRecNotes&gt;
   &lt;/Declaration&gt;
 &lt;/InternationalTrade&gt;</stringProp>
-            <boolProp name="FTPSampler.binarymode">true</boolProp>
-            <boolProp name="FTPSampler.saveresponse">false</boolProp>
-            <boolProp name="FTPSampler.upload">true</boolProp>
-            <stringProp name="ConfigTestElement.username">anonymous</stringProp>
-            <stringProp name="ConfigTestElement.password">anonymous</stringProp>
-          </FTPSampler>
-          <hashTree/>
-          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="黄埔BC单一窗口电子清单(CUS)" enabled="true">
-            <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
-            <stringProp name="FTPSampler.server"></stringProp>
-            <stringProp name="FTPSampler.port"></stringProp>
-            <stringProp name="FTPSampler.filename">customs/BBC/ZZ/out/KJ881110CUSREC_QD001${__Random(10001,99999,)}.xml</stringProp>
-            <stringProp name="FTPSampler.localfilename"></stringProp>
-            <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+              <boolProp name="FTPSampler.binarymode">true</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+              <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+            </FTPSampler>
+            <hashTree/>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="黄埔BC单一窗口电子清单(CUS)" enabled="true">
+              <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">customs/BBC/ZZ/out/KJ881110CUSREC_QD001${__Random(10001,99999,)}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;InternationalTrade&gt;
   &lt;Head&gt;
     &lt;MessageID&gt;KJ881110_QD_2018013116290000001&lt;/MessageID&gt;
@@ -552,32 +540,37 @@ ${orderFileName_1}</stringProp>
     &lt;opdatatype/&gt;
   &lt;/Declaration&gt;
 &lt;/InternationalTrade&gt;</stringProp>
-            <boolProp name="FTPSampler.binarymode">true</boolProp>
-            <boolProp name="FTPSampler.saveresponse">false</boolProp>
-            <boolProp name="FTPSampler.upload">true</boolProp>
-            <stringProp name="ConfigTestElement.username">anonymous</stringProp>
-            <stringProp name="ConfigTestElement.password">anonymous</stringProp>
-          </FTPSampler>
-          <hashTree/>
-          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="测试中文" enabled="true">
-            <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
-            <stringProp name="FTPSampler.server"></stringProp>
-            <stringProp name="FTPSampler.port"></stringProp>
-            <stringProp name="FTPSampler.filename">customs/BBC/ZZ/out/KJ881110CUSREC_QD001${__Random(10001,99999,)}.xml</stringProp>
-            <stringProp name="FTPSampler.localfilename"></stringProp>
-            <stringProp name="FTPSampler.inputdata">${body}</stringProp>
-            <boolProp name="FTPSampler.binarymode">true</boolProp>
-            <boolProp name="FTPSampler.saveresponse">false</boolProp>
-            <boolProp name="FTPSampler.upload">true</boolProp>
-            <stringProp name="ConfigTestElement.username">anonymous</stringProp>
-            <stringProp name="ConfigTestElement.password">anonymous</stringProp>
-          </FTPSampler>
-          <hashTree>
-            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
-              <boolProp name="resetInterpreter">false</boolProp>
-              <stringProp name="parameters"></stringProp>
-              <stringProp name="filename"></stringProp>
-              <stringProp name="script">import java.io.UnsupportedEncodingException;
+              <boolProp name="FTPSampler.binarymode">true</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+              <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="WorkBench Test Fragment" enabled="false"/>
+      <hashTree>
+        <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="测试中文" enabled="true">
+          <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
+          <stringProp name="FTPSampler.server"></stringProp>
+          <stringProp name="FTPSampler.port"></stringProp>
+          <stringProp name="FTPSampler.filename">customs/BBC/ZZ/out/KJ881110CUSREC_QD001${__Random(10001,99999,)}.xml</stringProp>
+          <stringProp name="FTPSampler.localfilename"></stringProp>
+          <stringProp name="FTPSampler.inputdata">${body}</stringProp>
+          <boolProp name="FTPSampler.binarymode">true</boolProp>
+          <boolProp name="FTPSampler.saveresponse">false</boolProp>
+          <boolProp name="FTPSampler.upload">true</boolProp>
+          <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+          <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+        </FTPSampler>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import java.io.UnsupportedEncodingException;
 
  String str = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot;?&gt;\n&quot; +
                 &quot;&lt;InternationalTrade&gt;\n&quot; +
@@ -617,9 +610,8 @@ ${orderFileName_1}</stringProp>
         if(bytes!= null ){
 		vars.put(&quot;body&quot;,bytes);
         }</stringProp>
-            </BeanShellPreProcessor>
-            <hashTree/>
-          </hashTree>
+          </BeanShellPreProcessor>
+          <hashTree/>
         </hashTree>
       </hashTree>
     </hashTree>

@@ -11,7 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-3.2\lib\ojdbc14.jar</stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="手工入仓-修改与申报单号" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="手工入仓-修改与申报单号" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -50,7 +50,7 @@
             </elementProp>
             <elementProp name="opg" elementType="Argument">
               <stringProp name="Argument.name">opg</stringProp>
-              <stringProp name="Argument.value">OPG170213000010</stringProp>
+              <stringProp name="Argument.value">OPG161214000007</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">OPG171106000002  OPG161214000007</stringProp>
             </elementProp>
@@ -61,7 +61,7 @@
             </elementProp>
             <elementProp name="custentryslcode" elementType="Argument">
               <stringProp name="Argument.name">custentryslcode</stringProp>
-              <stringProp name="Argument.value">CUSHPPRE180118000001</stringProp>
+              <stringProp name="Argument.value">CUSHPPRE180226000003</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="wms" elementType="Argument">
@@ -71,7 +71,7 @@
             </elementProp>
             <elementProp name="cargo1" elementType="Argument">
               <stringProp name="Argument.name">cargo1</stringProp>
-              <stringProp name="Argument.value">CUST000000000000000001127715</stringProp>
+              <stringProp name="Argument.value">CUST000000000000000001132641</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -450,7 +450,7 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="自动扫描未完结预申报-自动入仓" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="自动扫描未完结预申报-自动入仓======!!!不可用!!!" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -532,7 +532,7 @@
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
             <stringProp name="dataSource">oracle</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
-            <stringProp name="query">select m.custentryslcode as 预录入编号,m.electriccode as 电商企业,g.custentryslgicode as 商品内码,g.op_goodscode as OP商品编码,m.wms_storecode as 仓库  from custentrystorelist m left join custentrystorelistg  g on m.eslpredeclcode=g.eslpredeclcode where  m.status=&apos;70&apos; and m.status_tally is null and m.predate &gt;sysdate-7</stringProp>
+            <stringProp name="query">select m.custentryslcode as 预录入编号,m.electriccode as 电商企业,g.custentryslgicode as 商品内码,g.op_goodscode as OP商品编码,m.wms_storecode as 仓库  from custentrystorelist m left join custentrystorelistg  g on m.eslpredeclcode=g.org_eslpredeclcode where  m.status=&apos;70&apos; and m.status_tally is null and m.predate &gt;sysdate-7</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="variableNames">custentryslcode,ccode,custentryslgicode,op_goodscode,wms_storecode</stringProp>
@@ -583,7 +583,7 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
                     <stringProp name="Argument.value">{&#xd;
     &quot;asnDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;id&quot;:&quot;${cargo1}&quot;,&#xd;
+            &quot;id&quot;:&quot;${custentryslgicode_1}&quot;,&#xd;
             &quot;qtyDamage&quot;:0,&#xd;
             &quot;qtyQuality&quot;:0,&#xd;
             &quot;qtyReceived&quot;:10,&#xd;
@@ -603,14 +603,14 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
     &quot;tenantCode&quot;:&quot;zhuozhi&quot;,&#xd;
     &quot;trsDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;docLineId&quot;:&quot;${cargo1}&quot;,&#xd;
-            &quot;accountBookId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;docLineId&quot;:&quot;${custentryslgicode_1}&quot;,&#xd;
+            &quot;accountBookId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;batchNo&quot;:&quot;LOTzz31612140000016&quot;,&#xd;
             &quot;blNo1&quot;:&quot;135446212541&quot;,&#xd;
             &quot;blNo2&quot;:&quot;135446212542&quot;,&#xd;
-            &quot;consignorId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;consignorId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;expiredTime&quot;:&quot;2017-12-01&quot;,&#xd;
-            &quot;fundProviderId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;fundProviderId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;grossWeight&quot;:0,&#xd;
             &quot;height&quot;:0,&#xd;
             &quot;id&quot;:&quot;265&quot;,&#xd;
@@ -618,13 +618,13 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
             &quot;isTraceSrc&quot;:&quot;0&quot;,&#xd;
             &quot;length&quot;:0,&#xd;
             &quot;lotNo&quot;:&quot;LOTzz31612140000016&quot;,&#xd;
-            &quot;merchantId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;merchantId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;netWeight&quot;:0,&#xd;
             &quot;poNo&quot;:&quot;${custentryslcode}&quot;,&#xd;
-            &quot;productId&quot;:&quot;${opg}&quot;,&#xd;
+            &quot;productId&quot;:&quot;${op_goodscode_1}&quot;,&#xd;
             &quot;productionTime&quot;:&quot;2016-12-01&quot;,&#xd;
             &quot;purchasePrice&quot;:&quot;18.0&quot;,&#xd;
-            &quot;supplierId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;supplierId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;transactionQty&quot;:20,&#xd;
             &quot;transactionType&quot;:1,&#xd;
             &quot;volume&quot;:0,&#xd;
@@ -633,7 +633,7 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
              &quot;virtualMerchantId&quot;:&quot;1000000581&quot;&#xd;
         }&#xd;
     ],&#xd;
-    &quot;warehouseId&quot;:${wms}&#xd;
+    &quot;warehouseId&quot;:${wms_storecode_1}&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                   </elementProp>
@@ -669,7 +669,7 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
                       <stringProp name="Argument.value">{&#xd;
     &quot;asnDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;id&quot;:&quot;${cargo1}&quot;,&#xd;
+            &quot;id&quot;:&quot;${custentryslgicode_1}&quot;,&#xd;
             &quot;qtyDamage&quot;:0,&#xd;
             &quot;qtyQuality&quot;:0,&#xd;
             &quot;qtyReceived&quot;:10,&#xd;
@@ -689,14 +689,14 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
     &quot;tenantCode&quot;:&quot;zhuozhi&quot;,&#xd;
     &quot;trsDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;accountBookId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;accountBookId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;batchNo&quot;:&quot;LOTzz31612140000016&quot;,&#xd;
             &quot;blNo1&quot;:&quot;135446212541&quot;,&#xd;
             &quot;blNo2&quot;:&quot;135446212542&quot;,&#xd;
-            &quot;consignorId&quot;:&quot;${ccode}&quot;,&#xd;
-            &quot;docLineId&quot;:&quot;${cargo1}&quot;,&#xd;
+            &quot;consignorId&quot;:&quot;${ccode_1}&quot;,&#xd;
+            &quot;docLineId&quot;:&quot;${custentryslgicode_1}&quot;,&#xd;
             &quot;expiredTime&quot;:&quot;2017-12-01&quot;,&#xd;
-            &quot;fundProviderId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;fundProviderId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;grossWeight&quot;:0,&#xd;
             &quot;height&quot;:0,&#xd;
             &quot;id&quot;:&quot;265&quot;,&#xd;
@@ -704,13 +704,13 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
             &quot;isTraceSrc&quot;:&quot;0&quot;,&#xd;
             &quot;length&quot;:0,&#xd;
             &quot;lotNo&quot;:&quot;LOTzz31612140000016&quot;,&#xd;
-            &quot;merchantId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;merchantId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;netWeight&quot;:0,&#xd;
             &quot;poNo&quot;:&quot;${custentryslcode}&quot;,&#xd;
-            &quot;productId&quot;:&quot;${opg}&quot;,&#xd;
+            &quot;productId&quot;:&quot;${op_goodscode_1}&quot;,&#xd;
             &quot;productionTime&quot;:&quot;2016-12-01&quot;,&#xd;
             &quot;purchasePrice&quot;:&quot;18.0&quot;,&#xd;
-            &quot;supplierId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;supplierId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;transactionQty&quot;:20,&#xd;
             &quot;transactionType&quot;:1,&#xd;
             &quot;volume&quot;:0,&#xd;
@@ -719,7 +719,7 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
              &quot;virtualMerchantId&quot;:&quot;1000000581&quot;&#xd;
         }&#xd;
     ],&#xd;
-    &quot;warehouseId&quot;:${wms}&#xd;
+    &quot;warehouseId&quot;:${wms_storecode_1}&#xd;
 }</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
@@ -761,7 +761,7 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
                       <stringProp name="Argument.value">{&#xd;
     &quot;asnDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;id&quot;:&quot;${cargo1}&quot;,&#xd;
+            &quot;id&quot;:&quot;${custentryslgicode_1}&quot;,&#xd;
             &quot;qtyDamage&quot;:0,&#xd;
             &quot;qtyQuality&quot;:0,&#xd;
             &quot;qtyReceived&quot;:10,&#xd;
@@ -781,14 +781,14 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
     &quot;tenantCode&quot;:&quot;zhuozhi&quot;,&#xd;
     &quot;trsDetailList&quot;:[&#xd;
         {&#xd;
-            &quot;accountBookId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;accountBookId&quot;:&quot;${custentryslgicode_1}&quot;,&#xd;
             &quot;batchNo&quot;:&quot;LOTzz31612140000016&quot;,&#xd;
             &quot;blNo1&quot;:&quot;135446212541&quot;,&#xd;
             &quot;blNo2&quot;:&quot;135446212542&quot;,&#xd;
-            &quot;consignorId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;consignorId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;docLineId&quot;:&quot;${cargo1}&quot;,&#xd;
             &quot;expiredTime&quot;:&quot;2017-12-01&quot;,&#xd;
-            &quot;fundProviderId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;fundProviderId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;grossWeight&quot;:0,&#xd;
             &quot;height&quot;:0,&#xd;
             &quot;id&quot;:&quot;265&quot;,&#xd;
@@ -796,13 +796,13 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
             &quot;isTraceSrc&quot;:&quot;0&quot;,&#xd;
             &quot;length&quot;:0,&#xd;
             &quot;lotNo&quot;:&quot;LOTzz31612140000016&quot;,&#xd;
-            &quot;merchantId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;merchantId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;netWeight&quot;:0,&#xd;
             &quot;poNo&quot;:&quot;${custentryslcode}&quot;,&#xd;
-            &quot;productId&quot;:&quot;${opg}&quot;,&#xd;
+            &quot;productId&quot;:&quot;${op_goodscode_1}&quot;,&#xd;
             &quot;productionTime&quot;:&quot;2016-12-01&quot;,&#xd;
             &quot;purchasePrice&quot;:&quot;18.0&quot;,&#xd;
-            &quot;supplierId&quot;:&quot;${ccode}&quot;,&#xd;
+            &quot;supplierId&quot;:&quot;${ccode_1}&quot;,&#xd;
             &quot;transactionQty&quot;:20,&#xd;
             &quot;transactionType&quot;:1,&#xd;
             &quot;volume&quot;:0,&#xd;
@@ -811,7 +811,7 @@ for(Map&lt;String ,Object&gt; map:vars.getObject(&quot;result&quot;)){
              &quot;virtualMerchantId&quot;:&quot;1000000581&quot;&#xd;
         }&#xd;
     ],&#xd;
-    &quot;warehouseId&quot;:${wms}&#xd;
+    &quot;warehouseId&quot;:${wms_storecode_1}&#xd;
 }</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
