@@ -23,6 +23,42 @@
         <boolProp name="FTPSampler.upload">false</boolProp>
       </ConfigTestElement>
       <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单一窗口xml回执" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
@@ -58,7 +94,7 @@
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询订单号guid" enabled="true">
             <stringProp name="dataSource">oracleIP175</stringProp>
-            <stringProp name="query">select distinct guid  from custebtrade where status=&apos;70&apos;  and predate&gt; sysdate-1 and customscode  in (&apos;0904&apos;) and busimode=&apos;10&apos; and guid is not null</stringProp>
+            <stringProp name="query">select distinct guid  from custebtrade where status=&apos;70&apos;  and predate&gt; sysdate-1 and customscode  in (&apos;0904&apos;) and busimode=&apos;10&apos; and guid is not null order by predate desc</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
@@ -92,7 +128,7 @@
               <stringProp name="ForeachController.returnVal">orderGuid</stringProp>
               <boolProp name="ForeachController.useSeparator">true</boolProp>
               <stringProp name="ForeachController.startIndex">0</stringProp>
-              <stringProp name="ForeachController.endIndex">2000</stringProp>
+              <stringProp name="ForeachController.endIndex">10</stringProp>
             </ForeachController>
             <hashTree>
               <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询订单号guid__${orderGuid}" enabled="true">
@@ -229,7 +265,7 @@ ${orderFileName_1}</stringProp>
           <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询运单号guid" enabled="true">
             <stringProp name="dataSource">oracleIP175</stringProp>
-            <stringProp name="query">select guid from custlogistorder where status=&apos;70&apos; and predate&gt; sysdate-14 and customscode  in (&apos;0904&apos;) and busimode=&apos;10&apos; and guid is not null</stringProp>
+            <stringProp name="query">select guid from custlogistorder where status=&apos;70&apos; and predate&gt; sysdate-14 and customscode  in (&apos;0904&apos;) and busimode=&apos;10&apos; and guid is not null order by predate desc</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
@@ -264,7 +300,7 @@ ${orderFileName_1}</stringProp>
               <stringProp name="ForeachController.returnVal">logicGuid</stringProp>
               <boolProp name="ForeachController.useSeparator">true</boolProp>
               <stringProp name="ForeachController.startIndex">0</stringProp>
-              <stringProp name="ForeachController.endIndex">2000</stringProp>
+              <stringProp name="ForeachController.endIndex">10</stringProp>
             </ForeachController>
             <hashTree>
               <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询运单号guid_${logicGuid}" enabled="true">
@@ -361,42 +397,6 @@ ${orderFileName_1}</stringProp>
         </DebugSampler>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
-      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单一窗口xml回执_清单 未完成" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
