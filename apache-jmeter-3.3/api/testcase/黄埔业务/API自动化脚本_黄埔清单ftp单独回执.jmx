@@ -263,7 +263,7 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="自动清单回执" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="自动清单回执" enabled="false"/>
         <hashTree>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询清单编号" enabled="true">
             <stringProp name="dataSource">oracleIP120</stringProp>
@@ -288,7 +288,7 @@
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="根据清单编号遍历" enabled="false">
+          <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="根据清单编号遍历" enabled="true">
             <stringProp name="ForeachController.inputVal">custelectbillcodeResult</stringProp>
             <stringProp name="ForeachController.returnVal">custelectbillcode</stringProp>
             <boolProp name="ForeachController.useSeparator">true</boolProp>
