@@ -29,17 +29,15 @@
     </path>
 
     <target name="run">
-                <antcall target="clean"/>
+        <antcall target="delete"/>
         <antcall target="test"/>
-        <!-- <antcall target="report"/> -->
-        <antcall target="reportnew"/>
+        <antcall target="report"/>
     </target>
-
-      <target name="clean">
-    	<delete dir="jmeter.result.jtl.dir" />  
-		<delete dir="jmeter.result.html.dir" />    
-		<delete dir="jmeter.result.htmlNamenew" />
-  </target>
+    <target name="delete">
+    	<delete includeEmptyDirs="true">  
+			<fileset dir="${jmeter.result.html.dir}"/>  
+		</delete> 
+	</target>
     
     <target name="test">
         <echo message="test start"/>

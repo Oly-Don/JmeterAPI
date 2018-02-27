@@ -372,7 +372,7 @@
               <stringProp name="filename"></stringProp>
               <stringProp name="script">//发送前处理
 vars.put(&quot;returnStatus&quot;,&quot;800&quot;);//回执状态
-vars.put(&quot;custelectbillcode&quot;,&quot;DZQD1802270000189&quot;);//清单号
+vars.put(&quot;custelectbillcode&quot;,&quot;DZQD1802270000185&quot;);//清单号
 vars.put(&quot;returnInfo&quot;,&quot;放行&quot;);//returnInfo  地方退单失败
 //100  地方清单中业务主键重复
 </stringProp>

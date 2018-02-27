@@ -91,9 +91,9 @@
         <hashTree>
           <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="遍历查询到的清单号" enabled="true">
             <stringProp name="ForeachController.inputVal">outercodeResult</stringProp>
-            <stringProp name="ForeachController.returnVal">outercode</stringProp>
+            <stringProp name="ForeachController.returnVal">doid</stringProp>
             <boolProp name="ForeachController.useSeparator">true</boolProp>
-            <stringProp name="ForeachController.startIndex">1</stringProp>
+            <stringProp name="ForeachController.startIndex">0</stringProp>
             <stringProp name="ForeachController.endIndex">300</stringProp>
           </ForeachController>
           <hashTree>
@@ -130,7 +130,7 @@
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
-                <stringProp name="script">vars.put(&quot;doid&quot;,&quot;DZQD1802050000180&quot;);
+                <stringProp name="script">//vars.put(&quot;doid&quot;,&quot;DZQD1802270000185&quot;);
 vars.put(&quot;status&quot;,&quot;399&quot;);
 </stringProp>
               </BeanShellPreProcessor>
