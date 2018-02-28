@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="计划里有控制手段" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -21,8 +21,8 @@
         <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
         <stringProp name="HTTPSampler.path"></stringProp>
         <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
+        <stringProp name="HTTPSampler.response_timeout">2000</stringProp>
       </ConfigTestElement>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="物流系统冒烟" enabled="true">
@@ -107,6 +107,7 @@
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
           <boolProp name="Assertion.assume_success">false</boolProp>
           <intProp name="Assertion.test_type">2</intProp>
+          <stringProp name="Assertion.custom_message"></stringProp>
         </ResponseAssertion>
         <hashTree/>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="main procedure" enabled="true">
@@ -916,6 +917,7 @@ vars.put(&quot;staticOrderFlag&quot;,flag+&quot;&quot;);
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
           <boolProp name="Assertion.assume_success">false</boolProp>
           <intProp name="Assertion.test_type">2</intProp>
+          <stringProp name="Assertion.custom_message"></stringProp>
         </ResponseAssertion>
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="下单" enabled="true">
@@ -1365,6 +1367,7 @@ vars.put(&quot;staticOrderFlag&quot;,flag+&quot;&quot;);
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
           <boolProp name="Assertion.assume_success">false</boolProp>
           <intProp name="Assertion.test_type">48</intProp>
+          <stringProp name="Assertion.custom_message"></stringProp>
         </ResponseAssertion>
         <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
@@ -1404,7 +1407,7 @@ vars.put(&quot;staticOrderFlag&quot;,flag+&quot;&quot;);
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -1438,13 +1441,8 @@ vars.put(&quot;staticOrderFlag&quot;,flag+&quot;&quot;);
           </value>
         </objProp>
         <stringProp name="filename"></stringProp>
-        <stringProp name="TestPlan.comments">{&quot;orderId&quot;:&quot;null&quot;,&quot;status&quot;:2,&quot;notes&quot;:&quot;失败;处理超时：[OrderInfo]处理超时！&quot;}</stringProp>
       </ResultCollector>
       <hashTree/>
     </hashTree>
-    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
-      <boolProp name="WorkBench.save">true</boolProp>
-    </WorkBench>
-    <hashTree/>
   </hashTree>
 </jmeterTestPlan>
