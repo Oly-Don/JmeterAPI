@@ -115,7 +115,7 @@
             <stringProp name="username">customs</stringProp>
           </JDBCDataSource>
           <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="更新驱动标记_申报通道:SBTD161015000001" enabled="true">
             <stringProp name="dataSource">OrderNoJDBC</stringProp>
             <stringProp name="query">update cust_jd_order set message=&apos;&apos;,predate=sysdate,createtime=sysdate,modifydate=sysdate,status=&apos;10&apos;,oderid=goodinfo||busitype||(trunc(dbms_random.value(100000,1009999999))),waybillno=oderid where  predate&gt;=TO_DATE(&apos;11/05/2017&apos;,&apos;mm/dd/yyyy&apos;)</stringProp>
             <stringProp name="queryArguments"></stringProp>
@@ -138,6 +138,23 @@ update cust_jd_order set status=&apos;10&apos;,oderid=goodinfo||busitype||(trunc
               <intProp name="Assertion.test_type">20</intProp>
               <stringProp name="Assertion.scope">all</stringProp>
             </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="更新三单驱动" enabled="true">
+            <stringProp name="dataSource">OrderNoJDBC</stringProp>
+            <stringProp name="query">update custorderlog set order_rec_cust=&apos;1&apos;，logist_rec_cust=&apos;1&apos;,pay_rec_cust=&apos;1&apos;,expectwaybillno=&apos;2&apos; where predate&gt;sysdate-1 and status=10</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Update Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames">result</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+              <stringProp name="ConstantTimer.delay">300</stringProp>
+            </ConstantTimer>
             <hashTree/>
           </hashTree>
         </hashTree>
@@ -389,7 +406,7 @@ log.info(&quot;=================&gt;&quot;+vars.get(&quot;logicResult&quot;));
         <hashTree/>
       </hashTree>
     </hashTree>
-    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
       <boolProp name="WorkBench.save">true</boolProp>
     </WorkBench>
     <hashTree/>

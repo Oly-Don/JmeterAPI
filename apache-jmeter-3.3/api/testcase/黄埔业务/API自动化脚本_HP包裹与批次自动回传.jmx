@@ -135,7 +135,7 @@ and status=&apos;70&apos; and wms_storecode =&apos;WMS_360_02&apos;  and predate
           <stringProp name="ForeachController.returnVal">doid</stringProp>
           <boolProp name="ForeachController.useSeparator">true</boolProp>
           <stringProp name="ForeachController.startIndex">0</stringProp>
-          <stringProp name="ForeachController.endIndex">300</stringProp>
+          <stringProp name="ForeachController.endIndex">30</stringProp>
         </ForeachController>
         <hashTree>
           <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">

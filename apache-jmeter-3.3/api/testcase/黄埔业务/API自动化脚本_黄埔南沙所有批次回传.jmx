@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -254,8 +254,7 @@
             &quot;supplierId&quot;: &quot;0000011&quot;,&#xd;
             &quot;transactionQty&quot;: 2,&#xd;
             &quot;transactionType&quot;: 0,&#xd;
-            &quot;warehouseId&quot;: 301,&#xd;
-            &quot;warehouseTime&quot;: &quot;2017-04-13&quot;&#xd;
+            &quot;warehouseId&quot;: 301&#xd;
         }&#xd;
     ],&#xd;
     &quot;docNo&quot;: &quot;${NSDOID}&quot;,&#xd;
@@ -636,5 +635,9 @@
         <hashTree/>
       </hashTree>
     </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>
