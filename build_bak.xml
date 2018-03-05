@@ -21,7 +21,7 @@
     <property name="ReportName" value="TestReport"/>
     <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${ReportName}.jtl"/>
     <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${ReportName}.html"/>
-    <property name="jmeter.result.htmlNamenew" value="${jmeter.result.html.dir}/${ReportName}new.html"/>
+    <property name="jmeter.result.htmlNamenew" value="${jmeter.result.html.dir}/${ReportName}.html"/>
 
     <path id="xslt.classpath">
         <fileset dir="${jmeter.home}/lib" includes="xalan*.jar"/>
@@ -43,7 +43,7 @@
         <echo message="test start"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-            <testplans dir="${scriptdirectory}" includes="${test}.jmx"/>
+            <testplans dir="${scriptdirectory}/公共" includes="${test}.jmx"/>
         </jmeter>
         <echo message="test end"/>
     </target>
