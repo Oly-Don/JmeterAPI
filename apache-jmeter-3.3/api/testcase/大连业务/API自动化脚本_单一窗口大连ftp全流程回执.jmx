@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -22,42 +22,6 @@
         <boolProp name="FTPSampler.saveresponse">false</boolProp>
         <boolProp name="FTPSampler.upload">false</boolProp>
       </ConfigTestElement>
-      <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-        <boolProp name="ResultCollector.error_logging">false</boolProp>
-        <objProp>
-          <name>saveConfig</name>
-          <value class="SampleSaveConfiguration">
-            <time>true</time>
-            <latency>true</latency>
-            <timestamp>true</timestamp>
-            <success>true</success>
-            <label>true</label>
-            <code>true</code>
-            <message>true</message>
-            <threadName>true</threadName>
-            <dataType>true</dataType>
-            <encoding>false</encoding>
-            <assertions>true</assertions>
-            <subresults>true</subresults>
-            <responseData>false</responseData>
-            <samplerData>false</samplerData>
-            <xml>false</xml>
-            <fieldNames>true</fieldNames>
-            <responseHeaders>false</responseHeaders>
-            <requestHeaders>false</requestHeaders>
-            <responseDataOnError>false</responseDataOnError>
-            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-            <assertionsResultsToSave>0</assertionsResultsToSave>
-            <bytes>true</bytes>
-            <sentBytes>true</sentBytes>
-            <threadCounts>true</threadCounts>
-            <idleTime>true</idleTime>
-            <connectTime>true</connectTime>
-          </value>
-        </objProp>
-        <stringProp name="filename"></stringProp>
-      </ResultCollector>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="单一窗口xml回执" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -550,70 +514,46 @@ ${orderFileName_1}</stringProp>
           </hashTree>
         </hashTree>
       </hashTree>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="WorkBench Test Fragment" enabled="false"/>
-      <hashTree>
-        <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="测试中文" enabled="true">
-          <stringProp name="TestPlan.comments">ftp://192.168.0.175/customs/BC/DYCK/send</stringProp>
-          <stringProp name="FTPSampler.server"></stringProp>
-          <stringProp name="FTPSampler.port"></stringProp>
-          <stringProp name="FTPSampler.filename">customs/BBC/ZZ/out/KJ881110CUSREC_QD001${__Random(10001,99999,)}.xml</stringProp>
-          <stringProp name="FTPSampler.localfilename"></stringProp>
-          <stringProp name="FTPSampler.inputdata">${body}</stringProp>
-          <boolProp name="FTPSampler.binarymode">true</boolProp>
-          <boolProp name="FTPSampler.saveresponse">false</boolProp>
-          <boolProp name="FTPSampler.upload">true</boolProp>
-          <stringProp name="ConfigTestElement.username">anonymous</stringProp>
-          <stringProp name="ConfigTestElement.password">anonymous</stringProp>
-        </FTPSampler>
-        <hashTree>
-          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
-            <boolProp name="resetInterpreter">false</boolProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="script">import java.io.UnsupportedEncodingException;
-
- String str = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot;?&gt;\n&quot; +
-                &quot;&lt;InternationalTrade&gt;\n&quot; +
-                &quot;  &lt;Head&gt;\n&quot; +
-                &quot;    &lt;MessageID&gt;KJ881110_QD_2018013116290000001&lt;/MessageID&gt;\n&quot; +
-                &quot;    &lt;MessageType&gt;KJ881110CIQREC&lt;/MessageType&gt;\n&quot; +
-                &quot;    &lt;Sender&gt;KJPUBLIC&lt;/Sender&gt;\n&quot; +
-                &quot;    &lt;Receiver&gt;QD&lt;/Receiver&gt;\n&quot; +
-                &quot;    &lt;SendTime&gt;2018-01-30 13:18:13&lt;/SendTime&gt;\n&quot; +
-                &quot;    &lt;FunctionCode&gt;CUS&lt;/FunctionCode&gt;\n&quot; +
-                &quot;    &lt;SignerInfo&gt;&lt;/SignerInfo&gt;\n&quot; +
-                &quot;    &lt;Version&gt;3.0&lt;/Version&gt;\n&quot; +
-                &quot;  &lt;/Head&gt;\n&quot; +
-                &quot;  &lt;Declaration&gt;\n&quot; +
-                &quot;    &lt;DeclEntNo&gt;012345678987654215&lt;/DeclEntNo&gt;\n&quot; +
-                &quot;    &lt;EBEntNo&gt;012345678987654215&lt;/EBEntNo&gt;\n&quot; +
-                &quot;    &lt;TradeMode&gt;9610&lt;/TradeMode&gt;\n&quot; +
-                &quot;    &lt;IeFlag&gt;I&lt;/IeFlag&gt;\n&quot; +
-                &quot;    &lt;EntOrderNo&gt;orderNo&lt;/EntOrderNo&gt;&lt;!-- order --&gt;\n&quot; +
-                &quot;    &lt;EntWaybillNo&gt;orderNo&lt;/EntWaybillNo&gt;&lt;!-- logic --&gt;\n&quot; +
-                &quot;    &lt;EListNo&gt;eleFileName_1}&lt;/EListNo&gt;&lt;!-- dzqd --&gt;\n&quot; +
-                &quot;    &lt;EPortEListNo&gt;eleFileName_1}&lt;/EPortEListNo&gt;\n&quot; +
-                &quot;    &lt;CusEListNo&gt;custeleFileName_1}&lt;/CusEListNo&gt;\n&quot; +
-                &quot;    &lt;CusEListResult&gt;800&lt;/CusEListResult&gt;&lt;!-- 800 500 --&gt;\n&quot; +
-                &quot;    &lt;ResultDate&gt;2018-01-30 13:18:13&lt;/ResultDate&gt;\n&quot; +
-                &quot;    &lt;CusRejectNotes&gt;退单原因&lt;/CusRejectNotes&gt;\n&quot; +
-                &quot;    &lt;opdatatype/&gt;\n&quot; +
-                &quot;  &lt;/Declaration&gt;\n&quot; +
-                &quot;&lt;/InternationalTrade&gt;&quot;;
-
-        byte[] bytes=null;
-        try {
-            bytes = str.getBytes(&quot;UTF-8&quot;);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        if(bytes!= null ){
-		vars.put(&quot;body&quot;,bytes);
-        }</stringProp>
-          </BeanShellPreProcessor>
-          <hashTree/>
-        </hashTree>
-      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>

@@ -30,17 +30,22 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="cusOrderno" elementType="Argument">
               <stringProp name="Argument.name">cusOrderno</stringProp>
-              <stringProp name="Argument.value">WEITUZYD2018012500812123</stringProp>
+              <stringProp name="Argument.value">WEITUZYD20180305001</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="waybillNo" elementType="Argument">
               <stringProp name="Argument.name">waybillNo</stringProp>
-              <stringProp name="Argument.value">z012305</stringProp>
+              <stringProp name="Argument.value">z012307</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="reDeclare" elementType="Argument">
               <stringProp name="Argument.name">reDeclare</stringProp>
               <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logisticsCode" elementType="Argument">
+              <stringProp name="Argument.name">logisticsCode</stringProp>
+              <stringProp name="Argument.value">1001979</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -109,7 +114,7 @@
         &quot;assigneeName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,&#xd;
         &quot;ieDate&quot;:&quot;20170106172630&quot;,&#xd;
         &quot;packNo&quot;:&quot;1&quot;,&#xd;
-        &quot;logisticsCode&quot;:&quot;GJ00000305&quot;,&#xd;
+        &quot;logisticsCode&quot;:&quot;${logisticsCode}&quot;,&#xd;
         &quot;billNo&quot;:&quot;${__time(yyyyMMdd,)}&quot;,&#xd;
         &quot;logisticsName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,&#xd;
         &quot;orderDetail&quot;:{&#xd;
@@ -206,9 +211,9 @@
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
           <boolProp name="resetInterpreter">false</boolProp>
-          <stringProp name="script">log.info(&quot;###&quot;+prev.getResponseDataAsString());
-log.info(&quot;#cusOrderno##    &quot;+vars.get(&quot;cusOrderno&quot;));
-log.info(&quot;#waybillNo##    &quot;+vars.get(&quot;waybillNo&quot;));</stringProp>
+          <stringProp name="script">log.error(&quot;###&quot;+prev.getResponseDataAsString());
+log.error(&quot;#cusOrderno##    &quot;+vars.get(&quot;cusOrderno&quot;));
+log.error(&quot;#waybillNo##    &quot;+vars.get(&quot;waybillNo&quot;));</stringProp>
         </BeanShellPostProcessor>
         <hashTree/>
       </hashTree>
@@ -248,179 +253,6 @@ log.info(&quot;#waybillNo##    &quot;+vars.get(&quot;waybillNo&quot;));</stringP
         <stringProp name="filename"></stringProp>
         <stringProp name="TestPlan.comments">{&quot;orderId&quot;:&quot;1logic171605478&quot;,&quot;status&quot;:1,&quot;notes&quot;:&quot;成功&quot;}</stringProp>
       </ResultCollector>
-      <hashTree/>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false">
-        <stringProp name="TestPlan.comments">{
-	&quot;messagehead&quot;: {
-		&quot;messageID&quot;: &quot;&quot;,
-		&quot;messageType&quot;: &quot;&quot;,
-		&quot;senderID&quot;: &quot;&quot;,
-		&quot;receiverID&quot;: &quot;&quot;,
-		&quot;sendTime&quot;: &quot;&quot;,
-		&quot;version&quot;: &quot;&quot;
-	},
-	&quot;orderdetailhead&quot;: {
-		&quot;cusOrderno&quot;: &quot;TRUST180108000012&quot;,
-		&quot;assignee&quot;: &quot;1000000285&quot;,
-		&quot;assigneeName&quot;: &quot;卓志物流&quot;,
-		&quot;logisticsCode&quot;: &quot;1000000125&quot;,
-		&quot;logisticsCodehg&quot;: &quot;1000000125&quot;,
-		&quot;logisticsName&quot;: &quot;&quot;,
-		&quot;waybillNo&quot;: &quot;test2018010804&quot;,
-		&quot;ieFlag&quot;: &quot;I&quot;,
-		&quot;packNo&quot;: &quot;111&quot;,
-		&quot;kgs&quot;: &quot;111&quot;,
-		&quot;trafMode&quot;: &quot;21&quot;,
-		&quot;ieDate&quot;: &quot;2018-01-08 17:02:33&quot;,
-		&quot;tranNo&quot;: &quot;1231&quot;,
-		&quot;appType&quot;: &quot;00&quot;,
-		&quot;voyageNo&quot;: &quot;131432&quot;,
-		&quot;appuId&quot;: &quot;14132&quot;,
-		&quot;billNo&quot;: &quot;23511&quot;,
-		&quot;notes&quot;: &quot;&quot;,
-		&quot;carecNo&quot;: &quot;23423&quot;,
-		&quot;reDeclare&quot;: &quot;1&quot;,
-		&quot;orderdetail&quot;: [{
-			&quot;seq&quot;: &quot;0001&quot;,
-			&quot;subwayBillno&quot;: &quot;21312421&quot;,
-			&quot;adMission&quot;: &quot;21312&quot;,
-			&quot;custeListno&quot;: &quot;12312&quot;,
-			&quot;palletNo&quot;: &quot;11&quot;,
-			&quot;ciqinBoundno&quot;: &quot;11&quot;,
-			&quot;kgs&quot;: &quot;111&quot;,
-			&quot;applyNum&quot;: &quot;111&quot;,
-			&quot;intSubwaybillno&quot;: &quot;111&quot;,
-			&quot;orderNo&quot;: &quot;111&quot;,
-			&quot;inLogisticscode&quot;: &quot;111&quot;,
-			&quot;subwayUrl&quot;: &quot;111&quot;,
-			&quot;orderFlags&quot;: &quot;111&quot;,
-			&quot;mailNo&quot;: &quot;111&quot;,
-			&quot;isPrint&quot;: &quot;111&quot;,
-			&quot;bigPen&quot;: &quot;111&quot;,
-			&quot;checkBack&quot;: &quot;111&quot;,
-			&quot;districtCode&quot;: &quot;111&quot;,
-			&quot;insureFcy&quot;: &quot;111&quot;,
-			&quot;recipientName&quot;: &quot;111&quot;,
-			&quot;recipientTel&quot;: &quot;111&quot;,
-			&quot;recipientAddress&quot;: &quot;111&quot;,
-			&quot;recipientCitycode&quot;: &quot;111&quot;,
-			&quot;unloadPointcode&quot;: &quot;111&quot;,
-			&quot;vipCarrierpointcode&quot;: &quot;111&quot;,
-			&quot;vipCarriersname&quot;: &quot;111&quot;,
-			&quot;vipBoxid&quot;: &quot;123&quot;,
-			&quot;transportDay&quot;: &quot;12312&quot;,
-			&quot;notes&quot;: &quot;&quot;,
-			&quot;overseaZcode&quot;: &quot;2131&quot;,
-			&quot;postZcode&quot;: &quot;21312&quot;,
-			&quot;aglogisticsZcode&quot;: &quot;&quot;,
-			&quot;userdef1&quot;: &quot;123&quot;,
-			&quot;userdef3&quot;: &quot;&quot;,
-			&quot;recipientname2&quot;: &quot;123&quot;,
-			&quot;recipienttel2&quot;: &quot;123&quot;,
-			&quot;orderDate&quot;: &quot;2018-01-08 17:02:33&quot;,
-			&quot;innerOrderNo&quot;: &quot;test20180117&quot;,
-			&quot;inventory&quot;: [{
-				&quot;no&quot;: &quot;01010&quot;,
-				&quot;goodsNo&quot;: &quot;01010&quot;,
-				&quot;qty&quot;: &quot;01010&quot;,
-				&quot;ciqgoodsNo&quot;: &quot;01010&quot;,
-				&quot;gcode&quot;: &quot;01010&quot;,
-				&quot;unitPrice&quot;: &quot;01010&quot;,
-				&quot;brand&quot;: &quot;01010&quot;,
-				&quot;spec1&quot;: &quot;01010&quot;,
-				&quot;gname1&quot;: &quot;01010&quot;
-			}]
-		}]
-	}
-}
-
-
-
-
-{	&quot;ROOT&quot;:{&quot;messagehead&quot;: {
-		&quot;messageID&quot;: &quot;&quot;,
-		&quot;messageType&quot;: &quot;&quot;,
-		&quot;senderID&quot;: &quot;&quot;,
-		&quot;receiverID&quot;: &quot;&quot;,
-		&quot;sendTime&quot;: &quot;&quot;,
-		&quot;version&quot;: &quot;&quot;
-	},
-    &quot;orderdetailhead&quot;:{
-        &quot;cusOrderno&quot;:&quot;sd23222121&quot;,
-        &quot;trafMode&quot;:&quot;汽车&quot;,
-        &quot;appuId&quot;:&quot;IC卡号&quot;,
-        &quot;waybillNo&quot;:&quot;ZY0804A001&quot;,
-        &quot;logisticsCodehg&quot;:&quot;4401960002&quot;,
-        &quot;tranNo&quot;:&quot;粤A3021&quot;,
-        &quot;assignee&quot;:&quot;1000000061&quot;,
-        &quot;reDeclare&quot;:&quot;1&quot;,
-        &quot;assigneeName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,
-        &quot;ieDate&quot;:&quot;20170106172630&quot;,
-        &quot;packNo&quot;:&quot;1&quot;,
-        &quot;logisticsCode&quot;:&quot;GJ00000051&quot;,
-        &quot;billNo&quot;:&quot;ZB00000064&quot;,
-        &quot;logisticsName&quot;:&quot;湖南金霞通跨境电子商务服务有限公司&quot;,
-        &quot;orderdetail&quot;:{
-            &quot;vipBoxid&quot;:&quot;sdass32222&quot;,
-            &quot;vipCarrierpointcode&quot;:&quot;站点名称&quot;,
-            &quot;isPrint&quot;:&quot;1&quot;,
-            &quot;orderFlags&quot;:&quot;2&quot;,
-            &quot;adMission&quot;:&quot;2&quot;,
-            &quot;palletNo&quot;:&quot;9999999&quot;,
-            &quot;insureFcy&quot;:&quot;9&quot;,
-            &quot;recipientTel&quot;:&quot;1350000201&quot;,
-            &quot;mailNo&quot;:&quot;Y0804A001&quot;,
-            &quot;overseaZcode&quot;:&quot;1&quot;,
-            &quot;kgs&quot;:&quot;5&quot;,
-            &quot;postZcode&quot;:&quot;1&quot;,
-            &quot;checkBack&quot;:&quot;0&quot;,
-            &quot;userdef3&quot;:&quot;会员申请退货地址&quot;,
-            &quot;subwayUrl&quot;:&quot;https://topideal.us/jira/browse/OPS-437&quot;,
-            &quot;orderDate&quot;:&quot;20180115155301&quot;,
-            &quot;ciqinBoundno&quot;:&quot;检验检疫入仓编号&quot;,
-            &quot;subwayBillno&quot;:&quot;Y0804A001&quot;,
-            &quot;recipientCitycode&quot;:&quot;430522&quot;,
-            &quot;bigPen&quot;:&quot;配送大头笔（圆通）&quot;,
-            &quot;recipientAddress&quot;:&quot;广东省 广州市 黄埔区 黄埔大道东2&quot;,
-            &quot;aglogisticsZcode&quot;:&quot;委托境外物流溯源企业备案号&quot;,
-            &quot;custeListno&quot;:&quot;CCUST00032012&quot;,
-            &quot;recipientname2&quot;:&quot;退货人&quot;,
-            &quot;inLogisticscode&quot;:&quot;1000830&quot;,
-            &quot;userdef1&quot;:&quot;4302253&quot;,
-            &quot;applyNum&quot;:&quot;1&quot;,
-            &quot;recipienttel2&quot;:&quot;138000001&quot;,
-            &quot;transportDay&quot;:&quot;时间要求&quot;,
-            &quot;orderNo&quot;:&quot;Y0804A001&quot;,
-            &quot;districtCode&quot;:&quot;配送区域码（顺丰）&quot;,
-            &quot;vipCarriersname&quot;:&quot;承运商&quot;,
-            &quot;recipientName&quot;:&quot;接收人&quot;,
-            &quot;inventory&quot;:{
-                &quot;no&quot;:&quot;001&quot;,
-                &quot;gcode&quot;:&quot;GOOD160504000001&quot;,
-                &quot;brand&quot;:&quot;品牌&quot;,
-                &quot;unitPrice&quot;:&quot;99.99&quot;,
-                &quot;qty&quot;:&quot;5&quot;,
-                &quot;spec1&quot;:&quot;订单商品规格&quot;,
-                &quot;goodsNo&quot;:&quot;GOOD160504000001&quot;,
-                &quot;ciqgoodsNo&quot;:&quot;ICIP03160107000009&quot;,
-                &quot;gname1&quot;:&quot;订单商品名称&quot;
-            },
-            &quot;unloadPointcode&quot;:&quot;xiehuo1&quot;,
-            &quot;seq&quot;:&quot;0001&quot;,
-            &quot;notes&quot;:&quot;备注&quot;,
-            &quot;intSubwaybillno&quot;:&quot;Y0804A001&quot;
-        },
-        &quot;ieFlag&quot;:&quot;I&quot;,
-        &quot;carecNo&quot;:&quot;DZ001&quot;,
-        &quot;kgs&quot;:&quot;5&quot;,
-        &quot;notes&quot;:&quot;备注&quot;,
-        &quot;appType&quot;:&quot;1&quot;,
-        &quot;voyageNo&quot;:&quot;粤A3021&quot;
-    }
-}
-}
-</stringProp>
-      </TestFragmentController>
       <hashTree/>
     </hashTree>
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">

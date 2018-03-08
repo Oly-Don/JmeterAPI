@@ -8,7 +8,7 @@
 
     <property name="basedirectory" value="."/>
 
-    <property name="scriptdirectory" value="${basedirectory}/apache-jmeter-3.3/api/testcase"/>
+    <property name="scriptdirectory" value="${basedirectory}/apache-jmeter-3.3/api/testcase/"/>
 
     <property name="jmeter.home" value="${basedirectory}/apache-jmeter-3.3/"/>
 
@@ -43,7 +43,7 @@
         <echo message="test start"/>
         <taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
         <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
-            <testplans dir="${scriptdirectory}" includes="${test}.jmx"/>
+            <testplans dir="${scriptdirectory}/接单系统" includes="${test}.jmx"/>
         </jmeter>
         <echo message="test end"/>
     </target>
@@ -57,28 +57,7 @@
               force="true"
               in="${jmeter.result.jtlName}"
               out="${jmeter.result.htmlName}"
-              style="${jmeter.home}/extras/jmeter-results-detail-report_21.xsl">
-            <param name="dateReport" expression="${report.datestamp}"/>
-        </xslt>
-        <copy todir="${jmeter.result.html.dir}">
-            <fileset dir="${jmeter.home}/extras">
-                <include name="collapse.png"/>
-                <include name="expand.png"/>
-            </fileset>
-        </copy>
-        <echo message="report end"/>
-    </target>
-
-    <target name="reportnew"> <echo message="report new start"/>
-        <echo message="report start"/>
-        <tstamp>
-            <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
-        </tstamp>
-        <xslt classpathref="xslt.classpath"
-              force="true"
-              in="${jmeter.result.jtlName}"
-              out="${jmeter.result.htmlNamenew}"
-              style="${jmeter.home}/extras/jmeter.results.shanhe.me.xsl">
+              style="${jmeter.home}/extras/jmeter-results-detail-report_30.xsl">
             <param name="dateReport" expression="${report.datestamp}"/>
         </xslt>
         <copy todir="${jmeter.result.html.dir}">
