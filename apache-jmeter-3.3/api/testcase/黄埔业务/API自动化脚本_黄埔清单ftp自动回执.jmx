@@ -64,7 +64,7 @@
         <hashTree>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询清单编号" enabled="true">
             <stringProp name="dataSource">oracleIP120</stringProp>
-            <stringProp name="query">select distinct custelectbillcode from custelectbill where predate &gt; sysdate-3  and opdatatype is null and status = 30 and customscode=&apos;5208&apos; and issinglewin is null</stringProp>
+            <stringProp name="query">select distinct custelectbillcode from custelectbill where predate &gt; sysdate-1  and opdatatype is null and status = 30 and customscode=&apos;5208&apos; and issinglewin is null order by 1 asc</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
@@ -90,7 +90,7 @@
             <stringProp name="ForeachController.returnVal">custelectbillcode</stringProp>
             <boolProp name="ForeachController.useSeparator">true</boolProp>
             <stringProp name="ForeachController.startIndex">0</stringProp>
-            <stringProp name="ForeachController.endIndex">300</stringProp>
+            <stringProp name="ForeachController.endIndex">100</stringProp>
           </ForeachController>
           <hashTree>
             <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="清单${custelectbillcode}" enabled="true">
@@ -126,7 +126,7 @@
                 <boolProp name="resetInterpreter">false</boolProp>
                 <stringProp name="parameters"></stringProp>
                 <stringProp name="filename"></stringProp>
-                <stringProp name="script">vars.put(&quot;returnStatus&quot;,&quot;500&quot;);</stringProp>
+                <stringProp name="script">vars.put(&quot;returnStatus&quot;,&quot;800&quot;);</stringProp>
               </BeanShellPreProcessor>
               <hashTree/>
             </hashTree>
