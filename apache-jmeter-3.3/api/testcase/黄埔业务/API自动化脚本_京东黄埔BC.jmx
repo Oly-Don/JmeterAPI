@@ -11,7 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath">D:\github\IDE\apache-jmeter-3.3\lib\ojdbc6.jar</stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="京东黄埔BC" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="京东黄埔BC_暂时停用京东的运单号回推 溯源回推" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -142,7 +142,7 @@ update cust_jd_order set status=&apos;10&apos;,oderid=goodinfo||busitype||(trunc
           </hashTree>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="更新三单驱动" enabled="true">
             <stringProp name="dataSource">OrderNoJDBC</stringProp>
-            <stringProp name="query">update custorderlog set order_rec_cust=&apos;1&apos;，logist_rec_cust=&apos;1&apos;,pay_rec_cust=&apos;1&apos;,expectwaybillno=&apos;2&apos; where predate&gt;sysdate-1 and status=10</stringProp>
+            <stringProp name="query">update custorderlog set order_rec_cust=&apos;1&apos;，logist_rec_cust=&apos;1&apos;,pay_rec_cust=&apos;1&apos;,expectwaybillno=&apos;2&apos; where predate&gt;sysdate-1 and status !=70</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
@@ -153,12 +153,12 @@ update cust_jd_order set status=&apos;10&apos;,oderid=goodinfo||busitype||(trunc
           </JDBCSampler>
           <hashTree>
             <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-              <stringProp name="ConstantTimer.delay">300</stringProp>
+              <stringProp name="ConstantTimer.delay">3000</stringProp>
             </ConstantTimer>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="物流系统运单回推" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="物流系统运单回推" enabled="false"/>
         <hashTree>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="运单号" enabled="true">
             <stringProp name="TestPlan.comments">${__javaScript(&quot;${logicResult}&quot;==&quot;true&quot;)}  LAST</stringProp>
@@ -221,7 +221,7 @@ log.info(&quot;=================&gt;&quot;+vars.get(&quot;logicResult&quot;));
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="是否需要溯源绑码回调" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="是否需要溯源绑码回调" enabled="false"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="溯源绑码回调" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>

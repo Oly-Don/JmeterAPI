@@ -11,6 +11,104 @@
       <stringProp name="TestPlan.user_define_classpath">D:\Program Files\apache-jmeter-3.2\lib\ojdbc14.jar</stringProp>
     </TestPlan>
     <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="HPBBC电子清单HPBBC电子清单" elementType="Argument">
+            <stringProp name="Argument.name">HPBBC电子清单HPBBC电子清单</stringProp>
+            <stringProp name="Argument.value">以下</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="HPBBCwms" elementType="Argument">
+            <stringProp name="Argument.name">HPBBCwms</stringProp>
+            <stringProp name="Argument.value">302</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="HPBBCopgid" elementType="Argument">
+            <stringProp name="Argument.name">HPBBCopgid</stringProp>
+            <stringProp name="Argument.value">OPG161214000007</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="HPBBCdocid" elementType="Argument">
+            <stringProp name="Argument.name">HPBBCdocid</stringProp>
+            <stringProp name="Argument.value">DZQD1712270000008</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NSDOID" elementType="Argument">
+            <stringProp name="Argument.name">NSDOID</stringProp>
+            <stringProp name="Argument.value">CUSTDB1802260000001</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NSDOIDZB" elementType="Argument">
+            <stringProp name="Argument.name">NSDOIDZB</stringProp>
+            <stringProp name="Argument.value">DBZBM180226000001</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NSTYDDOID" elementType="Argument">
+            <stringProp name="Argument.name">NSTYDDOID</stringProp>
+            <stringProp name="Argument.value">CUSTTY1803130000001</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NSTYDWMS" elementType="Argument">
+            <stringProp name="Argument.name">NSTYDWMS</stringProp>
+            <stringProp name="Argument.value">301</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">application/json</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="oracle175" enabled="true">
+        <stringProp name="dataSource">oracle175</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.175:1521:orcl</stringProp>
+        <stringProp name="driver">oracle.jdbc.OracleDriver</stringProp>
+        <stringProp name="username">customs</stringProp>
+        <stringProp name="password">customs</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="oracle120" enabled="true">
+        <stringProp name="dataSource">oracle120</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">false</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.120:1521:orcl</stringProp>
+        <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+        <stringProp name="username">mqdata</stringProp>
+        <stringProp name="password">mqdata</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <ConfigTestElement guiclass="FtpConfigGui" testclass="ConfigTestElement" testname="FTP请求缺省值" enabled="true">
+        <stringProp name="TestPlan.comments">ftp://192.168.0.175/ICIP/TOPZHI/ICIP/HP/BBC/</stringProp>
+        <stringProp name="FTPSampler.server">192.168.0.175</stringProp>
+        <stringProp name="FTPSampler.port"></stringProp>
+        <stringProp name="FTPSampler.filename"></stringProp>
+        <stringProp name="FTPSampler.localfilename"></stringProp>
+        <stringProp name="FTPSampler.inputdata"></stringProp>
+        <boolProp name="FTPSampler.binarymode">false</boolProp>
+        <boolProp name="FTPSampler.saveresponse">false</boolProp>
+        <boolProp name="FTPSampler.upload">false</boolProp>
+      </ConfigTestElement>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
@@ -26,50 +124,6 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-          <collectionProp name="HeaderManager.headers">
-            <elementProp name="" elementType="Header">
-              <stringProp name="Header.name">Content-Type</stringProp>
-              <stringProp name="Header.value">application/json</stringProp>
-            </elementProp>
-          </collectionProp>
-        </HeaderManager>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="HPBBC电子清单HPBBC电子清单" elementType="Argument">
-              <stringProp name="Argument.name">HPBBC电子清单HPBBC电子清单</stringProp>
-              <stringProp name="Argument.value">以下</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="HPBBCwms" elementType="Argument">
-              <stringProp name="Argument.name">HPBBCwms</stringProp>
-              <stringProp name="Argument.value">302</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="HPBBCopgid" elementType="Argument">
-              <stringProp name="Argument.name">HPBBCopgid</stringProp>
-              <stringProp name="Argument.value">OPG161214000007</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="HPBBCdocid" elementType="Argument">
-              <stringProp name="Argument.name">HPBBCdocid</stringProp>
-              <stringProp name="Argument.value">DZQD1712270000008</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="NSDOID" elementType="Argument">
-              <stringProp name="Argument.name">NSDOID</stringProp>
-              <stringProp name="Argument.value">CUSTDB1802260000001</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="NSDOIDZB" elementType="Argument">
-              <stringProp name="Argument.name">NSDOIDZB</stringProp>
-              <stringProp name="Argument.value">DBZBM180226000001</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
-        <hashTree/>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="num=2HPBBC批次" enabled="true">
           <stringProp name="IfController.condition">1==1</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
@@ -143,7 +197,18 @@
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1867169789">success</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="num==4NSBBC" enabled="true">
           <stringProp name="IfController.condition">1==2</stringProp>
@@ -213,7 +278,18 @@
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1867169789">success</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="调拨单" enabled="true">
           <stringProp name="IfController.condition">${__groovy(&quot;${NSDOID}&quot;.contains(&quot;CUSTDB&quot;),)}</stringProp>
@@ -283,31 +359,71 @@
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1867169789">success</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="退运单" enabled="true">
-          <stringProp name="IfController.condition">! ${__javaScript(&quot;${NSTYDDOID}&quot;==&quot;&quot;)}</stringProp>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="退运单_4400.360WMS.RTVADD.IMP" enabled="true">
+          <stringProp name="IfController.condition">${__javaScript(&quot;${NSTYDDOID}&quot;!=&quot;\${NSTYDDOID}&quot;)}</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NSBBC退运单" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="退运单" enabled="true">
+            <stringProp name="dataSource">oracle</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">select   custreturnlistgcode,op_goodscode,qtp from custreturnlistg  where custreturnlisticode=(select custreturnlisticode from custreturnlist where custreturnlistcode=
+&apos;${NSTYDDOID}&apos;)</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">NSTYDSUBID,NSTYOPGID,qtp</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1388963136">CUSTTYZB</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">34</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NSBBC退运单" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
     &quot;batchDetails&quot;: [&#xd;
         {&#xd;
             &quot;accountBookId&quot;: &quot;34&quot;,&#xd;
             &quot;batchNo&quot;: &quot;LOTzz11705040000001&quot;,&#xd;
+            &quot;entinboundno&quot;: &quot;HT484LPKO&quot;,&#xd;
             &quot;blNo1&quot;: &quot;HT484LPKO&quot;,&#xd;
             &quot;blNo2&quot;: &quot;HT484LPKO&quot;,&#xd;
             &quot;ciqReceiptNo&quot;: &quot;GJCUSTJC1705040000001&quot;,&#xd;
             &quot;consignorId&quot;: &quot;0000027&quot;,&#xd;
             &quot;docCode&quot;: &quot;${NSTYDDOID}&quot;,&#xd;
             &quot;docId&quot;: &quot;${NSTYDDOID}&quot;,&#xd;
-            &quot;docItemId&quot;: &quot;${NSTYDSUBID}&quot;,&#xd;
+            &quot;docItemId&quot;: &quot;${NSTYDSUBID_1}&quot;,&#xd;
             &quot;docType&quot;: 3,&#xd;
             &quot;expireTime&quot;: &quot;2019-06-13&quot;,&#xd;
             &quot;fundProviderId&quot;: &quot;44&quot;,&#xd;
@@ -316,12 +432,12 @@
             &quot;lotNo&quot;: &quot;LOTzz11705040000001&quot;,&#xd;
             &quot;merchantId&quot;: &quot;0000027&quot;,&#xd;
             &quot;poCode&quot;: &quot;CUSTPRE1705040000002&quot;,&#xd;
-            &quot;productId&quot;: &quot;${NSTYOPGID}&quot;,&#xd;
+            &quot;productId&quot;: &quot;${NSTYOPGID_1}&quot;,&#xd;
             &quot;productionTime&quot;: &quot;2017-05-04&quot;,&#xd;
             &quot;purchasePrice&quot;: 6.89,&#xd;
             &quot;seq&quot;: 2103,&#xd;
             &quot;supplierId&quot;: &quot;0000027&quot;,&#xd;
-            &quot;transactionQty&quot;: 5,&#xd;
+            &quot;transactionQty&quot;: ${qtp_1},&#xd;
             &quot;transactionType&quot;: 0,&#xd;
             &quot;warehouseId&quot;: ${NSTYDWMS},&#xd;
             &quot;warehouseTime&quot;: &quot;2017-05-27&quot;&#xd;
@@ -335,88 +451,110 @@
     &quot;warehouseId&quot;: ${NSTYDWMS}&#xd;
 }&#xd;
 </stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
-            <stringProp name="HTTPSampler.port">18080</stringProp>
-            <stringProp name="HTTPSampler.protocol">http</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-            <stringProp name="HTTPSampler.path">customs/rest/wmsjson/service?method=dubhe.wms.batch.rewrite</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">121.33.205.117</stringProp>
+              <stringProp name="HTTPSampler.port">18080</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">customs/rest/wmsjson/service?method=dubhe.wms.batch.rewrite</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">ciqReceiptNo</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-1867169789">success</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">34</intProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="oracle120查询消息通知按照制单时间排序" enabled="true">
+            <stringProp name="dataSource">oracle120</stringProp>
+            <stringProp name="query">select projwaitid from mq_proj_wait where outercode=&apos;${NSTYDDOID}&apos; and projtype=&apos;4400.RETURNLIST.ICIP&apos; order by predate desc</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames">OrgMessageID</stringProp>
+          </JDBCSampler>
           <hashTree/>
+          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="退运申请(ICIP)回执" enabled="true">
+            <stringProp name="TestPlan.comments">${__time(yyyyMMddHHmiss,)}</stringProp>
+            <stringProp name="FTPSampler.server"></stringProp>
+            <stringProp name="FTPSampler.port"></stringProp>
+            <stringProp name="FTPSampler.filename">ICIP/TOPZHI/ICIP/TOPZHI/4520.IMPBP.PSPENTRYELIST.EXP/returndest/out/DOCREC_001${__Random(10001,99999,)}.xml</stringProp>
+            <stringProp name="FTPSampler.localfilename"></stringProp>
+            <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot;?&gt;
+&lt;ROOT&gt;
+  &lt;Head&gt;
+    &lt;MessageID&gt;报文编号&lt;/MessageID&gt;
+    &lt;MessageType&gt;DOCREC&lt;/MessageType&gt;
+    &lt;Sender&gt;报文发送者标识&lt;/Sender&gt;
+    &lt;Receiver&gt;报文接收人标识&lt;/Receiver&gt;
+    &lt;SendTime&gt;2018-03-13 05:26:02&lt;/SendTime&gt;
+    &lt;Version&gt;版本号&lt;/Version&gt;
+  &lt;/Head&gt;
+  &lt;Declaration&gt;
+    &lt;OrgMessageID&gt;${OrgMessageID_1}&lt;/OrgMessageID&gt;
+    &lt;OrgMessageType&gt;661112&lt;/OrgMessageType&gt;
+    &lt;OrgSender&gt;原报文发送者标识&lt;/OrgSender&gt;
+    &lt;OrgReceiver&gt;原报文接收人标识&lt;/OrgReceiver&gt;
+    &lt;OrgRecTime&gt;2018-03-13 05:26:02&lt;/OrgRecTime&gt;
+    &lt;Status&gt;10&lt;/Status&gt;
+    &lt;Notes&gt;申报反馈信息&lt;/Notes&gt;
+  &lt;/Declaration&gt;
+&lt;/ROOT&gt;</stringProp>
+            <boolProp name="FTPSampler.binarymode">false</boolProp>
+            <boolProp name="FTPSampler.saveresponse">false</boolProp>
+            <boolProp name="FTPSampler.upload">true</boolProp>
+            <stringProp name="ConfigTestElement.username">anonymous</stringProp>
+            <stringProp name="ConfigTestElement.password">anonymous</stringProp>
+          </FTPSampler>
+          <hashTree>
+            <SampleTimeout guiclass="SampleTimeoutGui" testclass="SampleTimeout" testname="Sample Timeout" enabled="true">
+              <stringProp name="InterruptTimer.timeout">2000</stringProp>
+            </SampleTimeout>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-          <collectionProp name="Asserion.test_strings">
-            <stringProp name="-1867169789">success</stringProp>
-          </collectionProp>
-          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-          <boolProp name="Assertion.assume_success">false</boolProp>
-          <intProp name="Assertion.test_type">2</intProp>
-          <stringProp name="Assertion.custom_message"></stringProp>
-        </ResponseAssertion>
-        <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="TestPlan.comments">{&quot;flag&quot;:&quot;failure&quot;,&quot;message&quot;:&quot;处理失败：[BatchBackWrite] 处理失败！#o#java.lang.NullPointerException ; java.lang.NullPointerException&quot;}</stringProp>
-        </ResultCollector>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <longProp name="ThreadGroup.start_time">1497232670000</longProp>
-        <longProp name="ThreadGroup.end_time">1497232670000</longProp>
+        <longProp name="ThreadGroup.start_time">1520935374000</longProp>
+        <longProp name="ThreadGroup.end_time">1520935374000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
-      </ThreadGroup>
+      </PostThreadGroup>
       <hashTree>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
           <collectionProp name="Arguments.arguments">
@@ -455,24 +593,8 @@
         <hashTree/>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="初始化" enabled="true"/>
         <hashTree>
-          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
-            <stringProp name="dataSource">oracle</stringProp>
-            <stringProp name="poolMax">0</stringProp>
-            <stringProp name="timeout">10000</stringProp>
-            <stringProp name="trimInterval">60000</stringProp>
-            <boolProp name="autocommit">true</boolProp>
-            <stringProp name="transactionIsolation">DEFAULT</stringProp>
-            <boolProp name="keepAlive">true</boolProp>
-            <stringProp name="connectionAge">5000</stringProp>
-            <stringProp name="checkQuery"></stringProp>
-            <stringProp name="dbUrl">jdbc:oracle:thin:@192.168.0.175:1521:orcl</stringProp>
-            <stringProp name="driver">oracle.jdbc.OracleDriver</stringProp>
-            <stringProp name="username">customs</stringProp>
-            <stringProp name="password">customs</stringProp>
-          </JDBCDataSource>
-          <hashTree/>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
-            <stringProp name="dataSource">oracle</stringProp>
+            <stringProp name="dataSource">oracle175</stringProp>
             <stringProp name="queryType">Update Statement</stringProp>
             <stringProp name="query">delete from custelectbillpackout where custelectbillcode=&apos;${doid}&apos;</stringProp>
             <stringProp name="queryArguments"></stringProp>
@@ -588,52 +710,43 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
       </hashTree>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="WorkBench Test Fragment" enabled="false"/>
-      <hashTree>
-        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
-          <boolProp name="displayJMeterProperties">false</boolProp>
-          <boolProp name="displayJMeterVariables">true</boolProp>
-          <boolProp name="displaySystemProperties">false</boolProp>
-        </DebugSampler>
-        <hashTree/>
-      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
     <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
       <boolProp name="WorkBench.save">true</boolProp>

@@ -12,7 +12,7 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="大连BBC_SBTD171030000001" enabled="true">
-        <stringProp name="ThreadGroup.on_sample_error">stoptestnow</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">4</stringProp>
@@ -76,16 +76,11 @@
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">百世</stringProp>
             </elementProp>
-            <elementProp name="dateStr" elementType="Argument">
-              <stringProp name="Argument.name">dateStr</stringProp>
-              <stringProp name="Argument.value">${__timeShift(yyyyMMddHHmmss,,,,)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
           </collectionProp>
           <stringProp name="TestPlan.comments">${icipcode}    ${gcode1}    ${gcode2}    ${orderno}     ${customstype}</stringProp>
         </Arguments>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="发送大连BBC订单0904_有运单号" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="发送大连BBC订单0904_有运单号_1000001347仓库DLBBC0904" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -250,7 +245,7 @@
         <hashTree>
           <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="随机订单号" enabled="true">
             <stringProp name="variableName">ordernoDD</stringProp>
-            <stringProp name="outputFormat">DLBBCPub${__substring(${dateStr},0,7,)}</stringProp>
+            <stringProp name="outputFormat">DLBBCPub</stringProp>
             <stringProp name="minimumValue">1000001</stringProp>
             <stringProp name="maximumValue">9999999</stringProp>
             <stringProp name="randomSeed"></stringProp>

@@ -45,7 +45,7 @@
             </elementProp>
             <elementProp name="logisticsCode" elementType="Argument">
               <stringProp name="Argument.name">logisticsCode</stringProp>
-              <stringProp name="Argument.value">1001979</stringProp>
+              <stringProp name="Argument.value">GJ00000306</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -103,10 +103,10 @@
 		&quot;version&quot;: &quot;&quot;&#xd;
 	},&#xd;
     &quot;orderDetailHead&quot;:{&#xd;
-        &quot;cusOrderno&quot;:&quot;${cusOrderno}&quot;,&#xd;
+        &quot;cusOrderno&quot;:&quot;weituodan${__time(yyyyMMdd,)}&quot;,&#xd;
         &quot;trafMode&quot;:&quot;汽车&quot;,&#xd;
         &quot;appuId&quot;:&quot;IC卡号&quot;,&#xd;
-        &quot;waybillNo&quot;:&quot;${waybillNo}&quot;,&#xd;
+        &quot;waybillNo&quot;:&quot;${__time(yyyyMMdd,)}&quot;,&#xd;
         &quot;logisticsCodehg&quot;:&quot;4401960002&quot;,&#xd;
         &quot;tranNo&quot;:&quot;粤A3021&quot;,&#xd;
         &quot;assignee&quot;:&quot;1000000061&quot;,&#xd;
@@ -166,7 +166,7 @@
             &quot;unloadPointcode&quot;:&quot;xiehuo1&quot;,&#xd;
             &quot;seq&quot;:&quot;0001&quot;,&#xd;
             &quot;notes&quot;:&quot;备注&quot;,&#xd;
-            &quot;intSubwaybillno&quot;:&quot;Y0804A001&quot;&#xd;
+            &quot;intSubwaybillno&quot;:&quot;${__time(yyyyMMdd,)}A1${__Random(000000001,999999999,)}&quot;&#xd;
         },&#xd;
         &quot;ieFlag&quot;:&quot;I&quot;,&#xd;
         &quot;carecNo&quot;:&quot;DZ001&quot;,&#xd;
@@ -196,7 +196,7 @@
             <stringProp name="TestPlan.comments">TallyTrustListServcusOrderno</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="断言" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="未作断言   这里是失败的" enabled="false">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="-1867169789">success</stringProp>
               <stringProp name="799375">成功</stringProp>
