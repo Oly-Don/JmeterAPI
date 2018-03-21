@@ -68,4 +68,33 @@
         </copy>
         <echo message="report end"/>
     </target>
+	
+	
+		
+	<target name="runNewStyle">
+        <antcall target="delete"/>
+        <antcall target="test"/>
+        <antcall target="reportNew"/>
+    </target>
+	
+    <target name="reportNew"> <echo message="report start"/>
+        <echo message="report start"/>
+        <tstamp>
+            <format property="report.datestamp" pattern="yyyy/MM/dd HH:mm"/>
+        </tstamp>
+        <xslt classpathref="xslt.classpath"
+              force="true"
+              in="${jmeter.result.jtlName}"
+              out="${jmeter.result.htmlName}"
+              style="${jmeter.home}/extras/jmeter-results-detail-report_30.xsl">
+            <param name="dateReport" expression="${report.datestamp}"/>
+        </xslt>
+        <copy todir="${jmeter.result.html.dir}">
+            <fileset dir="${jmeter.home}/extras">
+                <include name="collapse.png"/>
+                <include name="expand.png"/>
+            </fileset>
+        </copy>
+        <echo message="report end"/>
+    </target>
 </project>
