@@ -593,7 +593,7 @@ ${orderFileName_1}</stringProp>
                 <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot; standalone=&quot;no&quot;?&gt;
 &lt;CEB622Message xmlns=&quot;http://www.chinaport.gov.cn/ceb&quot; guid=&quot;4CDE1CFD-EDED-46B1-946C-B8022E42FC94&quot; version=&quot;1.0&quot;&gt;
     &lt;InventoryReturn&gt;
-        &lt;guid&gt;00000000CUST000000000000000000003392&lt;/guid&gt;
+        &lt;guid&gt;00000000CUST000000000000000000003698&lt;/guid&gt;
         &lt;customsCode&gt;0904&lt;/customsCode&gt;
         &lt;ebpCode&gt;1105910159&lt;/ebpCode&gt;
         &lt;ebcCode&gt;1105910159&lt;/ebcCode&gt;
@@ -617,8 +617,8 @@ ${orderFileName_1}</stringProp>
                   <boolProp name="resetInterpreter">false</boolProp>
                   <stringProp name="parameters"></stringProp>
                   <stringProp name="filename"></stringProp>
-                  <stringProp name="script">vars.put(&quot;cusrecvstatus&quot;,&quot;&quot;);//海关回执状态
-vars.put(&quot;custmessage&quot;,&quot;&quot;);//海关回执信息</stringProp>
+                  <stringProp name="script">vars.put(&quot;cusrecvstatus&quot;,&quot;800&quot;);//海关回执状态
+vars.put(&quot;custmessage&quot;,&quot;地方&quot;);//海关回执信息</stringProp>
                 </BeanShellPostProcessor>
                 <hashTree/>
               </hashTree>
