@@ -34,7 +34,7 @@
         <antcall target="report"/>
     </target>
     <target name="delete">
-    	<delete includeEmptyDirs="true">  
+    	<delete includeEmptyDirs="true" failonerror="false">  
 			<fileset dir="${jmeter.result.html.dir}"/>  
 		</delete> 
 	</target>
