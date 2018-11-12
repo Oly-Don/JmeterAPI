@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -30,12 +30,11 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">124.127.246.224</stringProp>
-          <stringProp name="HTTPSampler.port">8001</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.0.135</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
           <stringProp name="HTTPSampler.path"></stringProp>
-          <stringProp name="TestPlan.comments">http://124.127.246.224:8001/iciprdp</stringProp>
           <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -161,16 +160,45 @@ Accept: */*</stringProp>
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>2</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
       </hashTree>
     </hashTree>
-    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
-      <stringProp name="TestPlan.comments">接单系统
-http://124.127.246.224:8001/iciprdp/AppMain.jsp
-
-
-</stringProp>
-      <boolProp name="WorkBench.save">true</boolProp>
-    </WorkBench>
-    <hashTree/>
   </hashTree>
 </jmeterTestPlan>

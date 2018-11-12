@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -119,7 +119,10 @@
             <stringProp name="variableNames"></stringProp>
             <stringProp name="resultVariable"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
-            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetHandler">Store as Object</stringProp>
+            <stringProp name="TestPlan.comments">delete from custentrystorelist where eslpredeclcode=&apos;${custentryslcode}&apos;;
+delete from custentrystorelist where eslpredeclcode=&apos;${custentryslcode}&apos;
+</stringProp>
           </JDBCSampler>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
@@ -453,5 +456,9 @@
         <hashTree/>
       </hashTree>
     </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>

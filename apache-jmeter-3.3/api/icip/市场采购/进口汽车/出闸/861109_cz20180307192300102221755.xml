@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ROOT>
+  <Head>
+    <MessageID>861109_2017050519230000000001</MessageID>
+    <MessageType>861109</MessageType>
+    <Sender>ICIP_PSP_QCMT_001</Sender>
+    <Receiver>ICIP_PSP_000001</Receiver>
+    <!--发送时间-->
+    <SendTime>2018-03-07 17:48:00</SendTime>
+    <Version>1.0</Version>
+  </Head>
+  <Body>
+    <GateIOInfo>
+      <Record>
+        <WorkNo>201803071748</WorkNo>
+        <TransMode>F</TransMode>
+        <!--进出口标识-->
+        <IeFlag>I</IeFlag>
+        <TradeType>I</TradeType>
+        <!--10入闸，20出闸-->
+        <GateIOFlag>20</GateIOFlag>
+        <!--检管区-->
+        <CheckMgmtArea>000046</CheckMgmtArea>
+        <!--车牌号-->
+        <TruckNo>京V99999</TruckNo>
+        <Kgs>123</Kgs>
+        <!--入闸时间-->
+        <GateIOTime>2018-03-07 17:48:00</GateIOTime>
+        <!--提单号-->
+        <Blno>201803061102</Blno>
+        <Notes>备注</Notes>
+        <CarInfo>
+          <Record>
+          <!--箱号-->
+            <Contno>LINU3615374</Contno>
+            <!--大小-->
+            <Consize>10</Consize>
+            <!--柜型-->
+            <Contype>A</Contype>
+            <!--品牌-->
+            <Brand>品牌201803061102</Brand>
+            <!--商品名称-->
+            <Gname>商品名称201803061102</Gname>
+            <!--VIN号-->
+            <VIN>201803061102</VIN>
+          </Record>
+        </CarInfo>
+      </Record>
+    </GateIOInfo>
+  </Body>
+</ROOT>

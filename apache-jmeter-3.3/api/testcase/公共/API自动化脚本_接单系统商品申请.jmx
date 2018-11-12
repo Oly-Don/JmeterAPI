@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3.20180408">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1515381375000</longProp>
+        <longProp name="ThreadGroup.end_time">1515381375000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.77.50.21</stringProp>
+          <stringProp name="HTTPSampler.port">8001</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="TestPlan.comments">http://124.127.246.224:8001/iciprdp</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </Arguments>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="TestPlan.comments">application/json
+
+Accept: */*</stringProp>
+        </HeaderManager>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="web" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="接单系统接口-商品申请" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"> {&quot;Ccode&quot;:&quot;${Ccode}&quot;,&quot;Code&quot;:&quot;${Code}&quot;,&quot;Data&quot;:${busiData},&quot;Type&quot;:&quot;${Type}&quot;,&quot;Token&quot;:&quot;${Token}&quot;,&quot;Sign&quot;:&quot;${Sign}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">10.77.50.21</stringProp>
+            <stringProp name="HTTPSampler.port">8001</stringProp>
+            <stringProp name="HTTPSampler.protocol">http</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">iciprdp/rest/api/rdp/pushBusiData.do</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">{&quot;Ccode&quot;:&quot;1505130131&quot;,&quot;Code&quot;:&quot;PUB_BBC_GOODCHANGE_IN_10_01&quot;,&quot;Data&quot;:${busiData},&quot;Type&quot;:&quot;1&quot;,&quot;Token&quot;:&quot;testToken&quot;,&quot;Sign&quot;:&quot;${md5key}&quot;}</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="前置处理" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters">vars</stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import java.util.*;   
+
+  
+      String Type = &quot;Type&quot;;
+      String Code = &quot;Code&quot;;
+      String Ccode = &quot;Ccode&quot;;
+ 	   String Data = &quot;Data&quot;;
+  	 String Token = &quot;Token&quot;;
+ 	String Sign = &quot;Sign&quot;;
+    Map&lt;String, String&gt; dataparam = new HashMap&lt;&gt;();
+     String busiData= &quot;{\&quot;ROOT\&quot;:{\&quot;Head\&quot;:{\&quot;MessageID\&quot;:\&quot;CUST000000000000000433901090\&quot;,\&quot;MessageType\&quot;:\&quot;661105\&quot;,\&quot;Receiver\&quot;:\&quot;ICIP_PSP_000001\&quot;,\&quot;Sender\&quot;:\&quot;ICIP_TOPZHITBE_00001\&quot;,\&quot;SendTime\&quot;:\&quot;2018-10-1010:10:10\&quot;,\&quot;Version\&quot;:\&quot;1.0\&quot;},\&quot;Body\&quot;:{\&quot;Pspimpbpwaybill\&quot;:[{\&quot;Pspimpbpway\&quot;:\&quot;YWG20180402001\&quot;,\&quot;EditcCode\&quot;:\&quot;1505130131\&quot;,\&quot;CIQBCode\&quot;:\&quot;000069\&quot;,\&quot;Apptype\&quot;:\&quot;301020\&quot;,\&quot;Ieflag\&quot;:\&quot;I\&quot;,\&quot;Transtype\&quot;:\&quot;1\&quot;,\&quot;Transno\&quot;:\&quot;运输工具号\&quot;,\&quot;Voyageno\&quot;:\&quot;航次号\&quot;,\&quot;Qtyall\&quot;:\&quot;520\&quot;,\&quot;Totalgrosswt\&quot;:\&quot;520\&quot;,\&quot;Leport\&quot;:\&quot;301020\&quot;,\&quot;LoadDate\&quot;:\&quot;20180402090909\&quot;,\&quot;DeclTime\&quot;:\&quot;20180402090909\&quot;,\&quot;OpType\&quot;:\&quot;A\&quot;,\&quot;Notes\&quot;:\&quot;就不写备注\&quot;,\&quot;LogisticsCode\&quot;:\&quot;1000000019\&quot;,\&quot;Pspimpbpwaybillg\&quot;:[{\&quot;WaybillNo\&quot;:\&quot;YWG20180330001\&quot;,\&quot;Packnum\&quot;:\&quot;234\&quot;,\&quot;Kgs\&quot;:\&quot;123\&quot;,\&quot;Ciqinboundno\&quot;:\&quot;20180402001\&quot;,\&quot;Notes\&quot;:\&quot;不会写备注，怎么办\&quot;}]}]}}}&quot;;
+        String seretcode=&quot;5852D5F4FA3CFE04193EC20542E5A448&quot;;
+        String Code=&quot;PUB_BC_WAYBILL_IN_10_01&quot;;
+        String Ccode=&quot;1505130131&quot;;
+        String Token=&quot;testToken&quot;;
+        String Type=&quot;1&quot;;
+          dataparam.put(Code, code);
+        dataparam.put(Ccode, ccode);
+        dataparam.put(Token, token);
+        dataparam.put(Type, type);
+        dataparam.put(Data, busiData);
+         List&lt;String&gt; list = new ArrayList&lt;&gt;(dataparam.keySet());
+        Collections.sort(list);
+        StringBuffer md5repare = new StringBuffer(seretcode);
+        for (String key : list) {
+            String value = dataparam.get(key);
+            if (value == null || value.length() == 0) {
+                continue;
+            }
+            requestData.append(key).append(value);
+        }
+        md5repare.append(seretcode);
+      
+              vars.put(&quot;Code&quot;,Code);          
+              vars.put(&quot;Ccode&quot;,Ccode);        
+              vars.put(&quot;busiData&quot;,busiData);        
+              vars.put(&quot;Token&quot;,Token);        
+              vars.put(&quot;Type&quot;,Type);       
+//                ${__MD5(md5repare,Sign)}; 
+                ${__SNMD5(md5repare.toString(),Sign)}
+             // vars.put(&quot;Sign&quot;,Sign);        
+
+              
+     /*   
+
+        String body=&quot;{\n&quot; +
+                &quot;　　\&quot;Ccode\&quot;:\&quot;&quot; + Ccode + &quot;\&quot;,\n&quot; +
+                &quot;　　\&quot;Code\&quot;:\&quot;&quot; + Code + &quot;\&quot;,\n&quot; +
+                &quot;　　\&quot;Data\&quot;:\&quot;&quot; + busiData + &quot;\&quot;,\n&quot; +
+                &quot;　　\&quot;Type\&quot;:\&quot;1\&quot;,\n&quot; +
+                &quot;　　\&quot;Token\&quot;:\&quot;token\&quot;,\n&quot; +
+                &quot;　　\&quot;Sign\&quot;:\&quot;&quot; + md5key + &quot;\&quot;\n&quot; +
+                &quot;}&quot;;
+                       vars.put(&quot;body&quot;,body);     
+                */                    
+               
+                /*
+                 * 3.2	Sign:MD5签名方法
+签名方法：密钥+(将所有的参数（去掉Sign）按照字符串正序排序，然后按照排序后的参数key+参数value拼接字符串)+上内容的字符串+秘钥进行MD5码编码。
+请求数据如下：
+(Ccode=’999999’,Code=’PUB_ORDER_IN_10_01’,Data=’{具体业务数据}’, Token=’token’,secretKey=’keytest’)
+则拼成的字符串如下所示：keytestCcode999999CodePUB_ORDER_IN_10_01Data{具体业务数据明文}Tokentokenkeytest
+                 */
+</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1215594707">ReplyCode&quot;:&quot;00</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>2</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <stringProp name="TestPlan.comments">接单系统
+http://124.127.246.224:8001/iciprdp/AppMain.jsp
+
+{
+　　&quot;Ccode&quot;:&quot;1505130131&quot;,
+　　&quot;Sign&quot;:&quot;Sign&quot;,
+　　&quot;Type&quot;:&quot;1&quot;,
+　　&quot;Token&quot;:&quot;Token&quot;,
+　　&quot;Code&quot;:&quot;PUB_BC_CAROGOBACK_IN_10_01&quot;,
+　　&quot;Data&quot;:{
+　　　　&quot;ROOT&quot;:{
+　　　　　　&quot;Head&quot;:{
+　　　　　　　　&quot;MessageID&quot;:&quot;CUST000000000000000433901090&quot;,
+　　　　　　　　&quot;MessageType&quot;:&quot;661105&quot;,
+　　　　　　　　&quot;Receiver&quot;:&quot;ICIP_PSP_000001&quot;,
+　　　　　　　　&quot;Sender&quot;:&quot;ICIP_TOPZHITBE_00001&quot;,
+　　　　　　　　&quot;SendTime&quot;:&quot;2018-10-10 10:10:10&quot;,
+　　　　　　　　&quot;Version&quot;:&quot;1.0&quot;
+　　　　　　},
+　　　　　　&quot;Body&quot;:{
+　　　　　　　　&quot;GOODSRECORD&quot;:[
+　　　　　　　　　　{
+　　　　　　　　　　　　&quot;GoodsBCode&quot;:&quot;ICIPYWG20180330001&quot;,
+　　　　　　　　　　　　&quot;CIQBCode&quot;:&quot;000019&quot;,
+　　　　　　　　　　　　&quot;CBEComCode&quot;:&quot;1504220060&quot;,
+　　　　　　　　　　　　&quot;Editccode&quot;:&quot;1504220058&quot;,
+　　　　　　　　　　　　&quot;Remark&quot;:&quot;先申请点方便面吧&quot;,
+　　　　　　　　　　　　&quot;CARGOLIST&quot;:[
+　　　　　　　　　　　　　　{
+　　　　　　　　　　　　　　　　&quot;Gname&quot;:&quot;小浣熊干吃面&quot;,
+　　　　　　　　　　　　　　　　&quot;HSCode&quot;:&quot;00010199&quot;,
+　　　　　　　　　　　　　　　　&quot;GoodsCode&quot;:&quot;xiaohuanxiong12345&quot;,
+　　　　　　　　　　　　　　　　&quot;Spec&quot;:&quot;袋装的&quot;,
+　　　　　　　　　　　　　　　　&quot;Brand&quot;:&quot;熊牌子&quot;,
+　　　　　　　　　　　　　　　　&quot;AssemCountry&quot;:&quot;156&quot;,
+　　　　　　　　　　　　　　　　&quot;Notes&quot;:&quot;方便面都快要吃不起了&quot;,
+　　　　　　　　　　　　　　　　&quot;Qtyunit&quot;:&quot;136&quot;
+　　　　　　　　　　　　　　},
+　　　　　　　　　　　　　　{
+　　　　　　　　　　　　　　　　&quot;Gname&quot;:&quot;小浣熊泡面面&quot;,
+　　　　　　　　　　　　　　　　&quot;HSCode&quot;:&quot;00010111&quot;,
+　　　　　　　　　　　　　　　　&quot;GoodsCode&quot;:&quot;xiaohuanxiong54321&quot;,
+　　　　　　　　　　　　　　　　&quot;Spec&quot;:&quot;袋装的&quot;,
+　　　　　　　　　　　　　　　　&quot;Brand&quot;:&quot;熊牌子&quot;,
+　　　　　　　　　　　　　　　　&quot;AssemCountry&quot;:&quot;156&quot;,
+　　　　　　　　　　　　　　　　&quot;Notes&quot;:&quot;这个还真没吃过&quot;,
+　　　　　　　　　　　　　　　　&quot;Qtyunit&quot;:&quot;136&quot;
+　　　　　　　　　　　　　　}
+　　　　　　　　　　　　]
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　}
+　　　　}
+　　}
+}
+</stringProp>
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

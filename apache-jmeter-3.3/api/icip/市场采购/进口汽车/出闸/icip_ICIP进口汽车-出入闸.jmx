@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ConfigTestElement guiclass="FtpConfigGui" testclass="ConfigTestElement" testname="FTP请求缺省值" enabled="true">
+        <stringProp name="TestPlan.comments">ftp://csbctest:abc.123@192.168.0.105/customs/4290.4520.0040.0010/in</stringProp>
+        <stringProp name="FTPSampler.server">10.77.50.20</stringProp>
+        <stringProp name="FTPSampler.port">21</stringProp>
+        <stringProp name="FTPSampler.filename"></stringProp>
+        <stringProp name="FTPSampler.localfilename"></stringProp>
+        <stringProp name="FTPSampler.inputdata"></stringProp>
+        <boolProp name="FTPSampler.binarymode">false</boolProp>
+        <boolProp name="FTPSampler.saveresponse">false</boolProp>
+        <boolProp name="FTPSampler.upload">true</boolProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="oracle" enabled="true">
+        <stringProp name="dataSource">aqsiq-orcl10.77.4.10</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">select 1 from dual</stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@10.77.4.10:1521:orcl</stringProp>
+        <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+        <stringProp name="username">icipfc_aqsiq_mq</stringProp>
+        <stringProp name="password">icipfc_aqsiq_mq</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1525418910000</longProp>
+        <longProp name="ThreadGroup.end_time">1525418910000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+          <stringProp name="dataSource">aqsiq-orcl10.77.4.10</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="query">delete from aqsiqenterinfo_wharf where aqsiqentercode like &apos;%${__time(MMdd,)}%&apos;
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
+          <stringProp name="dataSource">aqsiq-orcl10.77.4.10</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="query">delete from aqsiqentergodetail_wharf where aqsiqentercode like &apos;%${__time(MMdd,)}%&apos;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="FTP操作" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1502420857000</longProp>
+        <longProp name="ThreadGroup.end_time">1502420857000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="模拟场景；入闸时间-出闸时间&gt;预警设置的时长(2)APHU6489301" enabled="true"/>
+        <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="xmlfilehead" elementType="Argument">
+                <stringProp name="Argument.name">xmlfilehead</stringProp>
+                <stringProp name="Argument.value">WHARF_M_RZ_</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="blno" elementType="Argument">
+                <stringProp name="Argument.name">blno</stringProp>
+                <stringProp name="Argument.value">${__UUID}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="港口码头入闸口&lt;码头入出闸信息（第三方-企业端）&gt;" enabled="true"/>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="&lt;码头入出闸信息（第三方-企业端）&gt;${blno}" enabled="true">
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">ICIP/HPDJKMT/4610.4520.4000/in/${xmlfilehead}${__UUID}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;Root&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;661105ZY&lt;/MessageID&gt;
+		&lt;MessageType&gt;WHARF_RZ&lt;/MessageType&gt;
+		&lt;Sender&gt;ZJG&lt;/Sender&gt;
+		&lt;Receiver&gt;ZJG&lt;/Receiver&gt;
+		&lt;SendTime&gt;2018-05-03 16:21:00&lt;/SendTime&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;Record&gt;
+			&lt;Passinfo&gt;
+				&lt;relaid&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/relaid&gt;
+				&lt;stationbcode&gt;000085&lt;/stationbcode&gt;
+				&lt;channelno&gt;通道号&lt;/channelno&gt;
+				&lt;Transtype&gt;1&lt;/Transtype&gt;
+				&lt;Tradetype&gt;1&lt;/Tradetype&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;Ieflag&gt;1&lt;/Ieflag&gt;
+				&lt;!--入出闸标志--&gt;
+				&lt;passflag&gt;I&lt;/passflag&gt;
+				&lt;!--时间--&gt;
+				&lt;passtime&gt;${__timeShift(yyyy-MM-dd HH:mm:ss,,,,nowtime)}&lt;/passtime&gt;
+				&lt;netweight&gt;85&lt;/netweight&gt;
+				&lt;vesselcn&gt;船名&lt;/vesselcn&gt;
+				&lt;voyage&gt;航次&lt;/voyage&gt;
+				&lt;nationality&gt;156&lt;/nationality&gt;
+				&lt;portload&gt;42342&lt;/portload&gt;
+				&lt;portdisname&gt;645756&lt;/portdisname&gt;
+				&lt;!--时间--&gt;
+				&lt;departuredate&gt;2018-05-01 16:21:00&lt;/departuredate&gt;
+				&lt;!--时间--&gt;
+				&lt;arrivaldate&gt;2018-05-01 16:21:00&lt;/arrivaldate&gt;
+				&lt;consignee&gt;收货人&lt;/consignee&gt;
+				&lt;shipper&gt;发货人&lt;/shipper&gt;
+				&lt;portbreak&gt;53453&lt;/portbreak&gt;
+				&lt;!--提单号--&gt;
+				&lt;blno&gt;${blno}&lt;/blno&gt;
+				&lt;!--箱号--&gt;
+				&lt;contno&gt;APHU6489301&lt;/contno&gt;
+				&lt;Contype&gt;进口航次&lt;/Contype&gt;
+				&lt;containerweight&gt;34&lt;/containerweight&gt;
+				&lt;containersize&gt;1&lt;/containersize&gt;
+				&lt;weightno&gt;654&lt;/weightno&gt;
+				&lt;sealsno&gt;128&lt;/sealsno&gt;
+				&lt;truckno&gt;港000085&lt;/truckno&gt;
+				&lt;carweight&gt;123&lt;/carweight&gt;
+				&lt;icno&gt;IC卡号&lt;/icno&gt;
+				&lt;remark&gt;0&lt;/remark&gt;
+				&lt;Goodsinfos&gt;
+					&lt;Goods&gt;
+						&lt;blno&gt;${blno}&lt;/blno&gt;
+						&lt;goods&gt;货物名称1&lt;/goods&gt;
+						&lt;VIN&gt;VIN${blno}&lt;/VIN&gt;
+					&lt;/Goods&gt;
+				&lt;/Goodsinfos&gt;
+			&lt;/Passinfo&gt;
+		&lt;/Record&gt;
+	&lt;/Body&gt;
+&lt;/Root&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+              <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="港口码头出闸口&lt;码头入出闸信息（第三方-企业端）&gt;" enabled="true"/>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="&lt;码头入出闸信息（第三方-企业端）&gt;${blno}" enabled="true">
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">ICIP/HPDJKMT/4610.4520.4000/in/${xmlfilehead}${__UUID}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;Root&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;661105ZY&lt;/MessageID&gt;
+		&lt;MessageType&gt;WHARF_RZ&lt;/MessageType&gt;
+		&lt;Sender&gt;ZJG&lt;/Sender&gt;
+		&lt;Receiver&gt;ZJG&lt;/Receiver&gt;
+		&lt;SendTime&gt;2018-05-03 16:21:00&lt;/SendTime&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;Record&gt;
+			&lt;Passinfo&gt;
+				&lt;relaid&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/relaid&gt;
+				&lt;stationbcode&gt;000085&lt;/stationbcode&gt;
+				&lt;channelno&gt;通道号&lt;/channelno&gt;
+				&lt;Transtype&gt;1&lt;/Transtype&gt;
+				&lt;Tradetype&gt;1&lt;/Tradetype&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;Ieflag&gt;1&lt;/Ieflag&gt;
+				&lt;!--入出闸标志--&gt;
+				&lt;passflag&gt;O&lt;/passflag&gt;
+				&lt;!--时间--&gt;
+				&lt;passtime&gt;${__timeShift(yyyy-MM-dd HH:mm:ss,,PT-26H,,)}&lt;/passtime&gt;
+				&lt;netweight&gt;85&lt;/netweight&gt;
+				&lt;vesselcn&gt;船名&lt;/vesselcn&gt;
+				&lt;voyage&gt;航次&lt;/voyage&gt;
+				&lt;nationality&gt;156&lt;/nationality&gt;
+				&lt;portload&gt;42342&lt;/portload&gt;
+				&lt;portdisname&gt;645756&lt;/portdisname&gt;
+				&lt;!--时间--&gt;
+				&lt;departuredate&gt;2018-05-03 16:21:00&lt;/departuredate&gt;
+				&lt;!--时间--&gt;
+				&lt;arrivaldate&gt;2018-05-03 16:21:00&lt;/arrivaldate&gt;
+				&lt;consignee&gt;收货人&lt;/consignee&gt;
+				&lt;shipper&gt;发货人&lt;/shipper&gt;
+				&lt;portbreak&gt;53453&lt;/portbreak&gt;
+				&lt;!--提单号--&gt;
+				&lt;blno&gt;${blno}&lt;/blno&gt;
+				&lt;!--箱号--&gt;
+				&lt;contno&gt;APHU6489301&lt;/contno&gt;
+				&lt;Contype&gt;进口航次&lt;/Contype&gt;
+				&lt;containerweight&gt;34&lt;/containerweight&gt;
+				&lt;containersize&gt;1&lt;/containersize&gt;
+				&lt;weightno&gt;654&lt;/weightno&gt;
+				&lt;sealsno&gt;128&lt;/sealsno&gt;
+				&lt;truckno&gt;港000085&lt;/truckno&gt;
+				&lt;carweight&gt;123&lt;/carweight&gt;
+				&lt;icno&gt;IC卡号&lt;/icno&gt;
+				&lt;remark&gt;0&lt;/remark&gt;
+				&lt;Goodsinfos&gt;
+					&lt;Goods&gt;
+						&lt;blno&gt;${blno}&lt;/blno&gt;
+						&lt;goods&gt;货物名称1&lt;/goods&gt;
+						&lt;VIN&gt;VIN${blno}&lt;/VIN&gt;
+					&lt;/Goods&gt;
+				&lt;/Goodsinfos&gt;
+			&lt;/Passinfo&gt;
+		&lt;/Record&gt;
+	&lt;/Body&gt;
+&lt;/Root&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+              <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="模拟场景；入闸时间-出闸时间&lt;预警设置的时长(2)ASD43434301" enabled="false"/>
+        <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="xmlfilehead" elementType="Argument">
+                <stringProp name="Argument.name">xmlfilehead</stringProp>
+                <stringProp name="Argument.value">WHARF_M_RZ_</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="blno" elementType="Argument">
+                <stringProp name="Argument.name">blno</stringProp>
+                <stringProp name="Argument.value">${__UUID}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;blno&quot;,vars.get(&quot;blno&quot;)+&quot;\n&quot;+&quot;${__UUID}&quot;);</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="港口码头入闸口&lt;码头入出闸信息（第三方-企业端）&gt;" enabled="true"/>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="&lt;码头入出闸信息（第三方-企业端）&gt;${blno}" enabled="true">
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">ICIP/HPDJKMT/4610.4520.4000/in/${xmlfilehead}${__UUID}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;Root&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;661105ZY&lt;/MessageID&gt;
+		&lt;MessageType&gt;WHARF_RZ&lt;/MessageType&gt;
+		&lt;Sender&gt;ZJG&lt;/Sender&gt;
+		&lt;Receiver&gt;ZJG&lt;/Receiver&gt;
+		&lt;SendTime&gt;2018-05-03 16:21:00&lt;/SendTime&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;Record&gt;
+			&lt;Passinfo&gt;
+				&lt;relaid&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/relaid&gt;
+				&lt;stationbcode&gt;000085&lt;/stationbcode&gt;
+				&lt;channelno&gt;通道号&lt;/channelno&gt;
+				&lt;Transtype&gt;1&lt;/Transtype&gt;
+				&lt;Tradetype&gt;1&lt;/Tradetype&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;Ieflag&gt;1&lt;/Ieflag&gt;
+				&lt;!--入出闸标志--&gt;
+				&lt;passflag&gt;I&lt;/passflag&gt;
+				&lt;!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!入闸时间--&gt;
+				&lt;passtime&gt;${__timeShift(yyyy-MM-dd HH:mm:ss,,,,)}&lt;/passtime&gt;
+				&lt;netweight&gt;85&lt;/netweight&gt;
+				&lt;vesselcn&gt;船名&lt;/vesselcn&gt;
+				&lt;voyage&gt;航次&lt;/voyage&gt;
+				&lt;nationality&gt;156&lt;/nationality&gt;
+				&lt;portload&gt;42342&lt;/portload&gt;
+				&lt;portdisname&gt;645756&lt;/portdisname&gt;
+				&lt;!--时间--&gt;
+				&lt;departuredate&gt;2018-05-01 16:21:00&lt;/departuredate&gt;
+				&lt;!--时间--&gt;
+				&lt;arrivaldate&gt;2018-05-01 16:21:00&lt;/arrivaldate&gt;
+				&lt;consignee&gt;收货人&lt;/consignee&gt;
+				&lt;shipper&gt;发货人&lt;/shipper&gt;
+				&lt;portbreak&gt;53453&lt;/portbreak&gt;
+				&lt;!--提单号--&gt;
+				&lt;blno&gt;${blno}&lt;/blno&gt;
+				&lt;!--箱号--&gt;
+				&lt;contno&gt;ASD43434301&lt;/contno&gt;
+				&lt;Contype&gt;进口航次&lt;/Contype&gt;
+				&lt;containerweight&gt;34&lt;/containerweight&gt;
+				&lt;containersize&gt;1&lt;/containersize&gt;
+				&lt;weightno&gt;654&lt;/weightno&gt;
+				&lt;sealsno&gt;128&lt;/sealsno&gt;
+				&lt;truckno&gt;港000085&lt;/truckno&gt;
+				&lt;carweight&gt;123&lt;/carweight&gt;
+				&lt;icno&gt;IC卡号&lt;/icno&gt;
+				&lt;remark&gt;0&lt;/remark&gt;
+				&lt;Goodsinfos&gt;
+					&lt;Goods&gt;
+						&lt;blno&gt;${blno}&lt;/blno&gt;
+						&lt;goods&gt;货物名称1&lt;/goods&gt;
+						&lt;VIN&gt;VIN${blno}&lt;/VIN&gt;
+					&lt;/Goods&gt;
+				&lt;/Goodsinfos&gt;
+			&lt;/Passinfo&gt;
+		&lt;/Record&gt;
+	&lt;/Body&gt;
+&lt;/Root&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+              <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="港口码头出闸口&lt;码头入出闸信息（第三方-企业端）&gt;" enabled="true"/>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="&lt;码头入出闸信息（第三方-企业端）&gt;${blno}" enabled="true">
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">ICIP/HPDJKMT/4610.4520.4000/in/${xmlfilehead}${__UUID}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;Root&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;661105ZY&lt;/MessageID&gt;
+		&lt;MessageType&gt;WHARF_RZ&lt;/MessageType&gt;
+		&lt;Sender&gt;ZJG&lt;/Sender&gt;
+		&lt;Receiver&gt;ZJG&lt;/Receiver&gt;
+		&lt;SendTime&gt;2018-05-03 16:21:00&lt;/SendTime&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;Record&gt;
+			&lt;Passinfo&gt;
+				&lt;relaid&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/relaid&gt;
+				&lt;stationbcode&gt;000085&lt;/stationbcode&gt;
+				&lt;channelno&gt;通道号&lt;/channelno&gt;
+				&lt;Transtype&gt;1&lt;/Transtype&gt;
+				&lt;Tradetype&gt;1&lt;/Tradetype&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;Ieflag&gt;1&lt;/Ieflag&gt;
+				&lt;!--入出闸标志--&gt;
+				&lt;passflag&gt;O&lt;/passflag&gt;
+				&lt;!--时间--&gt;
+				&lt;passtime&gt;${__timeShift(yyyy-MM-dd HH:mm:ss,,PT-23H,,)}&lt;/passtime&gt;
+				&lt;netweight&gt;85&lt;/netweight&gt;
+				&lt;vesselcn&gt;船名&lt;/vesselcn&gt;
+				&lt;voyage&gt;航次&lt;/voyage&gt;
+				&lt;nationality&gt;156&lt;/nationality&gt;
+				&lt;portload&gt;42342&lt;/portload&gt;
+				&lt;portdisname&gt;645756&lt;/portdisname&gt;
+				&lt;!--时间--&gt;
+				&lt;departuredate&gt;2018-05-03 16:21:00&lt;/departuredate&gt;
+				&lt;!--时间--&gt;
+				&lt;arrivaldate&gt;2018-05-03 16:21:00&lt;/arrivaldate&gt;
+				&lt;consignee&gt;收货人&lt;/consignee&gt;
+				&lt;shipper&gt;发货人&lt;/shipper&gt;
+				&lt;portbreak&gt;53453&lt;/portbreak&gt;
+				&lt;!--提单号--&gt;
+				&lt;blno&gt;${blno}&lt;/blno&gt;
+				&lt;!--箱号--&gt;
+				&lt;contno&gt;ASD43434301&lt;/contno&gt;
+				&lt;Contype&gt;进口航次&lt;/Contype&gt;
+				&lt;containerweight&gt;34&lt;/containerweight&gt;
+				&lt;containersize&gt;1&lt;/containersize&gt;
+				&lt;weightno&gt;654&lt;/weightno&gt;
+				&lt;sealsno&gt;128&lt;/sealsno&gt;
+				&lt;truckno&gt;港000085&lt;/truckno&gt;
+				&lt;carweight&gt;123&lt;/carweight&gt;
+				&lt;icno&gt;IC卡号&lt;/icno&gt;
+				&lt;remark&gt;0&lt;/remark&gt;
+				&lt;Goodsinfos&gt;
+					&lt;Goods&gt;
+						&lt;blno&gt;${blno}&lt;/blno&gt;
+						&lt;goods&gt;货物名称1&lt;/goods&gt;
+						&lt;VIN&gt;VIN${blno}&lt;/VIN&gt;
+					&lt;/Goods&gt;
+				&lt;/Goodsinfos&gt;
+			&lt;/Passinfo&gt;
+		&lt;/Record&gt;
+	&lt;/Body&gt;
+&lt;/Root&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+              <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="模拟场景；只有入闸，无出闸UYT43434301" enabled="false"/>
+        <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="xmlfilehead" elementType="Argument">
+                <stringProp name="Argument.name">xmlfilehead</stringProp>
+                <stringProp name="Argument.value">WHARF_M_RZ_</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="blno" elementType="Argument">
+                <stringProp name="Argument.name">blno</stringProp>
+                <stringProp name="Argument.value">${__UUID}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;blno&quot;,vars.get(&quot;blno&quot;)+&quot;\n&quot;+&quot;${__UUID}&quot;);</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="港口码头入闸口&lt;码头入出闸信息（第三方-企业端）&gt;" enabled="true"/>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="&lt;码头入出闸信息（第三方-企业端）&gt;${blno}" enabled="true">
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">ICIP/HPDJKMT/4610.4520.4000/in/${xmlfilehead}${__UUID}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;Root&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;661105ZY&lt;/MessageID&gt;
+		&lt;MessageType&gt;WHARF_RZ&lt;/MessageType&gt;
+		&lt;Sender&gt;ZJG&lt;/Sender&gt;
+		&lt;Receiver&gt;ZJG&lt;/Receiver&gt;
+		&lt;SendTime&gt;2018-05-03 16:21:00&lt;/SendTime&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;Record&gt;
+			&lt;Passinfo&gt;
+				&lt;relaid&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/relaid&gt;
+				&lt;stationbcode&gt;000085&lt;/stationbcode&gt;
+				&lt;channelno&gt;通道号&lt;/channelno&gt;
+				&lt;Transtype&gt;1&lt;/Transtype&gt;
+				&lt;Tradetype&gt;1&lt;/Tradetype&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;Ieflag&gt;1&lt;/Ieflag&gt;
+				&lt;!--入出闸标志--&gt;
+				&lt;passflag&gt;I&lt;/passflag&gt;
+				&lt;!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!入闸时间--&gt;
+				&lt;passtime&gt;${__timeShift(yyyy-MM-dd HH:mm:ss,,P-32D,,)}&lt;/passtime&gt;
+				&lt;netweight&gt;85&lt;/netweight&gt;
+				&lt;vesselcn&gt;船名&lt;/vesselcn&gt;
+				&lt;voyage&gt;航次&lt;/voyage&gt;
+				&lt;nationality&gt;156&lt;/nationality&gt;
+				&lt;portload&gt;42342&lt;/portload&gt;
+				&lt;portdisname&gt;645756&lt;/portdisname&gt;
+				&lt;!--时间--&gt;
+				&lt;departuredate&gt;2018-05-01 16:21:00&lt;/departuredate&gt;
+				&lt;!--时间--&gt;
+				&lt;arrivaldate&gt;2018-05-01 16:21:00&lt;/arrivaldate&gt;
+				&lt;consignee&gt;收货人&lt;/consignee&gt;
+				&lt;shipper&gt;发货人&lt;/shipper&gt;
+				&lt;portbreak&gt;53453&lt;/portbreak&gt;
+				&lt;!--提单号--&gt;
+				&lt;blno&gt;${blno}&lt;/blno&gt;
+				&lt;!--箱号--&gt;
+				&lt;contno&gt;UYT43434301&lt;/contno&gt;
+				&lt;Contype&gt;进口航次&lt;/Contype&gt;
+				&lt;containerweight&gt;34&lt;/containerweight&gt;
+				&lt;containersize&gt;1&lt;/containersize&gt;
+				&lt;weightno&gt;654&lt;/weightno&gt;
+				&lt;sealsno&gt;128&lt;/sealsno&gt;
+				&lt;truckno&gt;港000085&lt;/truckno&gt;
+				&lt;carweight&gt;123&lt;/carweight&gt;
+				&lt;icno&gt;IC卡号&lt;/icno&gt;
+				&lt;remark&gt;0&lt;/remark&gt;
+				&lt;Goodsinfos&gt;
+					&lt;Goods&gt;
+						&lt;blno&gt;${blno}&lt;/blno&gt;
+						&lt;goods&gt;货物名称1&lt;/goods&gt;
+						&lt;VIN&gt;VIN${blno}&lt;/VIN&gt;
+					&lt;/Goods&gt;
+				&lt;/Goodsinfos&gt;
+			&lt;/Passinfo&gt;
+		&lt;/Record&gt;
+	&lt;/Body&gt;
+&lt;/Root&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+              <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="模拟场景；只有出闸，无入闸，出闸时间超过30天OIO43434301" enabled="false"/>
+        <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="xmlfilehead" elementType="Argument">
+                <stringProp name="Argument.name">xmlfilehead</stringProp>
+                <stringProp name="Argument.value">WHARF_M_RZ_</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="blno" elementType="Argument">
+                <stringProp name="Argument.name">blno</stringProp>
+                <stringProp name="Argument.value">${__UUID}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;blno&quot;,vars.get(&quot;blno&quot;)+&quot;\n&quot;+&quot;${__UUID}&quot;);</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="港口码头出闸口&lt;码头入出闸信息（第三方-企业端）&gt;" enabled="true"/>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="&lt;码头入出闸信息（第三方-企业端）&gt;${blno}" enabled="true">
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">ICIP/HPDJKMT/4610.4520.4000/in/${xmlfilehead}${__UUID}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;Root&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;661105ZY&lt;/MessageID&gt;
+		&lt;MessageType&gt;WHARF_RZ&lt;/MessageType&gt;
+		&lt;Sender&gt;ZJG&lt;/Sender&gt;
+		&lt;Receiver&gt;ZJG&lt;/Receiver&gt;
+		&lt;SendTime&gt;2018-05-03 16:21:00&lt;/SendTime&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;Record&gt;
+			&lt;Passinfo&gt;
+				&lt;relaid&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/relaid&gt;
+				&lt;stationbcode&gt;000085&lt;/stationbcode&gt;
+				&lt;channelno&gt;通道号&lt;/channelno&gt;
+				&lt;Transtype&gt;1&lt;/Transtype&gt;
+				&lt;Tradetype&gt;1&lt;/Tradetype&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;Ieflag&gt;1&lt;/Ieflag&gt;
+				&lt;!--入出闸标志--&gt;
+				&lt;passflag&gt;O&lt;/passflag&gt;
+				&lt;!--时间--&gt;
+				&lt;passtime&gt;${__timeShift(yyyy-MM-dd HH:mm:ss,,P-32D,,)}&lt;/passtime&gt;
+				&lt;netweight&gt;85&lt;/netweight&gt;
+				&lt;vesselcn&gt;船名&lt;/vesselcn&gt;
+				&lt;voyage&gt;航次&lt;/voyage&gt;
+				&lt;nationality&gt;156&lt;/nationality&gt;
+				&lt;portload&gt;42342&lt;/portload&gt;
+				&lt;portdisname&gt;645756&lt;/portdisname&gt;
+				&lt;!--时间--&gt;
+				&lt;departuredate&gt;2018-05-03 16:21:00&lt;/departuredate&gt;
+				&lt;!--时间--&gt;
+				&lt;arrivaldate&gt;2018-05-03 16:21:00&lt;/arrivaldate&gt;
+				&lt;consignee&gt;收货人&lt;/consignee&gt;
+				&lt;shipper&gt;发货人&lt;/shipper&gt;
+				&lt;portbreak&gt;53453&lt;/portbreak&gt;
+				&lt;!--提单号--&gt;
+				&lt;blno&gt;${blno}&lt;/blno&gt;
+				&lt;!--箱号--&gt;
+				&lt;contno&gt;OIO43434301&lt;/contno&gt;
+				&lt;Contype&gt;进口航次&lt;/Contype&gt;
+				&lt;containerweight&gt;34&lt;/containerweight&gt;
+				&lt;containersize&gt;1&lt;/containersize&gt;
+				&lt;weightno&gt;654&lt;/weightno&gt;
+				&lt;sealsno&gt;128&lt;/sealsno&gt;
+				&lt;truckno&gt;港000085&lt;/truckno&gt;
+				&lt;carweight&gt;123&lt;/carweight&gt;
+				&lt;icno&gt;IC卡号&lt;/icno&gt;
+				&lt;remark&gt;0&lt;/remark&gt;
+				&lt;Goodsinfos&gt;
+					&lt;Goods&gt;
+						&lt;blno&gt;${blno}&lt;/blno&gt;
+						&lt;goods&gt;货物名称1&lt;/goods&gt;
+						&lt;VIN&gt;VIN${blno}&lt;/VIN&gt;
+					&lt;/Goods&gt;
+				&lt;/Goodsinfos&gt;
+			&lt;/Passinfo&gt;
+		&lt;/Record&gt;
+	&lt;/Body&gt;
+&lt;/Root&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+              <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="模拟场景；只有出闸，无入闸，出闸时间未到30天RYT3434301" enabled="false"/>
+        <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="xmlfilehead" elementType="Argument">
+                <stringProp name="Argument.name">xmlfilehead</stringProp>
+                <stringProp name="Argument.value">WHARF_M_RZ_</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="blno" elementType="Argument">
+                <stringProp name="Argument.name">blno</stringProp>
+                <stringProp name="Argument.value">${__UUID}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
+            <stringProp name="BeanShellSampler.query">vars.put(&quot;blno&quot;,vars.get(&quot;blno&quot;)+&quot;\n&quot;+&quot;${__UUID}&quot;);</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="港口码头出闸口&lt;码头入出闸信息（第三方-企业端）&gt;" enabled="true"/>
+          <hashTree>
+            <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="&lt;码头入出闸信息（第三方-企业端）&gt;${blno}" enabled="true">
+              <stringProp name="FTPSampler.server"></stringProp>
+              <stringProp name="FTPSampler.port"></stringProp>
+              <stringProp name="FTPSampler.filename">ICIP/HPDJKMT/4610.4520.4000/in/${xmlfilehead}${__UUID}.xml</stringProp>
+              <stringProp name="FTPSampler.localfilename"></stringProp>
+              <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;Root&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;661105ZY&lt;/MessageID&gt;
+		&lt;MessageType&gt;WHARF_RZ&lt;/MessageType&gt;
+		&lt;Sender&gt;ZJG&lt;/Sender&gt;
+		&lt;Receiver&gt;ZJG&lt;/Receiver&gt;
+		&lt;SendTime&gt;2018-05-03 16:21:00&lt;/SendTime&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;Record&gt;
+			&lt;Passinfo&gt;
+				&lt;relaid&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/relaid&gt;
+				&lt;stationbcode&gt;000085&lt;/stationbcode&gt;
+				&lt;channelno&gt;通道号&lt;/channelno&gt;
+				&lt;Transtype&gt;1&lt;/Transtype&gt;
+				&lt;Tradetype&gt;1&lt;/Tradetype&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;Ieflag&gt;1&lt;/Ieflag&gt;
+				&lt;!--入出闸标志--&gt;
+				&lt;passflag&gt;O&lt;/passflag&gt;
+				&lt;!--时间--&gt;
+				&lt;passtime&gt;${__timeShift(yyyy-MM-dd HH:mm:ss,,P-29D,,)}&lt;/passtime&gt;
+				&lt;netweight&gt;85&lt;/netweight&gt;
+				&lt;vesselcn&gt;船名&lt;/vesselcn&gt;
+				&lt;voyage&gt;航次&lt;/voyage&gt;
+				&lt;nationality&gt;156&lt;/nationality&gt;
+				&lt;portload&gt;42342&lt;/portload&gt;
+				&lt;portdisname&gt;645756&lt;/portdisname&gt;
+				&lt;!--时间--&gt;
+				&lt;departuredate&gt;2018-04-23 16:21:00&lt;/departuredate&gt;
+				&lt;!--时间--&gt;
+				&lt;arrivaldate&gt;2018-05-03 16:21:00&lt;/arrivaldate&gt;
+				&lt;consignee&gt;收货人&lt;/consignee&gt;
+				&lt;shipper&gt;发货人&lt;/shipper&gt;
+				&lt;portbreak&gt;53453&lt;/portbreak&gt;
+				&lt;!--提单号--&gt;
+				&lt;blno&gt;${blno}&lt;/blno&gt;
+				&lt;!--箱号--&gt;
+				&lt;contno&gt;RYT3434301&lt;/contno&gt;
+				&lt;Contype&gt;进口航次&lt;/Contype&gt;
+				&lt;containerweight&gt;34&lt;/containerweight&gt;
+				&lt;containersize&gt;1&lt;/containersize&gt;
+				&lt;weightno&gt;654&lt;/weightno&gt;
+				&lt;sealsno&gt;128&lt;/sealsno&gt;
+				&lt;truckno&gt;港000085&lt;/truckno&gt;
+				&lt;carweight&gt;123&lt;/carweight&gt;
+				&lt;icno&gt;IC卡号&lt;/icno&gt;
+				&lt;remark&gt;0&lt;/remark&gt;
+				&lt;Goodsinfos&gt;
+					&lt;Goods&gt;
+						&lt;blno&gt;${blno}&lt;/blno&gt;
+						&lt;goods&gt;货物名称1&lt;/goods&gt;
+						&lt;VIN&gt;VIN${blno}&lt;/VIN&gt;
+					&lt;/Goods&gt;
+				&lt;/Goodsinfos&gt;
+			&lt;/Passinfo&gt;
+		&lt;/Record&gt;
+	&lt;/Body&gt;
+&lt;/Root&gt;</stringProp>
+              <boolProp name="FTPSampler.binarymode">false</boolProp>
+              <boolProp name="FTPSampler.saveresponse">false</boolProp>
+              <boolProp name="FTPSampler.upload">true</boolProp>
+              <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+              <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+            </FTPSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+      </hashTree>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1525415923000</longProp>
+        <longProp name="ThreadGroup.end_time">1525415923000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </PostThreadGroup>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree>
+      <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="查询海关订单运单号/订单号信息" enabled="true">
+        <stringProp name="dataSource">oracleIP120</stringProp>
+        <stringProp name="query">select waybillno,orderno from custebtrade where predate&gt;sysdate-2 and cust_regstatus is null and waybillno is not null and status=&apos;70&apos; and customscode=&apos;5208&apos; order by predate desc</stringProp>
+        <stringProp name="queryArguments"></stringProp>
+        <stringProp name="queryArgumentsTypes"></stringProp>
+        <stringProp name="queryTimeout"></stringProp>
+        <stringProp name="queryType">Select Statement</stringProp>
+        <stringProp name="resultSetHandler">Store as String</stringProp>
+        <stringProp name="resultVariable"></stringProp>
+        <stringProp name="variableNames">waybillnoResult,ordernoResult</stringProp>
+        <stringProp name="TestPlan.comments">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!注意限制条件,避免查询语句导致服务器奔溃.!!!!!!!!!!!!!</stringProp>
+      </JDBCSampler>
+      <hashTree>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="-452982087">0 update</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">20</intProp>
+          <stringProp name="Assertion.custom_message"></stringProp>
+        </ResponseAssertion>
+        <hashTree/>
+      </hashTree>
+      <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="出闸口" enabled="true"/>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="xmlfilehead" elementType="Argument">
+              <stringProp name="Argument.name">xmlfilehead</stringProp>
+              <stringProp name="Argument.value">861109_cz</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="进口汽车出闸口" enabled="true">
+          <stringProp name="TestPlan.comments">外码为：VIN号 ${__timeShift(yyyy-MM-dd-hh-mm-ss,,,,)}</stringProp>
+          <stringProp name="FTPSampler.server"></stringProp>
+          <stringProp name="FTPSampler.port"></stringProp>
+          <stringProp name="FTPSampler.filename">ICIP/QCWHART/4920.4520.0010.0020/in/${xmlfilehead}${__UUID}.xml</stringProp>
+          <stringProp name="FTPSampler.localfilename"></stringProp>
+          <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;ROOT&gt;
+  &lt;Head&gt;
+    &lt;MessageID&gt;861109_2017050519230000000001&lt;/MessageID&gt;
+    &lt;MessageType&gt;861109&lt;/MessageType&gt;
+    &lt;Sender&gt;ICIP_PSP_QCMT_001&lt;/Sender&gt;
+    &lt;Receiver&gt;ICIP_PSP_000001&lt;/Receiver&gt;
+    &lt;!--发送时间--&gt;
+    &lt;SendTime&gt;2018-03-08 11:06:00&lt;/SendTime&gt;
+    &lt;Version&gt;1.0&lt;/Version&gt;
+  &lt;/Head&gt;
+  &lt;Body&gt;
+    &lt;GateIOInfo&gt;
+      &lt;Record&gt;
+        &lt;WorkNo&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/WorkNo&gt;
+        &lt;TransMode&gt;F&lt;/TransMode&gt;
+        &lt;!--进出口标识--&gt;
+        &lt;IeFlag&gt;I&lt;/IeFlag&gt;
+        &lt;TradeType&gt;I&lt;/TradeType&gt;
+        &lt;!--10入闸，20出闸--&gt;
+        &lt;GateIOFlag&gt;20&lt;/GateIOFlag&gt;
+        &lt;!--检管区--&gt;
+        &lt;CheckMgmtArea&gt;000046&lt;/CheckMgmtArea&gt;
+        &lt;!--车牌号--&gt;
+        &lt;TruckNo&gt;京V99999&lt;/TruckNo&gt;
+        &lt;Kgs&gt;123&lt;/Kgs&gt;
+        &lt;!--入闸时间--&gt;
+        &lt;GateIOTime&gt;2018-05-02 11:06:00&lt;/GateIOTime&gt;
+        &lt;!--提单号--&gt;
+        &lt;Blno&gt;${__time(yyyyMMddHH,Blno_jinkouqichechuzha)}&lt;/Blno&gt;
+        &lt;Notes&gt;备注&lt;/Notes&gt;
+        &lt;CarInfo&gt;
+          &lt;Record&gt;
+          &lt;!--箱号--&gt;
+            &lt;Contno&gt;LINU3615374&lt;/Contno&gt;
+            &lt;!--大小--&gt;
+            &lt;Consize&gt;10&lt;/Consize&gt;
+            &lt;!--柜型--&gt;
+            &lt;Contype&gt;A&lt;/Contype&gt;
+            &lt;!--品牌--&gt;
+            &lt;Brand&gt;品牌201803081056&lt;/Brand&gt;
+            &lt;!--商品名称--&gt;
+            &lt;Gname&gt;商品名称201803081056&lt;/Gname&gt;
+            &lt;!--VIN号--&gt;
+            &lt;VIN&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/VIN&gt;
+          &lt;/Record&gt;
+        &lt;/CarInfo&gt;
+      &lt;/Record&gt;
+    &lt;/GateIOInfo&gt;
+  &lt;/Body&gt;
+&lt;/ROOT&gt;</stringProp>
+          <boolProp name="FTPSampler.binarymode">false</boolProp>
+          <boolProp name="FTPSampler.saveresponse">false</boolProp>
+          <boolProp name="FTPSampler.upload">true</boolProp>
+          <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+          <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+        </FTPSampler>
+        <hashTree/>
+      </hashTree>
+      <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="入闸口" enabled="true"/>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="xmlfilehead" elementType="Argument">
+              <stringProp name="Argument.name">xmlfilehead</stringProp>
+              <stringProp name="Argument.value">861109_rz</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="进口汽车入闸口" enabled="true">
+          <stringProp name="FTPSampler.server"></stringProp>
+          <stringProp name="FTPSampler.port"></stringProp>
+          <stringProp name="FTPSampler.filename">ICIP/QCWHART/4920.4520.0010.0020/in/${xmlfilehead}${__UUID}.xml</stringProp>
+          <stringProp name="FTPSampler.localfilename"></stringProp>
+          <stringProp name="FTPSampler.inputdata">&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
+&lt;ROOT&gt;
+	&lt;Head&gt;
+		&lt;MessageID&gt;861109_2017050519230000000001&lt;/MessageID&gt;
+		&lt;MessageType&gt;861109&lt;/MessageType&gt;
+		&lt;Sender&gt;ICIP_PSP_QCMT_001&lt;/Sender&gt;
+		&lt;Receiver&gt;ICIP_PSP_000001&lt;/Receiver&gt;
+		&lt;!--发送时间--&gt;
+		&lt;SendTime&gt;2018-03-12 14:56:00&lt;/SendTime&gt;
+		&lt;Version&gt;1.0&lt;/Version&gt;
+	&lt;/Head&gt;
+	&lt;Body&gt;
+		&lt;GateIOInfo&gt;
+			&lt;Record&gt;
+				&lt;!--作业单号--&gt;
+				&lt;WorkNo&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/WorkNo&gt;
+				&lt;TransMode&gt;F&lt;/TransMode&gt;
+				&lt;!--进出口标志--&gt;
+				&lt;IeFlag&gt;I&lt;/IeFlag&gt;
+				&lt;!--内外贸标志--&gt;
+				&lt;TradeType&gt;I&lt;/TradeType&gt;
+				&lt;!--10:入闸，20：出闸--&gt;
+				&lt;GateIOFlag&gt;10&lt;/GateIOFlag&gt;
+				&lt;!--检管区--&gt;
+				&lt;CheckMgmtArea&gt;000046&lt;/CheckMgmtArea&gt;
+				&lt;!--车牌号--&gt;
+				&lt;TruckNo&gt;京V99999&lt;/TruckNo&gt;
+				&lt;Kgs&gt;123&lt;/Kgs&gt;
+				&lt;!--进出闸时间--&gt;
+				&lt;GateIOTime&gt;2018-05-02 14:56:00&lt;/GateIOTime&gt;
+				&lt;!--提单号--&gt;
+				&lt;Blno&gt;${__time(yyyyMMddHH,Blno_jinkouqicheruzha)}&lt;/Blno&gt;
+				&lt;Notes&gt;备注&lt;/Notes&gt;
+				&lt;CarInfo&gt;
+					&lt;Record&gt;
+						&lt;!--箱号--&gt;
+						&lt;Contno&gt;LINU3615374&lt;/Contno&gt;
+						&lt;!--尺寸--&gt;
+						&lt;Consize&gt;10&lt;/Consize&gt;
+						&lt;!--柜型--&gt;
+						&lt;Contype&gt;A&lt;/Contype&gt;
+						&lt;!--品牌--&gt;
+						&lt;Brand&gt;品牌201803121553&lt;/Brand&gt;
+						&lt;!--商品名称--&gt;
+						&lt;Gname&gt;商品名称201803121553&lt;/Gname&gt;
+						&lt;!--VIN号--&gt;
+						&lt;VIN&gt;${__timeShift(yyyyMMddhhmmss,,,,)}&lt;/VIN&gt;
+					&lt;/Record&gt;
+				&lt;/CarInfo&gt;
+			&lt;/Record&gt;
+		&lt;/GateIOInfo&gt;
+	&lt;/Body&gt;
+&lt;/ROOT&gt;
+</stringProp>
+          <boolProp name="FTPSampler.binarymode">false</boolProp>
+          <boolProp name="FTPSampler.saveresponse">false</boolProp>
+          <boolProp name="FTPSampler.upload">true</boolProp>
+          <stringProp name="ConfigTestElement.username">ftpcs</stringProp>
+          <stringProp name="ConfigTestElement.password">icipcs123456.</stringProp>
+        </FTPSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
